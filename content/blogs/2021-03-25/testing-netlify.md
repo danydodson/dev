@@ -2,6 +2,7 @@
 title: Testing Netlify CMS
 cover: paint_05.webp
 slug: Testing-Netlify-CMS
+priority: 0
 date: 2021-03-25T06:42:14.851Z
 category: new
 tags:
