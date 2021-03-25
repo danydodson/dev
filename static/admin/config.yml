@@ -10,7 +10,7 @@ public_folder: assets
 collections:
   - name: blog
     label: 'Post'
-    folder: 'content/blog'
+    folder: 'content'
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}.md'
     media_folder: ''

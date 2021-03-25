@@ -8,7 +8,6 @@ tags:
   - programming
   - testing
   - multi word
-  - ""
 ---
 # NOTE: This "post" is based on [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) and is meant to test styling of Markdown generated documents.
 
@@ -19,4 +18,4 @@ This cheatsheet is specifically *Markdown Here's* version of Github-flavored Mar
 
 You can play around with Markdown on our [live demo page](http://www.markdown-here.com/livedemo.html).
 
-(If you're not a Markdown Here user, check out the [Markdown Cheatsheet](./Markdown-Cheatsheet) that is not specific to MDH. But, really, you should also use Markdown Here, because it's awesome. http://markdown-here.com)
+(If you're not a Markdown Here user, check out the [Markdown Cheatsheet](./Markdown-Cheatsheet) that is not specific to MDH. But, really, you should also use Markdown Here, because it's awesome. http://markdown-here.com)
