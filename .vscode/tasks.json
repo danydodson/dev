@@ -1,0 +1,129 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Yarn Install",
+      "type": "shell",
+      "command": "yarn install",
+      "presentation": {
+        "echo": true,
+        "reveal": "never",
+        "revealProblems": "onProblem",
+        "showReuseMessage": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Gatsby Build",
+      "type": "npm",
+      "script": "build",
+      "path": ".",
+      "presentation": {
+        "echo": true,
+        "reveal": "never",
+        "revealProblems": "onProblem",
+        "showReuseMessage": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Docker Build",
+      "type": "shell",
+      "command": "docker-compose -f docker-compose.yml build",
+      "presentation": {
+        "echo": true,
+        "reveal": "never",
+        "revealProblems": "onProblem",
+        "showReuseMessage": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Docker Up",
+      "type": "shell",
+      "command": "docker-compose -f docker-compose.yml up --remove-orphans -d",
+      "presentation": {
+        "echo": true,
+        "reveal": "never",
+        "revealProblems": "onProblem",
+        "showReuseMessage": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Docker Down",
+      "type": "shell",
+      "command": "docker-compose -f docker-compose.yml down --remove-orphans --rmi all",
+      "presentation": {
+        "echo": true,
+        "reveal": "never",
+        "revealProblems": "onProblem",
+        "showReuseMessage": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Docker Clean",
+      "type": "shell",
+      "command": "yes | docker system prune --all && yes | docker system prune --volumes",
+      "presentation": {
+        "echo": true,
+        "reveal": "never",
+        "revealProblems": "onProblem",
+        "showReuseMessage": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Gatsby Develop",
+      "type": "npm",
+      "script": "develop",
+      "path": ".",
+      "presentation": {
+        "echo": true,
+        "reveal": "never",
+        "revealProblems": "onProblem",
+        "showReuseMessage": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Yarn Format",
+      "type": "npm",
+      "script": "format",
+      "path": ".",
+      "presentation": {
+        "echo": true,
+        "reveal": "never",
+        "revealProblems": "onProblem",
+        "showReuseMessage": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Gatsby Clean",
+      "type": "npm",
+      "script": "clean",
+      "path": ".",
+      "presentation": {
+        "echo": true,
+        "reveal": "never",
+        "revealProblems": "onProblem",
+        "showReuseMessage": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Yarn Restart",
+      "type": "shell",
+      "command": "sudo rm -rf node_modules package-lock.json yarn.lock",
+      "presentation": {
+        "echo": true,
+        "reveal": "never",
+        "revealProblems": "onProblem",
+        "showReuseMessage": false
+      },
+      "problemMatcher": []
+    }
+  ]
+}

@@ -8,7 +8,7 @@ const validatedPathPrefix = config.pathPrefix === '' ? '/' : config.pathPrefix;
 module.exports = {
 
   pathPrefix: validatedPathPrefix,
-
+  
   siteMetadata: {
     siteUrl: urljoin(config.siteUrl, config.pathPrefix),
     rssMetadata: {
@@ -16,7 +16,7 @@ module.exports = {
       site_url: urljoin(config.siteUrl, config.pathPrefix),
       feed_url: urljoin(config.siteUrl, config.pathPrefix, config.siteRss),
       description: config.siteDescription,
-      image_url: `${urljoin(config.siteUrl, config.pathPrefix)}/logos/logo-512.png`,
+      image_url: `${urljoin(config.siteUrl, config.pathPrefix)}/icons/icon-512x512`,
       copyright: config.copyright,
     },
   },
@@ -33,15 +33,15 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "assets",
-        path: `${__dirname}/static/`,
+        name: "pages",
+        path: `${__dirname}/content/`,
       },
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "posts",
-        path: `${__dirname}/content/`,
+        name: "assets",
+        path: `${__dirname}/static/`,
       },
     },
     {
@@ -90,12 +90,12 @@ module.exports = {
         display: "minimal-ui",
         icons: [
           {
-            src: "/logos/logo-192.png",
+            src: "/icons/icon-192x192.png",
             sizes: "192x192",
             type: "image/png",
           },
           {
-            src: "/logos/logo-512.png",
+            src: "/icons/icon-512x512.png",
             sizes: "512x512",
             type: "image/png",
           },

@@ -7,19 +7,34 @@ media_folder: static/assets
 public_folder: assets
 
 collections:
-  - name: blog
-    label: 'Post'
-    folder: 'content/blogs'
+  - name: posts
+    label: Blog
+    folder: content/blogs
     create: true
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}.md'
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     media_folder: ''
     public_folder: ''
     path: '{{year}}-{{month}}-{{day}}-{{slug}}/index'
     fields:
+      # - { label: 'Template', name: 'template', widget: 'hidden', default: 'post' }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Cover Image', name: 'cover', widget: 'image' }
       - { label: 'Slug', name: 'slug', widget: 'string' }
+      - { label: 'Priority', name: 'priority', widget: 'number', default: 0, valueType: 'int' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - { label: 'Category', name: 'category', widget: 'string' }
       - { label: 'Tags', name: 'tags', widget: 'list' }
+
+  - name: pages
+    label: Pages
+    folder: content/pages
+    create: true
+    slug: '{{slug}}'
+    fields:
+      # - { label: 'Template', name: 'template', widget: 'hidden', default: 'page' }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Slug', name: 'slug', widget: 'string' }
+      - { label: 'Draft', name: 'draft', widget: 'boolean', default: true }
+      - { label: 'Priority', name: 'priority', widget: 'number', default: 0, valueType: 'int' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }

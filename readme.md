@@ -14,7 +14,7 @@
 </div>
 
 <div align="center"  style="margin-bottom:30px">
-    <img src="static/logos/logo-1024.png" alt="Logo" width='200px' height='200px'/>
+    <img src="static/icons/icon-1024x1024.png" alt="Logo" width='200px' height='200px'/>
 </div>
 
 <div align="center">
@@ -155,7 +155,7 @@ module.exports = {
   siteTitle: "Gatsby Advanced Starter", // Site title.
   siteTitleShort: "GA Starter", // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
   siteTitleAlt: "GatsbyJS Advanced Starter", // Alternative site title for SEO.
-  siteLogo: "/logos/logo-1024.png", // Logo used for SEO and manifest.
+  siteLogo: "/icons/icon-1024x1024.png", // Logo used for SEO and manifest.
   siteUrl: "https://dev-demo.netlify.com", // Domain of your website without pathPrefix.
   pathPrefix: "/", // Prefixes all links. For cases when deployed to example.github.io/dev/.
   siteDescription: "A GatsbyJS starter with Advanced design in mind.", // Website description used for RSS feeds/meta description tag.
