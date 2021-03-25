@@ -1,13 +1,15 @@
-import React from "react";
-import { Helmet } from "react-helmet";
-import { graphql } from "gatsby";
-import Layout from "../layout";
-import PostListing from "../components/PostListing/PostListing";
-import SEO from "../components/SEO/SEO";
-import config from "../../data/SiteConfig";
+import React from "react"
+import { Helmet } from "react-helmet"
+import { graphql } from "gatsby"
+import Layout from "../layout"
+import PostListing from "../components/PostListing/PostListing"
+import SEO from "../components/SEO/SEO"
+import config from "../../data/SiteConfig"
 
 function Landing({ data }) {
-  const postEdges = data.allMarkdownRemark.edges;
+
+  const postEdges = data.allMarkdownRemark.edges
+
   return (
     <Layout>
       <div className="landing-container">
@@ -18,10 +20,10 @@ function Landing({ data }) {
         </div>
       </div>
     </Layout>
-  );
+  )
 }
 
-export default Landing;
+export default Landing
 
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
@@ -45,4 +47,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

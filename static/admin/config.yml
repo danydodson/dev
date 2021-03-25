@@ -7,14 +7,6 @@ media_folder: static/assets
 
 public_folder: assets
 
-media_library:
-  name: cloudinary
-  output_filename_only: true
-  config:
-    cloud_name: nonce
-    api_key: '282549924735476'
-
-
 collections:
   - name: posts
     label: 'Blog'
@@ -26,8 +18,8 @@ collections:
     path: '{{slug}}/index'
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Cover Image', name: 'cover', widget: 'image' }
       - { label: 'Slug', name: 'slug', widget: 'string' }
+      - { label: 'Cover Image', name: 'cover', widget: 'image' }
       - { label: 'Priority', name: 'priority', widget: 'number', default: 0, valueType: 'int' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
@@ -35,11 +27,19 @@ collections:
       - { label: 'Tags', name: 'tags', widget: 'list' }
 
   - name: pages
-    label: 'Pages'
+    label: 'Page'
     folder: 'content/pages'
     create: true
+    media_folder: ''
+    public_folder: ''
     slug: '{{slug}}'
+    path: '{{slug}}/index'
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Slug', name: 'slug', widget: 'string' }
+      - { label: 'Cover Image', name: 'cover', widget: 'image' }
+      - { label: 'Priority', name: 'priority', widget: 'number', default: 0, valueType: 'int' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'Category', name: 'category', widget: 'string', default: 'info' }
+      - { label: 'Tags', name: 'tags', widget: 'list', default: 'info' }

@@ -1,8 +1,10 @@
-import React from "react";
-import { Link } from "gatsby";
+import React from "react"
+import { Link } from "gatsby"
 
 function PostListing({ postEdges }) {
-  const postList = [];
+
+  const postList = []
+  
   postEdges.forEach((postEdge) => {
     postList.push({
       path: postEdge.node.fields.slug,
@@ -12,8 +14,8 @@ function PostListing({ postEdges }) {
       date: postEdge.node.fields.date,
       excerpt: postEdge.node.excerpt,
       timeToRead: postEdge.node.timeToRead,
-    });
-  });
+    })
+  })
 
   return (
     <div>
@@ -26,7 +28,7 @@ function PostListing({ postEdges }) {
         ))
       }
     </div>
-  );
+  )
 }
 
-export default PostListing;
+export default PostListing

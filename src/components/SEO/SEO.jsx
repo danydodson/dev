@@ -1,67 +1,65 @@
-import React from "react";
-import { Helmet } from "react-helmet";
-import urljoin from "url-join";
-import moment from "moment";
-import config from "../../../data/SiteConfig";
+import React from "react"
+import { Helmet } from "react-helmet"
+import urljoin from "url-join"
+import moment from "moment"
+import config from "../../../data/SiteConfig"
 
 function SEO({ postNode, postPath, postSEO }) {
-  let title;
-  let description;
-  let image;
-  let postURL;
+
+  let title
+  let description
+  let image
+  let postURL
 
   if (postSEO) {
     const postMeta = postNode.frontmatter;
-    ({ title } = postMeta);
-    description = postMeta.description
-      ? postMeta.description
-      : postNode.excerpt;
-    image = postMeta.cover;
-    postURL = urljoin(config.siteUrl, config.pathPrefix, postPath);
+    ({ title } = postMeta)
+    description = postMeta.description ? postMeta.description : postNode.excerpt
+    image = postMeta.cover
+    postURL = urljoin(config.siteUrl, config.pathPrefix, postPath)
   } else {
-    title = config.siteTitle;
-    description = config.siteDescription;
-    image = config.siteLogo;
+    title = config.siteTitle
+    description = config.siteDescription
+    image = config.siteLogo
   }
 
   const getImagePath = (imageURI) => {
-    if (
-      !imageURI.match(
-        `(https?|ftp|file)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]`
-      )
-    )
-      return urljoin(config.siteUrl, config.pathPrefix, imageURI);
 
-    return imageURI;
-  };
+    if (!imageURI.match(`(https?|ftp|file)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]`)) {
+      return urljoin(config.siteUrl, config.pathPrefix, imageURI)
+    }
+
+    return imageURI
+  }
 
   const getPublicationDate = () => {
-    if (!postNode) return null;
+    if (!postNode) return null
 
-    if (!postNode.frontmatter) return null;
+    if (!postNode.frontmatter) return null
 
-    if (!postNode.frontmatter.date) return null;
+    if (!postNode.frontmatter.date) return null
 
-    return moment(postNode.frontmatter.date, config.dateFromFormat).toDate();
-  };
+    return moment(postNode.frontmatter.date, config.dateFromFormat).toDate()
+  }
 
-  image = getImagePath(image);
+  image = getImagePath(image)
 
-  const datePublished = getPublicationDate();
+  const datePublished = getPublicationDate()
 
   const authorJSONLD = {
     "@type": "Person",
     name: config.userName,
     email: config.userEmail,
     address: config.userLocation,
-  };
+  }
 
   const logoJSONLD = {
     "@type": "ImageObject",
     url: getImagePath(config.siteLogo),
-  };
+  }
 
-  const blogURL = urljoin(config.siteUrl, config.pathPrefix);
+  const blogURL = urljoin(config.siteUrl, config.pathPrefix)
+
   const schemaOrgJSONLD = [
     {
       "@context": "http://schema.org",
@@ -70,7 +68,8 @@ function SEO({ postNode, postPath, postSEO }) {
       name: title,
       alternateName: config.siteTitleAlt ? config.siteTitleAlt : "",
     },
-  ];
+  ]
+
   if (postSEO) {
     schemaOrgJSONLD.push(
       {
@@ -105,7 +104,7 @@ function SEO({ postNode, postPath, postSEO }) {
         datePublished,
         description,
       }
-    );
+    )
   }
   return (
     <Helmet>
@@ -139,7 +138,7 @@ function SEO({ postNode, postPath, postSEO }) {
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
     </Helmet>
-  );
+  )
 }
 
-export default SEO;
+export default SEO

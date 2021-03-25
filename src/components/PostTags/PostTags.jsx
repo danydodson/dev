@@ -1,8 +1,9 @@
-import React from "react";
-import _ from "lodash";
-import { Link } from "gatsby";
+import React from "react"
+import _ from "lodash"
+import { Link } from "gatsby"
 
 function PostTags({ tags }) {
+
   return (
     <div className="post-tag-container">
       {tags &&
@@ -16,7 +17,7 @@ function PostTags({ tags }) {
           </Link>
         ))}
     </div>
-  );
+  )
 }
 
-export default PostTags;
+export default PostTags
