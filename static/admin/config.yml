@@ -1,5 +1,5 @@
 backend:
-  name: git-gateway # Refer to https://www.netlifycms.org/docs/authentication-backends/ for auth backend list and instructions
+  name: git-gateway
   branch: main
   repo: danydodson/dev
 
