@@ -1,15 +1,15 @@
 <div align="center" style="margin-bottom:30px">
-    <a href='https://github.com/vagr9k/dev/blob/master/LICENSE'>
-    <img src="https://img.shields.io/github/license/vagr9k/dev.svg" alt="Logo" />
+    <a href='https://github.com/danydodson/dev/blob/master/LICENSE'>
+    <img src="https://img.shields.io/github/license/danydodson/dev.svg" alt="Logo" />
     </a>
-    <a href='https://github.com/vagr9k/dev'>
-    <img src="https://img.shields.io/github/v/tag/Vagr9K/dev" alt="Logo" />
+    <a href='https://github.com/danydodson/dev'>
+    <img src="https://img.shields.io/github/v/tag/danydodson/dev" alt="Logo" />
     </a>
-        <a href='https://github.com/vagr9k/dev/stargazers'>
-    <img src="https://img.shields.io/github/stars/Vagr9K/dev" alt="Logo" />
+        <a href='https://github.com/danydodson/dev/stargazers'>
+    <img src="https://img.shields.io/github/stars/danydodson/dev" alt="Logo" />
     </a>
-        <a href="https://twitter.com/intent/tweet?text=A%20cool%20%40gatsbyjs%20starter%3A&url=https%3A%2F%2Fgithub.com%2FVagr9K%2Fdev">
-    <img src="https://img.shields.io/twitter/url/https/github.com/vagr9k/dev.svg?style=social" alt="Logo" />
+        <a href="https://twitter.com/intent/tweet?text=A%20cool%20%40gatsbyjs%20starter%3A&url=https%3A%2F%2Fgithub.com%2Fdanydodson%2Fdev">
+    <img src="https://img.shields.io/twitter/url/https/github.com/danydodson/dev.svg?style=social" alt="Logo" />
     </a>
 </div>
 
@@ -18,13 +18,13 @@
 </div>
 
 <div align="center">
-    <a href="https://codeclimate.com/github/Vagr9K/dev">
-      <img src="https://codeclimate.com/github/Vagr9K/dev/badges/gpa.svg" alt="Logo" />
+    <a href="https://codeclimate.com/github/danydodson/dev">
+      <img src="https://codeclimate.com/github/danydodson/dev/badges/gpa.svg" alt="Logo" />
     </a>
-    <a href='https://codeclimate.com/github/Vagr9K/dev'>
-      <img src="https://codeclimate.com/github/Vagr9K/dev/badges/issue_count.svg" alt="Logo" />
+    <a href='https://codeclimate.com/github/danydodson/dev'>
+      <img src="https://codeclimate.com/github/danydodson/dev/badges/issue_count.svg" alt="Logo" />
     </a>
-    <a href='https://www.codacy.com/app/Vagr9K/dev?utm_source=github.com&utm_medium=referral&utm_content=Vagr9K/dev&utm_campaign=Badge_Grade'>
+    <a href='https://www.codacy.com/app/danydodson/dev?utm_source=github.com&utm_medium=referral&utm_content=danydodson/dev&utm_campaign=Badge_Grade'>
       <img src="https://api.codacy.com/project/badge/Grade/990fb54ea8094f2aa0ed77f14e859820" alt="Logo" />
     </a>
     <a href='https://github.com/prettier/prettier'>
@@ -37,8 +37,8 @@
 A starter skeleton with advanced features for [Gatsby](https://github.com/gatsbyjs/gatsby/).
 
 **NOTE**: This branch contains Gatsby 3 compatible version of the starter.
-To get the Gatsby v2 compatible version, use the [`v2`](https://github.com/Vagr9K/dev/tree/v2) branch.
-To get the Gatsby v1 compatible version, use the [`v1`](https://github.com/Vagr9K/dev/tree/v1) branch.
+To get the Gatsby v2 compatible version, use the [`v2`](https://github.com/danydodson/dev/tree/v2) branch.
+To get the Gatsby v1 compatible version, use the [`v1`](https://github.com/danydodson/dev/tree/v1) branch.
 
 ## Lighthouse Audit Score
 
@@ -117,14 +117,14 @@ If you are interested in a foundation for building ultra-fast websites, you can 
   - [Netlify](https://www.netlify.com/) deploy configuration
   - [CodeClimate](https://codeclimate.com/) configuration file and badge
 
-NOTE: Feel free to check out [Gatsby Material Starter](https://github.com/Vagr9K/gatsby-material-starter) if you are interested in a more opinionated starter with Material Design in mind.
+NOTE: Feel free to check out [Gatsby Material Starter](https://github.com/danydodson/dev) if you are interested in a more opinionated starter with Material Design in mind.
 
 ## Getting Started
 
 Install this starter by running the following commands from your CLI:
 
 ```sh
-gatsby new YourProjectName https://github.com/Vagr9K/dev
+gatsby new YourProjectName https://github.com/danydodson/dev
 cd YourProjectName
 npm run develop # or gatsby develop
 ```
@@ -133,7 +133,7 @@ Note that the [Gatsby CLI](https://www.npmjs.com/package/gatsby-cli) needs to be
 
 Alternatively you can fork the project, make your changes and merge new upstream features when needed:
 
-- [Fork this repository on GitHub](https://github.com/Vagr9K/dev/fork)
+- [Fork this repository on GitHub](https://github.com/danydodson/dev/fork)
 - Run the following commands:
 
   ```sh
@@ -160,7 +160,7 @@ module.exports = {
   siteRssTitle: "Gatsby Advanced Starter RSS feed", // Title of the RSS feed
   siteFBAppID: "1825356251115265", // FB Application ID for using app insights
   googleAnalyticsID: "UA-47311644-5", // GA tracking ID.
-  disqusShortname: "https-vagr9k-github-io-dev", // Disqus shortname.
+  disqusShortname: "https-danydodson-github-io-dev", // Disqus shortname.
   dateFromFormat: "YYYY-MM-DD", // Date format used in the frontmatter.
   dateFormat: "DD/MM/YYYY", // Date format for display.
   postsPerPage: 4, // Amount of posts displayed per listing page. Set to zero to disable paging. See the "Pagination" section.
@@ -175,17 +175,17 @@ module.exports = {
   userLinks: [
     {
       label: "GitHub",
-      url: "https://github.com/Vagr9K/dev",
+      url: "https://github.com/danydodson/dev",
       iconClassName: "fa fa-github",
     },
     {
       label: "Twitter",
-      url: "https://twitter.com/Vagr9K",
+      url: "https://twitter.com/danydodson",
       iconClassName: "fa fa-twitter",
     },
     {
       label: "Email",
-      url: "mailto:vagr9k@gmail.com",
+      url: "mailto:danydodson@gmail.com",
       iconClassName: "fa fa-envelope",
     },
   ],
@@ -236,7 +236,7 @@ First of all, make sure to edit `static/admin/config.yml` and add your [GitHub/G
 backend:
   name: github # Refer to https://www.netlifycms.org/docs/authentication-backends/ for auth backend list and instructions
   branch: master # Branch to update
-  repo: vagr9k/gatsby-material-starter # Repo for pushing new commits. Make sure to replace with your repo!
+  repo: danydodson/dev # Repo for pushing new commits. Make sure to replace with your repo!
 ```
 
 You can visit `/admin/` after and will be greeted by a login dialog (depending on the auth provider you ave chosen above).
@@ -245,4 +245,4 @@ For NetlifyCMS specific issues visit the [official documentation](https://www.ne
 
 # Author
 
-Ruben Harutyunyan ([@Vagr9K](https://twitter.com/Vagr9K))
+Ruben Harutyunyan ([@danydodson](https://twitter.com/danydodson))
