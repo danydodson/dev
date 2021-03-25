@@ -10,9 +10,14 @@ public_folder: assets
 collections:
   - name: blog
     label: 'Post'
-    folder: 'content'
+    folder: 'content/blog'
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}.md'
+    media_folder: ''
+    public_folder: ''
+    path: '{{title}}/index'
+    editor:
+      preview: false
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Cover Image', name: 'cover', widget: 'image' }
