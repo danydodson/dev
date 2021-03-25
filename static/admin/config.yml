@@ -9,6 +9,7 @@ public_folder: assets
 
 media_library:
   name: cloudinary
+  output_filename_only: true
   config:
     cloud_name: nonce
     api_key: '282549924735476'
@@ -24,7 +25,6 @@ collections:
     public_folder: ''
     path: '{{year}}-{{month}}-{{day}}-{{slug}}/index'
     fields:
-      - { label: 'Template', name: 'template', widget: 'hidden', default: 'post' }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Cover Image', name: 'cover', widget: 'image' }
       - { label: 'Slug', name: 'slug', widget: 'string' }
@@ -40,9 +40,6 @@ collections:
     create: true
     slug: '{{slug}}'
     fields:
-      - { label: 'Template', name: 'template', widget: 'hidden', default: 'page' }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Slug', name: 'slug', widget: 'string' }
-      - { label: 'Draft', name: 'draft', widget: 'boolean', default: true }
-      - { label: 'Priority', name: 'priority', widget: 'number', default: 0, valueType: 'int' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
