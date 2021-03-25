@@ -36,7 +36,7 @@ const config = {
     },
     {
       label: 'Twitter',
-      url: 'https://twitter.com/danydodson',
+      url: 'https://twitter.com/dany_dodson',
       iconClassName: 'fa fa-twitter',
     },
     {
