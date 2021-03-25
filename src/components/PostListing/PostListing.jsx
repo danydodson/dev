@@ -22,7 +22,7 @@ function PostListing({ postEdges }) {
       {
         /* Your post list here. */
         postList.map((post) => (
-          post.title === 'Contact'
+          post.category === 'info'
             ? null
             : <Link to={post.path} key={post.title}><h1>{post.title}</h1></Link>
         ))

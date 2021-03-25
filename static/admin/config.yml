@@ -30,10 +30,7 @@ collections:
     label: 'Page'
     folder: 'content/pages'
     create: true
-    media_folder: ''
-    public_folder: ''
     slug: '{{slug}}'
-    path: '{{slug}}/index'
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Slug', name: 'slug', widget: 'string' }
@@ -42,4 +39,4 @@ collections:
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - { label: 'Category', name: 'category', widget: 'string', default: 'info' }
-      - { label: 'Tags', name: 'tags', widget: 'list', default: 'info' }
+      - { label: 'Tags', name: 'tags', widget: 'list' }
