@@ -1,16 +1,14 @@
 const config = {
   // 
-  siteTitleShort: 'dd.dev', // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
+  siteUrl: 'https://danys.art', // Domain of your website without pathPrefix.
   siteTitle: 'Dany Dodson\'s Blog & Portfolio', // Site title.
   siteTitleAlt: 'Dany Dodson\'s Blog & Portfolio', // Alternative site title for SEO.
   siteDescription: 'Hi! I\'m a Full Stack Web Developer', // Website description used for RSS feeds/meta description tag.
-  siteLogo: '/icons/icon-1024x1024.png', // Logo used for SEO and manifest.
-  siteUrl: 'https://danys.art', // Domain of your website without pathPrefix.
+  siteLogo: '/media/card-1200x630.webp', // Logo used for SEO and manifest.
+  siteTitleShort: 'dd.dev', // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
   // 
-  siteRss: '/rss.xml', // Path to the RSS file.
-  siteRssTitle: 'Dany Dodson\'s Blog & Portfolio RSS feed', // Title of the RSS feed
-  // 
-  disqusShortname: 'https-danydodson-github-io-dev', // Disqus shortname.
+  themeColor: '#c62828', // Used for setting manifest and progress theme colors.
+  backgroundColor: '#e0e0e0', // Used for setting manifest background color.
   // 
   pathPrefix: '/', // Prefixes all links. For cases when deployed to example.github.io/dev/.
   postsPerPage: 4, // Amount of posts displayed per listing page.
@@ -18,18 +16,21 @@ const config = {
   dateFormat: 'DD/MM/YYYY', // Date format for display.
   // 
   userName: 'Dany Dodson', // Username to display in the author segment.
-  userEmail: 'hello@danydodson.dev', // Email used for RSS feed's author segment
-  userTwitter: 'dany_dodson', // Optionally renders 'Follow Me' in the UserInfo segment.
-  userLocation: 'Evansville Indiana, USA', // User location to display in the author segment.
-  userAvatar: 'https://api.adorable.io/avatars/150/test.png', // User avatar to display in the author segment.
+  userAvatar: '/media/card-630x630.webp', // User avatar to display in the author segment.
   userDescription: 'Yeah, I like animals better than people sometimes... Especially dogs. Dogs are the best. Every time you come home, they act like they haven\'t seen you in a year. And the good thing about dogs... is they got different dogs for different people.', // User description to display in the author segment.
+  userEmail: 'hello@danydodson.dev', // Email used for RSS feed's author segment
+  userLocation: 'Evansville Indiana, USA', // User location to display in the author segment.
+  userTwitter: 'dany_dodson', // Optionally renders 'Follow Me' in the UserInfo segment.
   // 
+  siteRss: '/rss.xml', // Path to the RSS file.
+  siteRssTitle: 'Dany Dodson\'s Blog & Portfolio RSS feed', // Title of the RSS feed
+  // 
+  disqusShortname: 'dev-blog', // Disqus shortname.
   googleAnalyticsID: 'UA-47311644-5', // GA tracking ID.
   siteFBAppID: '1825356251115265', // FB Application ID for using app insights
   // 
   copyright: 'Copyright © 2020. Dany Dodson', // Copyright string for the footer of the website and RSS feed.
   // 
-  // Links to social profiles/projects you want to display in the author segment/navigation bar.
   userLinks: [
     {
       label: 'GitHub',
@@ -47,9 +48,6 @@ const config = {
       iconClassName: 'fa fa-envelope',
     },
   ],
-  // 
-  themeColor: '#c62828', // Used for setting manifest and progress theme colors.
-  backgroundColor: '#e0e0e0', // Used for setting manifest background color.
 }
 
 // Validate

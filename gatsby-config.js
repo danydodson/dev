@@ -16,7 +16,7 @@ module.exports = {
       site_url: urljoin(config.siteUrl, config.pathPrefix),
       feed_url: urljoin(config.siteUrl, config.pathPrefix, config.siteRss),
       description: config.siteDescription,
-      image_url: `${urljoin(config.siteUrl, config.pathPrefix)}/icons/icon-512x512`,
+      image_url: `${urljoin(config.siteUrl, config.pathPrefix)}/media/card-630x630`,
       copyright: config.copyright,
     },
   },

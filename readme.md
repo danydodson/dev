@@ -1,74 +1,43 @@
-<div align="center" style="margin-bottom:30px">
-    <a href='https://github.com/danydodson/dev/blob/master/LICENSE'>
-    <img src="https://img.shields.io/github/license/danydodson/dev.svg" alt="Logo" />
-    </a>
-    <a href='https://github.com/danydodson/dev'>
-    <img src="https://img.shields.io/github/v/tag/danydodson/dev" alt="Logo" />
-    </a>
-        <a href='https://github.com/danydodson/dev/stargazers'>
-    <img src="https://img.shields.io/github/stars/danydodson/dev" alt="Logo" />
-    </a>
-        <a href="https://twitter.com/intent/tweet?text=A%20cool%20%40gatsbyjs%20starter%3A&url=https%3A%2F%2Fgithub.com%2Fdanydodson%2Fdev">
-    <img src="https://img.shields.io/twitter/url/https/github.com/danydodson/dev.svg?style=social" alt="Logo" />
-    </a>
-</div>
 
-<div align="center"  style="margin-bottom:30px">
-    <img src="static/icons/icon-1024x1024.png" alt="Logo" width='200px' height='200px'/>
-</div>
+  <div align='center' style='margin-bottom:20px; border-top: 1px solid lightgray; border-bottom: 1px solid lightgray;'>
+    <img src='static/media/card-1200x630.png' alt='Logo' width='100%'/>
+  </div> 
 
-<div align="center">
-    <a href="https://codeclimate.com/github/danydodson/dev">
-      <img src="https://codeclimate.com/github/danydodson/dev/badges/gpa.svg" alt="Logo" />
-    </a>
-    <a href='https://codeclimate.com/github/danydodson/dev'>
-      <img src="https://codeclimate.com/github/danydodson/dev/badges/issue_count.svg" alt="Logo" />
-    </a>
-    <a href='https://www.codacy.com/app/danydodson/dev?utm_source=github.com&utm_medium=referral&utm_content=danydodson/dev&utm_campaign=Badge_Grade'>
-      <img src="https://api.codacy.com/project/badge/Grade/990fb54ea8094f2aa0ed77f14e859820" alt="Logo" />
-    </a>
-    <a href='https://github.com/prettier/prettier'>
-      <img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square" alt="Logo" />
-    </a>
-</div>
+  <a href='https://github.com/danydodson/dev'>
+    <img src='https://img.shields.io/github/v/tag/danydodson/dev' alt='Logo' />
+  </a>
 
-<!-- [![Maintainability](https://api.codeclimate.com/v1/badges/b4f6b5502861e7166fea/maintainability)](https://codeclimate.com/github/danydodson/dev/maintainability) -->
-<!-- [![Test Coverage](https://api.codeclimate.com/v1/badges/b4f6b5502861e7166fea/test_coverage)](https://codeclimate.com/github/danydodson/dev/test_coverage) -->
+  <a href='https://github.com/danydodson/dev/stargazers'>
+    <img src='https://img.shields.io/github/stars/danydodson/dev' alt='Logo' />
+  </a>
+ 
+  <a href='https://codeclimate.com/github/danydodson/dev'>
+    <img src='https://codeclimate.com/github/danydodson/dev/badges/gpa.svg' alt='Logo' />
+  </a>
+  
+  <a href='https://codeclimate.com/github/danydodson/dev'>
+    <img src='https://codeclimate.com/github/danydodson/dev/badges/issue_count.svg' alt='Logo' />
+  </a>
+    
+  <a href='https://www.codacy.com/app/danydodson/dev?utm_source=github.com&utm_medium=referral&utm_content=danydodson/dev&utm_campaign=Badge_Grade'>
+    <img src='https://api.codacy.com/project/badge/Grade/990fb54ea8094f2aa0ed77f14e859820' alt='Logo' />
+  </a>
+  
+  <a href='https://github.com/prettier/prettier'>
+    <img src='https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square' alt='Logo' />
+  </a>
 
-# Gatsby Advanced Starter
+  <a href='https://github.com/danydodson/dev/blob/master/LICENSE'>
+    <img src='https://img.shields.io/github/license/danydodson/dev.svg' alt='Logo' />
+  </a>
 
-A starter skeleton with advanced features for [Gatsby](https://github.com/gatsbyjs/gatsby/).
+  <a href='https://twitter.com/intent/tweet?text=A%20cool%20%40gatsbyjs%20starter%3A&url=https%3A%2F%2Fgithub.com%2Fdanydodson%2Fdev'>
+    <img src='https://img.shields.io/twitter/url/https/github.com/danydodson/dev.svg?style=social' alt='Logo' />
+  </a>
 
-**NOTE**: This branch contains Gatsby 3 compatible version of the starter.
-To get the Gatsby v2 compatible version, use the [`v2`](https://github.com/danydodson/dev/tree/v2) branch.
-To get the Gatsby v1 compatible version, use the [`v1`](https://github.com/danydodson/dev/tree/v1) branch.
+# Developer Blog & Portfolio
 
-## Lighthouse Audit Score
-
-<div align="center">
-    <a href="https://developers.google.com/web/tools/lighthouse/">
-    </a>
-</div>
-
-Check out the [Features](#features) to read about all [Progressive Web App](https://developers.google.com/web/progressive-web-apps) capabilities of this starter in detail.
-
-## Why?
-
-This project aims to provide a minimal base for building advanced GatsbyJS powered websites.
-
-It doesn't define any UI limitations in any way and only gives you the basic components for SEO/Social Media/etc while creating a comfortable development environment to get started.
-
-You are free to use any UI framework/styling options.
-
-## How can I use this?
-
-If you are a newcomer to Gatsby who's interested in the implementations of most needed features, this is a great place to start.
-
-If you are interested in a foundation for building ultra-fast websites, you can use this project as a "minimal" starter.
-
-[Demo website.](https://dev-demo.netlify.com)
-
-## Features
+### Features
 
 - Gatsby v3 support
 - Blazing fast loading times thanks to pre-rendered HTML and automatic chunk loading of JS files
@@ -120,110 +89,36 @@ If you are interested in a foundation for building ultra-fast websites, you can 
   - [Netlify](https://www.netlify.com/) deploy configuration
   - [CodeClimate](https://codeclimate.com/) configuration file and badge
 
-NOTE: Feel free to check out [Gatsby Material Starter](https://github.com/danydodson/dev) if you are interested in a more opinionated starter with Material Design in mind.
 
-## Getting Started
-
-Install this starter by running the following commands from your CLI:
-
-```sh
-gatsby new YourProjectName https://github.com/danydodson/dev
-cd YourProjectName
-npm run develop # or gatsby develop
-```
-
-Note that the [Gatsby CLI](https://www.npmjs.com/package/gatsby-cli) needs to be installed and updated for the `gatsby` command to work.
-
-Alternatively you can fork the project, make your changes and merge new upstream features when needed:
-
-- [Fork this repository on GitHub](https://github.com/danydodson/dev/fork)
-- Run the following commands:
-
-  ```sh
-  git clone https://github.com/${YourUsername}/${YourForkName} YourForkName # Clone your fork
-  cd YourForkName
-  npm install # or yarn install
-  npm run develop # or yarn develop
-  ```
-
-## Configuration
-
-Edit the export object in `data/SiteConfig`:
-
-```js
-module.exports = {
-  siteTitle: "Gatsby Advanced Starter", // Site title.
-  siteTitleShort: "GA Starter", // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
-  siteTitleAlt: "GatsbyJS Advanced Starter", // Alternative site title for SEO.
-  siteLogo: "/icons/icon-1024x1024.png", // Logo used for SEO and manifest.
-  siteUrl: "https://dev-demo.netlify.com", // Domain of your website without pathPrefix.
-  pathPrefix: "/", // Prefixes all links. For cases when deployed to example.github.io/dev/.
-  siteDescription: "A GatsbyJS starter with Advanced design in mind.", // Website description used for RSS feeds/meta description tag.
-  siteRss: "/rss.xml", // Path to the RSS file.
-  siteRssTitle: "Gatsby Advanced Starter RSS feed", // Title of the RSS feed
-  siteFBAppID: "1825356251115265", // FB Application ID for using app insights
-  googleAnalyticsID: "UA-47311644-5", // GA tracking ID.
-  disqusShortname: "https-danydodson-github-io-dev", // Disqus shortname.
-  dateFromFormat: "YYYY-MM-DD", // Date format used in the frontmatter.
-  dateFormat: "DD/MM/YYYY", // Date format for display.
-  postsPerPage: 4, // Amount of posts displayed per listing page. Set to zero to disable paging. See the "Pagination" section.
-  userName: "Advanced User", // Username to display in the author segment.
-  userEmail: "AdvancedUser@example.com", // Email used for RSS feed's author segment
-  userTwitter: "", // Optionally renders "Follow Me" in the UserInfo segment.
-  userLocation: "North Pole, Earth", // User location to display in the author segment.
-  userAvatar: "https://api.adorable.io/avatars/150/test.png", // User avatar to display in the author segment.
-  userDescription:
-    "Yeah, I like animals better than people sometimes... Especially dogs. Dogs are the best. Every time you come home, they act like they haven't seen you in a year. And the good thing about dogs... is they got different dogs for different people.", // User description to display in the author segment.
-  // Links to social profiles/projects you want to display in the author segment/navigation bar.
-  userLinks: [
-    {
-      label: "GitHub",
-      url: "https://github.com/danydodson/dev",
-      iconClassName: "fa fa-github",
-    },
-    {
-      label: "Twitter",
-      url: "https://twitter.com/danydodson",
-      iconClassName: "fa fa-twitter",
-    },
-    {
-      label: "Email",
-      url: "mailto:danydodson@gmail.com",
-      iconClassName: "fa fa-envelope",
-    },
-  ],
-  copyright: "Copyright © 2019. Advanced User", // Copyright string for the footer of the website and RSS feed.
-  themeColor: "#c62828", // Used for setting manifest and progress theme colors.
-  backgroundColor: "#e0e0e0", // Used for setting manifest background color.
-};
-```
-
+### Netlify CMS
 If want to customize Netlify CMS, e.g. registering custom widgets or styling the preview pane, you can do so by editing `src/netlifycms/index.js`:
 
 ```js
-import CMS from "netlify-cms-app";
+import CMS from 'netlify-cms-app';
 
 CMS.init({
   config: {
     backend: {
-      name: "git-gateway",
+      name: 'git-gateway',
     },
   },
 });
 ```
+
+### Path Prefix
 
 You can also optionally set `pathPrefix`:
 
 ```js
 module.exports = {
   // Note: it must *not* have a trailing slash.
-  pathPrefix: "/dev", // Prefixes all links. For cases when deployed to example.github.io/dev/.
+  pathPrefix: '/dev', // Prefixes all links. For cases when deployed to example.github.io/dev/.
 };
 ```
 
 WARNING: Make sure to edit `static/robots.txt` to include your domain for the sitemap!
 
-## Pagination
+### Pagination
 
 By default the starter will show 4 posts per page. The landing page is the first page located on `/` (controlled by the `Listing` component).
 
@@ -231,7 +126,7 @@ You can control the amount of posts via `SiteConfig` by setting the `postsPerPag
 
 NOTE: You can also disable the pagination by setting the `postsPerPage: 0`. In this case the landing page will be controlled by the `Landing` component.
 
-## NetlifyCMS
+<!-- ## NetlifyCMS
 
 First of all, make sure to edit `static/admin/config.yml` and add your [GitHub/GitLab/NetlifyId credentials](https://www.netlifycms.org/docs/authentication-backends/):
 
@@ -244,8 +139,8 @@ backend:
 
 You can visit `/admin/` after and will be greeted by a login dialog (depending on the auth provider you ave chosen above).
 
-For NetlifyCMS specific issues visit the [official documentation](https://www.netlifycms.org/docs/intro/).
+For NetlifyCMS specific issues visit the [official documentation](https://www.netlifycms.org/docs/intro/). -->
 
-# Author
+## Author
 
 Ruben Harutyunyan ([@danydodson](https://twitter.com/danydodson))
