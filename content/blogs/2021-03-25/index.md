@@ -1,7 +1,8 @@
 ---
 title: Second Time
-cover: painting_00.jpg
+cover: paint_05.webp
 slug: Second-Time
+priority: 0
 date: 2021-03-25T06:59:05.440Z
 category: learn
 tags:
