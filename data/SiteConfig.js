@@ -16,7 +16,7 @@ const config = {
   dateFormat: 'DD/MM/YYYY', // Date format for display.
   // 
   userName: 'Dany Dodson', // Username to display in the author segment.
-  userAvatar: '/media/card-630x630.webp', // User avatar to display in the author segment.
+  userAvatar: 'https://github.com/danydodson/dev/static/media/card-630x630.webp', // User avatar to display in the author segment.
   userDescription: 'Yeah, I like animals better than people sometimes... Especially dogs. Dogs are the best. Every time you come home, they act like they haven\'t seen you in a year. And the good thing about dogs... is they got different dogs for different people.', // User description to display in the author segment.
   userEmail: 'hello@danydodson.dev', // Email used for RSS feed's author segment
   userLocation: 'Evansville Indiana, USA', // User location to display in the author segment.
