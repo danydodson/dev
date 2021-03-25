@@ -1,15 +1,15 @@
 ---
-title: "Big Test"
-cover: "5.jpg"
-category: "moar"
-date: "2018-03-01"
-slug: "Big-Sample_Test"
+title: Big Sample
+cover: 5.jpg
+slug: Big_Sample
+date: 2018-03-01
+category: moar
 tags:
+    - new
     - test
-    - huge
 ---
 
-# NOTE: This "post" is based on [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) and is meant to test styling of Markdown generated documents.
+# NOTE: This 'post' is based on [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) and is meant to test styling of Markdown generated documents.
 
 
 This is intended as a quick reference and showcase. For more complete info, see [John Gruber's original spec](http://daringfireball.net/projects/markdown/) and the [Github-flavored Markdown info page](http://github.github.com/github-flavored-markdown/).
@@ -35,7 +35,7 @@ You can play around with Markdown on our [live demo page](http://www.markdown-he
 [Line Breaks](#lines)
 [YouTube Videos](#videos)
 
-<a name="headers"/>
+<a name='headers'/>
 
 ## Headers
 
@@ -71,7 +71,7 @@ Alt-H1
 Alt-H2
 ------
 
-<a name="emphasis"/>
+<a name='emphasis'/>
 
 ## Emphasis
 
@@ -94,7 +94,7 @@ Combined emphasis with **asterisks and _underscores_**.
 Strikethrough uses two tildes. ~~Scratch this.~~
 
 
-<a name="lists"/>
+<a name='lists'/>
 
 ## Lists
 
@@ -130,7 +130,7 @@ Strikethrough uses two tildes. ~~Scratch this.~~
 -   Or minuses
 +   Or pluses
 
-<a name="links"/>
+<a name='links'/>
 
 ## Links
 
@@ -174,7 +174,7 @@ Some text to show that the reference links can follow later.
 [1]: http://slashdot.org
 [link text itself]: http://www.reddit.com
 
-<a name="images"/>
+<a name='images'/>
 
 ## Images
 
@@ -182,25 +182,25 @@ Some text to show that the reference links can follow later.
 Here's our logo (hover to see the title text):
 
 Inline-style:
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png 'Logo Title Text 1')
 
 Reference-style:
 ![alt text][logo]
 
-[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
+[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png 'Logo Title Text 2'
 ```
 
 Here's our logo (hover to see the title text):
 
 Inline-style:
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png 'Logo Title Text 1')
 
 Reference-style:
 ![alt text][logo]
 
-[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
+[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png 'Logo Title Text 2'
 
-<a name="code"/>
+<a name='code'/>
 
 ## Code and Syntax Highlighting
 
@@ -214,13 +214,13 @@ Inline `code` has `back-ticks around` it.
 
 Blocks of code are either fenced by lines with three back-ticks <code>```</code>, or are indented with four spaces. I recommend only using the fenced code blocks -- they're easier and only they support syntax highlighting.
 
-<pre lang="no-highlight"><code>```javascript
-var s = "JavaScript syntax highlighting";
+<pre lang='no-highlight'><code>```javascript
+var s = 'JavaScript syntax highlighting';
 alert(s);
 ```
 
 ```python
-s = "Python syntax highlighting"
+s = 'Python syntax highlighting'
 print s
 ```
 
@@ -233,12 +233,12 @@ But let's throw in a &lt;b&gt;tag&lt;/b&gt;.
 
 
 ```javascript
-var s = "JavaScript syntax highlighting";
+var s = 'JavaScript syntax highlighting';
 alert(s);
 ```
 
 ```python
-s = "Python syntax highlighting"
+s = 'Python syntax highlighting'
 print s
 ```
 
@@ -249,7 +249,7 @@ But let's throw in a <b>tag</b>.
 
 Again, to see what languages are available for highlighting, and how to write those language names, see the [highlight.js demo page](http://softwaremaniacs.org/media/soft/highlight/test.html).
 
-<a name="tables"/>
+<a name='tables'/>
 
 ## Tables
 
@@ -287,7 +287,7 @@ The outer pipes (|) are optional, and you don't need to make the raw Markdown li
 | *Still*  | `renders` | **nicely** |
 | 1        | 2         | 3          |
 
-<a name="blockquotes"/>
+<a name='blockquotes'/>
 
 ## Blockquotes
 
@@ -307,7 +307,7 @@ Quote break.
 
 > This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can *put* **Markdown** into a blockquote.
 
-<a name="html"/>
+<a name='html'/>
 
 ## Inline HTML
 
@@ -331,7 +331,7 @@ You can also use raw HTML in your Markdown, and it'll mostly work pretty well.
   <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
 </dl>
 
-<a name="hr"/>
+<a name='hr'/>
 
 ## Horizontal Rule
 
@@ -365,11 +365,11 @@ ___
 
 Underscores
 
-<a name="lines"/>
+<a name='lines'/>
 
 ## Line Breaks
 
-My basic recommendation for learning how line breaks work is to experiment and discover -- hit &lt;Enter&gt; once (i.e., insert one newline), then hit it twice (i.e., insert two newlines), see what happens. You'll soon learn to get what you want. "Markdown Toggle" is your friend.
+My basic recommendation for learning how line breaks work is to experiment and discover -- hit &lt;Enter&gt; once (i.e., insert one newline), then hit it twice (i.e., insert two newlines), see what happens. You'll soon learn to get what you want. 'Markdown Toggle' is your friend.
 
 Here are some things to try out:
 
@@ -391,16 +391,16 @@ This line is only separated by a single newline, so it's a separate line in the 
 
 (Technical note: *Markdown Here* uses GFM line breaks, so there's no need to use MD's two-space line breaks.)
 
-<a name="videos"/>
+<a name='videos'/>
 
 ## YouTube Videos
 
 They can't be added directly but you can add an image with a link to the video like this:
 
 ```no-highlight
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=8AkLfYOgIrE
-" target="_blank"><img src="http://img.youtube.com/vi/8AkLfYOgIrE/0.jpg"
-alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+<a href='http://www.youtube.com/watch?feature=player_embedded&v=8AkLfYOgIrE
+' target='_blank'><img src='http://img.youtube.com/vi/8AkLfYOgIrE/0.jpg'
+alt='IMAGE ALT TEXT HERE' width='240' height='180' border='10' /></a>
 ```
 
 Or, in pure Markdown, but losing the image sizing and border:

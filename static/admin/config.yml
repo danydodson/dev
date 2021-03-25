@@ -15,7 +15,7 @@ collections:
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}.md'
     media_folder: ''
     public_folder: ''
-    path: '{{title}}/index'
+    path: '{{year}}-{{month}}-{{day}}/{{title}}'
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Cover Image', name: 'cover', widget: 'image' }

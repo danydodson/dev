@@ -5,7 +5,7 @@ const config = {
   siteTitleAlt: 'Dany Dodson\'s Blog & Portfolio', // Alternative site title for SEO.
   siteDescription: 'Hi! I\'m a Full Stack Web Developer', // Website description used for RSS feeds/meta description tag.
   siteLogo: '/logos/logo-1024.png', // Logo used for SEO and manifest.
-  siteUrl: 'https://danydodson.netlify.app', // Domain of your website without pathPrefix.
+  siteUrl: 'https://www.danys.art', // Domain of your website without pathPrefix.
   // 
   siteRss: '/rss.xml', // Path to the RSS file.
   siteRssTitle: 'Dany Dodson\'s Blog & Portfolio RSS feed', // Title of the RSS feed

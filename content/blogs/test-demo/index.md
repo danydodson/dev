@@ -1,12 +1,12 @@
 ---
 title: Test Demo
 cover: painting_02.webp
-slug: test-demo
+slug: Test-Demo
 date: 2021-03-25T04:47:19.434Z
 category: random
 tags:
   - programming
-  - testing
+  - test
 ---
 # NOTE: This "post" is based on [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) and is meant to test styling of Markdown generated documents.
 

@@ -2,4 +2,4 @@ User-agent: *
 Disallow: */tags/
 Disallow: */categories/
 
-sitemap: https://dd-dev.netlify.com/sitemap.xml
+sitemap: https://danys.art/sitemap.xml

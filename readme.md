@@ -32,6 +32,9 @@
     </a>
 </div>
 
+<!-- [![Maintainability](https://api.codeclimate.com/v1/badges/b4f6b5502861e7166fea/maintainability)](https://codeclimate.com/github/danydodson/dev/maintainability) -->
+<!-- [![Test Coverage](https://api.codeclimate.com/v1/badges/b4f6b5502861e7166fea/test_coverage)](https://codeclimate.com/github/danydodson/dev/test_coverage) -->
+
 # Gatsby Advanced Starter
 
 A starter skeleton with advanced features for [Gatsby](https://github.com/gatsbyjs/gatsby/).
