@@ -2,6 +2,7 @@
   "name": "blog",
   "version": "1.0.0",
   "description": "blog",
+  "author": "Dany Dodson <hello@danydodson.dev>",
   "main": "n/a",
   "scripts": {
     "develop": "gatsby develop",
@@ -79,7 +80,6 @@
     ]
   },
   "license": "MIT",
-  "author": "Dany Dodson <hello@danydodson.dev>",
   "keywords": [
     "gatsby"
   ]

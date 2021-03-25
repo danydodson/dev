@@ -3,7 +3,7 @@ module.exports = {
     browser: true,
     es6: true,
   },
-  extends: ["airbnb", "prettier", "plugin:react-hooks/recommended"],
-  plugins: ["react", "prettier", "react-hooks"],
-  rules: { "react/prop-types": 0 },
+  extends: ['airbnb', 'prettier', 'plugin:react-hooks/recommended'],
+  plugins: ['react', 'prettier', 'react-hooks'],
+  rules: { 'react/prop-types': 0 },
 };
