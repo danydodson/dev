@@ -4,7 +4,6 @@ backend:
   repo: danydodson/dev
 
 media_folder: static/assets
-
 public_folder: assets
 
 collections:
@@ -15,7 +14,7 @@ collections:
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}.md'
     media_folder: ''
     public_folder: ''
-    path: '{{year}}-{{month}}-{{day}}/{{title}}'
+    path: '{{year}}-{{month}}-{{day}}/index'
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Cover Image', name: 'cover', widget: 'image' }
