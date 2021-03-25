@@ -5,14 +5,14 @@ const config = {
   siteTitleAlt: 'Dany Dodson\'s Blog & Portfolio', // Alternative site title for SEO.
   siteDescription: 'Hi! I\'m a Full Stack Web Developer', // Website description used for RSS feeds/meta description tag.
   siteLogo: '/logos/logo-1024.png', // Logo used for SEO and manifest.
-  siteUrl: 'https://danydodson.dev', // Domain of your website without pathPrefix.
+  siteUrl: 'https://danydodson.netlify.app', // Domain of your website without pathPrefix.
   // 
   siteRss: '/rss.xml', // Path to the RSS file.
   siteRssTitle: 'Dany Dodson\'s Blog & Portfolio RSS feed', // Title of the RSS feed
   // 
   disqusShortname: 'https-danydodson-github-io-dev', // Disqus shortname.
   // 
-  pathPrefix: '/', // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
+  pathPrefix: '/', // Prefixes all links. For cases when deployed to example.github.io/dev/.
   postsPerPage: 4, // Amount of posts displayed per listing page.
   dateFromFormat: 'YYYY-MM-DD', // Date format used in the frontmatter.
   dateFormat: 'DD/MM/YYYY', // Date format for display.
@@ -31,7 +31,7 @@ const config = {
   userLinks: [
     {
       label: 'GitHub',
-      url: 'https://github.com/danydodson/gatsby-advanced-starter',
+      url: 'https://github.com/danydodson/dev',
       iconClassName: 'fa fa-github',
     },
     {

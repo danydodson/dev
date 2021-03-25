@@ -20,7 +20,7 @@ function Footer({ config }) {
         </Link>
         <h4>
           Based on{" "}
-          <a href="https://github.com/danydodson/gatsby-advanced-starter">
+          <a href="https://github.com/danydodson/dev">
             Gatsby Advanced Starter
           </a>
           .
