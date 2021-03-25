@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 function PostListing({ postEdges }) {
 
   const postList = []
-  
+
   postEdges.forEach((postEdge) => {
     postList.push({
       path: postEdge.node.fields.slug,
@@ -22,9 +22,9 @@ function PostListing({ postEdges }) {
       {
         /* Your post list here. */
         postList.map((post) => (
-          <Link to={post.path} key={post.title}>
-            <h1>{post.title}</h1>
-          </Link>
+          post.title === 'Contact'
+            ? null
+            : <Link to={post.path} key={post.title}><h1>{post.title}</h1></Link>
         ))
       }
     </div>

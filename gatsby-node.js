@@ -32,16 +32,15 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
     if (Object.prototype.hasOwnProperty.call(node, 'frontmatter')) {
 
-      if (Object.prototype.hasOwnProperty.call(node.frontmatter, 'slug'))
+      if (Object.prototype.hasOwnProperty.call(node.frontmatter, 'slug')) {
         slug = `/${_.kebabCase(node.frontmatter.slug)}`
+      }
 
       if (Object.prototype.hasOwnProperty.call(node.frontmatter, 'date')) {
-
         const date = moment(node.frontmatter.date, siteConfig.dateFromFormat)
-
-        if (!date.isValid)
+        if (!date.isValid) {
           console.warn(`WARNING: Invalid date.`, node.frontmatter)
-
+        }
         createNodeField({ node, name: 'date', value: date.toISOString() })
       }
     }
@@ -77,12 +76,12 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
-
+  
   if (markdownQueryResult.errors) {
     console.error(markdownQueryResult.errors)
     throw markdownQueryResult.errors
   }
-
+  
   const tagSet = new Set()
   const categorySet = new Set()
 
@@ -90,6 +89,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Sort posts
   postsEdges.sort((postA, postB) => {
+
     const dateA = moment(
       postA.node.frontmatter.date,
       siteConfig.dateFromFormat
@@ -111,9 +111,12 @@ exports.createPages = async ({ graphql, actions }) => {
 
   if (postsPerPage) {
 
+
     const pageCount = Math.ceil(postsEdges.length / postsPerPage);
 
+
     [...Array(pageCount)].forEach((_val, pageNum) => {
+
       createPage({
         path: pageNum === 0 ? `/` : `/${pageNum + 1}/`,
         component: listingPage,
@@ -135,7 +138,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Post page creating
   postsEdges.forEach((edge, index) => {
-    
+
     // Generate a list of tags
     if (edge.node.frontmatter.tags) {
       edge.node.frontmatter.tags.forEach((tag) => {
@@ -184,4 +187,6 @@ exports.createPages = async ({ graphql, actions }) => {
       context: { category },
     })
   })
+
+
 }

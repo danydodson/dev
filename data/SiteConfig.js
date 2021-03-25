@@ -13,7 +13,7 @@ const config = {
   disqusShortname: 'https-danydodson-github-io-dev', // Disqus shortname.
   // 
   pathPrefix: '/', // Prefixes all links. For cases when deployed to example.github.io/dev/.
-  postsPerPage: 0, // Amount of posts displayed per listing page.
+  postsPerPage: 4, // Amount of posts displayed per listing page.
   dateFromFormat: 'YYYY-MM-DD', // Date format used in the frontmatter.
   dateFormat: 'DD/MM/YYYY', // Date format for display.
   // 
