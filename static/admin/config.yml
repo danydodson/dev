@@ -15,8 +15,7 @@ collections:
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}.md'
     media_folder: ''
     public_folder: ''
-    path: '{{year}}-{{month}}-{{day}}/{{title}}'
-    # path: '{{title}}/index'
+    path: '{{title}}/index'
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Cover Image', name: 'cover', widget: 'image' }
@@ -25,19 +24,3 @@ collections:
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - { label: 'Category', name: 'category', widget: 'string' }
       - { label: 'Tags', name: 'tags', widget: 'list' }
-  # - name: project
-  #   label: 'Project'
-  #   folder: 'content/projects'
-  #   create: true
-  #   slug: '{{year}}-{{month}}-{{day}}-{{slug}}.md'
-  #   media_folder: ''
-  #   public_folder: ''
-  #   path: '{{title}}/index'
-  #   fields:
-  #     - { label: 'Title', name: 'title', widget: 'string' }
-  #     - { label: 'Cover Image', name: 'cover', widget: 'image' }
-  #     - { label: 'Slug', name: 'slug', widget: 'string' }
-  #     - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-  #     - { label: 'Body', name: 'body', widget: 'markdown' }
-  #     - { label: 'Category', name: 'category', widget: 'string' }
-  #     - { label: 'Tags', name: 'tags', widget: 'list' }
