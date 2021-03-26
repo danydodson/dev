@@ -11,7 +11,7 @@ collections:
     label: 'Post'
     folder: 'content/posts'
     create: true
-    slug: '{{year}}-{{month}}-{{day}}-{{second}}--{{slug}}'
+    slug: '{{year}}-{{month}}-{{day}}--{{slug}}'
     media_folder: ''
     public_folder: ''
     path: '{{slug}}/index'
