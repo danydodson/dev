@@ -1,0 +1,26 @@
+backend:
+  name: git-gateway
+  branch: main
+  repo: danydodson/dev
+
+media_folder: static/assets
+public_folder: assets
+
+collections:
+  - name: posts
+    label: 'Post'
+    folder: 'content/posts'
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}--{{slug}}'
+    media_folder: ''
+    public_folder: ''
+    path: '{{slug}}/index'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Slug', name: 'slug', widget: 'string' }
+      - { label: 'Cover Image', name: 'cover', widget: 'image' }
+      - { label: 'Category', name: 'category', widget: 'string' }
+      - { label: 'Tags', name: 'tags', widget: 'list' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+
