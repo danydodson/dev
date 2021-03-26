@@ -11,7 +11,7 @@ collections:
     label: 'Post'
     folder: 'content/posts'
     create: true
-    slug: '{{year}}-{{month}}-{{day}}-{{seconds}}--{{slug}}'
+    slug: '{{year}}-{{month}}-{{day}}-{{second}}--{{slug}}'
     media_folder: ''
     public_folder: ''
     path: '{{slug}}/index'
@@ -19,7 +19,6 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Slug', name: 'slug', widget: 'string' }
       - { label: 'Cover Image', name: 'cover', widget: 'image' }
-      - { label: 'Priority', name: 'priority', widget: 'number', default: 0, valueType: 'int' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - { label: 'Category', name: 'category', widget: 'string' }
