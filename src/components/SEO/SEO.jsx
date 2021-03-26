@@ -120,7 +120,7 @@ function SEO({ postNode, postPath, postSEO }) {
 
       {/* OpenGraph tags */}
       <meta property='og:url' content={postSEO ? postURL : blogURL} />
-      {postSEO ? <meta property='og:type' content='article' /> : 'website'}
+      {postSEO ? <meta property='og:type' content='article' /> : null}
       <meta property='og:title' content={title} />
       <meta property='og:description' content={description} />
       <meta property='og:image' content={image} />
