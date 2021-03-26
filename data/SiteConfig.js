@@ -5,6 +5,7 @@ const config = {
   siteTitleAlt: 'Dany Dodson\'s Blog & Portfolio', // Alternative site title for SEO.
   siteDescription: 'Hi! I\'m a Full Stack Web Developer', // Website description used for RSS feeds/meta description tag.
   siteLogo: '/media/card-1200x630.webp', // Logo used for SEO and manifest.
+  siteLogoAlt: '/media/card-1200x630.webp', // Logo used for SEO and manifest.
   siteTitleShort: 'dd.dev', // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
   // 
   themeColor: '#c62828', // Used for setting manifest and progress theme colors.

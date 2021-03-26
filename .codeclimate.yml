@@ -1,9 +1,9 @@
-version: "2"
+version: '2'
 
 plugins:
   eslint:
     enabled: true
-    channel: "eslint-7"
+    channel: 'eslint-7'
     config:
       config: .eslintrc.js
 
@@ -20,12 +20,12 @@ checks:
 
 ratings:
   paths:
-    - "**.js"
-    - "**.jsx"
-    - "**.css"
-    - "**.less"
-    - "**.scss"
-    - "**.sss"
+    - '**.js'
+    - '**.jsx'
+    - '**.css'
+    - '**.less'
+    - '**.scss'
+    - '**.sss'
 
 exclude_paths:
   - static/**/*

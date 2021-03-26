@@ -1,5 +1,5 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react'
+import { Link } from 'gatsby'
 
 function PostListing({ postEdges }) {
 
@@ -19,14 +19,11 @@ function PostListing({ postEdges }) {
 
   return (
     <div>
-      {
-        /* Your post list here. */
-        postList.map((post) => (
-          post.title === 'Contact' || post.title === 'About'
-            ? null
-            : <Link to={post.path} key={post.title}><h1>{post.title}</h1></Link>
-        ))
-      }
+      {postList.map(post => (
+        <Link to={post.path} key={post.title}>
+          <h1>{post.title}</h1>
+        </Link>
+      ))}
     </div>
   )
 }

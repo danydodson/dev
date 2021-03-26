@@ -1,10 +1,10 @@
-import React from "react"
-import { Helmet } from "react-helmet"
-import { graphql } from "gatsby"
-import Layout from "../layout"
-import PostListing from "../components/PostListing/PostListing"
-import SEO from "../components/SEO/SEO"
-import config from "../../data/SiteConfig"
+import React from 'react'
+import { Helmet } from 'react-helmet'
+import { graphql } from 'gatsby'
+import Layout from '../layout'
+import PostListing from '../components/PostListing/PostListing'
+import SEO from '../components/SEO/SEO'
+import config from '../../data/SiteConfig'
 
 function Landing({ data }) {
 
@@ -12,8 +12,8 @@ function Landing({ data }) {
 
   return (
     <Layout>
-      <div className="landing-container">
-        <div className="posts-container">
+      <div className='landing-container'>
+        <div className='posts-container'>
           <Helmet title={config.siteTitle} />
           <SEO />
           <PostListing postEdges={postEdges} />
@@ -25,7 +25,7 @@ function Landing({ data }) {
 
 export default Landing
 
-/* eslint no-undef: "off" */
+/* eslint no-undef: 'off' */
 export const pageQuery = graphql`
   query LandingQuery {
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {

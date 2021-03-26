@@ -1,23 +1,26 @@
-import React from "react";
-import { Helmet } from "react-helmet";
-import { graphql } from "gatsby";
-import Layout from "../layout";
-import UserInfo from "../components/UserInfo/UserInfo";
-import Disqus from "../components/Disqus/Disqus";
-import PostTags from "../components/PostTags/PostTags";
-import SocialLinks from "../components/SocialLinks/SocialLinks";
-import SEO from "../components/SEO/SEO";
-import Footer from "../components/Footer/Footer";
-import config from "../../data/SiteConfig";
-import "./b16-tomorrow-dark.css";
-import "./post.css";
+import React from 'react'
+import { Helmet } from 'react-helmet'
+import { graphql } from 'gatsby'
+import Layout from '../layout'
+import UserInfo from '../components/UserInfo/UserInfo'
+import Disqus from '../components/Disqus/Disqus'
+import PostTags from '../components/PostTags/PostTags'
+import SocialLinks from '../components/SocialLinks/SocialLinks'
+import SEO from '../components/SEO/SEO'
+import Footer from '../components/Footer/Footer'
+import config from '../../data/SiteConfig'
+
+import './b16-tomorrow-dark.css'
+import './post.css'
 
 export default function PostTemplate({ data, pageContext }) {
-  const { slug } = pageContext;
-  const postNode = data.markdownRemark;
-  const post = postNode.frontmatter;
+
+  const { slug } = pageContext
+  const postNode = data.markdownRemark
+  const post = postNode.frontmatter
+  
   if (!post.id) {
-    post.id = slug;
+    post.id = slug
   }
 
   return (
@@ -31,7 +34,7 @@ export default function PostTemplate({ data, pageContext }) {
           <h1>{post.title}</h1>
           {/* eslint-disable-next-line react/no-danger */}
           <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
-          <div className="post-meta">
+          <div className='post-meta'>
             <PostTags tags={post.tags} />
             <SocialLinks postPath={slug} postNode={postNode} />
           </div>
@@ -41,10 +44,10 @@ export default function PostTemplate({ data, pageContext }) {
         </div>
       </div>
     </Layout>
-  );
+  )
 }
 
-/* eslint no-undef: "off" */
+/* eslint no-undef: 'off' */
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
@@ -64,4 +67,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

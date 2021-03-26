@@ -1,41 +1,14 @@
+<div align='center' style='margin-bottom:20px; border-top: 1px solid lightgray; border-bottom: 1px solid lightgray;'>
+  <img src='static/media/card-1200x630.webp' alt='Logo' width='100%'/>
+</div> 
 
-  <div align='center' style='margin-bottom:20px; border-top: 1px solid lightgray; border-bottom: 1px solid lightgray;'>
-    <img src='static/media/card-1200x630.png' alt='Logo' width='100%'/>
-  </div> 
+![https://github.com/danydodson/dev](https://img.shields.io/github/v/tag/danydodson/dev)
+![https://www.codacy.com/app/danydodson/dev?utm_source=github.com&utm_medium=referral&utm_content=danydodson/dev&utm_campaign=Badge_Grade](https://api.codacy.com/project/badge/Grade/990fb54ea8094f2aa0ed77f14e859820)
+![https://codeclimate.com/github/danydodson/dev](https://codeclimate.com/github/danydodson/dev/badges/gpa.svg)
+![https://github.com/danydodson/dev/blob/master/license](https://img.shields.io/github/license/danydodson/dev.svg)
+![https://twitter.com/intent/tweet?text=A%20cool%20%40gatsbyjs%20starter%3A&url=https%3A%2F%2Fgithub.com%2Fdanydodson%2Fdev](https://img.shields.io/twitter/url/https/github.com/danydodson/dev.svg?style=social)
 
-  <a href='https://github.com/danydodson/dev'>
-    <img src='https://img.shields.io/github/v/tag/danydodson/dev' alt='Logo' />
-  </a>
-
-  <a href='https://github.com/danydodson/dev/stargazers'>
-    <img src='https://img.shields.io/github/stars/danydodson/dev' alt='Logo' />
-  </a>
- 
-  <a href='https://codeclimate.com/github/danydodson/dev'>
-    <img src='https://codeclimate.com/github/danydodson/dev/badges/gpa.svg' alt='Logo' />
-  </a>
-  
-  <a href='https://codeclimate.com/github/danydodson/dev'>
-    <img src='https://codeclimate.com/github/danydodson/dev/badges/issue_count.svg' alt='Logo' />
-  </a>
-    
-  <a href='https://www.codacy.com/app/danydodson/dev?utm_source=github.com&utm_medium=referral&utm_content=danydodson/dev&utm_campaign=Badge_Grade'>
-    <img src='https://api.codacy.com/project/badge/Grade/990fb54ea8094f2aa0ed77f14e859820' alt='Logo' />
-  </a>
-  
-  <a href='https://github.com/prettier/prettier'>
-    <img src='https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square' alt='Logo' />
-  </a>
-
-  <a href='https://github.com/danydodson/dev/blob/master/LICENSE'>
-    <img src='https://img.shields.io/github/license/danydodson/dev.svg' alt='Logo' />
-  </a>
-
-  <a href='https://twitter.com/intent/tweet?text=A%20cool%20%40gatsbyjs%20starter%3A&url=https%3A%2F%2Fgithub.com%2Fdanydodson%2Fdev'>
-    <img src='https://img.shields.io/twitter/url/https/github.com/danydodson/dev.svg?style=social' alt='Logo' />
-  </a>
-
-# Developer Blog & Portfolio
+# Developer Blog
 
 ### Features
 

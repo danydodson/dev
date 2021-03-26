@@ -1,15 +1,15 @@
-import React from "react";
-import { Follow } from "react-twitter-widgets";
+import React from 'react'
+import { Follow } from 'react-twitter-widgets'
 
 function UserInfo({ config, expanded }) {
-  const { userTwitter } = config;
+  const { userTwitter } = config
 
   return (
     <Follow
       username={userTwitter}
-      options={{ count: expanded ? true : "none" }}
+      options={{ count: expanded ? true : 'none' }}
     />
-  );
+  )
 }
 
-export default UserInfo;
+export default UserInfo

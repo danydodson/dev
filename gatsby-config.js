@@ -6,9 +6,7 @@ const config = require('./data/SiteConfig')
 const validatedPathPrefix = config.pathPrefix === '' ? '/' : config.pathPrefix
 
 module.exports = {
-
   pathPrefix: validatedPathPrefix,
-
   siteMetadata: {
     siteUrl: urljoin(config.siteUrl, config.pathPrefix),
     rssMetadata: {
