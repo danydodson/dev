@@ -1,5 +1,5 @@
-const path = require("path")
-const { createFilePath } = require("gatsby-source-filesystem")
+const path = require('path')
+const { createFilePath } = require('gatsby-source-filesystem')
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
@@ -14,17 +14,17 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({
       node,
       name: `slug`,
-      value: slug,
+      value: slug
     })
   }
 }
 
-const isDraft = node => node.frontmatter.draft === true
-const isAboutPage = node => node.fields.slug === "/about/"
-const isDummy = node => node.frontmatter.tags && node.frontmatter.tags.includes("___dummy*")
+const isDraft = (node) => node.frontmatter.draft === true
+const isAboutPage = (node) => node.fields.slug === '/about/'
+const isDummy = (node) => node.frontmatter.tags && node.frontmatter.tags.includes('___dummy*')
 
 // Skip node if it's about, draft, or dummy post
-const skipNode = node => isAboutPage(node) || isDraft(node) || isDummy(node)
+const skipNode = (node) => isAboutPage(node) || isDraft(node) || isDummy(node)
 
 // Get next available prev node that's not about, draft, and dummy post
 const getPrevAvailableNode = (edges, index) => {
@@ -54,27 +54,25 @@ const getNextAvailableNode = (edges, index) => {
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions
 
-  const postTemplate = path.resolve("src/components/Posts/PostTemplate/index.js")
+  const postTemplate = path.resolve('src/components/Posts/PostTemplate/index.js')
 
   const result = await graphql(`
-  {
-    allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
-      edges {
-        node {
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            tags
-            date
+    {
+      allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+              tags
+              date
+            }
           }
         }
       }
     }
-  }
   `)
 
   // return graphql(`
@@ -115,17 +113,16 @@ exports.createPages = async ({ actions, graphql }) => {
     const prev = getPrevAvailableNode(edges, i + 1)
     const next = getNextAvailableNode(edges, i - 1)
 
-    if (node.fields.slug !== "/__do-not-remove/") {
+    if (node.fields.slug !== '/__do-not-remove/') {
       createPage({
         path: node.fields.slug,
         component: postTemplate,
         context: {
           slug: node.fields.slug,
           prev,
-          next,
-        },
+          next
+        }
       })
     }
   })
 }
-

@@ -1,11 +1,11 @@
-import React from "react"
-import { Link } from "gatsby"
-import styled from "styled-components"
-import { setThemeVars } from "../../../util/theme-helper"
-import { theme } from "../../Shared/styles-global"
-import siteConfig from "../../../../data/site-config"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faClock } from "@fortawesome/free-solid-svg-icons"
+import React from 'react'
+import { Link } from 'gatsby'
+import styled from 'styled-components'
+import { setThemeVars } from '../../../util/theme-helper'
+import { theme } from '../../Shared/styles-global'
+import siteConfig from '../../../../data/site-config'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faClock } from '@fortawesome/free-solid-svg-icons'
 
 const PostCard = ({ id, title, date, path, excerpt, timeToRead }) => {
   return (
@@ -15,11 +15,7 @@ const PostCard = ({ id, title, date, path, excerpt, timeToRead }) => {
           <h3>{title}</h3>
           {siteConfig.showTimeToRead && (
             <span>
-              <FontAwesomeIcon
-                className="icon-clock"
-                icon={faClock}
-                size="xs"
-              />
+              <FontAwesomeIcon className='icon-clock' icon={faClock} size='xs' />
               {timeToRead} minute read
             </span>
           )}
@@ -54,8 +50,7 @@ const StyledPostCard = styled.div`
 
   p {
     margin-top: 0.5rem;
-    color: ${() =>
-      setThemeVars(theme.fontSubColorLight, theme.fontSubColorDark)};
+    color: ${() => setThemeVars(theme.fontSubColorLight, theme.fontSubColorDark)};
   }
 
   @media (max-width: 500px) {

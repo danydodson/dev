@@ -1,4 +1,4 @@
-name: Lint & Format
+name: Format
 
 on:
   push:
@@ -17,7 +17,7 @@ jobs:
         with:
           path: '.'
           key: ${{ github.sha }}
-  fix:
+  format:
     runs-on: ubuntu-latest
     needs: dependencies
     steps:
@@ -26,5 +26,5 @@ jobs:
         with:
           path: '.'
           key: ${{ github.sha }}
-      - run: yarn lint:js
       - run: yarn format:js
+      - run: yarn format:styles

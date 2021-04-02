@@ -1,10 +1,9 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
-import siteConfig from "../../../data/site-config"
+import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
+import { GatsbyImage } from 'gatsby-plugin-image'
+import siteConfig from '../../../data/site-config'
 
 const Image = () => {
-
   const data = useStaticQuery(graphql`
     query {
       images: allFile {
@@ -21,19 +20,13 @@ const Image = () => {
     }
   `)
 
-  const image = data.images.edges.find(n => n.node.relativePath.includes(siteConfig.profileImageName))
+  const image = data.images.edges.find((n) => n.node.relativePath.includes(siteConfig.profileImageName))
 
   if (!image) {
     return null
   }
 
-  return (
-    <GatsbyImage
-      image={image.node.childImageSharp.gatsbyImageData}
-      className="img-profile"
-      alt='profile-picture'
-    />
-  )
+  return <GatsbyImage image={image.node.childImageSharp.gatsbyImageData} className='img-profile' alt='profile-picture' />
 }
 
 export default Image

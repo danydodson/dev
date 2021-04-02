@@ -1,4 +1,4 @@
-const siteConfig = require("./data/site-config")
+const siteConfig = require('./data/site-config')
 // const rss = require("./data/gatsby-rss")
 
 module.exports = {
@@ -18,11 +18,11 @@ module.exports = {
 
     // Read markdown/mdx files
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
         name: `posts`,
-        path: `${__dirname}/content/posts`,
-      },
+        path: `${__dirname}/content/posts`
+      }
     },
 
     // Read images
@@ -30,17 +30,17 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `static`,
-        path: `${__dirname}/static`,
-      },
+        path: `${__dirname}/static`
+      }
     },
 
     // ???
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
         name: `dummy`,
-        path: `${__dirname}/src/z_`,
-      },
+        path: `${__dirname}/src/z_`
+      }
     },
 
     // mdx support
@@ -51,10 +51,10 @@ module.exports = {
         gatsbyRemarkPlugins: [
           // Adding title to code blocks. Usage: ```js:title=example.js
           {
-            resolve: "gatsby-remark-code-titles",
+            resolve: 'gatsby-remark-code-titles',
             options: {
-              className: "code-title-custom",
-            },
+              className: 'code-title-custom'
+            }
           },
 
           // Process images in markdown
@@ -63,36 +63,36 @@ module.exports = {
             options: {
               maxWidth: siteConfig.maxWidth,
               backgroundColor: `transparent`,
-              linkImagesToOriginal: false,
-            },
+              linkImagesToOriginal: false
+            }
           },
 
           {
             resolve: `gatsby-remark-autolink-headers`,
             options: {
-              className: `anchor-heading`,
-            },
+              className: `anchor-heading`
+            }
           },
 
           {
             resolve: `gatsby-remark-copy-linked-files`,
             options: {
               destinationDir: `${__dirname}/posts`,
-              ignoreFileExtensions: [`png`, `jpg`, `jpeg`, `bmp`, `tiff`],
-            },
-          },
-        ],
-      },
+              ignoreFileExtensions: [`png`, `jpg`, `jpeg`, `bmp`, `tiff`]
+            }
+          }
+        ]
+      }
     },
 
     // Using svg as component
     {
-      resolve: "gatsby-plugin-react-svg",
+      resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
-          include: /static/,
-        },
-      },
+          include: /static/
+        }
+      }
     },
 
     // {
@@ -106,8 +106,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: siteConfig.gaTrackingId,
-      },
+        trackingId: siteConfig.gaTrackingId
+      }
     },
 
     {
@@ -115,33 +115,33 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-relative-images`,
+            resolve: `gatsby-remark-relative-images`
           },
           {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: siteConfig.maxWidth,
               backgroundColor: `transparent`,
-              linkImagesToOriginal: false,
-            },
+              linkImagesToOriginal: false
+            }
           },
           {
-            resolve: 'gatsby-remark-responsive-iframe',
+            resolve: 'gatsby-remark-responsive-iframe'
           },
           // Somehow need to be defined under both gatsby-plugin-mdx & gatsby-transformer-remark to work
           {
             resolve: `gatsby-remark-autolink-headers`,
             options: {
-              className: `anchor-heading`,
-            },
+              className: `anchor-heading`
+            }
           },
           'gatsby-remark-copy-linked-files',
-          'gatsby-remark-prismjs',
-        ],
-      },
+          'gatsby-remark-prismjs'
+        ]
+      }
     },
 
-    // 
+    //
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -165,7 +165,7 @@ module.exports = {
             sizes: '512x512',
             type: 'image/png',
             purpose: 'any maskable'
-          },
+          }
         ],
         screenshots: [
           {
@@ -179,7 +179,7 @@ module.exports = {
             sizes: '540x720'
           }
         ]
-      },
-    },
-  ],
+      }
+    }
+  ]
 }

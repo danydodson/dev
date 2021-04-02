@@ -1,5 +1,4 @@
 const siteConfig = {
-
   /* Site
   ========================================= */
   title: 'Dany Dodson',
@@ -7,7 +6,7 @@ const siteConfig = {
   titleAlt: 'Full Stack Developer Blog',
   description: 'Welcome! This is my FullStack Web Developer blog',
   faviconSrc: 'static/icons/favicon.png',
-  
+
   /* PWA
   ========================================= */
   startUrl: '/',
@@ -16,7 +15,7 @@ const siteConfig = {
   siteLogoAlt: 'static/cards/card-1200x630.webp',
   bgColor: '#e0e0e0',
   themeColor: '#c62828',
-  
+
   /* UI
   ========================================= */
   maxWidth: 768,
@@ -91,7 +90,6 @@ const siteConfig = {
       showHeaderIcon: true
     }
   }
-
 }
 
 module.exports = siteConfig

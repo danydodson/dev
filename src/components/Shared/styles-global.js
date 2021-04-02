@@ -1,12 +1,12 @@
-import { createGlobalStyle, keyframes } from "styled-components"
-import { isMobile } from "react-device-detect"
-import { setThemeVars } from "../../util/theme-helper"
-import siteConfig from "../../../data/site-config"
-import styleConfig from "../../../data/style-config"
+import { createGlobalStyle, keyframes } from 'styled-components'
+import { isMobile } from 'react-device-detect'
+import { setThemeVars } from '../../util/theme-helper'
+import siteConfig from '../../../data/site-config'
+import styleConfig from '../../../data/style-config'
 
 const globalVar = {
-  primaryColor: "#fff",
-  secondaryColor: "#333",
+  primaryColor: '#fff',
+  secondaryColor: '#333',
   bgColorLight: styleConfig.bgColorLight,
   bgColorDark: styleConfig.bgColorDark,
   bgSubColorLight: styleConfig.bgSubColorLight,
@@ -17,13 +17,13 @@ const globalVar = {
   fontSubColorLight: styleConfig.fontSubColorLight,
   fontColorDark: styleConfig.fontColorDark,
   fontSubColorDark: styleConfig.fontSubColorDark,
-  darkColor: "#333",
-  midColor: "#444",
-  darkerColor: "#2c2c39",
-  subColor: "grey",
-  lightGreyColor: "#eee",
-  midGreyColor: "#ccc",
-  mintColor: "#bfe2ca",
+  darkColor: '#333',
+  midColor: '#444',
+  darkerColor: '#2c2c39',
+  subColor: 'grey',
+  lightGreyColor: '#eee',
+  midGreyColor: '#ccc',
+  mintColor: '#bfe2ca',
   maxWidthSite: siteConfig.maxWidth,
 
   // @mixin disable-selection()
@@ -33,16 +33,16 @@ const globalVar = {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;`,
-  curTheme: "",
+  curTheme: ''
 }
 
 // global variables are passed down to themes to be used in other styled components
 export const theme = {
-  ...globalVar,
+  ...globalVar
 }
 
-let profileHomeBorder = () => setThemeVars("#ddd", "#333")
-if (isMobile) profileHomeBorder = "transparent"
+let profileHomeBorder = () => setThemeVars('#ddd', '#333')
+if (isMobile) profileHomeBorder = 'transparent'
 
 const glowing = keyframes`
     0% { background-position: 0 0; }
@@ -50,28 +50,14 @@ const glowing = keyframes`
     100% { background-position: 0 0; }
 `
 
-const foregroundColor = () =>
-  setThemeVars(theme.fontColorLight, theme.fontColorDark)
+const foregroundColor = () => setThemeVars(theme.fontColorLight, theme.fontColorDark)
 
-const scrollBarColor = () =>
-  setThemeVars(
-    styleConfig.scrollbarColorLight,
-    styleConfig.scrollbarColorDark
-  )
+const scrollBarColor = () => setThemeVars(styleConfig.scrollbarColorLight, styleConfig.scrollbarColorDark)
 
-const scrollBarBg = () =>
-  setThemeVars(styleConfig.scrollbarBgLight, styleConfig.scrollbarBgDark)
-const scrollBarHover = () =>
-  setThemeVars(
-    styleConfig.scrollbarHoverLight,
-    styleConfig.scrollbarHoverDark
-  )
+const scrollBarBg = () => setThemeVars(styleConfig.scrollbarBgLight, styleConfig.scrollbarBgDark)
+const scrollBarHover = () => setThemeVars(styleConfig.scrollbarHoverLight, styleConfig.scrollbarHoverDark)
 
-const underlineColor = () =>
-  setThemeVars(
-    styleConfig.underlineColorLight,
-    styleConfig.underlineColorDark
-  )
+const underlineColor = () => setThemeVars(styleConfig.underlineColorLight, styleConfig.underlineColorDark)
 
 export const GlobalStyles = createGlobalStyle`
   * {
@@ -83,8 +69,7 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     align-items: center;
-    background: ${() =>
-      setThemeVars(theme.bgSubColorLight, theme.bgSubColorDark)};
+    background: ${() => setThemeVars(theme.bgSubColorLight, theme.bgSubColorDark)};
     color: ${foregroundColor};
     font-family: ${styleConfig.fontMain + styleConfig.fontsBackUp}
   }
@@ -144,18 +129,14 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .main-header {
-    border-bottom: 1px solid ${() => setThemeVars("#dbdbdb", "#2d2d2d")};
-    background: ${() =>
-      setThemeVars(theme.headerColorLight, theme.headerColorDark)};
+    border-bottom: 1px solid ${() => setThemeVars('#dbdbdb', '#2d2d2d')};
+    background: ${() => setThemeVars(theme.headerColorLight, theme.headerColorDark)};
   }
 
   .sub-main {
-    -webkit-box-shadow: 0px 0px 8px -5px ${() =>
-      setThemeVars("#000000bf", "#000000bf")};
-    -moz-box-shadow: 0px 0px 8px -5px ${() =>
-      setThemeVars("#000000bf", "#000000bf")};
-    box-shadow: 0px 0px 8px -5px ${() =>
-      setThemeVars("#000000bf", "#000000bf")};
+    -webkit-box-shadow: 0px 0px 8px -5px ${() => setThemeVars('#000000bf', '#000000bf')};
+    -moz-box-shadow: 0px 0px 8px -5px ${() => setThemeVars('#000000bf', '#000000bf')};
+    box-shadow: 0px 0px 8px -5px ${() => setThemeVars('#000000bf', '#000000bf')};
 
     background: ${() => setThemeVars(theme.bgColorLight, theme.bgColorDark)}; 
   }
@@ -170,8 +151,7 @@ export const GlobalStyles = createGlobalStyle`
 
   .profile-texts {
     h4, p, p > a {
-      color: ${() =>
-        setThemeVars(theme.fontSubColorLight, theme.fontSubColorDark)};
+      color: ${() => setThemeVars(theme.fontSubColorLight, theme.fontSubColorDark)};
     }
   }
 
@@ -200,23 +180,18 @@ export const GlobalStyles = createGlobalStyle`
 
   .link-edge-posts {
     li {
-      background: ${() => setThemeVars("#fafafa", "#2f2d33")};
+      background: ${() => setThemeVars('#fafafa', '#2f2d33')};
 
       &:hover {
-        background: ${() => setThemeVars("#ededef", "#333138")};
+        background: ${() => setThemeVars('#ededef', '#333138')};
       }
     }
   }
 
   .progress-container {
-    background: ${() =>
-      setThemeVars(theme.headerColorLight, theme.headerColorDark)};
+    background: ${() => setThemeVars(theme.headerColorLight, theme.headerColorDark)};
     .progress-bar {
-      background: ${() =>
-        setThemeVars(
-          styleConfig.progressBarColorLight,
-          styleConfig.progressBarColorLight
-        )};
+      background: ${() => setThemeVars(styleConfig.progressBarColorLight, styleConfig.progressBarColorLight)};
     }
   }
 
@@ -246,7 +221,7 @@ export const GlobalStyles = createGlobalStyle`
         width: calc(100% + 4px);
         height: calc(100% + 4px);
         animation: ${glowing} 28s linear infinite;
-        opacity: ${() => setThemeVars("0.2", "0.12")};
+        opacity: ${() => setThemeVars('0.2', '0.12')};
         transition: opacity .3s ease-in-out;
         border-radius: 10px;
       }
@@ -273,9 +248,8 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .main-footer {
-    color: ${() => setThemeVars("#ccc", theme.subColor)};
-    border-top: 1px solid ${() =>
-      setThemeVars(theme.lightGreyColor, theme.darkColor)};
+    color: ${() => setThemeVars('#ccc', theme.subColor)};
+    border-top: 1px solid ${() => setThemeVars(theme.lightGreyColor, theme.darkColor)};
     a {
       ${() => setThemeVars(theme.darkColor, theme.primaryColor)};
     }
@@ -283,10 +257,8 @@ export const GlobalStyles = createGlobalStyle`
 
   .post-html {
     blockquote {
-      color: ${() =>
-        setThemeVars(theme.fontSubColorLight, theme.fontSubColorDark)};
-      border-left: 3px solid ${() =>
-        setThemeVars(theme.midGreyColor, theme.midColor)};
+      color: ${() => setThemeVars(theme.fontSubColorLight, theme.fontSubColorDark)};
+      border-left: 3px solid ${() => setThemeVars(theme.midGreyColor, theme.midColor)};
     }
   }
 
@@ -299,45 +271,41 @@ export const GlobalStyles = createGlobalStyle`
 
   .tags {
     &-horizontal {
-      -webkit-box-shadow: 0px 0px 7px -5px ${() =>
-        setThemeVars("#000000bf", "#000000bf")};
-      -moz-box-shadow: 0px 0px 7px -5px ${() =>
-        setThemeVars("#000000bf", "#000000bf")};
-      box-shadow: 0px 0px 7px -5px ${() =>
-        setThemeVars("#000000bf", "#000000bf")};
+      -webkit-box-shadow: 0px 0px 7px -5px ${() => setThemeVars('#000000bf', '#000000bf')};
+      -moz-box-shadow: 0px 0px 7px -5px ${() => setThemeVars('#000000bf', '#000000bf')};
+      box-shadow: 0px 0px 7px -5px ${() => setThemeVars('#000000bf', '#000000bf')};
 
-      background: ${() => setThemeVars("#f5f5f5", theme.headerColorDark)};
-      border-left: 3px solid ${() => setThemeVars("#bbb", "#444")};
-      border-right: 3px solid ${() => setThemeVars("#bbb", "#444")};
-      border-top: 1px solid ${() => setThemeVars("#eee", "#333")};
-      border-bottom: 1px solid ${() => setThemeVars("#eee", "#333")};
-      color: ${() => setThemeVars("#888", "#c9c9c9")}
+      background: ${() => setThemeVars('#f5f5f5', theme.headerColorDark)};
+      border-left: 3px solid ${() => setThemeVars('#bbb', '#444')};
+      border-right: 3px solid ${() => setThemeVars('#bbb', '#444')};
+      border-top: 1px solid ${() => setThemeVars('#eee', '#333')};
+      border-bottom: 1px solid ${() => setThemeVars('#eee', '#333')};
+      color: ${() => setThemeVars('#888', '#c9c9c9')}
     }
   }
   
 
   .tag {
     &-horizontal {  
-      background: ${() => setThemeVars("#fff", "#3a3d56")};
+      background: ${() => setThemeVars('#fff', '#3a3d56')};
       &:hover{
-        background: ${() => setThemeVars("#fff !important", "#3a3d56 !important")};
+        background: ${() => setThemeVars('#fff !important', '#3a3d56 !important')};
       }
     }
 
     &-vertical {
       &:hover{
-        background: ${() =>
-          setThemeVars(theme.bgColorLight, theme.darkerColor)};
+        background: ${() => setThemeVars(theme.bgColorLight, theme.darkerColor)};
       }
     }
   }
 
   .custom-hr {
-    border-top-color: ${() => setThemeVars("#e7e6e8", "#414044")};
+    border-top-color: ${() => setThemeVars('#e7e6e8', '#414044')};
   }
 
   .icon-hand-ptr {
-    color: ${() => setThemeVars("#555", "#eee")}
+    color: ${() => setThemeVars('#555', '#eee')}
   }
 
   .medium-zoom-overlay {
@@ -347,17 +315,16 @@ export const GlobalStyles = createGlobalStyle`
     z-index: 5;
   }
 
-  ${"" /* Applies to react live code */}
+  ${'' /* Applies to react live code */}
   .live-highlight {
-      font-family: ${styleConfig.fontCodeBlocks +
-        styleConfig.fontsBackUp} !important;
+      font-family: ${styleConfig.fontCodeBlocks + styleConfig.fontsBackUp} !important;
   }
 
-  ${"" /* Custom scrollbar styling for non mobile */}
+  ${'' /* Custom scrollbar styling for non mobile */}
     &::-webkit-scrollbar {
-      height: ${isMobile ? "" : "13px"};
-      width: ${isMobile ? "" : "13px"};
-      border-radius: ${isMobile ? "" : "20px"};
+      height: ${isMobile ? '' : '13px'};
+      width: ${isMobile ? '' : '13px'};
+      border-radius: ${isMobile ? '' : '20px'};
     }
 
     &::-webkit-scrollbar-track {
@@ -390,8 +357,8 @@ export const GlobalStyles = createGlobalStyle`
   }
   
   thead {
-    background: ${() => setThemeVars("#eee", "#343434")};
-    border-bottom: 2px solid ${() => setThemeVars("#ddd", "#444")};
+    background: ${() => setThemeVars('#eee', '#343434')};
+    border-bottom: 2px solid ${() => setThemeVars('#ddd', '#444')};
   }
 
   th {
@@ -402,7 +369,7 @@ export const GlobalStyles = createGlobalStyle`
 
   td {
     padding: 0.5rem;
-    border-bottom: 1px solid ${() => setThemeVars("#ddd", "#444")};
+    border-bottom: 1px solid ${() => setThemeVars('#ddd', '#444')};
   }
 
   tr,

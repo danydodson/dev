@@ -1,1 +1,1 @@
-export const TAG = { ALL: "All" }
+export const TAG = { ALL: 'All' }

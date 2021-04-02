@@ -1,18 +1,18 @@
-import React, { Component } from "react"
-import Switch from "react-switch"
-import { withTheme } from "styled-components"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faMoon } from "@fortawesome/free-solid-svg-icons"
-import SunIcon from "../../../static/svgs/sun.svg"
-import siteConfig from "../../../data/site-config"
+import React, { Component } from 'react'
+import Switch from 'react-switch'
+import { withTheme } from 'styled-components'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMoon } from '@fortawesome/free-solid-svg-icons'
+import SunIcon from '../../../static/svgs/sun.svg'
+import siteConfig from '../../../data/site-config'
 
-import "./styles.scss"
+import './styles.scss'
 
 class CustomSwitch extends Component {
   constructor(props) {
     super(props)
 
-    if (siteConfig.defaultTheme === "dark") {
+    if (siteConfig.defaultTheme === 'dark') {
       this.state = { checked: true }
     } else {
       this.state = { checked: false }
@@ -20,13 +20,13 @@ class CustomSwitch extends Component {
   }
 
   componentDidMount() {
-    if (this.props.theme.mode !== "dark") {
+    if (this.props.theme.mode !== 'dark') {
       this.setState({ checked: false })
     } else {
       this.setState({ checked: true })
     }
   }
-  handleToggle = checked => {
+  handleToggle = (checked) => {
     this.setState({ checked })
     // Passed from ToggleMode to change theme
     this.props.onClick()
@@ -34,21 +34,8 @@ class CustomSwitch extends Component {
 
   render() {
     return (
-      <div className="custom-switch">
-        <Switch
-          onChange={this.handleToggle}
-          checked={this.state.checked}
-          offColor="#bbb"
-          onColor="#4a4a4a"
-          uncheckedIcon={
-            <FontAwesomeIcon className="icon-moon" icon={faMoon} />
-          }
-          checkedIcon={<SunIcon className="icon-sun" />}
-          handleDiameter={21}
-          height={23}
-          width={40}
-          onHandleColor="#333"
-        />
+      <div className='custom-switch'>
+        <Switch onChange={this.handleToggle} checked={this.state.checked} offColor='#bbb' onColor='#4a4a4a' uncheckedIcon={<FontAwesomeIcon className='icon-moon' icon={faMoon} />} checkedIcon={<SunIcon className='icon-sun' />} handleDiameter={21} height={23} width={40} onHandleColor='#333' />
       </div>
     )
   }

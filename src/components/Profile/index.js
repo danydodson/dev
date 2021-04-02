@@ -1,19 +1,19 @@
-import React from "react"
-import styled from "styled-components"
-import ProfileTexts from "./ProfileTexts"
-import ProfileImg from "./ProfileImg"
-import { fontProfile, fontsBackUp } from "../../../data/style-config"
+import React from 'react'
+import styled from 'styled-components'
+import ProfileTexts from './ProfileTexts'
+import ProfileImg from './ProfileImg'
+import { fontProfile, fontsBackUp } from '../../../data/style-config'
 
 const Profile = ({ home }) => {
   return (
     <>
       {home ? (
-        <StyledProfileHome className="profile-home">
+        <StyledProfileHome className='profile-home'>
           <ProfileImg />
           <ProfileTexts home />
         </StyledProfileHome>
       ) : (
-        <StyledProfile className="profile">
+        <StyledProfile className='profile'>
           <ProfileImg />
           <ProfileTexts />
         </StyledProfile>

@@ -1,32 +1,24 @@
-import React, { useState } from "react"
-import styled from "styled-components"
-import PropTypes from "prop-types"
-import ArrowDown from "../../../../static/svgs/arrow-down.svg"
-import Button from "../../Button"
-import { setThemeVars } from "../../../util/theme-helper"
-import { theme } from "../../Shared/styles-global"
+import React, { useState } from 'react'
+import styled from 'styled-components'
+import PropTypes from 'prop-types'
+import ArrowDown from '../../../../static/svgs/arrow-down.svg'
+import Button from '../../Button'
+import { setThemeVars } from '../../../util/theme-helper'
+import { theme } from '../../Shared/styles-global'
 
-let sizeType = "rem"
+let sizeType = 'rem'
 
-const Collapsable = ({
-  children,
-  title,
-  titleSize = "1.25rem",
-  defaultShow = false,
-}) => {
+const Collapsable = ({ children, title, titleSize = '1.25rem', defaultShow = false }) => {
   const [show, setShow] = useState(defaultShow)
-  if (titleSize.includes("px")) sizeType = "px"
+  if (titleSize.includes('px')) sizeType = 'px'
   const icon = (
-    <StyledIconWrapper
-      rotate={show.toString()}
-      titleSize={((parseFloat(titleSize) * 2) / 3).toString() + sizeType}
-    >
+    <StyledIconWrapper rotate={show.toString()} titleSize={((parseFloat(titleSize) * 2) / 3).toString() + sizeType}>
       <ArrowDown />
     </StyledIconWrapper>
   )
 
   return (
-    <div className="collapsable">
+    <div className='collapsable'>
       {title ? (
         <StyledCollapsableTitleWrap titleSize={titleSize}>
           <Button onClick={() => setShow(!show)}>
@@ -38,7 +30,7 @@ const Collapsable = ({
         <>{icon}</>
       )}
 
-      {show && <div style={{ marginLeft: "1.2rem" }}>{children}</div>}
+      {show && <div style={{ marginLeft: '1.2rem' }}>{children}</div>}
     </div>
   )
 }
@@ -47,7 +39,7 @@ export default Collapsable
 
 // Check props
 Collapsable.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired
 }
 
 const StyledCollapsableTitleWrap = styled.div`
@@ -65,8 +57,7 @@ const StyledIconWrapper = styled.span`
     width: ${(props) => props.titleSize};
     height: ${(props) => props.titleSize};
     margin-right: 0.3rem;
-    transform: ${(props) =>
-      props.rotate === "true" ? "rotate(0deg)" : "rotate(-90deg)"};
+    transform: ${(props) => (props.rotate === 'true' ? 'rotate(0deg)' : 'rotate(-90deg)')};
     transition: transform 250ms;
     fill: ${() => setThemeVars(theme.fontColorLight, theme.fontColorDark)};
   }

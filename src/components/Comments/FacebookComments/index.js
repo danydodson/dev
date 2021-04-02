@@ -1,10 +1,10 @@
-import React from "react"
-import styled from "styled-components"
-import { withTheme } from "styled-components"
+import React from 'react'
+import styled from 'styled-components'
+import { withTheme } from 'styled-components'
 
 class FacebookComments extends React.Component {
   state = {
-    curTheme: undefined,
+    curTheme: undefined
   }
 
   componentDidMount() {
@@ -20,20 +20,7 @@ class FacebookComments extends React.Component {
   }
 
   render() {
-    return (
-      <StyledCommentsWrap>
-        {this.state.curTheme && (
-          <div
-            className="fb-comments"
-            data-href={this.props.location}
-            data-width="100%"
-            data-numposts="10"
-            data-order-by={"social"}
-            colorscheme={this.state.curTheme}
-          ></div>
-        )}
-      </StyledCommentsWrap>
-    )
+    return <StyledCommentsWrap>{this.state.curTheme && <div className='fb-comments' data-href={this.props.location} data-width='100%' data-numposts='10' data-order-by={'social'} colorscheme={this.state.curTheme}></div>}</StyledCommentsWrap>
   }
 }
 

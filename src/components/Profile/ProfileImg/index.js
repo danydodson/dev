@@ -1,32 +1,24 @@
-import React from "react"
-import styled from "styled-components"
-import Image from "../../Image"
-import { theme } from "../../Shared/styles-global"
+import React from 'react'
+import styled from 'styled-components'
+import Image from '../../Image'
+import { theme } from '../../Shared/styles-global'
 
 const ProfileImage = ({ home }) => {
   return (
     <>
       {home ? (
-        <StyledImageHome className="profile-image-home">
-          <StyledInner className="profile-image-inner">
-            <StyledInnerInner className="profile-image-inner-inner" />
+        <StyledImageHome className='profile-image-home'>
+          <StyledInner className='profile-image-inner'>
+            <StyledInnerInner className='profile-image-inner-inner' />
           </StyledInner>
-          <Image
-            objectFit="cover"
-            objectPosition="50% 50%"
-            alt="profileImage"
-          />
+          <Image objectFit='cover' objectPosition='50% 50%' alt='profileImage' />
         </StyledImageHome>
       ) : (
-        <StyledImage className="profile-image">
-          <StyledInner className="profile-image-inner">
-            <StyledInnerInner className="profile-image-inner-inner" />
+        <StyledImage className='profile-image'>
+          <StyledInner className='profile-image-inner'>
+            <StyledInnerInner className='profile-image-inner-inner' />
           </StyledInner>
-          <Image
-            objectFit="cover"
-            objectPosition="50% 50%"
-            alt="profileImage"
-          />
+          <Image objectFit='cover' objectPosition='50% 50%' alt='profileImage' />
         </StyledImage>
       )}
     </>
@@ -35,7 +27,7 @@ const ProfileImage = ({ home }) => {
 
 export default ProfileImage
 
-const profileImageSize = "80px"
+const profileImageSize = '80px'
 
 const StyledImage = styled.div`
   position: relative;

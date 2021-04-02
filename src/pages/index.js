@@ -1,9 +1,9 @@
 /* eslint-disable react/jsx-pascal-case */
-import React, { useState, useEffect } from "react"
-import { graphql } from "gatsby"
-import Layout from "../components/Layout"
-import SEO from "../components/SEO"
-import MainCard from "../components/MainCard"
+import React, { useState, useEffect } from 'react'
+import { graphql } from 'gatsby'
+import Layout from '../components/Layout'
+import SEO from '../components/SEO'
+import MainCard from '../components/MainCard'
 
 const loadsPer = 15
 
@@ -12,31 +12,28 @@ const IndexPage = ({ data }) => {
   const posts = data.allMdx.edges
 
   useEffect(() => {
-    const curLoad = sessionStorage.getItem("curLoad") || loadsPer
+    const curLoad = sessionStorage.getItem('curLoad') || loadsPer
     setLoaded(parseInt(curLoad))
   }, [])
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener('scroll', handleScroll)
 
     return () => {
-      window.removeEventListener("scroll", handleScroll)
+      window.removeEventListener('scroll', handleScroll)
     }
   })
 
   const handleScroll = () => {
-    const lastPostLoaded = document.querySelector(
-      "div.posts-list > a:last-child"
-    )
-    const lastPostLoadedOffset =
-      lastPostLoaded.offsetTop + lastPostLoaded.clientHeight
+    const lastPostLoaded = document.querySelector('div.posts-list > a:last-child')
+    const lastPostLoadedOffset = lastPostLoaded.offsetTop + lastPostLoaded.clientHeight
     const pageOffset = window.pageYOffset + window.innerHeight
 
     if (pageOffset > lastPostLoadedOffset) {
       // Stops loading
       if (posts.length > loaded)
-        setLoaded(prev => {
-          sessionStorage.setItem("curLoad", prev + loadsPer)
+        setLoaded((prev) => {
+          sessionStorage.setItem('curLoad', prev + loadsPer)
           return prev + loadsPer
         })
     }
@@ -44,7 +41,7 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title='Home' />
       <MainCard posts={posts} loads={loaded} />
     </Layout>
   )
@@ -52,10 +49,7 @@ const IndexPage = ({ data }) => {
 
 export const pageQuery = graphql`
   query BlogIndexQuery {
-    allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { draft: { ne: true } } }
-    ) {
+    allMdx(sort: { fields: [frontmatter___date], order: DESC }, filter: { frontmatter: { draft: { ne: true } } }) {
       edges {
         node {
           id

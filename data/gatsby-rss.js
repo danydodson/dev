@@ -15,13 +15,15 @@ const rss = {
     `,
     feeds: [
       {
-        serialize: ({ query: { site, allMarkdownRemark } }) => allMarkdownRemark.edges.map((edge) => ({
-          ...edge.node.frontmatter, description: edge.node.excerpt,
-          date: edge.node.frontmatter.date,
-          url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-          guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-          custom_elements: [{ 'content:encoded': edge.node.html }]
-        })),
+        serialize: ({ query: { site, allMarkdownRemark } }) =>
+          allMarkdownRemark.edges.map((edge) => ({
+            ...edge.node.frontmatter,
+            description: edge.node.excerpt,
+            date: edge.node.frontmatter.date,
+            url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+            guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+            custom_elements: [{ 'content:encoded': edge.node.html }]
+          })),
         query: `
           {
             allMarkdownRemark(
@@ -45,7 +47,7 @@ const rss = {
           }
         `,
         output: '/rss.xml',
-        title: "Danys Dev RSS"
+        title: 'Danys Dev RSS'
       }
     ]
   }

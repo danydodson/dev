@@ -1,25 +1,23 @@
-import React from "react"
-import styled from "styled-components"
-import { Link } from "gatsby"
-import { enableAbout as enabled, author } from "../../../data/site-config"
+import React from 'react'
+import styled from 'styled-components'
+import { Link } from 'gatsby'
+import { enableAbout as enabled, author } from '../../../data/site-config'
 
-const AboutLink = () => {
-  return (
-    <>
-      {enabled ? (
-        <StyledMainCardName className="main-card-name">
-          <h2>
-            <Link to="/about">{author}</Link>
-          </h2>
-        </StyledMainCardName>
-      ) : (
-        <StyledMainCardNameAboutDisabled>
-          <h2>{author}</h2>
-        </StyledMainCardNameAboutDisabled>
-      )}
-    </>
-  )
-}
+const AboutLink = () => (
+  <>
+    {enabled ? (
+      <StyledMainCardName className='main-card-name'>
+        <h2>
+          <Link to='/about'>{author}</Link>
+        </h2>
+      </StyledMainCardName>
+    ) : (
+      <StyledMainCardNameAboutDisabled>
+        <h2>{author}</h2>
+      </StyledMainCardNameAboutDisabled>
+    )}
+  </>
+)
 
 export default AboutLink
 

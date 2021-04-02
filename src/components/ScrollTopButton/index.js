@@ -1,19 +1,19 @@
-import React, { Component } from "react"
-import styled from "styled-components"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faAngleUp } from "@fortawesome/free-solid-svg-icons"
+import React, { Component } from 'react'
+import styled from 'styled-components'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleUp } from '@fortawesome/free-solid-svg-icons'
 
 class ScrollTopButton extends Component {
   _isMounted = false
   state = {
     intervalId: 0,
     scrollPosition: 0,
-    show: false,
+    show: false
   }
 
   componentDidMount() {
     this._isMounted = true
-    window.addEventListener("scroll", () => {
+    window.addEventListener('scroll', () => {
       if (window.scrollY > 20) {
         if (this._isMounted) {
           this.setState({ show: true })
@@ -38,22 +38,19 @@ class ScrollTopButton extends Component {
   }
 
   scrollToTop = () => {
-    let intervalId = setInterval(
-      this.scrollStep.bind(this),
-      this.props.delayInMs
-    )
+    let intervalId = setInterval(this.scrollStep.bind(this), this.props.delayInMs)
     this.setState({ intervalId: intervalId })
   }
 
   render() {
     return this.state.show ? (
       <StyledButton
-        className="btn-scroll-top"
+        className='btn-scroll-top'
         onClick={() => {
           this.scrollToTop()
         }}
       >
-        <FontAwesomeIcon className="icon-chevron" icon={faAngleUp} size="3x" />
+        <FontAwesomeIcon className='icon-chevron' icon={faAngleUp} size='3x' />
       </StyledButton>
     ) : null
   }
