@@ -1,5 +1,5 @@
 const siteConfig = require("./data/site-config")
-// const rss = require("./data/gatsby-rss")
+const rss = require("./data/gatsby-rss")
 
 module.exports = {
   siteMetadata: siteConfig,
@@ -14,7 +14,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
     `gatsby-remark-emoji`, // Emoji list: https://emojipedia.org/joypixels/
-    // rss,
+    rss,
 
     // Read markdown/mdx files
     {
@@ -167,6 +167,18 @@ module.exports = {
             purpose: 'any maskable'
           },
         ],
+        screenshots: [
+          {
+            src: '/snaps/snap-1.png',
+            type: 'image/png',
+            sizes: '540x720'
+          },
+          {
+            src: '/snaps/snap-2.jpg',
+            type: 'image/jpg',
+            sizes: '540x720'
+          }
+        ]
       },
     },
   ],
