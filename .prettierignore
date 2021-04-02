@@ -1,7 +1,10 @@
-public
-static
-.cache
-package-lock.json
-package.json
-yarn.lock
-node_modules
+**/.cache
+**/.github
+**/.vscode
+**/node_modules
+**/public
+**/static
+**/content
+**/package-lock.json
+**/package.json
+**/yarn.lock

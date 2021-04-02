@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import siteConfig from "../../../data/site-config"
 
-const Image = (props) => {
+const Image = () => {
 
   const data = useStaticQuery(graphql`
     query {
@@ -21,9 +21,7 @@ const Image = (props) => {
     }
   `)
 
-  const image = data.images.edges.find(n => {
-    return n.node.relativePath.includes(siteConfig.profileImageName)
-  })
+  const image = data.images.edges.find(n => n.node.relativePath.includes(siteConfig.profileImageName))
 
   if (!image) {
     return null
@@ -33,7 +31,7 @@ const Image = (props) => {
     <GatsbyImage
       image={image.node.childImageSharp.gatsbyImageData}
       className="img-profile"
-      {...props}
+      alt='profile-picture'
     />
   )
 }

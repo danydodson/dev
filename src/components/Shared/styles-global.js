@@ -121,7 +121,8 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .text-xs {
-    font-size: 0.7rem;
+    /* font-size: 0.7rem; */
+    font-size: 0.75rem;
   }
 
   .font-bold {

@@ -4,7 +4,7 @@ module.exports = {
     es6: true,
   },
   extends: [
-    'react',
+    'airbnb',
     'prettier',
     'plugin:react-hooks/recommended'
   ],
@@ -17,5 +17,7 @@ module.exports = {
     'react/prop-types': 0,
     'react/jsx-pascal-case': 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    'import/prefer-default-export': 0,
+    'no-console': 0,
   },
 }
