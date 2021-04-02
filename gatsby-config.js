@@ -1,188 +1,161 @@
-const urljoin = require('url-join')
-const path = require('path')
-const config = require('./data/SiteConfig')
-
-// Make sure that pathPrefix is not empty
-const validatedPathPrefix = config.pathPrefix === '' ? '/' : config.pathPrefix
+const siteConfig = require("./data/site-config")
+const rss = require("./data/gatsby-rss")
 
 module.exports = {
-  pathPrefix: validatedPathPrefix,
-  siteMetadata: {
-    siteUrl: urljoin(config.siteUrl, config.pathPrefix),
-    rssMetadata: {
-      title: config.siteTitle,
-      site_url: urljoin(config.siteUrl, config.pathPrefix),
-      feed_url: urljoin(config.siteUrl, config.pathPrefix, config.siteRss),
-      description: config.siteDescription,
-      image_url: `${urljoin(config.siteUrl, config.pathPrefix)}/media/card-630x630`,
-      copyright: config.copyright,
-    },
-  },
-
+  siteMetadata: siteConfig,
   plugins: [
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-image',
-    'gatsby-plugin-sharp',
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sitemap`,
+    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-catch-links`,
+    `gatsby-plugin-offline`,
     'gatsby-transformer-sharp',
-    'gatsby-plugin-catch-links',
-    'gatsby-plugin-twitter',
-    'gatsby-plugin-sitemap',
-    'gatsby-plugin-lodash',
+    'gatsby-plugin-image',
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-sass`,
+    `gatsby-remark-emoji`, // Emoji list: https://emojipedia.org/joypixels/
+    rss,
+
+    // Read markdown/mdx files
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: 'pages',
-        path: `${__dirname}/content/`,
+        name: `posts`,
+        path: `${__dirname}/content/posts`,
       },
     },
+
+    // Read images
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        name: 'assets',
-        path: `${__dirname}/static/`,
+        name: `static`,
+        path: `${__dirname}/static`,
       },
     },
+
+    // ???
     {
-      resolve: 'gatsby-transformer-remark',
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: `dummy`,
+        path: `${__dirname}/src/z_`,
+      },
+    },
+
+    // mdx support
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+        gatsbyRemarkPlugins: [
+          // Adding title to code blocks. Usage: ```js:title=example.js
+          {
+            resolve: "gatsby-remark-code-titles",
+            options: {
+              className: "code-title-custom",
+            },
+          },
+
+          // Process images in markdown
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: siteConfig.maxWidth,
+              backgroundColor: `transparent`,
+              linkImagesToOriginal: false,
+            },
+          },
+
+          {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              className: `anchor-heading`,
+            },
+          },
+
+          {
+            resolve: `gatsby-remark-copy-linked-files`,
+            options: {
+              destinationDir: `${__dirname}/posts`,
+              ignoreFileExtensions: [`png`, `jpg`, `jpeg`, `bmp`, `tiff`],
+            },
+          },
+        ],
+      },
+    },
+
+    // Using svg as component
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /static/,
+        },
+      },
+    },
+
+    // {
+    //   resolve: `gatsby-transformer-sharp`,
+    //   options: {
+    //     // Removes warnings trying to use non-gatsby image in markdown
+    //     checkSupportedExtensions: false,
+    //   },
+    // },
+
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: siteConfig.gaTrackingId,
+      },
+    },
+
+    {
+      resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
           {
             resolve: `gatsby-remark-relative-images`,
           },
           {
-            resolve: 'gatsby-remark-images',
+            resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 690,
+              maxWidth: siteConfig.maxWidth,
+              backgroundColor: `transparent`,
+              linkImagesToOriginal: false,
             },
           },
           {
             resolve: 'gatsby-remark-responsive-iframe',
           },
+          // Somehow need to be defined under both gatsby-plugin-mdx & gatsby-transformer-remark to work
+          {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              className: `anchor-heading`,
+            },
+          },
           'gatsby-remark-copy-linked-files',
-          'gatsby-remark-autolink-headers',
           'gatsby-remark-prismjs',
         ],
       },
     },
-    {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: config.googleAnalyticsID,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-nprogress',
-      options: {
-        color: config.themeColor,
-      },
-    },
+
+    // 
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: config.siteTitle,
-        short_name: config.siteTitleShort,
-        description: config.siteDescription,
-        start_url: validatedPathPrefix,
-        background_color: config.backgroundColor,
-        theme_color: config.themeColor,
+        name: siteConfig.siteTitle,
+        short_name: siteConfig.siteTitleShort,
+        description: siteConfig.siteDescription,
+        start_url: siteConfig.pathPrefix,
         display: 'minimal-ui',
+        background_color: siteConfig.backgroundColor,
+        theme_color: siteConfig.themeColor,
+        icon: siteConfig.faviconSrc,
         icons: [
-          {
-            src: '/icons/icon-192x192.png',
-            sizes: '192x192',
-            type: 'image/png',
-          },
-          {
-            src: '/icons/icon-512x512.png',
-            sizes: '512x512',
-            type: 'image/png',
-          },
-        ],
-      },
-    },
-    'gatsby-plugin-offline',
-    {
-      resolve: 'gatsby-plugin-netlify-cms',
-      options: {
-        modulePath: path.resolve('src/netlifycms/index.js'), // default: undefined
-        enableIdentityWidget: true,
-        publicPath: 'admin',
-        htmlTitle: 'Content Manager',
-        includeRobots: false,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-feed',
-      options: {
-        setup(ref) {
-          const ret = ref.query.site.siteMetadata.rssMetadata
-          ret.allMarkdownRemark = ref.query.allMarkdownRemark
-          ret.generator = 'GatsbyJS Advanced Starter'
-          return ret
-        },
-        query: `
-        {
-          site {
-            siteMetadata {
-              rssMetadata {
-                site_url
-                feed_url
-                title
-                description
-                image_url
-                copyright
-              }
-            }
-          }
-        }
-      `,
-        feeds: [
-          {
-            serialize(ctx) {
-              const { rssMetadata } = ctx.query.site.siteMetadata
-              return ctx.query.allMarkdownRemark.edges.map(edge => ({
-                categories: edge.node.frontmatter.tags,
-                date: edge.node.fields.date,
-                title: edge.node.frontmatter.title,
-                description: edge.node.excerpt,
-                url: rssMetadata.site_url + edge.node.fields.slug,
-                guid: rssMetadata.site_url + edge.node.fields.slug,
-                custom_elements: [
-                  { 'content:encoded': edge.node.html },
-                  { author: config.userEmail },
-                ],
-              }))
-            },
-            query: `
-            {
-              allMarkdownRemark(
-                limit: 1000,
-                sort: { order: DESC, fields: [frontmatter___date] },
-              ) {
-                edges {
-                  node {
-                    excerpt
-                    html
-                    timeToRead
-                    fields {
-                      slug
-                      date
-                    }
-                    frontmatter {
-                      title
-                      cover
-                      date
-                      category
-                      tags
-                    }
-                  }
-                }
-              }
-            }
-          `,
-            output: config.siteRss,
-            title: config.siteRssTitle,
-          },
+          { src: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png', },
+          { src: '/icons/icon-512x512.png', sizes: '512x512', type: 'image/png', },
         ],
       },
     },

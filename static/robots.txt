@@ -2,4 +2,4 @@ User-agent: *
 Disallow: */tags/
 Disallow: */categories/
 
-sitemap: https://danys.art/sitemap.xml
+sitemap: https://danydodson.dev/sitemap.xml

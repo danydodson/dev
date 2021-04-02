@@ -1,0 +1,14 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-prettier/recommended",
+    "stylelint-config-sass-guidelines"
+  ],
+  "rules": {
+    "number-leading-zero": null,
+    "color-no-invalid-hex": true,
+    "block-no-empty": null,
+    "color-hex-case": "lower",
+    "indentation": 2
+  }
+}
