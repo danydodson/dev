@@ -21,7 +21,7 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: `posts`,
-        path: `${__dirname}/content/posts`
+        path: `${__dirname}/content`
       }
     },
 
@@ -77,7 +77,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-copy-linked-files`,
             options: {
-              destinationDir: `${__dirname}/posts`,
+              destinationDir: `${__dirname}/content`,
               ignoreFileExtensions: [`png`, `jpg`, `jpeg`, `bmp`, `tiff`]
             }
           }

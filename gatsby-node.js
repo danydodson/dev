@@ -8,13 +8,13 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     const slug = createFilePath({
       node,
       getNode,
-      basePath: `src/content/posts`
+      basePath: `src/content`
     })
 
     createNodeField({
       node,
       name: `slug`,
-      value: `/posts${slug}`
+      value: slug
     })
   }
 }
@@ -58,7 +58,7 @@ exports.createPages = async ({ actions, graphql }) => {
       const prev = getPrevAvailableNode(edges, i + 1)
       const next = getNextAvailableNode(edges, i - 1)
 
-      if (node.fields.slug !== '/__do-not-remove/') {
+      if (node.fields.slug !== '/posts/__do-not-remove/') {
         createPage({
           path: node.fields.slug,
           component: postTemplate,

@@ -2,7 +2,8 @@ const siteConfig = {
   /* Site
   ========================================= */
   title: 'Dany Dodson',
-  siteUrl: 'https://danydodson.dev',
+  siteUrl: 'https://danydodson-dev.netlify.app',
+  // siteUrl: 'https://danydodson.dev',
   titleAlt: 'Full Stack Developer Blog',
   description: 'Welcome! This is my FullStack Web Developer blog',
   faviconSrc: 'static/icons/favicon.png',

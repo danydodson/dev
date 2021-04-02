@@ -6,9 +6,9 @@ module.exports = {
     browser: true
   },
   extends: [
-    'airbnb',
-    'prettier',
-    'plugin:prettier/recommended',
+    // 'airbnb',
+    // 'prettier',
+    // 'plugin:prettier/recommended',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
   ],
@@ -22,7 +22,7 @@ module.exports = {
   },
   plugins: [
     'react',
-    'prettier',
+    // 'prettier',
     'react-hooks'
   ],
   rules: {
@@ -43,7 +43,6 @@ module.exports = {
     'react/no-deprecated': 0,
     'react/forbid-prop-types':0,
     'react/require-default-props':0,
-    '':0,
     'react/react-in-jsx-scope': 0,
     'react/jsx-props-no-spreading': 0,
     'react/jsx-pascal-case': 0,

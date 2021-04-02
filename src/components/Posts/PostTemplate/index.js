@@ -14,7 +14,7 @@ import Layout from '../../Layout'
 import Hr from '../../Hr'
 import Profile from '../../Profile'
 import SEO from '../../SEO'
-import { FacebookComments, DisqusComments, UtterancesComments } from '../../Comments'
+import { FacebookComments, UtterancesComments } from '../../Comments'
 import ToggleMode from '../../Layout/ToggleMode'
 import { theme } from '../../Shared/styles-global'
 import LinkEdgePosts from '../../LinkEdgePosts'
@@ -53,7 +53,7 @@ class PostTemplate extends React.Component {
     }
   }
 
-  registerUtterancesComments = (repo) => {
+  registerUtterancesComments = repo => {
     // Register utterances if it exists
     if (this.utterancesRef.current) {
       const script = document.createElement('script')
@@ -78,7 +78,7 @@ class PostTemplate extends React.Component {
     script.defer = true
     script.crossOrigin = 'anonymous'
     // Set as state to unmount script
-    this.setState({ script: script })
+    this.setState({ script })
     document.body.appendChild(script)
     window.fbAsyncInit = function () {
       window.FB.init({
@@ -144,7 +144,7 @@ class PostTemplate extends React.Component {
   moveAnchorHeadings = () => {
     const target = '.anchor-heading'
     const anchors = Array.from(document.querySelectorAll(target))
-    anchors.forEach((anchor) => {
+    anchors.forEach(anchor => {
       anchor.parentNode.appendChild(anchor)
       anchor.classList.add('after')
       anchor.classList.remove('before')
@@ -152,10 +152,10 @@ class PostTemplate extends React.Component {
   }
 
   // Toggle loading for changing copy texts
-  toggleLoading = (text) => {
-    this.setState((prevState) => {
+  toggleLoading = text => {
+    this.setState(prevState => {
       const updatedTexts = [...prevState.texts]
-      updatedTexts.forEach((t) => {
+      updatedTexts.forEach(t => {
         if (t.id === text.id) {
           t.loadingChange = !t.loadingChange
         }
@@ -168,7 +168,7 @@ class PostTemplate extends React.Component {
 
   render() {
     const post = this.props.data.mdx
-    const isAboutPage = post.fields.slug.includes('/about')
+    const isAboutPage = post.fields.slug.includes('/pages/about')
 
     // Customize markdown component
     const mdxComponents = {
@@ -201,7 +201,7 @@ class PostTemplate extends React.Component {
     }
 
     return (
-      <Layout showTitle={true} isPostTemplate>
+      <Layout showTitle isPostTemplate>
         <SEO title={post.frontmatter.title} description={post.excerpt} />
         <div className='switch-container' style={{ textAlign: 'end', margin: '0 1.1rem' }}>
           <ToggleMode />
@@ -267,12 +267,7 @@ class PostTemplate extends React.Component {
             <Hr widthInPercent='97' verticalMargin='0.8rem' />
 
             {comments.facebook.enabled && <FacebookComments location={this.state.location} reload={this.registerFacebookComments} />}
-            {/* {comments.disqus.enabled && comments.disqus.shortName && (
-              <DisqusComments
-                shortName={comments.disqus.shortName}
-                location={this.state.location}
-              />
-            )} */}
+
             {comments.utterances.enabled && comments.utterances.repoUrl && <UtterancesComments innerRef={this.utterancesRef} />}
           </>
         )}

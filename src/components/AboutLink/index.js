@@ -8,7 +8,7 @@ const AboutLink = () => (
     {enabled ? (
       <StyledMainCardName className='main-card-name'>
         <h2>
-          <Link to='/about'>{author}</Link>
+          <Link to='/pages/about'>{author}</Link>
         </h2>
       </StyledMainCardName>
     ) : (
