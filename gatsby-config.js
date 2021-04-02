@@ -154,8 +154,18 @@ module.exports = {
         theme_color: siteConfig.themeColor,
         icon: siteConfig.faviconSrc,
         icons: [
-          { src: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png', },
-          { src: '/icons/icon-512x512.png', sizes: '512x512', type: 'image/png', },
+          {
+            src: '/icons/maskable-icon-192x192.png',
+            sizes: '192x192',
+            type: 'image/png',
+            purpose: 'any maskable'
+          },
+          {
+            src: '/icons/maskable-icon-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'any maskable'
+          },
         ],
       },
     },

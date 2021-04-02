@@ -3,8 +3,7 @@ import styled from "styled-components"
 import MediaLink from "./MediaLink"
 import { socialMediaLinks } from "../../../data/site-config"
 
-const MediaLinks = () => {
-  return (
+const MediaLinks = () => (
     <StyledMediaLinks>
       <MediaLink
         accountInfo={socialMediaLinks.email.emailAddress}
@@ -43,7 +42,6 @@ const MediaLinks = () => {
       />
     </StyledMediaLinks>
   )
-}
 
 export default MediaLinks
 
@@ -55,6 +53,7 @@ const StyledMediaLinks = styled.div`
   a {
     color: steelblue;
     margin: 0 0.2rem;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    /* font-size: 0.8rem; */
   }
 `
