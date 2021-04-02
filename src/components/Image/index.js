@@ -29,8 +29,6 @@ const Image = (props) => {
     return null
   }
 
-  console.log(image.node.childImageSharp.gatsbyImageData)
-
   return (
     <GatsbyImage
       image={image.node.childImageSharp.gatsbyImageData}

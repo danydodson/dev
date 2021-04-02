@@ -68,7 +68,7 @@ const siteConfig = {
     },
     utterances: {
       enabled: true,
-      repoUrl: 'danydodson/danys-art'
+      repoUrl: 'danydodson/dev'
     }
   },
 
