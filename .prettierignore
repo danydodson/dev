@@ -5,6 +5,7 @@
 **/public
 **/static
 **/content
+**/.eslintrc.js
 **/package-lock.json
 **/package.json
 **/yarn.lock

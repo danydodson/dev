@@ -16,7 +16,7 @@ const rss = {
     feeds: [
       {
         serialize: ({ query: { site, allMarkdownRemark } }) =>
-          allMarkdownRemark.edges.map((edge) => ({
+          allMarkdownRemark.edges.map(edge => ({
             ...edge.node.frontmatter,
             description: edge.node.excerpt,
             date: edge.node.frontmatter.date,

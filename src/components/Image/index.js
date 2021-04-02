@@ -12,7 +12,7 @@ const Image = () => {
             relativePath
             name
             childImageSharp {
-              gatsbyImageData(height: 300)
+              gatsbyImageData(height: 400)
             }
           }
         }
@@ -20,11 +20,13 @@ const Image = () => {
     }
   `)
 
-  const image = data.images.edges.find((n) => n.node.relativePath.includes(siteConfig.profileImageName))
+  const image = data.images.edges.find(n => n.node.relativePath.includes(siteConfig.profileImageName))
 
   if (!image) {
     return null
   }
+
+  // console.log(image.node.childImageSharp.gatsbyImageData)
 
   return <GatsbyImage image={image.node.childImageSharp.gatsbyImageData} className='img-profile' alt='profile-picture' />
 }

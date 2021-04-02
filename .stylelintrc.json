@@ -5,6 +5,8 @@
     "stylelint-config-sass-guidelines"
   ],
   "rules": {
+    "rule-empty-line-before": false,
+    "order/properties-alphabetical-order": false,
     "number-leading-zero": null,
     "color-no-invalid-hex": true,
     "block-no-empty": null,
