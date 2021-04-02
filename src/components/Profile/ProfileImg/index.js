@@ -11,14 +11,14 @@ const ProfileImage = ({ home }) => {
           <StyledInner className='profile-image-inner'>
             <StyledInnerInner className='profile-image-inner-inner' />
           </StyledInner>
-          <Image objectFit='cover' objectPosition='50% 50%' alt='profileImage' />
+          <Image src='cards/card-630x630.webp' objectFit='cover' objectPosition='50% 50%' alt='profileImage' />
         </StyledImageHome>
       ) : (
         <StyledImage className='profile-image'>
           <StyledInner className='profile-image-inner'>
             <StyledInnerInner className='profile-image-inner-inner' />
           </StyledInner>
-          <Image objectFit='cover' objectPosition='50% 50%' alt='profileImage' />
+          <Image src='cards/card-630x630.webp' objectFit='cover' objectPosition='50% 50%' alt='profileImage' />
         </StyledImage>
       )}
     </>

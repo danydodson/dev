@@ -26,5 +26,4 @@ jobs:
         with:
           path: '.'
           key: ${{ github.sha }}
-      - run: yarn pretty:js
       - run: yarn pretty:styles

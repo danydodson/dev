@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 import siteConfig from '../../../data/site-config'
 import RSS from '../../../static/svgs/rss.svg'
-import { setThemeVars } from '../../util/theme-helper'
+import { setThemeVars } from '../../utilities/theme-helper'
 
 const Footer = () => {
   return (

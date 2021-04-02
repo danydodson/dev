@@ -1,18 +1,20 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import siteConfig from '../../../data/site-config'
 
-const Image = () => {
+const Image = ({ src, ...props }) => {
+
   const data = useStaticQuery(graphql`
     query {
-      images: allFile {
+      allFile(filter: {internal: {mediaType: {regex: "/"}}}) {
         edges {
           node {
             relativePath
             name
+            ext
             childImageSharp {
-              gatsbyImageData(height: 400)
+              gatsbyImageData
             }
           }
         }
@@ -20,15 +22,23 @@ const Image = () => {
     }
   `)
 
-  const image = data.images.edges.find(n => n.node.relativePath.includes(siteConfig.profileImageName))
+  const match = useMemo(() => (
+    data.allFile.edges.find(({ node }) => src === node.relativePath)
+  ), [data, src])
 
+  const image = match.node.childImageSharp.gatsbyImageData
+  
   if (!image) {
     return null
   }
-
-  // console.log(image.node.childImageSharp.gatsbyImageData)
-
-  return <GatsbyImage image={image.node.childImageSharp.gatsbyImageData} className='img-profile' alt='profile-picture' />
+  
+  return (
+    <GatsbyImage
+      image={image}
+      className='img-profile'
+      {...props}
+    />
+  )
 }
 
 export default Image

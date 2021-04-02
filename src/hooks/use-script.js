@@ -1,20 +1,21 @@
-import { useEffect } from 'react'
+// import { useEffect } from 'react'
 
-const useScript = (url) => {
-  useEffect(() => {
-    const script = document.createElement('script')
+// const useScript = (url) => {
 
-    script.src = url
-    script.async = true
-    script.defer = true
-    script.crossOrigin = 'anonymous'
+//   useEffect(() => {
+//     const script = document.createElement('script')
 
-    document.body.appendChild(script)
+//     script.src = url
+//     script.async = true
+//     script.defer = true
+//     script.crossOrigin = 'anonymous'
 
-    return () => {
-      document.body.removeChild(script)
-    }
-  }, [url])
-}
+//     document.body.appendChild(script)
 
-export default useScript
+//     return () => {
+//       document.body.removeChild(script)
+//     }
+//   }, [url])
+// }
+
+// export default useScript

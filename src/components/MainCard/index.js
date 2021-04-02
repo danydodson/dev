@@ -9,11 +9,21 @@ import { isMobile } from 'react-device-detect'
 import { TAG } from '../../constants'
 
 class MainCard extends Component {
-  state = {
-    selectedTag: TAG.ALL,
-    filteredPosts: [],
-    tags: []
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      selectedTag: TAG.ALL,
+      filteredPosts: [],
+      tags: []
+    }
   }
+
+  // state = {
+  //   selectedTag: TAG.ALL,
+  //   filteredPosts: [],
+  //   tags: []
+  // }
 
   componentDidMount() {
     // Get current viewing tag from storage

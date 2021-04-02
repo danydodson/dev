@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-pascal-case */
 import React, { useState, useEffect } from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
@@ -8,6 +7,7 @@ import MainCard from '../components/MainCard'
 const loadsPer = 15
 
 const IndexPage = ({ data }) => {
+
   const [loaded, setLoaded] = useState(undefined)
   const posts = data.allMdx.edges
 
@@ -60,8 +60,15 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "MM/DD/YYYY")
             title
+            cover {
+              childrenImageSharp {
+                gatsbyImageData(
+                  aspectRatio: 1.3
+                )
+              }
+            }
+            date(formatString: "MM/DD/YYYY")
             tags
             excerpt
             draft

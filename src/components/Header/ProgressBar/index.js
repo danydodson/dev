@@ -16,7 +16,7 @@ const ProgressBar = () => {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop
     const height = document.documentElement.scrollHeight - document.documentElement.clientHeight
     const scrolled = (winScroll / height) * 100
-    barRef.current.style.width = scrolled + '%'
+    barRef.current.style.width = `${scrolled}%`
   }
 
   return (

@@ -1,21 +1,29 @@
 const siteConfig = {
+
   /* Site
   ========================================= */
   title: 'Dany Dodson',
   siteUrl: 'https://danydodson-dev.netlify.app',
-  // siteUrl: 'https://danydodson.dev',
   titleAlt: 'Full Stack Developer Blog',
   description: 'Welcome! This is my FullStack Web Developer blog',
   faviconSrc: 'static/icons/favicon.png',
 
   /* PWA
   ========================================= */
-  startUrl: '/',
   titleShort: 'dany',
+  startUrl: '/',
   siteLogo: 'static/cards/card-1200x630.webp',
   siteLogoAlt: 'static/cards/card-1200x630.webp',
   bgColor: '#e0e0e0',
   themeColor: '#c62828',
+
+  /* Profile
+  ========================================= */
+  author: 'Dany Dodson',
+  location: 'Evansville, IN',
+  profileImageName: 'static/cards/card-630x630.webp',
+  profileDescription: '{ Full Stack Developer }',
+  footerLink: 'about',
 
   /* UI
   ========================================= */
@@ -25,15 +33,7 @@ const siteConfig = {
   showScrollbar: 'none',
   defaultTheme: 'light',
   breakCodeLines: false,
-  showTimeToRead: false,
-
-  /* Profile
-  ========================================= */
-  author: 'Dany Dodson',
-  profileDescription: '{ Full Stack Developer }',
-  profileImageName: 'profile.webp',
-  location: 'Evansville, IN',
-  footerLink: 'about',
+  showTimeToRead: true,
 
   /* Social Media Links
   ========================================= */
@@ -41,13 +41,13 @@ const siteConfig = {
     github: { accountName: 'danydodson', showHeaderIcon: true },
     devto: { accountName: 'danydodson', showHeaderIcon: false },
     codepen: { accountName: 'danydodson', showHeaderIcon: true },
-    hashnode: { accountName: 'dany', showHeaderIcon: false },
     facebook: { accountName: 'danydodson', showHeaderIcon: false },
     instagram: { accountName: 'ugly_casanova', showHeaderIcon: false },
     twitter: { accountName: 'dany_dodson', showHeaderIcon: false },
-    linkedIn: { accountName: 'in/danydodson', showHeaderIcon: false },
     email: { emailAddress: 'hello@danydodson.dev', showHeaderIcon: true },
-    medium: { accountName: 'danydodson', showHeaderIcon: false }
+    hashnode: { accountName: 'dany', showHeaderIcon: false },
+    linkedIn: { accountName: 'in/danydodson', showHeaderIcon: false },
+    medium: { accountName: 'danydodson', showHeaderIcon: false },
   },
 
   /* Share Buttons
@@ -63,10 +63,6 @@ const siteConfig = {
   /* Comments
   ========================================= */
   comments: {
-    facebook: {
-      enabled: false,
-      appId: process.env.FB_APP_ID
-    },
     utterances: {
       enabled: true,
       repoUrl: 'danydodson/dev'

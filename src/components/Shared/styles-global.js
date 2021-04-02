@@ -1,22 +1,26 @@
 import { createGlobalStyle, keyframes } from 'styled-components'
 import { isMobile } from 'react-device-detect'
-import { setThemeVars } from '../../util/theme-helper'
+import { setThemeVars } from '../../utilities/theme-helper'
 import siteConfig from '../../../data/site-config'
 import styleConfig from '../../../data/style-config'
 
 const globalVar = {
   primaryColor: '#fff',
   secondaryColor: '#333',
+
   bgColorLight: styleConfig.bgColorLight,
   bgColorDark: styleConfig.bgColorDark,
   bgSubColorLight: styleConfig.bgSubColorLight,
   bgSubColorDark: styleConfig.bgSubColorDark,
+
   headerColorLight: styleConfig.headerColorLight,
   headerColorDark: styleConfig.headerColorDark,
+
   fontColorLight: styleConfig.fontColorLight,
   fontSubColorLight: styleConfig.fontSubColorLight,
   fontColorDark: styleConfig.fontColorDark,
   fontSubColorDark: styleConfig.fontSubColorDark,
+
   darkColor: '#333',
   midColor: '#444',
   darkerColor: '#2c2c39',
@@ -24,7 +28,8 @@ const globalVar = {
   lightGreyColor: '#eee',
   midGreyColor: '#ccc',
   mintColor: '#bfe2ca',
-  maxWidthSite: siteConfig.maxWidth,
+
+  maxWidthSite: `${siteConfig.maxWidth}px`,
 
   // @mixin disable-selection()
   disableSelection: `-webkit-touch-callout: none;
@@ -45,9 +50,9 @@ let profileHomeBorder = () => setThemeVars('#ddd', '#333')
 if (isMobile) profileHomeBorder = 'transparent'
 
 const glowing = keyframes`
-    0% { background-position: 0 0; }
-    50% { background-position: 400% 0; }
-    100% { background-position: 0 0; }
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
 `
 
 const foregroundColor = () => setThemeVars(theme.fontColorLight, theme.fontColorDark)

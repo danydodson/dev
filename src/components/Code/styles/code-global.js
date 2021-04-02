@@ -1,6 +1,6 @@
 /* Code block stylings based on main theme */
 import { createGlobalStyle } from 'styled-components'
-import { setThemeVars } from '../../../util/theme-helper'
+import { setThemeVars } from '../../../utilities/theme-helper'
 import siteConfig from '../../../../data/site-config'
 import styleConfig from '../../../../data/style-config'
 

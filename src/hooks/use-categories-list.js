@@ -1,7 +1,7 @@
-// // @flow strict
-// import { useStaticQuery, graphql } from 'gatsby';
+// import { useStaticQuery, graphql } from 'gatsby'
 
-// const useCategoriesList = () => {
+// const UseCategoriesList = () => {
+
 //   const { allMarkdownRemark } = useStaticQuery(
 //     graphql`
 //       query CategoriesListQuery {
@@ -15,9 +15,9 @@
 //         }
 //       }
 //     `
-//   );
+//   )
 
-//   return allMarkdownRemark.group;
-// };
+//   return allMarkdownRemark.group
+// }
 
-// export default useCategoriesList;
+// export default UseCategoriesList

@@ -5,13 +5,41 @@ import { socialMediaLinks } from '../../../data/site-config'
 
 const MediaLinks = () => (
   <StyledMediaLinks>
-    <MediaLink accountInfo={socialMediaLinks.email.emailAddress} mediaName='Email' preHref='mailto:' />
-    <MediaLink accountInfo={socialMediaLinks.github.accountName} mediaName='GitHub' preHref='https://github.com/' />
-    <MediaLink accountInfo={socialMediaLinks.facebook.accountName} mediaName='Facebook' preHref='https://www.facebook.com/' />
-    <MediaLink accountInfo={socialMediaLinks.instagram.accountName} mediaName='Instagram' preHref='https://instagram.com/' />
-    <MediaLink accountInfo={socialMediaLinks.twitter.accountName} mediaName='Twitter' preHref='https://twitter.com/' />
-    <MediaLink accountInfo={socialMediaLinks.linkedIn.accountName} mediaName='LinkedIn' preHref='https://linkedin.com/' />
-    <MediaLink accountInfo={socialMediaLinks.medium.accountName} mediaName='Medium' preHref='https://medium.com/@' />
+    <MediaLink
+      accountInfo={socialMediaLinks.email.emailAddress}
+      mediaName='Email'
+      preHref='mailto:'
+    />
+    <MediaLink
+      accountInfo={socialMediaLinks.github.accountName}
+      mediaName='GitHu
+    b'
+      preHref='https://github.com/' />
+    <MediaLink
+      accountInfo={socialMediaLinks.facebook.accountName}
+      mediaName='Facebook'
+      preHref='https://www.facebook.com/'
+    />
+    <MediaLink
+      accountInfo={socialMediaLinks.instagram.accountName}
+      mediaName='Instagram'
+      preHref='https://instagram.com/'
+    />
+    <MediaLink
+      accountInfo={socialMediaLinks.twitter.accountName}
+      mediaName='Twitter'
+      preHref='https://twitter.com/'
+    />
+    <MediaLink
+      accountInfo={socialMediaLinks.linkedIn.accountName}
+      mediaName='LinkedIn'
+      preHref='https://linkedin.com/'
+    />
+    <MediaLink
+      accountInfo={socialMediaLinks.medium.accountName}
+      mediaName='Medium'
+      preHref='https://medium.com/@'
+    />
   </StyledMediaLinks>
 )
 

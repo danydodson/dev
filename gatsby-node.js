@@ -5,6 +5,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `Mdx`) {
+
     const slug = createFilePath({
       node,
       getNode,
@@ -21,7 +22,8 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions
-  const postTemplate = path.resolve('src/components/Posts/PostTemplate/index.js')
+
+  const postTemplate = path.resolve('src/templates/posts.js')
 
   return graphql(`
     {
@@ -33,6 +35,11 @@ exports.createPages = async ({ actions, graphql }) => {
             }
             frontmatter {
               title
+              cover {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
               date
               tags
               draft
@@ -43,6 +50,7 @@ exports.createPages = async ({ actions, graphql }) => {
       }
     }
   `).then(result => {
+
     if (result.errors) {
       console.error(result.errors)
       return Promise.reject(result.errors)
@@ -50,22 +58,22 @@ exports.createPages = async ({ actions, graphql }) => {
 
     console.log(JSON.stringify(result, null, 4))
 
-    // Create pages & register paths
     const { edges } = result.data.allMdx
+
     return edges.forEach((edge, i) => {
       const { node } = edge
 
-      const prev = getPrevAvailableNode(edges, i + 1)
       const next = getNextAvailableNode(edges, i - 1)
+      const prev = getPrevAvailableNode(edges, i + 1)
 
-      if (node.fields.slug !== '/posts/__do-not-remove/') {
+      if (node.fields.slug !== '/__do-not-remove/') {
         createPage({
           path: node.fields.slug,
           component: postTemplate,
           context: {
             slug: node.fields.slug,
+            next,
             prev,
-            next
           }
         })
       }
@@ -102,5 +110,8 @@ const getNextAvailableNode = (edges, index) => {
 const skipNode = node => isAboutPage(node) || isDraft(node) || isDummy(node)
 
 const isDraft = node => node.frontmatter.draft === true
-const isAboutPage = node => node.fields.slug === '/about/'
+
+const isAboutPage = node => node.fields.slug === '/pages/about/'
+
 const isDummy = node => node.frontmatter.tags && node.frontmatter.tags.includes('___dummy*')
+

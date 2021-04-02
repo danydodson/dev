@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons'
 
 class ScrollTopButton extends Component {
+
   _isMounted = false
   state = {
     intervalId: 0,
@@ -43,6 +44,7 @@ class ScrollTopButton extends Component {
   }
 
   render() {
+
     return this.state.show ? (
       <StyledButton
         className='btn-scroll-top'
@@ -50,7 +52,11 @@ class ScrollTopButton extends Component {
           this.scrollToTop()
         }}
       >
-        <FontAwesomeIcon className='icon-chevron' icon={faAngleUp} size='3x' />
+        <FontAwesomeIcon
+          className='icon-chevron'
+          icon={faAngleUp}
+          size='3x'
+        />
       </StyledButton>
     ) : null
   }

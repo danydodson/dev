@@ -1,7 +1,7 @@
-// // @flow strict
-// import { useStaticQuery, graphql } from 'gatsby';
+// import { useStaticQuery, graphql } from 'gatsby'
 
 // const useTagsList = () => {
+  
 //   const { allMarkdownRemark } = useStaticQuery(
 //     graphql`
 //       query TagsListQuery {
@@ -15,9 +15,9 @@
 //         }
 //       }
 //     `
-//   );
+//   )
 
-//   return allMarkdownRemark.group;
-// };
+//   return allMarkdownRemark.group
+// }
 
-// export default useTagsList;
+// export default useTagsList

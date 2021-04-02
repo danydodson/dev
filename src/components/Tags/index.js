@@ -7,6 +7,7 @@ import { faHandPointer } from '@fortawesome/free-solid-svg-icons'
 import { TAG } from '../../constants'
 
 class Tags extends React.Component {
+  
   constructor(props) {
     super(props)
     this.tagRef = React.createRef()

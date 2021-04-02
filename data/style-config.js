@@ -1,9 +1,7 @@
-/* Customization Guide available on:
-  https://gatsby-blog-mdx.now.sh/2020/05/4-customize/
-  ======================================== */
-
-// You can use color picker: https://www.color-hex.com/
+/* Customization Guide available on: https://gatsby-blog-mdx.now.sh/2020/05/4-customize/
+   ======================================== */
 const styleConfig = {
+
   /* Fonts
     ========================================= */
   fontMain: `'IBM Plex Sans'`, // Main Font

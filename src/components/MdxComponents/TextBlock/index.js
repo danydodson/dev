@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { theme } from '../../Shared/styles-global'
-import { setThemeVars } from '../../../util/theme-helper'
+import { setThemeVars } from '../../../utilities/theme-helper'
 // Icons
 import Warning from '../../../../static/svgs/warning.svg'
 import Success from '../../../../static/svgs/success.svg'

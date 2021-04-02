@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import ArrowDown from '../../../../static/svgs/arrow-down.svg'
 import Button from '../../Button'
-import { setThemeVars } from '../../../util/theme-helper'
+import { setThemeVars } from '../../../utilities/theme-helper'
 import { theme } from '../../Shared/styles-global'
 
 let sizeType = 'rem'

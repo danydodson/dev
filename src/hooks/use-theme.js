@@ -4,6 +4,7 @@ import siteConfig from '../../data/site-config'
 import { theme as globalTheme } from '../components/Shared/styles-global'
 
 function UseTheme(defaultTheme = { mode: siteConfig.defaultTheme }) {
+
   const [theme, _setTheme] = useState(getInitialTheme)
 
   // Get theme from local storage

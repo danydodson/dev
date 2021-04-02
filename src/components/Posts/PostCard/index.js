@@ -1,26 +1,42 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
-import { setThemeVars } from '../../../util/theme-helper'
-import { theme } from '../../Shared/styles-global'
-import siteConfig from '../../../../data/site-config'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock } from '@fortawesome/free-solid-svg-icons'
+import { setThemeVars } from '../../../utilities/theme-helper'
+import { theme } from '../../Shared/styles-global'
+import siteConfig from '../../../../data/site-config'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
-const PostCard = ({ id, title, date, path, excerpt, timeToRead }) => {
+const PostCard = ({ id, title, cover, date, path, excerpt, timeToRead }) => {
+
+  const image = cover.childrenImageSharp[0].gatsbyImageData
+
   return (
     <>
       <Link to={path}>
+
+        <GatsbyImage
+          image={image}
+          alt='postImage'
+          // objectFit='cover'
+          // objectPosition='50% 50%'
+        />
+
         <StyledPostCard key={id}>
           <h3>{title}</h3>
+
           {siteConfig.showTimeToRead && (
             <span>
               <FontAwesomeIcon className='icon-clock' icon={faClock} size='xs' />
               {timeToRead} minute read
             </span>
           )}
+
           <p>{excerpt}</p>
+
         </StyledPostCard>
+
       </Link>
     </>
   )

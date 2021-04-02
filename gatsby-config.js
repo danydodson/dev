@@ -1,22 +1,51 @@
 const siteConfig = require('./data/site-config')
-const rss = require('./data/gatsby-rss')
+const rss = require('./data/rss')
 
 module.exports = {
+  /* SiteMetadata
+  ===================================== */
   siteMetadata: siteConfig,
-  plugins: [
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sitemap`,
-    `gatsby-plugin-styled-components`,
-    `gatsby-plugin-catch-links`,
-    `gatsby-plugin-offline`,
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-image',
-    `gatsby-plugin-sharp`,
-    `gatsby-plugin-sass`,
-    `gatsby-remark-emoji`, // Emoji list: https://emojipedia.org/joypixels/
-    rss,
 
-    // Read markdown/mdx files
+  plugins: [
+    /* Manages document head data
+    ===================================== */
+    `gatsby-plugin-react-helmet`,
+
+    /* Automatically creates a sitemap
+    ===================================== */
+    `gatsby-plugin-sitemap`,
+
+    /* Support for styled components
+    ===================================== */
+    `gatsby-plugin-styled-components`,
+
+    /* Avoids the browser having to refresh 
+    the whole page when navigating local pages
+    ===================================== */
+    `gatsby-plugin-catch-links`,
+
+    /* Support for making site work offline
+    ===================================== */
+    `gatsby-plugin-offline`,
+
+    /* Processes images in markdown
+    ===================================== */
+    'gatsby-plugin-image',
+
+    /* For image processing functions
+    ===================================== */
+    `gatsby-plugin-sharp`,
+
+    /* Handles Scss/Sass files
+    ===================================== */
+    `gatsby-plugin-sass`,
+
+    /* Slack-style emojis in markdown
+    ===================================== */
+    `gatsby-remark-emoji`,
+
+    /* Read markdown/mdx post files
+    ===================================== */
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -25,7 +54,8 @@ module.exports = {
       }
     },
 
-    // Read images
+    /* Get static files
+    ===================================== */
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -34,22 +64,26 @@ module.exports = {
       }
     },
 
-    // ???
+    /* ???
+    ===================================== */
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: `dummy`,
-        path: `${__dirname}/src/z_`
+        path: `${__dirname}/src/dummy`
       }
     },
 
-    // mdx support
+    /* MDX support
+    ===================================== */
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],
         gatsbyRemarkPlugins: [
-          // Adding title to code blocks. Usage: ```js:title=example.js
+
+          /* Adding title to code blocks. Usage: ```js:title=example.js
+          ============================================================ */
           {
             resolve: 'gatsby-remark-code-titles',
             options: {
@@ -57,7 +91,8 @@ module.exports = {
             }
           },
 
-          // Process images in markdown
+          /* Process images in markdown
+          ===================================== */
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -67,6 +102,8 @@ module.exports = {
             }
           },
 
+          /* Adds github-style hover links to headers in markdown files
+          ============================================================= */
           {
             resolve: `gatsby-remark-autolink-headers`,
             options: {
@@ -74,6 +111,8 @@ module.exports = {
             }
           },
 
+          /* Copies local files linked to/from md files to the root dir (i.e., public folder)
+          =================================================================================== */
           {
             resolve: `gatsby-remark-copy-linked-files`,
             options: {
@@ -85,7 +124,8 @@ module.exports = {
       }
     },
 
-    // Using svg as component
+    /* Adds svg-react-loader to gatsby webpack config
+    ================================================== */
     {
       resolve: 'gatsby-plugin-react-svg',
       options: {
@@ -95,14 +135,19 @@ module.exports = {
       }
     },
 
-    // {
-    //   resolve: `gatsby-transformer-sharp`,
-    //   options: {
-    //     // Removes warnings trying to use non-gatsby image in markdown
-    //     checkSupportedExtensions: false,
-    //   },
-    // },
+    {
+      /* Creates ImageSharp nodes from image
+      ======================================= */
+      resolve: `gatsby-transformer-sharp`,
+      options: {
+        /* Removes warnings trying to use non-gatsby image in markdown
+        =============================================================== */
+        checkSupportedExtensions: false,
+      },
+    },
 
+    /* Adds google analytics
+    =========================================== */
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
@@ -110,13 +155,20 @@ module.exports = {
       }
     },
 
+    /* Parses Markdown files using Remark
+    ====================================== */
     {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+
+          /* Convert image src(s) in markdown/html/frontmatter 
+          to be relative to their node's parent directory
+          ==================================================== */
           {
             resolve: `gatsby-remark-relative-images`
           },
+
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -125,23 +177,37 @@ module.exports = {
               linkImagesToOriginal: false
             }
           },
+
+          /* Wraps iframes or objects (e.g. embedded YouTube videos)
+          within markdown files in a responsive elastic container with a fixed aspect ratio
+          ================================================================================== */
           {
             resolve: 'gatsby-remark-responsive-iframe'
           },
-          // Somehow need to be defined under both gatsby-plugin-mdx & gatsby-transformer-remark to work
+
+          /* Somehow need to be defined under both 
+          gatsby-plugin-mdx & gatsby-transformer-remark to work
+          ===================================================== */
           {
             resolve: `gatsby-remark-autolink-headers`,
             options: {
               className: `anchor-heading`
             }
           },
+
+          /* Copies local files linked to/from md files to the root dir (i.e., public folder)
+          =================================================================================== */
           'gatsby-remark-copy-linked-files',
+
+          /* Adds syntax highlighting to code blocks
+          ===================================== */
           'gatsby-remark-prismjs'
         ]
       }
     },
 
-    //
+    /* Web app manifest
+    ===================================== */
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -155,31 +221,37 @@ module.exports = {
         icon: siteConfig.faviconSrc,
         icons: [
           {
-            src: '/icons/maskable-icon-192x192.png',
+            src: 'icons/maskable-icon-192x192.png',
             sizes: '192x192',
             type: 'image/png',
             purpose: 'any maskable'
           },
           {
-            src: '/icons/maskable-icon-512x512.png',
+            src: 'icons/maskable-icon-512x512.png',
             sizes: '512x512',
             type: 'image/png',
             purpose: 'any maskable'
           }
         ],
+
+        /* Images used by pwa stores
+        ========================================= */
         screenshots: [
           {
-            src: '/snaps/snap-1.png',
+            src: 'images/home-1.png',
             type: 'image/png',
             sizes: '540x720'
           },
           {
-            src: '/snaps/snap-2.jpg',
+            src: 'images/home-2.jpg',
             type: 'image/jpg',
             sizes: '540x720'
           }
         ]
       }
-    }
+    },
+    /* RSS feed
+    ========================================= */
+    rss,
   ]
 }

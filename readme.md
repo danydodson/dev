@@ -1,5 +1,5 @@
 <div align='center' style='margin-bottom:20px; border-top: 1px solid lightgray; border-bottom: 1px solid lightgray;'>
-  <img src='static/media/card-1200x630.webp' alt='Logo' width='100%'/>
+  <img src='static/cards/card-1200x630.webp' alt='Logo' width='100%'/>
 </div> 
 
 ![https://github.com/danydodson/dev](https://img.shields.io/github/v/tag/danydodson/dev)
@@ -117,4 +117,4 @@ For NetlifyCMS specific issues visit the [official documentation](https://www.ne
 
 ## Author
 
-Ruben Harutyunyan ([@danydodson](https://twitter.com/danydodson))
+Dany Dodson ([@danydodson](https://twitter.com/danydodson))
