@@ -145,12 +145,12 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: siteConfig.siteTitle,
-        short_name: siteConfig.siteTitleShort,
-        description: siteConfig.siteDescription,
-        start_url: siteConfig.pathPrefix,
+        name: siteConfig.title,
+        short_name: siteConfig.titleShort,
+        description: siteConfig.description,
+        start_url: siteConfig.startUrl,
         display: 'minimal-ui',
-        background_color: siteConfig.backgroundColor,
+        background_color: siteConfig.bgColor,
         theme_color: siteConfig.themeColor,
         icon: siteConfig.faviconSrc,
         icons: [

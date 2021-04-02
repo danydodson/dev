@@ -10,10 +10,11 @@ const siteConfig = {
   
   /* PWA
   ========================================= */
+  startUrl: '/',
   titleShort: 'dany',
   siteLogo: 'static/cards/card-1200x630.webp',
   siteLogoAlt: 'static/cards/card-1200x630.webp',
-  bgColor: 'e0e0e0',
+  bgColor: '#e0e0e0',
   themeColor: '#c62828',
   
   /* UI
