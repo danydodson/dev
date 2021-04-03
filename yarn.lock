@@ -1044,6 +1044,38 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
+"@datadog/browser-core@2.6.2":
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/@datadog/browser-core/-/browser-core-2.6.2.tgz#e1381be95f38d4f6fdd5fb8c6c5ff3bc4942372e"
+  integrity sha512-ap7moHk9UuYQWSvmwLFJpyQ9QAUA4n9QHUJhn6H7bSz5QtHFTjgIxnE4ViwwolmaZteHoNtKQSTSM/T8mEHPuA==
+  dependencies:
+    tslib "^1.10.0"
+
+"@datadog/browser-logs@latest":
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/@datadog/browser-logs/-/browser-logs-2.6.2.tgz#17eab13bae5b5c6ffaccc7c8a96b65458d92f2f4"
+  integrity sha512-AbcgpNCgnI2pL7/b/E0NgMdsJM8pLfcAQK6rAzx1ODFGaNE+eul0gyYxb5+SZeXvnBQ3d6b5f3AHPS+b1vlCQA==
+  dependencies:
+    "@datadog/browser-core" "2.6.2"
+    tslib "^1.10.0"
+
+"@datadog/browser-rum-core@2.6.2":
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/@datadog/browser-rum-core/-/browser-rum-core-2.6.2.tgz#c1069cd0b815695be6ca3fe28e698ec6483cba9c"
+  integrity sha512-Ws47kXFUDUGln76qsu+hkTcLr5RLmmYqfRymY5H6We5Ov86fQ2p4oryRokc6WgV50oLAxicUf4Ojt7MhcPFdeg==
+  dependencies:
+    "@datadog/browser-core" "2.6.2"
+    tslib "^1.10.0"
+
+"@datadog/browser-rum@latest":
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/@datadog/browser-rum/-/browser-rum-2.6.2.tgz#8fceaa3a1869876ca372f1d00b8cd69284e4740d"
+  integrity sha512-r4dzf6xVudJYHPO87wsRp9sCX1YzdruEkHt/ANLywNKFKJusb7v6Qr/NMapQSdCcDSKMlT6hFu57GMzT0wBskQ==
+  dependencies:
+    "@datadog/browser-core" "2.6.2"
+    "@datadog/browser-rum-core" "2.6.2"
+    tslib "^1.10.0"
+
 "@emotion/babel-utils@^0.6.4":
   version "0.6.10"
   resolved "https://registry.yarnpkg.com/@emotion/babel-utils/-/babel-utils-0.6.10.tgz#83dbf3dfa933fae9fc566e54fbb45f14674c6ccc"
@@ -7131,6 +7163,14 @@ gatsby-plugin-catch-links@^3.2.0:
   dependencies:
     "@babel/runtime" "^7.12.5"
     escape-string-regexp "^1.0.5"
+
+gatsby-plugin-datadog@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-datadog/-/gatsby-plugin-datadog-1.1.1.tgz#fbfd2fc3e0341db742ccf053a3453222af4f8355"
+  integrity sha512-pmXwc5i7ObMpYj+POSD24+49Myqd1O9MtNnZfN7Kf7rdjDzF2bAelBf4Jqqzl3dGWtbRzwkAkDXdECmGnX5bEw==
+  dependencies:
+    "@datadog/browser-logs" latest
+    "@datadog/browser-rum" latest
 
 gatsby-plugin-feed@^3.2.0:
   version "3.2.0"

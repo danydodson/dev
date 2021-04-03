@@ -223,6 +223,22 @@ module.exports = {
       }
     },
     {
+      resolve: "gatsby-plugin-datadog",
+      options: {
+        logs: {
+          site: siteConfig.siteUrl,
+          // site: 'datadoghq.com',
+          sampleRate: 100,
+          enabled: true,
+          clientToken: process.env.DATADOG_CLIENT_TOKEN,
+          rum: {
+            applicationId: process.env.DATADOG_APP_ID,
+            clientToken: process.env.DATADOG_CLIENT_TOKEN,
+          },
+        }
+      }
+    },
+    {
       resolve: "@sentry/gatsby",
       options: {
         dsn: process.env.SENTRY_DSN,
