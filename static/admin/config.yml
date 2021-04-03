@@ -23,10 +23,10 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Slug', name: 'slug', widget: 'string' }
       - { label: 'Cover', name: 'cover', widget: 'image' }
-      - { label: 'Draft', name: 'draft', widget: 'boolean', default: true }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Excerpt', name: 'excerpt', widget: 'text' }
       - { label: 'Category', name: 'category', widget: 'string' }
+      - { label: 'Draft', name: 'draft', widget: 'boolean', default: false }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - { label: 'Tags', name: 'tags', widget: 'list' }
 
@@ -41,5 +41,6 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Slug', name: 'slug', widget: 'string' }
       - { label: 'Cover', name: 'cover', widget: 'image' }
-      - { label: 'Draft', name: 'draft', widget: 'boolean', default: true }
+      - { label: 'Draft', name: 'draft', widget: 'boolean', default: false }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'Tags', name: 'tags', widget: 'list', required: false, default: '' }
