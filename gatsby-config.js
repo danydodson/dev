@@ -1,13 +1,11 @@
 const path = require('path')
+const feed = require('./data/feed')
 const siteConfig = require('./data/site-config')
-const sitemap = require('./data/plugin-sitemap')
-const feed = require('./data/plugin-feed')
 
 module.exports = {
   siteMetadata: siteConfig,
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sitemap`,
     `gatsby-plugin-offline`,
     'gatsby-plugin-image',
     `gatsby-plugin-sharp`,
@@ -126,6 +124,66 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        query: `{
+            site {
+              siteMetadata {
+                siteUrl: siteUrl
+              }
+            }
+            allSitePage(
+              filter: {
+                path: { regex: "/^(?!/404/|/404.html|/dev-404-page/)/" }
+              }
+            ) {
+              edges {
+                node {
+                  path
+                }
+              }
+            }
+          }
+        `,
+        output: '/sitemap.xml',
+        serialize: ({ site, allSitePage }) => allSitePage.edges.map((edge) => ({
+          url: site.siteMetadata.siteUrl + edge.node.path,
+          changefreq: 'daily',
+          priority: 0.7
+        }))
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-offline',
+      options: {
+        workboxConfig: {
+          runtimeCaching: [{
+            // Use cacheFirst since these don't need to be revalidated (same RegExp
+            // and same reason as above)
+            urlPattern: /(\.js$|\.css$|[^:]static\/)/,
+            handler: 'CacheFirst',
+          },
+          {
+            // page-data.json files, static query results and app-data.json
+            // are not content hashed
+            urlPattern: /^https?:.*\/page-data\/.*\.json/,
+            handler: 'StaleWhileRevalidate',
+          },
+          {
+            // Add runtime caching of various other page resources
+            urlPattern: /^https?:.*\.(png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/,
+            handler: 'StaleWhileRevalidate',
+          },
+          {
+            // Google Fonts CSS (doesn't end in .css so we need to specify it)
+            urlPattern: /^https?:\/\/fonts\.googleapis\.com\/css/,
+            handler: 'StaleWhileRevalidate',
+          },
+          ],
+        },
+      },
+    },
+    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: siteConfig.title,
@@ -150,9 +208,6 @@ module.exports = {
             purpose: 'any maskable'
           }
         ],
-
-        /* Images used by pwa stores
-        ============================= */
         screenshots: [
           {
             src: 'images/home-1.png',
@@ -167,16 +222,6 @@ module.exports = {
         ]
       }
     },
-    // {
-    //   resolve: 'gatsby-plugin-sass',
-    //   options: {
-    //     implementation: require('sass'),
-    //     postCssPlugins: [...postCssPlugins],
-    //     cssLoaderOptions: {
-    //       camelCase: false
-    //     }
-    //   }
-    // },
     {
       resolve: "@sentry/gatsby",
       options: {
