@@ -1,4 +1,4 @@
-const rss = {
+const feed = {
   resolve: 'gatsby-plugin-feed',
   options: {
     query: `
@@ -61,4 +61,4 @@ const rss = {
   }
 }
 
-module.exports = rss
+module.exports = feed

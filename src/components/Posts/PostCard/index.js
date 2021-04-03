@@ -16,14 +16,16 @@ const PostCard = ({ id, title, cover, date, path, excerpt, timeToRead }) => {
     <>
       <Link to={path}>
 
-        <GatsbyImage
-          image={image}
-          alt='postImage'
-          // objectFit='cover'
-          // objectPosition='50% 50%'
-        />
 
         <StyledPostCard key={id}>
+
+          <StyledImage
+            image={image}
+            alt='postImage'
+            objectFit='cover'
+            objectPosition='50% 50%'
+          />
+
           <h3>{title}</h3>
 
           {siteConfig.showTimeToRead && (
@@ -43,6 +45,10 @@ const PostCard = ({ id, title, cover, date, path, excerpt, timeToRead }) => {
 }
 
 export default PostCard
+
+const StyledImage = styled(GatsbyImage)`
+  height: 200px;
+`
 
 const StyledPostCard = styled.div`
   cursor: pointer;

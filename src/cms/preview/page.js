@@ -1,6 +1,6 @@
 import React from 'react'
 
-const PagePreview = ({ entry, widgetFor }: Props) => {
+const PagePreview = ({ entry, widgetFor }) => {
 
   const body = widgetFor('body')
   const title = entry.getIn(['data', 'title'])

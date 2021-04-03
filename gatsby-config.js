@@ -1,51 +1,21 @@
+const path = require('path')
 const siteConfig = require('./data/site-config')
-const rss = require('./data/rss')
+const sitemap = require('./data/plugin-sitemap')
+const feed = require('./data/plugin-feed')
 
 module.exports = {
-  /* SiteMetadata
-  ===================================== */
   siteMetadata: siteConfig,
-
   plugins: [
-    /* Manages document head data
-    ===================================== */
     `gatsby-plugin-react-helmet`,
-
-    /* Automatically creates a sitemap
-    ===================================== */
     `gatsby-plugin-sitemap`,
-
-    /* Support for styled components
-    ===================================== */
-    `gatsby-plugin-styled-components`,
-
-    /* Avoids the browser having to refresh 
-    the whole page when navigating local pages
-    ===================================== */
-    `gatsby-plugin-catch-links`,
-
-    /* Support for making site work offline
-    ===================================== */
     `gatsby-plugin-offline`,
-
-    /* Processes images in markdown
-    ===================================== */
     'gatsby-plugin-image',
-
-    /* For image processing functions
-    ===================================== */
     `gatsby-plugin-sharp`,
-
-    /* Handles Scss/Sass files
-    ===================================== */
     `gatsby-plugin-sass`,
-
-    /* Slack-style emojis in markdown
-    ===================================== */
+    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-catch-links`,
     `gatsby-remark-emoji`,
-
-    /* Read markdown/mdx post files
-    ===================================== */
+    feed,
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -53,9 +23,6 @@ module.exports = {
         path: `${__dirname}/content`
       }
     },
-
-    /* Get static files
-    ===================================== */
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -63,26 +30,27 @@ module.exports = {
         path: `${__dirname}/static`
       }
     },
-
-    /* MDX support
-    ===================================== */
+    {
+      resolve: 'gatsby-plugin-netlify-cms',
+      options: {
+        modulePath: path.resolve('src/cms/index.js'),
+        enableIdentityWidget: true,
+        publicPath: 'admin',
+        htmlTitle: 'Content Manager',
+        includeRobots: false,
+      },
+    },
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],
         gatsbyRemarkPlugins: [
-
-          /* Adding title to code blocks. Usage: ```js:title=example.js
-          ============================================================ */
           {
             resolve: 'gatsby-remark-code-titles',
             options: {
               className: 'code-title-custom'
             }
           },
-
-          /* Process images in markdown
-          ===================================== */
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -91,18 +59,12 @@ module.exports = {
               linkImagesToOriginal: false
             }
           },
-
-          /* Adds github-style hover links to headers in markdown files
-          ============================================================= */
           {
             resolve: `gatsby-remark-autolink-headers`,
             options: {
               className: `anchor-heading`
             }
           },
-
-          /* Copies local files linked to/from md files to the root dir (i.e., public folder)
-          =================================================================================== */
           {
             resolve: `gatsby-remark-copy-linked-files`,
             options: {
@@ -113,9 +75,6 @@ module.exports = {
         ]
       }
     },
-
-    /* Adds svg-react-loader to gatsby webpack config
-    ================================================== */
     {
       resolve: 'gatsby-plugin-react-svg',
       options: {
@@ -124,41 +83,25 @@ module.exports = {
         }
       }
     },
-
     {
-      /* Creates ImageSharp nodes from image
-      ======================================= */
       resolve: `gatsby-transformer-sharp`,
       options: {
-        /* Removes warnings trying to use non-gatsby image in markdown
-        =============================================================== */
         checkSupportedExtensions: false,
       },
     },
-
-    /* Adds google analytics
-    =========================================== */
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: siteConfig.gaTrackingId
       }
     },
-
-    /* Parses Markdown files using Remark
-    ====================================== */
     {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-
-          /* Convert image src(s) in markdown/html/frontmatter 
-          to be relative to their node's parent directory
-          ==================================================== */
           {
             resolve: `gatsby-remark-relative-images`
           },
-
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -167,37 +110,21 @@ module.exports = {
               linkImagesToOriginal: false
             }
           },
-
-          /* Wraps iframes or objects (e.g. embedded YouTube videos)
-          within markdown files in a responsive elastic container with a fixed aspect ratio
-          ================================================================================== */
           {
             resolve: 'gatsby-remark-responsive-iframe'
           },
-
-          /* Somehow need to be defined under both 
-          gatsby-plugin-mdx & gatsby-transformer-remark to work
-          ===================================================== */
           {
             resolve: `gatsby-remark-autolink-headers`,
             options: {
               className: `anchor-heading`
             }
           },
-
-          /* Copies local files linked to/from md files to the root dir (i.e., public folder)
-          =================================================================================== */
+          'gatsby-remark-smartypants',
           'gatsby-remark-copy-linked-files',
-
-          /* Adds syntax highlighting to code blocks
-          ===================================== */
           'gatsby-remark-prismjs'
         ]
       }
     },
-
-    /* Web app manifest
-    ===================================== */
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -225,7 +152,7 @@ module.exports = {
         ],
 
         /* Images used by pwa stores
-        ========================================= */
+        ============================= */
         screenshots: [
           {
             src: 'images/home-1.png',
@@ -240,8 +167,22 @@ module.exports = {
         ]
       }
     },
-    /* RSS feed
-    ========================================= */
-    rss,
+    // {
+    //   resolve: 'gatsby-plugin-sass',
+    //   options: {
+    //     implementation: require('sass'),
+    //     postCssPlugins: [...postCssPlugins],
+    //     cssLoaderOptions: {
+    //       camelCase: false
+    //     }
+    //   }
+    // },
+    {
+      resolve: "@sentry/gatsby",
+      options: {
+        dsn: process.env.SENTRY_DSN,
+        sampleRate: 0.7,
+      },
+    }
   ]
 }

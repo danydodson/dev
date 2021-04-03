@@ -12,8 +12,7 @@ const MediaLinks = () => (
     />
     <MediaLink
       accountInfo={socialMediaLinks.github.accountName}
-      mediaName='GitHu
-    b'
+      mediaName='GitHub'
       preHref='https://github.com/' />
     <MediaLink
       accountInfo={socialMediaLinks.facebook.accountName}

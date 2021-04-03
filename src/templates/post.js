@@ -153,7 +153,7 @@ class PostTemplate extends React.Component {
       Collapsable,
       U
     }
-
+    console.log(post.frontmatter.cover.childImageSharp.gatsbyImageData)
     return (
 
       <Layout showTitle isPostTemplate>
@@ -176,7 +176,7 @@ class PostTemplate extends React.Component {
                 image={post.frontmatter.cover.childImageSharp.gatsbyImageData}
                 alt='postImage'
                 objectFit='cover'
-                objectPosition='50% 50%'
+                objectPosition='100% 100%'
               />
 
               {/* Show tag & date */}
