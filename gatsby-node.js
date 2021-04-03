@@ -86,7 +86,7 @@ exports.createPages = async ({ actions, graphql }) => {
   const isDraft = edges => edges.frontmatter.draft === true
   const isAboutPage = edges => edges.fields.slug === '/pages/about/'
   const isContactPage = edges => edges.fields.slug === '/pages/contact/'
-  const isCVPage = edges => edges.fields.slug === '/pages/cv/'
+  const isCVPage = edges => edges.fields.slug === '/pages/resume/'
 
   // Skip node if it's about, draft, or dummy post
   const skipNode = edges => isAboutPage(edges) || isContactPage(edges) || isCVPage(edges) || isDraft(edges)

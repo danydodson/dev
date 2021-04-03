@@ -58,7 +58,7 @@ class MainCard extends Component {
     const tagsByFrequency = {}
     const sortedTags = []
     // Exclude about page & dummy page
-    const filteredPosts = posts.filter((post) => post.node.fields.slug !== '/pages/about/' && post.node.fields.slug !== '/pages/contact/' && post.node.fields.slug !== '/pages/cv/')
+    const filteredPosts = posts.filter((post) => post.node.fields.slug !== '/pages/about/' && post.node.fields.slug !== '/pages/contact/' && post.node.fields.slug !== '/pages/resume/')
     filteredPosts.forEach((post) => {
       let tags = post.node.frontmatter.tags
 
