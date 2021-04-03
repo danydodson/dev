@@ -18,13 +18,7 @@ class MainCard extends Component {
       tags: []
     }
   }
-
-  // state = {
-  //   selectedTag: TAG.ALL,
-  //   filteredPosts: [],
-  //   tags: []
-  // }
-
+  
   componentDidMount() {
     // Get current viewing tag from storage
     let curTag = sessionStorage.getItem('curTag') || TAG.ALL

@@ -5,7 +5,7 @@ const siteConfig = {
   title: 'Dany Dodson',
   siteUrl: 'https://danydodson-dev.netlify.app',
   titleAlt: 'Full Stack Developer Blog',
-  description: 'Welcome! This is my FullStack Web Developer blog',
+  description: 'Welcome! This is my Full Stack Web Developer blog',
   faviconSrc: 'static/icons/favicon.png',
 
   /* PWA
@@ -28,6 +28,8 @@ const siteConfig = {
   /* UI
   ========================================= */
   maxWidth: 768,
+  dateFromFormat: 'DD-MM-YYYY',
+  postsPerPage: 15,
   enableAbout: true,
   useScrollIndicator: true,
   showScrollbar: 'none',

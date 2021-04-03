@@ -64,16 +64,6 @@ module.exports = {
       }
     },
 
-    /* ???
-    ===================================== */
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: `dummy`,
-        path: `${__dirname}/src/dummy`
-      }
-    },
-
     /* MDX support
     ===================================== */
     {

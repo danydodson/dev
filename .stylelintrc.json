@@ -2,7 +2,7 @@
   "extends": [
     "stylelint-config-standard",
     "stylelint-prettier/recommended",
-    "stylelint-config-sass-guidelines"
+    "stylelint-config-recommended-scss"
   ],
   "rules": {
     "rule-empty-line-before": false,
@@ -12,5 +12,9 @@
     "block-no-empty": null,
     "color-hex-case": "lower",
     "indentation": 2
-  }
+  },
+  "ignoreFiles": [
+    "node_modules/*",
+    "src/assets/**"
+  ]
 }

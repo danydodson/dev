@@ -20,15 +20,7 @@ import ShareButtons from '../components/ShareButtons'
 import ChevronRight from '../../static/svgs/chevron-right.svg'
 import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import {
-  Info,
-  Primary,
-  Danger,
-  Warning,
-  Success,
-  U,
-  Collapsable
-} from '../components/MdxComponents'
+import { Info, Primary, Danger, Warning, Success, U, Collapsable } from '../components/MdxComponents'
 
 class PostTemplate extends React.Component {
 
@@ -56,13 +48,13 @@ class PostTemplate extends React.Component {
 
   }
 
-  registerUtterancesComments = repo => {
+  registerUtterancesComments = () => {
     if (this.utterancesRef.current) {
       const script = document.createElement('script')
       script.src = 'https://utteranc.es/client.js'
       script.async = true
       script.crossOrigin = 'anonymous'
-      script.setAttribute('repo', repo)
+      script.setAttribute('repo', 'danydodson/dev')
       script.setAttribute('issue-term', 'pathname')
       script.setAttribute('label', 'blog-comment')
       script.setAttribute('theme', `${theme.curTheme === 'dark' ? 'github-dark' : 'github-light'}`)
@@ -129,6 +121,7 @@ class PostTemplate extends React.Component {
   }
 
   render() {
+
     const post = this.props.data.mdx
     const isAboutPage = post.fields.slug.includes('/pages/about/')
 
@@ -237,21 +230,12 @@ class PostTemplate extends React.Component {
 
         {!isAboutPage && (
           <>
-            <ShareButtons
-              location={this.state.location}
-            />
-            <LinkEdgePosts
-              pageContext={this.props.pageContext}
-            />
-            <Ruler
-              widthInPercent='97'
-              verticalMargin='0.8rem'
-            />
+            <ShareButtons location={this.state.location} />
+            <LinkEdgePosts pageContext={this.props.pageContext} />
+            <Ruler widthInPercent='97' verticalMargin='0.8rem' />
             <Profile />
-            <Ruler
-              widthInPercent='97'
-              verticalMargin='0.8rem'
-            />
+            <Ruler widthInPercent='97' verticalMargin='0.8rem' />
+
             {comments.utterances.enabled && comments.utterances.repoUrl && <UtterancesComments innerRef={this.utterancesRef} />}
           </>
         )}
@@ -262,23 +246,29 @@ class PostTemplate extends React.Component {
 
 export const postQuery = graphql`
   query BlogPostByPath($slug: String!) {
-    mdx(fields: { slug: { eq: $slug } }) {
-      body
-      excerpt
+    mdx(
+      fields: { slug: { eq: $slug } }
+    ) {
       fields {
         slug
+        date
       }
+      body
+      excerpt
       frontmatter {
         title
         cover {
           childImageSharp {
             gatsbyImageData(
-              aspectRatio: 1.3,
+              aspectRatio: 1.3
             )
           }
         }
         date(formatString: "MM/DD/YYYY")
+        category
         tags
+        excerpt
+        draft
       }
     }
   }

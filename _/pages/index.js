@@ -49,10 +49,7 @@ const IndexPage = ({ data }) => {
 
 export const pageQuery = graphql`
   query BlogIndexQuery {
-    allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }, 
-      filter: { frontmatter: { draft: { ne: true } } }
-    ) {
+    allMdx(sort: { fields: [frontmatter___date], order: DESC }, filter: { frontmatter: { draft: { ne: true } } }) {
       edges {
         node {
           id
@@ -72,7 +69,6 @@ export const pageQuery = graphql`
               }
             }
             date(formatString: "MM/DD/YYYY")
-            category
             tags
             excerpt
             draft
