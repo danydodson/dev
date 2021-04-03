@@ -83,10 +83,12 @@ exports.createPages = async ({ actions, graphql }) => {
 
   const { edges } = res.data.allMdx
 
-  // Skip node if it's about, draft, or dummy post
   const isDraft = edges => edges.frontmatter.draft === true
   const isAboutPage = edges => edges.fields.slug === '/pages/about/'
-  const skipNode = edges => isAboutPage(edges) || isDraft(edges)
+  const isContactPage = edges => edges.fields.slug === '/pages/contact/'
+  
+  // Skip node if it's about, draft, or dummy post
+  const skipNode = edges => isAboutPage(edges) || isContactPage(edges) || isDraft(edges)
 
   // Get next available next node
   const getNextAvailableNode = (edges, index) => {

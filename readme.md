@@ -9,9 +9,6 @@
 ![https://github.com/danydodson/dev/blob/master/license](https://img.shields.io/github/license/danydodson/dev.svg)
 ![https://twitter.com/intent/tweet?text=A%20cool%20%40gatsbyjs%20starter%3A&url=https%3A%2F%2Fgithub.com%2Fdanydodson%2Fdev](https://img.shields.io/twitter/url/https/github.com/danydodson/dev.svg?style=social)
 
-# Developer Blog
+## Developer Blog
 
-#### <script> new Date().getTime() / 1000 </script>
-
-## Author
-Dany Dodson ([@danydodson](https://twitter.com/danydodson))
+##### [@danydodson](https://twitter.com/danydodson)  <script> new Date().getTime() / 1000 </script>
