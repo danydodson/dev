@@ -1,4 +1,4 @@
-<div align='center' style='margin-bottom:20px; border-top: 1px solid lightgray; border-bottom: 1px solid lightgray;'>
+<div style='margin-bottom:20px; border-top: 1px solid lightgray; border-bottom: 1px solid lightgray;'>
   <img src='static/cards/card-1200x630.webp' alt='Logo' width='50%'/>
 </div> 
 
@@ -11,4 +11,4 @@
 
 ## Developer Blog
 
-##### [@danydodson](https://twitter.com/danydodson)  <script> new Date().getTime() / 1000 </script>
+##### [@danydodson](https://twitter.com/danydodson)
