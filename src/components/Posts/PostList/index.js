@@ -3,7 +3,7 @@ import PostCard from '../PostCard'
 
 const PostList = ({ posts }) => {
 
-  const filteredPosts = posts.filter(post => post.node.fields.slug !== '/pages/about/' && post.node.fields.slug !== '/__do-not-remove/')
+  const filteredPosts = posts.filter(post => post.node.fields.slug !== '/pages/about/' && post.node.fields.slug !== '/pages/contact/' && post.node.fields.slug !== '/pages/cv/')
 
   return (
     <div className='posts-list'>

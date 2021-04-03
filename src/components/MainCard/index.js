@@ -18,7 +18,7 @@ class MainCard extends Component {
       tags: []
     }
   }
-  
+
   componentDidMount() {
     // Get current viewing tag from storage
     let curTag = sessionStorage.getItem('curTag') || TAG.ALL
@@ -58,7 +58,7 @@ class MainCard extends Component {
     const tagsByFrequency = {}
     const sortedTags = []
     // Exclude about page & dummy page
-    const filteredPosts = posts.filter((post) => post.node.fields.slug !== '/pages/about/' && post.node.fields.slug !== '/__do-not-remove/')
+    const filteredPosts = posts.filter((post) => post.node.fields.slug !== '/pages/about/' && post.node.fields.slug !== '/pages/contact/' && post.node.fields.slug !== '/pages/cv/')
     filteredPosts.forEach((post) => {
       let tags = post.node.frontmatter.tags
 
