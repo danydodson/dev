@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://danydodson-dev.netlify.app/pages/contact/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://danydodson-dev.netlify.app/posts/2021-04-03-building an api gateway with nginx and lua/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://danydodson-dev.netlify.app/posts/2021-01-04-sample-post-9/index.js/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://danydodson-dev.netlify.app/posts/2021-01-03-sample-post-8/index.js/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://danydodson-dev.netlify.app/posts/2021-01-02-sample-post-7/index.js/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://danydodson-dev.netlify.app/posts/2020-10-21-sample-post-6/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://danydodson-dev.netlify.app/posts/2020-09-18-sample-post-5/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://danydodson-dev.netlify.app/posts/2020-08-12-sample-post-4/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
