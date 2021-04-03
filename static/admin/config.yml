@@ -44,4 +44,5 @@ collections:
       - { label: 'Draft', name: 'draft', widget: 'boolean', default: false }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - { label: 'CV', name: 'cv_pdf', widget: 'file', required: false }
-      - { label: 'Tags', name: 'tags', widget: 'list', required: false, default: '' }
+      - { label: 'Category', name: 'category', widget: 'string', default: 'page' }
+      - { label: 'Tags', name: 'tags', widget: 'list', default: [''] }

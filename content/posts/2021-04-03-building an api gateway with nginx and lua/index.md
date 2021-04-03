@@ -3,7 +3,7 @@ template: post
 title: Building an API Gateway with Nginx and Lua
 slug: building-an-api-gateway-with-nginx-and-lua
 cover: food_01.webp
-draft: true
+draft: false
 date: 2021-04-03T13:11:52.449Z
 excerpt: Nginx is a web server that can also be used as a reverse proxy
 category: backend
