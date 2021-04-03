@@ -3,7 +3,7 @@
 </div> 
 
 ![https://github.com/danydodson/dev](https://img.shields.io/github/v/tag/danydodson/dev)
-[![Build Status](  https://badges.netlify.com/api/danydodson-dev.svg?branch=main)](https://app.netlify.com/sites/danydodson-dev/deploys)
+[![Build Status](https://badges.netlify.com/api/danydodson-dev.svg?branch=main)](https://app.netlify.com/sites/danydodson-dev/deploys)
 ![https://www.codacy.com/app/danydodson/dev?utm_source=github.com&utm_medium=referral&utm_content=danydodson/dev&utm_campaign=Badge_Grade](https://api.codacy.com/project/badge/Grade/990fb54ea8094f2aa0ed77f14e859820)
 ![https://codeclimate.com/github/danydodson/dev](https://codeclimate.com/github/danydodson/dev/badges/gpa.svg)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/b4f6b5502861e7166fea/test_coverage)](https://codeclimate.com/github/danydodson/dev/test_coverage)
