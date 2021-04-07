@@ -16,32 +16,34 @@ import { theme } from '../components/Shared/styles-global'
 import LinkEdgePosts from '../components/LinkEdgePosts'
 import ShareButtons from '../components/ShareButtons'
 import ChevronRight from '../../static/svgs/chevron-right.svg'
+import { Info, Primary, Danger, Warning, Success, U, Collapsable } from '../components/MdxComponents'
 import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { Info, Primary, Danger, Warning, Success, U, Collapsable } from '../components/MdxComponents'
 
 const PostTemplate = function ({ pageContext, data }) {
-  const category = pageContext.category
+  const [location, setLocation] = useState(init => init)
+
   const post = data.mdx
   const isAboutPage = post.fields.slug.includes('/pages/about/')
-  const [loc, setLoc] = useState(window.location.href)
-  const [script, setScript] = useState(undefined)
-  const [texts, setTexts] = useState([])
-  const location = useRef(null)
+  const category = pageContext.category
   const utterancesRef = useRef()
 
   useEffect(() => {
-    if (isMobile) moveAnchorHeadings()
+    const handleChange = init => {
+      setLocation(init)
+    }
+    if (isMobile) {
+      moveAnchorHeadings()
+    }
     if (comments.utterances.enabled && comments.utterances.repoUrl) {
       registerComments(comments.utterances.repoUrl)
     }
+    window.addEventListener('popstate', handleChange(window.location.href))
+
     return () => {
+      window.removeEventListener('popstate', handleChange(window.location.href))
     }
   }, [])
-
-  const locat = () => {
-    setLoc(loc)
-  }
 
   const registerComments = () => {
     if (utterancesRef.current) {
@@ -94,6 +96,7 @@ const PostTemplate = function ({ pageContext, data }) {
     Collapsable,
     U
   }
+  console.log(location)
 
   return (
     <Layout showTitle isPostTemplate>
@@ -133,7 +136,7 @@ const PostTemplate = function ({ pageContext, data }) {
       </StyledHTML>
       {!isAboutPage && (
         <>
-          {/* <ShareButtons location={locat} /> */}
+          <ShareButtons location={location} />
           <LinkEdgePosts pageContext={pageContext} />
           <Ruler widthInPercent='97' verticalMargin='0.8rem' />
           <Profile />

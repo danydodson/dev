@@ -4,7 +4,7 @@ import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 import MainCard from '../components/MainCard'
 
-const loadsPer = 15
+const loadsPer = 5
 
 const IndexPage = ({ data }) => {
   const [loaded, setLoaded] = useState(undefined)
@@ -17,7 +17,6 @@ const IndexPage = ({ data }) => {
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
-
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
@@ -48,12 +47,15 @@ const IndexPage = ({ data }) => {
 
 export const pageQuery = graphql`
   query BlogIndexQuery {
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }, filter: { frontmatter: { draft: { ne: true } } }) {
+    allMdx(
+      sort: { fields: [frontmatter___date], order: DESC },
+      filter: { frontmatter: { draft: { ne: true } } }
+    ) {
       edges {
         node {
           id
           body
-          excerpt(pruneLength: 180, truncate: true)
+          excerpt(pruneLength: 10, truncate: true)
           timeToRead
           fields {
             slug
