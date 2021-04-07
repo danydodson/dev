@@ -147,7 +147,7 @@ module.exports = {
       resolve: 'gatsby-plugin-datadog',
       options: {
         logs: {
-          clientToken: 'pub465fa43017705ba0f77856a4dcf6f574',
+          clientToken: siteConfig.datadog.clientToken,
           site: 'datadoghq.com',
           sampleRate: 100,
           enabled: true

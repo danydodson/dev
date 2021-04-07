@@ -21,7 +21,7 @@ import ChevronRight from '../../static/svgs/chevron-right.svg'
 import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { Info, Primary, Danger, Warning, Success, U, Collapsable } from '../components/MdxComponents'
-import { datadogLogs } from '@datadog/browser-logs'
+// import { datadogLogs } from '@datadog/browser-logs'
 
 
 class PostTemplate extends React.Component {
@@ -152,8 +152,7 @@ class PostTemplate extends React.Component {
       U
     }
 
-    datadogLogs.logger.info('Post Opened', { post_excerpt: post.frontmatter.title })
-
+    // datadogLogs.logger.info('Post Opened', { post_excerpt: post.frontmatter.title })
     // image_data: post.frontmatter.cover.childImageSharp.gatsbyImageData
 
     return (
