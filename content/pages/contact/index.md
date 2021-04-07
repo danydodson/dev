@@ -2,10 +2,14 @@
 template: page
 title: Contact
 slug: contact
-cover: food_06.webp
-tags: ['']
-category: page
+cover: index.webp
 draft: false
+category: page
+tags:
+- ''
 ---
 
 # Contact
+
+![about](index.jpeg)
+

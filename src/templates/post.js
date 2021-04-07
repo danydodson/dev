@@ -172,9 +172,9 @@ export const postQuery = graphql`
         }
         date(formatString: "MM/DD/YYYY")
         category
-        tags
         excerpt
         draft
+        tags
       }
     }
   }

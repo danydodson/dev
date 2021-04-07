@@ -1,13 +1,16 @@
 ---
 template: page
 title: Resume
-slug: cv
-cover: cap.jpg
-tags: ['']
-category: 'page'
+slug: resume
+cover: index.jpg
 draft: false
-cv_pdf: cv_en.pdf
+category: 'page'
+tags:
+- ''
 ---
 
 # Resume
+
+![about](index.jpeg)
+
 

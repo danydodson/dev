@@ -34,7 +34,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions
 
-  // const LandingTemplate = path.resolve('./src/templates/landing.jsx')
   const PostTemplate = path.resolve('src/templates/post.js')
   const TagPage = path.resolve('src/templates/tag.jsx')
   const CategoryPage = path.resolve('src/templates/category.jsx')
@@ -55,10 +54,10 @@ exports.createPages = async ({ actions, graphql }) => {
                 }
               }
               date
-              tags
-              category
               draft
               excerpt
+              category
+              tags
             }
           }
         }
@@ -85,7 +84,7 @@ exports.createPages = async ({ actions, graphql }) => {
   const isCVPage = edges => edges.fields.slug === '/pages/resume/'
 
   // Skip node if it's about, draft, or dummy post
-  const skipNode = edges => isAboutPage(edges) || isContactPage(edges) || isCVPage(edges) || isDraft(edges) || isSnipPage(edges)
+  const skipNode = edges => isAboutPage(edges) || isContactPage(edges) || isCVPage(edges) || isDraft(edges)
 
   // Get next available next node
   const getNextAvailableNode = (edges, index) => {

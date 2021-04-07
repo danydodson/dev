@@ -68,10 +68,10 @@ export const pageQuery = graphql`
               }
             }
             date(formatString: "MM/DD/YYYY")
+            draft
+            excerpt
             category
             tags
-            excerpt
-            draft
           }
         }
       }
