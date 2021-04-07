@@ -28,8 +28,8 @@ jobs:
           languages: ${{ matrix.language }}
 
       - run: |
-          make bootstrap
-          make release
+          yarn install
+          yarn build
 
       - name: CodeQL Analysis
         uses: github/codeql-action/analyze@v1
