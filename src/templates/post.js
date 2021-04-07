@@ -1,8 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
-import mediumZoom from 'medium-zoom'
-import storage from 'local-storage-fallback'
 import { isMobile } from 'react-device-detect'
 import { setThemeVars } from '../utilities/theme-helper'
 import { comments } from '../../data/site-config'
@@ -22,33 +20,30 @@ import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { Info, Primary, Danger, Warning, Success, U, Collapsable } from '../components/MdxComponents'
 
-
 const PostTemplate = function ({ pageContext, data }) {
-  const { category } = pageContext
+  const category = pageContext.category
   const post = data.mdx
   const isAboutPage = post.fields.slug.includes('/pages/about/')
-
+  const [loc, setLoc] = useState(window.location.href)
   const [script, setScript] = useState(undefined)
   const [texts, setTexts] = useState([])
-
   const location = useRef(null)
   const utterancesRef = useRef()
 
   useEffect(() => {
-    location.current.location.href
-    if (isMobile) {
-      moveAnchorHeadings()
-    }
+    if (isMobile) moveAnchorHeadings()
     if (comments.utterances.enabled && comments.utterances.repoUrl) {
-      registerUtterancesComments(comments.utterances.repoUrl)
+      registerComments(comments.utterances.repoUrl)
     }
     return () => {
-
-
     }
   }, [])
 
-  const registerUtterancesComments = () => {
+  const locat = () => {
+    setLoc(loc)
+  }
+
+  const registerComments = () => {
     if (utterancesRef.current) {
       const script = document.createElement('script')
       script.src = 'https://utteranc.es/client.js'
@@ -62,37 +57,6 @@ const PostTemplate = function ({ pageContext, data }) {
     }
   }
 
-  const zoomImages = () => {
-    const targetImg = 'img'
-    const targetGatsbyImg = 'gatsby-resp-image-image'
-    const images = Array.from(document.querySelectorAll(targetImg))
-    const filteredImages = []
-    for (let i = 0; i < images.length; i++) {
-      const img = images[i]
-      // Filter profile image
-      const profile = document.querySelector('.img-profile')
-      if (profile) {
-        const isProfile = profile.contains(img)
-        if (!isProfile) {
-          // Set maximum width/height to non-gatsby images
-          if (!img.classList.contains(targetGatsbyImg)) {
-            img.classList.add('img-not-gatsby-remark')
-          }
-          filteredImages.push(img)
-        }
-      }
-    }
-    let mediumZoomBgColor = ''
-    const savedTheme = JSON.parse(storage.getItem('theme')) || 'light'
-    mediumZoomBgColor = savedTheme.mode === 'light' ? theme.bgColorLight : theme.bgColorDark
-
-    // Apply medium zoom to images
-    mediumZoom(filteredImages, {
-      margin: 24,
-      background: mediumZoomBgColor
-    })
-  }
-
   const moveAnchorHeadings = () => {
     const target = '.anchor-heading'
     const anchors = Array.from(document.querySelectorAll(target))
@@ -100,20 +64,6 @@ const PostTemplate = function ({ pageContext, data }) {
       anchor.parentNode.appendChild(anchor)
       anchor.classList.add('after')
       anchor.classList.remove('before')
-    })
-  }
-
-  const toggleLoading = text => {
-    this.setState(prevState => {
-      const updatedTexts = [...prevState.texts]
-      updatedTexts.forEach(t => {
-        if (t.id === text.id) {
-          t.loadingChange = !t.loadingChange
-        }
-      })
-      return {
-        texts: updatedTexts
-      }
     })
   }
 
@@ -151,80 +101,44 @@ const PostTemplate = function ({ pageContext, data }) {
       <div className='switch-container' style={{ textAlign: 'end', margin: '0 1.1rem' }}>
         <ToggleMode />
       </div>
-
       <StyledHTML className='post-html'>
         {!isAboutPage && (
           <>
             <h1 className='post-title'>{post.frontmatter.title}</h1>
-
             {/* Show post cover image */}
-            <GatsbyImage
-              image={post.frontmatter.cover.childImageSharp.gatsbyImageData}
-              alt='postImage'
-              objectFit='cover'
-              objectPosition='100% 100%'
-            />
-
+            <GatsbyImage image={post.frontmatter.cover.childImageSharp.gatsbyImageData} alt='postImage' objectFit='cover' objectPosition='100% 100%' />
             {/* Show tag & date */}
-            <div
-              className='post-data'
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                marginBottom: '0.5rem'
-              }}
-            >
+            <div className='post-data' style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }} >
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                   {post.frontmatter.tags &&
                     post.frontmatter.tags.map((tag, i) => (
-                      <p
-                        key={i}
-                        style={{
-                          margin: '0.3rem 0.3rem',
-                          padding: '0.15rem 0.4rem',
-                          border: '1px solid #aaa',
-                          borderRadius: '5px',
-                          fontSize: '0.8rem'
-                        }}
-                      >
+                      <p key={i} style={{ margin: '0.3rem 0.3rem', padding: '0.15rem 0.4rem', border: '1px solid #aaa', borderRadius: '5px', fontSize: '0.8rem' }}>
                         {tag}
                       </p>
                     ))}
                 </div>
               </div>
-              <p
-                style={{
-                  fontStyle: 'italic',
-                  margin: '0',
-                  marginBottom: '0.3rem'
-                }}
-              >
+              <p style={{ fontStyle: 'italic', margin: '0', marginBottom: '0.3rem' }} >
                 {post.frontmatter.date}
               </p>
             </div>
             <Ruler />
           </>
         )}
-
         {/* Render mdx */}
         <MDXProvider components={mdxComponents}>
           <MDXRenderer>{post.body}</MDXRenderer>
         </MDXProvider>
       </StyledHTML>
-
       {!isAboutPage && (
         <>
-          {/* <ShareButtons location={this.state.location} /> */}
-          {/* <LinkEdgePosts pageContext={this.props.pageContext} /> */}
+          {/* <ShareButtons location={locat} /> */}
+          <LinkEdgePosts pageContext={pageContext} />
           <Ruler widthInPercent='97' verticalMargin='0.8rem' />
           <Profile />
           <Ruler widthInPercent='97' verticalMargin='0.8rem' />
-
-          {comments.utterances.enabled && comments.utterances.repoUrl && (
-            <UtterancesComments innerRef={utterancesRef} />
-          )}
+          {comments.utterances.enabled && comments.utterances.repoUrl && (<UtterancesComments innerRef={utterancesRef} />)}
         </>
       )}
     </Layout>

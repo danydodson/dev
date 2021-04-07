@@ -14,17 +14,18 @@ import ScrollTopButton from '../ScrollTopButton'
 config.autoAddCss = false
 
 const Layout = ({ children, showTitle, isPostTemplate }) => {
+  
   const setTheme = UseTheme()
 
   const data = useStaticQuery(graphql`
-        query SiteTitleQuery {
-            site {
-                siteMetadata {
-                    title
-                }
-            }
+    query SiteTitleQuery {
+      site {
+        siteMetadata {
+          title
         }
-    `)
+      }
+    }
+  `)
 
   const childrenElement = (
     <>
@@ -38,7 +39,7 @@ const Layout = ({ children, showTitle, isPostTemplate }) => {
   )
 
   return (
-  // Used to set theme
+    // Used to set theme
     <ThemeProvider theme={setTheme}>
       {/* Used for global variables */}
       <ThemeProvider theme={theme}>

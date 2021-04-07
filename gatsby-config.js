@@ -143,17 +143,17 @@ module.exports = {
         trackingId: siteConfig.google.trackingId
       }
     },
-    {
-      resolve: 'gatsby-plugin-datadog',
-      options: {
-        logs: {
-          clientToken: siteConfig.datadog.clientToken,
-          site: 'datadoghq.com',
-          sampleRate: 100,
-          enabled: true
-        }
-      }
-    },
+    // {
+    //   resolve: 'gatsby-plugin-datadog',
+    //   options: {
+    //     logs: {
+    //       clientToken: siteConfig.datadog.clientToken,
+    //       site: 'datadoghq.com',
+    //       sampleRate: 100,
+    //       enabled: true
+    //     }
+    //   }
+    // },
     {
       resolve: '@sentry/gatsby',
       options: {
