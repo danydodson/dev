@@ -4,6 +4,7 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import siteConfig from '../../../data/site-config'
 
 const Image = ({ src, ...props }) => {
+    
   const data = useStaticQuery(graphql`
         query {
             allFile(filter: { internal: { mediaType: { regex: "/" } } }) {

@@ -54,6 +54,8 @@ module.exports = {
     'react/display-name': 0,
     'react/no-children-prop': 0,
     'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx'] }],
-    'react/react-in-jsx-scope': 0
+    'react/react-in-jsx-scope': 0,
+    'no-const-assign': 0
+    // 'eslintreact-hooks/exhaustive-deps': 0
   }
 }
