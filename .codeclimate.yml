@@ -9,14 +9,14 @@ plugins:
 
 checks:
   method-complexity:
-    enabled: false
+    enabled: true
   method-lines:
     config:
       threshold: 150
   similar-code:
-    enabled: false
+    enabled: true
   identical-code:
-    enabled: false
+    enabled: true
 
 ratings:
   paths:
@@ -28,4 +28,7 @@ ratings:
     - '**.sss'
 
 exclude_paths:
+  - .code/**/*
+  - .github/**/*
+  - .vscode/**/*
   - static/**/*

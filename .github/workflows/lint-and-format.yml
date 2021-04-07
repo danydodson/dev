@@ -1,4 +1,4 @@
-name: Pretty
+name: 'Lint & Format'
 
 on:
   push:
@@ -9,6 +9,7 @@ on:
 jobs:
   dependencies:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
       - run: yarn install --frozen-lockfile --check-files
@@ -17,7 +18,8 @@ jobs:
         with:
           path: '.'
           key: ${{ github.sha }}
-  pretty:
+
+  lint:
     runs-on: ubuntu-latest
     needs: dependencies
     steps:
@@ -26,4 +28,4 @@ jobs:
         with:
           path: '.'
           key: ${{ github.sha }}
-      - run: yarn pretty:styles
+      - run: yarn lint:js

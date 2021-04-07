@@ -21,9 +21,10 @@ import ChevronRight from '../../static/svgs/chevron-right.svg'
 import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { Info, Primary, Danger, Warning, Success, U, Collapsable } from '../components/MdxComponents'
+import { datadogLogs } from '@datadog/browser-logs'
+
 
 class PostTemplate extends React.Component {
-
   constructor(props) {
     super(props)
     this.utterancesRef = React.createRef()
@@ -44,9 +45,7 @@ class PostTemplate extends React.Component {
     }
   }
 
-  componentDidUpdate() {
-
-  }
+  componentDidUpdate() { }
 
   registerUtterancesComments = () => {
     if (this.utterancesRef.current) {
@@ -121,7 +120,6 @@ class PostTemplate extends React.Component {
   }
 
   render() {
-
     const post = this.props.data.mdx
     const isAboutPage = post.fields.slug.includes('/pages/about/')
 
@@ -153,9 +151,12 @@ class PostTemplate extends React.Component {
       Collapsable,
       U
     }
-    console.log(post.frontmatter.cover.childImageSharp.gatsbyImageData)
-    return (
 
+    datadogLogs.logger.info('Post Opened', { post_excerpt: post.frontmatter.title })
+
+    // image_data: post.frontmatter.cover.childImageSharp.gatsbyImageData
+
+    return (
       <Layout showTitle isPostTemplate>
         <SEO title={post.frontmatter.title} description={post.excerpt} />
         <div className='switch-container' style={{ textAlign: 'end', margin: '0 1.1rem' }}>
@@ -165,11 +166,7 @@ class PostTemplate extends React.Component {
         <StyledHTML className='post-html'>
           {!isAboutPage && (
             <>
-              <h1
-                className='post-title'
-              >
-                {post.frontmatter.title}
-              </h1>
+              <h1 className='post-title'>{post.frontmatter.title}</h1>
 
               {/* Show post cover image */}
               <GatsbyImage
@@ -180,7 +177,7 @@ class PostTemplate extends React.Component {
               />
 
               {/* Show tag & date */}
-              < div
+              <div
                 className='post-data'
                 style={{
                   display: 'flex',
@@ -236,7 +233,9 @@ class PostTemplate extends React.Component {
             <Profile />
             <Ruler widthInPercent='97' verticalMargin='0.8rem' />
 
-            {comments.utterances.enabled && comments.utterances.repoUrl && <UtterancesComments innerRef={this.utterancesRef} />}
+            {comments.utterances.enabled && comments.utterances.repoUrl && (
+              <UtterancesComments innerRef={this.utterancesRef} />
+            )}
           </>
         )}
       </Layout>
@@ -246,9 +245,7 @@ class PostTemplate extends React.Component {
 
 export const postQuery = graphql`
   query BlogPostByPath($slug: String!) {
-    mdx(
-      fields: { slug: { eq: $slug } }
-    ) {
+    mdx(fields: { slug: { eq: $slug } }) {
       fields {
         slug
         date
@@ -259,9 +256,7 @@ export const postQuery = graphql`
         title
         cover {
           childImageSharp {
-            gatsbyImageData(
-              aspectRatio: 1.3
-            )
+            gatsbyImageData(aspectRatio: 1.3)
           }
         }
         date(formatString: "MM/DD/YYYY")
@@ -277,138 +272,138 @@ export const postQuery = graphql`
 export default PostTemplate
 
 const StyledListingCoverImage = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 55px;
-  margin: 0 auto;
-  max-width: ${(props) => props.theme.maxWidthSite}px;
-  padding: 0.6rem;
-  h1 {
-    font-weight: 400;
-  }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 55px;
+    margin: 0 auto;
+    max-width: ${props => props.theme.maxWidthSite}px;
+    padding: 0.6rem;
+    h1 {
+        font-weight: 400;
+    }
 `
 
 const StyledHTML = styled.div`
-  word-wrap: break-word;
-  padding: 1rem;
-  font-family: ${styleConfig.fontMain + styleConfig.fontsBackUp};
-  margin-top: 1rem;
-  font-size: 105%;
-  h1 {
-    margin-top: 2.5rem;
-  }
-
-  .post-title {
-    margin-top: 0;
-    margin-bottom: 1rem;
-  }
-
-  h2 {
-    margin-top: 2rem;
-  }
-
-  h3 {
-    margin-top: 1.3rem;
-  }
-
-  h4 {
+    word-wrap: break-word;
+    padding: 1rem;
+    font-family: ${styleConfig.fontMain + styleConfig.fontsBackUp};
     margin-top: 1rem;
-  }
-
-  h5 {
-    margin-top: 0.8rem;
-  }
-
-  h6 {
-    margin-top: 0.6rem;
-  }
-
-  p {
-    margin-top: 0.9rem;
-    line-height: 1.4;
-  }
-
-  blockquote {
-    padding: 0.3rem 1rem;
-    margin: 0.5rem 0;
-
-    > p {
-      margin-top: 0.5rem;
+    font-size: 105%;
+    h1 {
+        margin-top: 2.5rem;
     }
-
-    > blockquote {
-      border-left: none;
-      font-size: 1.2rem;
-      > blockquote {
-        font-size: 1.3rem;
-      }
-    }
-  }
-
-  a {
-    color: steelblue;
-  }
-
-  ul {
-    list-style: none;
-    margin: 1rem 0.3rem;
-    li {
-      display: flex;
-      justify-content: flex-start;
-      margin: 0.5rem 0;
-      /* Custom list for ul */
-      .icon-wrap {
-        svg.icon-chevron-right {
-          display: inline-block;
-          width: 0.75rem;
-          height: 0.75rem;
-          margin-right: 0.5rem;
-          fill: ${() => setThemeVars(styleConfig.fontColorLight, styleConfig.fontColorDark)};
-        }
-      }
-      span.ul-children {
-        width: 100%;
-        & > p:first-child {
-          display: inline;
-        }
-      }
-    }
-  }
-
-  ol {
-    margin: 0.5rem 1.2rem;
-    li {
-      margin: 1rem 0;
-      margin-left: 0.3rem;
-      span {
-        margin-left: 0.15rem;
-      }
-    }
-  }
-
-  pre {
-    font-family: inherit;
-  }
-
-  img {
-    margin: 0.35rem 0;
-  }
-
-  .gatsby-resp-image-wrapper {
-    margin: 0.5rem 0;
-  }
-
-  @media (max-width: 500px) {
-    padding: 0.5rem 1rem;
 
     .post-title {
-      font-size: 2rem;
+        margin-top: 0;
+        margin-bottom: 1rem;
     }
 
-    ul,
-    ol {
-      margin-right: 1rem;
+    h2 {
+        margin-top: 2rem;
     }
-  }
+
+    h3 {
+        margin-top: 1.3rem;
+    }
+
+    h4 {
+        margin-top: 1rem;
+    }
+
+    h5 {
+        margin-top: 0.8rem;
+    }
+
+    h6 {
+        margin-top: 0.6rem;
+    }
+
+    p {
+        margin-top: 0.9rem;
+        line-height: 1.4;
+    }
+
+    blockquote {
+        padding: 0.3rem 1rem;
+        margin: 0.5rem 0;
+
+        > p {
+            margin-top: 0.5rem;
+        }
+
+        > blockquote {
+            border-left: none;
+            font-size: 1.2rem;
+            > blockquote {
+                font-size: 1.3rem;
+            }
+        }
+    }
+
+    a {
+        color: steelblue;
+    }
+
+    ul {
+        list-style: none;
+        margin: 1rem 0.3rem;
+        li {
+            display: flex;
+            justify-content: flex-start;
+            margin: 0.5rem 0;
+            /* Custom list for ul */
+            .icon-wrap {
+                svg.icon-chevron-right {
+                    display: inline-block;
+                    width: 0.75rem;
+                    height: 0.75rem;
+                    margin-right: 0.5rem;
+                    fill: ${() => setThemeVars(styleConfig.fontColorLight, styleConfig.fontColorDark)};
+                }
+            }
+            span.ul-children {
+                width: 100%;
+                & > p:first-child {
+                    display: inline;
+                }
+            }
+        }
+    }
+
+    ol {
+        margin: 0.5rem 1.2rem;
+        li {
+            margin: 1rem 0;
+            margin-left: 0.3rem;
+            span {
+                margin-left: 0.15rem;
+            }
+        }
+    }
+
+    pre {
+        font-family: inherit;
+    }
+
+    img {
+        margin: 0.35rem 0;
+    }
+
+    .gatsby-resp-image-wrapper {
+        margin: 0.5rem 0;
+    }
+
+    @media (max-width: 500px) {
+        padding: 0.5rem 1rem;
+
+        .post-title {
+            font-size: 2rem;
+        }
+
+        ul,
+        ol {
+            margin-right: 1rem;
+        }
+    }
 `

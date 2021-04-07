@@ -9,22 +9,13 @@ import siteConfig from '../../../../data/site-config'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
 const PostCard = ({ id, title, cover, date, path, excerpt, timeToRead }) => {
-
   const image = cover.childrenImageSharp[0].gatsbyImageData
 
   return (
     <>
       <Link to={path}>
-
-
         <StyledPostCard key={id}>
-
-          <StyledImage
-            image={image}
-            alt='postImage'
-            objectFit='cover'
-            objectPosition='50% 50%'
-          />
+          <StyledImage image={image} alt='postImage' objectFit='cover' objectPosition='50% 50%' />
 
           <h3>{title}</h3>
 
@@ -36,9 +27,7 @@ const PostCard = ({ id, title, cover, date, path, excerpt, timeToRead }) => {
           )}
 
           <p>{excerpt}</p>
-
         </StyledPostCard>
-
       </Link>
     </>
   )
@@ -47,44 +36,44 @@ const PostCard = ({ id, title, cover, date, path, excerpt, timeToRead }) => {
 export default PostCard
 
 const StyledImage = styled(GatsbyImage)`
-  height: 200px;
+    height: 200px;
 `
 
 const StyledPostCard = styled.div`
-  cursor: pointer;
-  padding: 1.5rem 1rem;
-  transition: none;
-
-  h3 {
-    font-weight: 500;
-  }
-
-  &:hover {
-    background: ${() => setThemeVars(theme.bgSubColorLight, theme.darkerColor)};
-  }
-
-  span {
-    font-size: 0.8rem;
-    .icon-clock {
-      margin: 0 0.1rem;
-    }
-  }
-
-  p {
-    margin-top: 0.5rem;
-    color: ${() => setThemeVars(theme.fontSubColorLight, theme.fontSubColorDark)};
-  }
-
-  @media (max-width: 500px) {
-    padding: 1.5rem 1.25rem;
+    cursor: pointer;
+    padding: 1.5rem 1rem;
+    transition: none;
 
     h3 {
-      font-size: 1.15rem;
+        font-weight: 500;
     }
 
-    /* Remove hover */
     &:hover {
-      background: transparent;
+        background: ${() => setThemeVars(theme.bgSubColorLight, theme.darkerColor)};
     }
-  }
+
+    span {
+        font-size: 0.8rem;
+        .icon-clock {
+            margin: 0 0.1rem;
+        }
+    }
+
+    p {
+        margin-top: 0.5rem;
+        color: ${() => setThemeVars(theme.fontSubColorLight, theme.fontSubColorDark)};
+    }
+
+    @media (max-width: 500px) {
+        padding: 1.5rem 1.25rem;
+
+        h3 {
+            font-size: 1.15rem;
+        }
+
+        /* Remove hover */
+        &:hover {
+            background: transparent;
+        }
+    }
 `

@@ -1,0 +1,181 @@
+---
+template: post
+title: Clean up old git branches
+slug: clean-up-old-git-branches
+cover: photo-2.webp
+draft: false
+date: 2021-01-04T13:11:52.449Z
+excerpt: After working on a github repository
+category: git
+tags: 
+- how to
+- 'mdx'
+---
+# Clean up old git branches
+
+After working on a [github](github.com) repository for a while, chances are high the number of branches that repository has is large. That number keeps on growing, too! Time for some housekeeping to reduce that number. I’m considering the branch named “master” to be the default one. Likewise, the remote named “origin” is treated as the place where the repository lives on the internet. In my case, [github](github.com) The code snippets are meant to be ran in the root of the folder which is a git repository. Start off navigating to the repository you want to clean and switch to the “master” branch.
+
+```bash
+git checkout master
+```
+
+If this repository has a remote, make sure your local version is up to date.
+
+```bash
+git pull
+```
+
+Before you get started deleting branches, let’s view which one there are.
+
+To list all local branches:
+
+```bash
+git branch
+```
+
+To list all remote branches:
+
+```bash
+git brance -r
+```
+
+To list all branches (local and remote):
+
+```bash
+git brance -a
+```
+
+A picture of all branches in an example repository.
+
+!['photo'](photo-2.webp)
+
+List all local merged branches.
+
+```bash
+git branch --merged
+```
+
+List all local unmerged branches.
+
+```bash
+git branch --no-merged
+```
+
+```bash
+git branch -r --merged
+```
+
+List all remote unmerged branches.
+
+```bash
+git branch -r --no-merged
+```
+
+```bash
+git branch -d [branchname]
+
+```
+
+In my example project I could delete the branch named `lint` with
+
+```bash
+git branch -d lint
+```
+
+An important note is that the `lint` branch has already been **_merged_**. If it wasn’t, running that command would throw an error. Good thing too! Unmerged branches could hold important work. If you are sure you want to delete an **_unmerged_** branch:
+
+```bash
+git branch -D [branch]
+```
+
+In my example project I could delete the unmerged branch named`fauna` with
+
+```bash
+git branch -D fauna
+```
+
+Deleting branches one by one gets boring quickly. We’re developers, we try not to do repetitive work when we can automate it!
+And we can, by piping the output from one command into another.
+To delete all merged local branches:
+
+Let’s break it down.
+
+
+```bash
+egrep -v "(^\*|master|dev)"
+```
+
+Excludes the branches named “master” and “dev”
+
+```bash
+xargs git branch -d:
+```
+
+Deletes every remaining git branch.
+
+You might have branches locally that have since been deleted remotely.
+
+```bash
+git remote prune [remote] --dry-run
+
+```
+
+This command will list all branches that were set up to follow remote branches if that remote branch has been deleted. To delete the branches it listed, leave off the `--dry-run`
+In my example project with the single remote named 'origin' that becomes
+
+```bash
+git remote prune origin
+```
+
+That deleted the branches `remotes/origin/apollo-frontend` and some others for me. Those were deleted on GitHub, but not locally.
+
+
+```bash
+git push [remote] --delete [branch]
+```
+
+In my example project I could delete the branch `remotes/origin/lint`
+
+```bash
+git push origin --delete lint
+```
+
+This will work for both merged and unmerged branches, but only for branches you own!
+
+To delete all merged remote branches:
+
+
+Let’s break it down.
+The output from a command is “piped into” the next command with the `|`. It then serves as the input for the command after the `|`
+
+Lists all remote branches that have been merged:
+
+```bash
+git branch -r --merged
+```
+
+Excludes the branches named 'master' and 'dev':
+
+```bash
+egrep -v '(^\*|master|dev)'
+```
+
+```bash
+sed 's/origin\///'
+```
+
+Delete every remaining git branch:
+
+```bash
+xargs -n 1 git push origin --delete
+```
+
+Like with local branches, if you wish to completely clean house and delete unmerged branches, change `--merged` to `--no-merged`
+
+```bash
+# DANGER! Only run these if you are sure you want to delete unmerged branches.
+
+git branch -r | egrep -v '(^\*|master|dev)' sed 's/origin\///' | xargs -n 1
+
+git push origin --delete
+```

@@ -32,12 +32,13 @@ const globalVar = {
   maxWidthSite: `${siteConfig.maxWidth}px`,
 
   // @mixin disable-selection()
-  disableSelection: `-webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;`,
+  disableSelection: `
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;`,
   curTheme: ''
 }
 
@@ -47,7 +48,9 @@ export const theme = {
 }
 
 let profileHomeBorder = () => setThemeVars('#ddd', '#333')
-if (isMobile) profileHomeBorder = 'transparent'
+if (isMobile) {
+  profileHomeBorder = 'transparent'
+}
 
 const glowing = keyframes`
   0% { background-position: 0 0; }

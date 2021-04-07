@@ -1,19 +1,16 @@
-/* Customization Guide available on: https://gatsby-blog-mdx.now.sh/2020/05/4-customize/
-   ======================================== */
 const styleConfig = {
-
   /* Fonts
-    ========================================= */
-  fontMain: `'IBM Plex Sans'`, // Main Font
-  fontProfile: `'Oxanium'`, // Font inside profile
-  fontCodeBlocks: `Menlo, Monaco, monospace`, // Font for code blocks
+  ========================================= */
+  fontMain: '"IBM Plex Sans"', // Main Font
+  fontProfile: '"Oxanium"', // Font inside profile
+  fontCodeBlocks: 'Menlo, Monaco, monospace', // Font for code blocks
 
   // These fonts will be used if above fonts are unavailable
   fontsBackUp: `, sans-serif, -apple-system, BlinkMacSystemFont,
     'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue'`,
 
   /* Colors for each Light / Dark Theme
-    ========================================= */
+  ========================================= */
   headerColorLight: '#eee',
   headerColorDark: '#252427',
 

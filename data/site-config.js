@@ -3,19 +3,19 @@ const siteConfig = {
   /* Site
   ========================================= */
   title: 'Dany Dodson',
-  siteUrl: 'https://danydodson-dev.netlify.app',
+  siteUrl: 'https://danydodson.dev',
   titleAlt: 'Full Stack Developer Blog',
   description: 'Welcome! This is my Full Stack Web Developer blog',
   faviconSrc: 'static/icons/favicon.png',
 
   /* PWA
   ========================================= */
-  titleShort: 'dany',
+  shortName: 'dany',
   startUrl: '/',
   siteLogo: 'static/cards/card-1200x630.webp',
   siteLogoAlt: 'static/cards/card-1200x630.webp',
-  bgColor: '#e0e0e0',
   themeColor: '#c62828',
+  backgroundColor: '#e0e0e0',
 
   /* Profile
   ========================================= */
@@ -37,6 +37,16 @@ const siteConfig = {
   breakCodeLines: false,
   showTimeToRead: true,
 
+  /* Share Buttons
+========================================= */
+  shareButtons: {
+    email: true,
+    facebook: true,
+    twitter: true,
+    reddit: true,
+    linkedIn: true
+  },
+
   /* Social Media Links
   ========================================= */
   socialMediaLinks: {
@@ -49,17 +59,16 @@ const siteConfig = {
     email: { emailAddress: 'hello@danydodson.dev', showHeaderIcon: true },
     hashnode: { accountName: 'dany', showHeaderIcon: false },
     linkedIn: { accountName: 'in/danydodson', showHeaderIcon: false },
-    medium: { accountName: 'danydodson', showHeaderIcon: false },
+    medium: { accountName: 'danydodson', showHeaderIcon: false }
   },
 
-  /* Share Buttons
+  /* Algolia
   ========================================= */
-  shareButtons: {
-    email: true,
-    facebook: true,
-    twitter: true,
-    reddit: true,
-    linkedIn: true
+  algolia: {
+    indexName: process.env.ALGOLIA_INDEX_NAME,
+    applicationId: process.env.ALGOLIA_APP_ID,
+    searchApiKey: process.env.ALGOLIA_SEARCH_ONLY_API_KEY,
+    adminApiKey: process.env.ALGOLIA_ADMIN_API_KEY
   },
 
   /* Comments
@@ -70,11 +79,6 @@ const siteConfig = {
       repoUrl: 'danydodson/dev'
     }
   },
-
-  /* Tracking
-  ========================================= */
-  gaTrackingId: `${process.env.GOOGLE_TRACKING_ID}`,
-  googleAdSenseId: process.env.GOOGLE_AD_SENSE_ID,
 
   /* Patreon
   ========================================= */
@@ -88,7 +92,26 @@ const siteConfig = {
       accountName: 'https://shows.acast.com/6045df1ab353eb47301f68e4',
       showHeaderIcon: true
     }
-  }
+  },
+
+  /* Tracking
+  ========================================= */
+  google: {
+    trackingId: `${process.env.GOOGLE_TRACKING_ID}`,
+    adsenseId: process.env.GOOGLE_AD_SENSE_ID
+  },
+
+  /* Datadog
+  ========================================= */
+  datadog: {
+    applicationId: process.env.DATADOG_APP_ID,
+    clientToken: process.env.DATADOG_CLIENT_TOKEN
+  },
+
+  /* Sentry
+  ========================================= */
+  sentryDsn: process.env.SENTRY_DSN
+
 }
 
 module.exports = siteConfig

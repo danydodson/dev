@@ -2,23 +2,21 @@ const path = require('path')
 const _ = require('lodash')
 const moment = require('moment')
 const siteConfig = require('./data/site-config')
-
 const { createFilePath } = require('gatsby-source-filesystem')
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
 
-  if (node.internal.type === `Mdx`) {
-
+  if (node.internal.type === 'Mdx') {
     const slug = createFilePath({
       node,
       getNode,
-      basePath: `src/content`
+      basePath: 'src/content'
     })
 
     createNodeField({
       node,
-      name: `slug`,
+      name: 'slug',
       value: slug
     })
 
@@ -30,23 +28,20 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
         value: date.toISOString()
       })
     }
-
   }
 }
 
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions
 
-  const LandingTemplate = path.resolve('./src/templates/landing.jsx')
+  // const LandingTemplate = path.resolve('./src/templates/landing.jsx')
   const PostTemplate = path.resolve('src/templates/post.js')
   const TagPage = path.resolve('src/templates/tag.jsx')
   const CategoryPage = path.resolve('src/templates/category.jsx')
 
   const res = await graphql(`
     {
-      allMdx(
-        sort: { fields: [frontmatter___date], order: DESC }
-      ) {
+      allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
         edges {
           node {
             fields {
@@ -69,7 +64,7 @@ exports.createPages = async ({ actions, graphql }) => {
         }
       }
     }
-    `)
+  `)
 
   if (res.errors) {
     console.error(res.errors)
@@ -148,22 +143,20 @@ exports.createPages = async ({ actions, graphql }) => {
   })
 
   //  Create tag pages
-  tagSet.forEach((tag) => {
+  tagSet.forEach(tag => {
     createPage({
       path: `/tags/${_.kebabCase(tag)}/`,
       component: TagPage,
-      context: { tag },
+      context: { tag }
     })
   })
 
   // Create category pages
-  categorySet.forEach((category) => {
+  categorySet.forEach(category => {
     createPage({
       path: `/categories/${_.kebabCase(category)}/`,
       component: CategoryPage,
-      context: { category },
+      context: { category }
     })
   })
-
 }
-

@@ -6,15 +6,10 @@ import PostList from '../components/Posts/PostList'
 import siteConfig from '../../data/site-config'
 
 export default function TagTemplate({ pageContext, data }) {
-
   const { tag } = pageContext
   const postEdges = data.allMdx.edges
 
-  return (
-    <Layout showTitle>
-      {/* <PostList postEdges={postEdges} /> */}
-    </Layout>
-  )
+  return <Layout showTitle>{/* <PostList postEdges={postEdges} /> */}</Layout>
 }
 
 export const pageQuery = graphql`

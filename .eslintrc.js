@@ -1,51 +1,59 @@
 module.exports = {
+  parser: 'babel-eslint',
   env: {
-    commonjs: true,
-    es6: true,
+    browser: true,
     node: true,
-    browser: true
+    es2021: true,
+    jest: true
   },
   extends: [
-    // 'airbnb',
-    // 'prettier',
-    // 'plugin:prettier/recommended',
+    'eslint:recommended',
     'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
+    'plugin:jsx-a11y/recommended',
+    'plugin:import/errors',
+    'plugin:import/warnings',
+    'plugin:react-hooks/recommended'
   ],
-  parser: 'babel-eslint',
   parserOptions: {
-    ecmaVersion: 2020,
-    sourceType: 'module',
     ecmaFeatures: {
-      'jsx': true
+      jsx: true
+    },
+    ecmaVersion: 12,
+    sourceType: 'module'
+  },
+  globals: {
+    graphql: true
+  },
+  settings: {
+    react: {
+      version: 'detect'
     }
   },
   plugins: [
     'react',
-    // 'prettier',
+    'jsx-a11y',
+    'import',
     'react-hooks'
   ],
   rules: {
-    
-    'no-console': 0,
-    'no-plusplus': 0,
-    'no-shadow': 0,
-    'func-names': 0,
-    'no-param-reassign': 0,
-    
-    'import/prefer-default-export': 0,
-    'import/newline-after-import':0,
-    'import/no-useless-path-segments':0,
-
-    'react/destructuring-assignment': 0,
+    'indent': ['error', 2],
+    'semi': [2, 'never'],
+    'quotes': [0, 'single'],
+    'comma-dangle': [2, 'never'],
+    'object-curly-spacing': [2, 'always'],
+    'react/jsx-closing-bracket-location': [2, 'line-aligned'],
+    'arrow-parens': [2, 'as-needed'],
+    'no-unused-vars': 0,
+    'no-unreachable': 0,
+    'no-extra-boolean-cast': 0,
+    'import/export': 0,
+    'import/default': 2,
     'react/prop-types': 0,
-    'react/no-children-prop': 0,
     'react/no-deprecated': 0,
-    'react/forbid-prop-types':0,
-    'react/require-default-props':0,
-    'react/react-in-jsx-scope': 0,
-    'react/jsx-props-no-spreading': 0,
-    'react/jsx-pascal-case': 0,
-    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }]
+    'react/jsx-key': 0,
+    'react/display-name': 0,
+    'react/no-children-prop': 0,
+    'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx'] }],
+    'react/react-in-jsx-scope': 0
   }
 }

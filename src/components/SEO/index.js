@@ -6,16 +6,16 @@ import { useStaticQuery, graphql } from 'gatsby'
 function SEO({ description, lang, meta, title }) {
   const { site } = useStaticQuery(
     graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-          }
-        }
-      }
-    `
+            query {
+                site {
+                    siteMetadata {
+                        title
+                        description
+                        author
+                    }
+                }
+            }
+        `
   )
 
   const metaDescription = description || site.siteMetadata.description
@@ -30,52 +30,54 @@ function SEO({ description, lang, meta, title }) {
         titleTemplate={`%s | ${site.siteMetadata.title}`}
         meta={[
           {
-            name: `description`,
+            name: 'description',
             content: metaDescription
           },
           {
-            property: `og:title`,
+            property: 'og:title',
             content: title
           },
           {
-            property: `og:description`,
+            property: 'og:description',
             content: metaDescription
           },
           {
-            property: `og:type`,
-            content: `website`
+            property: 'og:type',
+            content: 'website'
           },
           {
-            name: `twitter:card`,
-            content: `summary`
+            name: 'twitter:card',
+            content: 'summary'
           },
           {
-            name: `twitter:creator`,
+            name: 'twitter:creator',
             content: site.siteMetadata.author
           },
           {
-            name: `twitter:title`,
+            name: 'twitter:title',
             content: title
           },
           {
-            name: `twitter:description`,
+            name: 'twitter:description',
             content: metaDescription
           }
         ].concat(meta)}
       />
       <Helmet>
         {/* Google Font: IBM Plex Sans, Oxanium */}
-        <link href='https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Oxanium&display=swap' rel='stylesheet' />
-        
+        <link
+          href='https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Oxanium&display=swap'
+          rel='stylesheet'
+        />
       </Helmet>
     </>
   )
 }
 
 SEO.defaultProps = {
-  lang: `en`,
+  lang: 'en',
   meta: [],
-  description: ``
+  description: ''
 }
 
 SEO.propTypes = {

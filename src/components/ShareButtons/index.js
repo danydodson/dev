@@ -1,7 +1,18 @@
 import React from 'react'
 import siteConfig from '../../../data/site-config'
-import { EmailShareButton, FacebookShareButton, RedditShareButton, TwitterShareButton, LinkedinShareButton } from 'react-share'
-import { EmailIcon, FacebookIcon, RedditIcon, TwitterIcon, LinkedinIcon } from 'react-share'
+
+import {
+  EmailShareButton,
+  FacebookShareButton,
+  RedditShareButton,
+  TwitterShareButton,
+  LinkedinShareButton,
+  EmailIcon,
+  FacebookIcon,
+  RedditIcon,
+  TwitterIcon,
+  LinkedinIcon
+} from 'react-share'
 
 import './styles.scss'
 

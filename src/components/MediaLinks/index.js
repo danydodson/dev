@@ -5,15 +5,8 @@ import { socialMediaLinks } from '../../../data/site-config'
 
 const MediaLinks = () => (
   <StyledMediaLinks>
-    <MediaLink
-      accountInfo={socialMediaLinks.email.emailAddress}
-      mediaName='Email'
-      preHref='mailto:'
-    />
-    <MediaLink
-      accountInfo={socialMediaLinks.github.accountName}
-      mediaName='GitHub'
-      preHref='https://github.com/' />
+    <MediaLink accountInfo={socialMediaLinks.email.emailAddress} mediaName='Email' preHref='mailto:' />
+    <MediaLink accountInfo={socialMediaLinks.github.accountName} mediaName='GitHub' preHref='https://github.com/' />
     <MediaLink
       accountInfo={socialMediaLinks.facebook.accountName}
       mediaName='Facebook'
@@ -45,14 +38,14 @@ const MediaLinks = () => (
 export default MediaLinks
 
 const StyledMediaLinks = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  a {
-    color: steelblue;
-    margin: 0 0.2rem;
-    font-size: 0.9rem;
-    /* font-size: 0.8rem; */
-  }
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    a {
+        color: steelblue;
+        margin: 0 0.2rem;
+        font-size: 0.9rem;
+        /* font-size: 0.8rem; */
+    }
 `

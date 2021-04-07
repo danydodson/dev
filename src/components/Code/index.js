@@ -8,11 +8,11 @@ import './styles/main.scss'
 
 const comments = ['//highlight-start', '//highlight-end']
 // Remote highlight comments
-const removeHighlightComments = (line) => {
+const removeHighlightComments = line => {
   let newStr = line
   const trimmed = line.replace(/\s/g, '')
 
-  comments.forEach((comment) => {
+  comments.forEach(comment => {
     if (trimmed === comment) {
       newStr = null
     }

@@ -25,20 +25,20 @@ const Profile = ({ home }) => {
 export default Profile
 
 const StyledProfile = styled.div`
-  font-family: ${fontProfile + fontsBackUp};
-  position: relative;
-  display: flex;
-  align-items: center;
-  padding: 0.1rem 0.5rem 0.5rem 0.5rem;
+    font-family: ${fontProfile + fontsBackUp};
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0.1rem 0.5rem 0.5rem 0.5rem;
 `
 const StyledProfileHome = styled.div`
-  font-family: ${fontProfile + fontsBackUp};
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    font-family: ${fontProfile + fontsBackUp};
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-  padding: 0 3rem;
-  @media (max-width: 500px) {
-    padding: 0rem 0.5rem;
-  }
+    padding: 0 3rem;
+    @media (max-width: 500px) {
+        padding: 0rem 0.5rem;
+    }
 `

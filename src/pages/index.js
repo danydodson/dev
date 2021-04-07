@@ -7,7 +7,6 @@ import MainCard from '../components/MainCard'
 const loadsPer = 15
 
 const IndexPage = ({ data }) => {
-
   const [loaded, setLoaded] = useState(undefined)
   const posts = data.allMdx.edges
 
@@ -32,7 +31,7 @@ const IndexPage = ({ data }) => {
     if (pageOffset > lastPostLoadedOffset) {
       // Stops loading
       if (posts.length > loaded)
-        setLoaded((prev) => {
+        setLoaded(prev => {
           sessionStorage.setItem('curLoad', prev + loadsPer)
           return prev + loadsPer
         })
@@ -49,10 +48,7 @@ const IndexPage = ({ data }) => {
 
 export const pageQuery = graphql`
   query BlogIndexQuery {
-    allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }, 
-      filter: { frontmatter: { draft: { ne: true } } }
-    ) {
+    allMdx(sort: { fields: [frontmatter___date], order: DESC }, filter: { frontmatter: { draft: { ne: true } } }) {
       edges {
         node {
           id
@@ -66,9 +62,7 @@ export const pageQuery = graphql`
             title
             cover {
               childrenImageSharp {
-                gatsbyImageData(
-                  aspectRatio: 1.3
-                )
+                gatsbyImageData(aspectRatio: 1.3)
               }
             }
             date(formatString: "MM/DD/YYYY")

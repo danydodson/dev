@@ -43,22 +43,22 @@ Collapsable.propTypes = {
 }
 
 const StyledCollapsableTitleWrap = styled.div`
-  display: flex;
-  align-items: center;
-  font-size: ${(props) => props.titleSize};
-  margin: 1rem 0;
-  button {
-    color: ${() => setThemeVars(theme.fontColorLight, theme.fontColorDark)};
-  }
+    display: flex;
+    align-items: center;
+    font-size: ${props => props.titleSize};
+    margin: 1rem 0;
+    button {
+        color: ${() => setThemeVars(theme.fontColorLight, theme.fontColorDark)};
+    }
 `
 
 const StyledIconWrapper = styled.span`
-  svg {
-    width: ${(props) => props.titleSize};
-    height: ${(props) => props.titleSize};
-    margin-right: 0.3rem;
-    transform: ${(props) => (props.rotate === 'true' ? 'rotate(0deg)' : 'rotate(-90deg)')};
-    transition: transform 250ms;
-    fill: ${() => setThemeVars(theme.fontColorLight, theme.fontColorDark)};
-  }
+    svg {
+        width: ${props => props.titleSize};
+        height: ${props => props.titleSize};
+        margin-right: 0.3rem;
+        transform: ${props => (props.rotate === 'true' ? 'rotate(0deg)' : 'rotate(-90deg)')};
+        transition: transform 250ms;
+        fill: ${() => setThemeVars(theme.fontColorLight, theme.fontColorDark)};
+    }
 `

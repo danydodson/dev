@@ -18,9 +18,9 @@ const ProfileLocation = () => {
 export default ProfileLocation
 
 const StyledTextsLocation = styled.p`
-  font-size: 0.85rem;
-  margin: 0.3rem !important;
-  .icon-location {
-    font-size: 0.8rem;
-  }
+    font-size: 0.85rem;
+    margin: 0.3rem !important;
+    .icon-location {
+        font-size: 0.8rem;
+    }
 `

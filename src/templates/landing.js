@@ -8,7 +8,6 @@ import SEO from '../components/SEO'
 import siteConfig from '../../data/site-config'
 
 function LandingTemplate({ data }) {
-
   const postEdges = data.allMdx.edges
 
   return (
@@ -28,7 +27,7 @@ export const pageQuery = graphql`
   query LandingQuery {
     allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
-    ) {
+      ) {
       edges {
         node {
           fields {

@@ -1,7 +1,6 @@
 import React from 'react'
 
 const PostPreview = ({ entry, widgetFor }) => {
-
   const body = widgetFor('body')
   const title = entry.getIn(['data', 'title'])
 

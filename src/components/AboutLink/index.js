@@ -22,16 +22,16 @@ const AboutLink = () => (
 export default AboutLink
 
 const StyledMainCardName = styled.div`
-  display: inline-block;
-  cursor: pointer;
-  h2 {
-    padding: 0.2rem 0.4rem;
-  }
+    display: inline-block;
+    cursor: pointer;
+    h2 {
+        padding: 0.2rem 0.4rem;
+    }
 `
 
 const StyledMainCardNameAboutDisabled = styled.div`
-  display: inline-block;
-  h2 {
-    padding: 0.2rem 0rem;
-  }
+    display: inline-block;
+    h2 {
+        padding: 0.2rem 0rem;
+    }
 `
