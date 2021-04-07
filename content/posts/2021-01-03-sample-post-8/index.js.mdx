@@ -8,119 +8,81 @@ category: post
 draft: false
 ---
 
-<!-- ![](photo-8.webp) -->
+import { Chart } from "react-charts"
 
-### Building an API Gateway with Nginx + Lua
+## React Charts examples in MDX
 
-Nginx is a web server that can also be used as a reverse proxy, load balancer, mail proxy, and HTTP cache. Nginx could be used to create an API Gateway that processes requests in an event-driven manner, handling queries to the server in a quick, low-resource-footprint manner as they come in. Further, it reduces complexity and maximizes the performance by reducing the average response time to serve an API call.  
+This file is written in MDX and has a live React component you can interact with; try hovering over the data to get more granular information.
 
-Most of us are already familiar with Kong but, I wanted to explore the possibility of using OpenResty to build an API Gateway.
+### Data represented in BarChart
 
-### Implementation
+<figure style={{ height: 300 }}>
+  <Chart
+    data={data}
+    series={{ type: "bar" }}
+    axes={[
+      { primary: true, type: "ordinal", position: "left" },
+      { position: "bottom", type: "linear", stacked: true },
+    ]}
+    tooltip
+  />
+</figure>
 
-The first thing we need to do is to install OpenResty. OpenResty gives us the capability of scripting Nginx using Lua.  
+### Data represented in ColumnChart
 
-Once installed, you should navigate to your browser and type http://localhost. If everything goes well, you will see the below screenshot:
+<figure style={{ height: 300 }}>
+  <Chart
+    data={data}
+    series={{ type: "bar" }}
+    axes={[
+      { primary: true, type: "ordinal", position: "bottom" },
+      { position: "left", type: "linear", stacked: false },
+    ]}
+    tooltip
+  />
+</figure>
 
-With this, you have successfully installed OpenResty along with Nginx.  
+### Data represented in AreaChart
 
-Now, we need to edit the __*nginx.conf*__ file. You can find the nginx.conf file in the below locations:  
+<figure style={{ height: 300 }}>
+  <Chart
+    data={data}
+    series={{ type: "bar" }}
+    axes={[
+      { primary: true, position: "bottom", type: "time" },
+      { position: "left", type: "linear", stacked: true },
+    ]}
+    tooltip
+  />
+</figure>
 
-- *Ubuntu : /usr/local/openresty/nginx/conf*
-- *Mac: /usr/local/Cellar/openresty/nginx/conf (using homebrew)*
+Want to be informed about updates to this data? Sign up here:
 
-Note: You can also add the configuration in a new file and include it in __*nginx.conf*__.
+<!-- <Form /> -->
 
-For a basic API gateway, there are two important operations that it should perform:
-
-1. __Routing__
-2. __Authentication__
-
-### Routing
-
-To route the endpoints to their respective servers, all you need to do is:
-
-```nginx
-location /api/test {
-    proxy_pass http://localhost:8080/api/test;
-}
-```
-
-### Authentication
-
-To perform authentication, I will be using JWT. To do that, we need to install the __lua-resty-jwt__ library using __OPM(OpenResty Package Manager)__.
-
-```bash
-opm get SkyLothar/lua-resty-jwt
-```
-
-Next, create a __*jwt-auth.lua*__ in */usr/local/openresty/lualib/resty* (Ubuntu) and copy the below code:
-
-```lua
-local jwt = require 'resty.jwt'
-local validators = require 'resty.jwt-validators'
-
-if ngx.var.request_method ~= 'OPTIONS' and not string.match(ngx.var.uri, 'login') then
-
-  local jwtToken = ngx.var.http_Authorization
-
-  if jwtToken == nil then
-    ngx.status = ngx.HTTP_UNAUTHORIZED
-    ngx.header.content_type = 'application/json; charset=utf-8'
-    ngx.say('{\'error\': \'Forbidden\'}')
-    ngx.exit(ngx.HTTP_UNAUTHORIZED)
-  end
-
-  local claim_spec = {
-    exp = validators.is_not_expired()
-  }
-  
-  local jwt_obj = jwt:verify(‘secret’, jwtToken, claim_spec)
-  
-  if not jwt_obj['verified'] then
-    ngx.status = ngx.HTTP_UNAUTHORIZED
-    ngx.header.content_type = 'application/json; charset=utf-8'
-    ngx.say('{\'error\': \'INVALID_JWT\'}')
-    ngx.exit(ngx.HTTP_UNAUTHORIZED)
-  end
-
-end
-```
-
-The above Lua code does the following:
-
-1. It forwards the request to the next line of execution if it is an OPTIONS call or a login API.
-2. Otherwise, it fetches the JWT token in the Authorization header. If the token is not present, the code returns ‘FORBIDDEN’.
-3. This JWT token is then validated for authenticity and expiry date.
-4. Once the token is validated, it forwards the request to the respective service. Else, it returns ‘INVALID_JWT’.
-
-Include the above file in your __*nginx.conf*__.
-
-```nginx
-location /api/test {
-    access_by_lua_file /usr/local/openresty/lualib/resty/jwt_auth.lua;
-    proxy_pass http://localhost:8080/api/test;
-}
-```
-
-That’s it. You have added JWT authentication on Nginx.
-
-### Testing
-
-To check the changes we have made, restart __OpenResty__ using the below command
-
-```bash
-sudo service openresty restart
-```
-
-Once you restart, hit the API using Postman or any other REST client and validate the response.
-
-__*Tip:*__ *You can generate JWT tokens using this website: http://jwtbuilder.jamiekurtz.com/*
-
-### Todo
-
-We can improve our auth script by doing the following:
-
-1. A mechanism to add new API endpoints that don’t need a JWT token like downloads API.
-2. Currently, JWT secret token is hardcoded in the script. Maybe we could set it as an environment variable to make it dynamic.
-
+export const data = [
+  {
+    label: "In App Purchase Income",
+    datums: [
+      { x: "2020", y: 9 },
+      { x: "2019", y: 32 },
+      { x: "2018", y: 35 },
+      { x: "2017", y: 36 },
+      { x: "2016", y: 38 },
+      { x: "2015", y: 30 },
+      { x: "2014", y: 29 },
+    ],
+  },
+  {
+    label: "Advertising Income",
+    datums: [
+      { x: "2020", y: 4 },
+      { x: "2019", y: 3 },
+      { x: "2018", y: 12 },
+      { x: "2017", y: 14 },
+      { x: "2016", y: 10 },
+      { x: "2015", y: 9 },
+      { x: "2014", y: 17 },
+    ],
+  },
+]

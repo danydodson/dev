@@ -96,7 +96,6 @@ const PostTemplate = function ({ pageContext, data }) {
     Collapsable,
     U
   }
-  console.log(location)
 
   return (
     <Layout showTitle isPostTemplate>
@@ -109,7 +108,12 @@ const PostTemplate = function ({ pageContext, data }) {
           <>
             <h1 className='post-title'>{post.frontmatter.title}</h1>
             {/* Show post cover image */}
-            <GatsbyImage image={post.frontmatter.cover.childImageSharp.gatsbyImageData} alt='postImage' objectFit='cover' objectPosition='100% 100%' />
+            <GatsbyImage
+              image={post.frontmatter.cover.childImageSharp.gatsbyImageData}
+              alt='postImage'
+              objectFit='cover'
+              objectPosition='100% 100%'
+            />
             {/* Show tag & date */}
             <div className='post-data' style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }} >
               <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -141,7 +145,9 @@ const PostTemplate = function ({ pageContext, data }) {
           <Ruler widthInPercent='97' verticalMargin='0.8rem' />
           <Profile />
           <Ruler widthInPercent='97' verticalMargin='0.8rem' />
-          {comments.utterances.enabled && comments.utterances.repoUrl && (<UtterancesComments innerRef={utterancesRef} />)}
+          {comments.utterances.enabled && comments.utterances.repoUrl && (
+            <UtterancesComments innerRef={utterancesRef} />
+          )}
         </>
       )}
     </Layout>

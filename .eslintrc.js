@@ -2,37 +2,29 @@ module.exports = {
   parser: 'babel-eslint',
   env: {
     browser: true,
-    node: true,
     es2021: true,
-    jest: true
-  },
-  extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:jsx-a11y/recommended',
-    'plugin:import/errors',
-    'plugin:import/warnings',
-    'plugin:react-hooks/recommended'
-  ],
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true
-    },
-    ecmaVersion: 12,
-    sourceType: 'module'
-  },
-  globals: {
-    graphql: true
+    node: true
   },
   settings: {
     react: {
       version: 'detect'
     }
   },
+  parserOptions: {
+    ecmaVersion: 2020,
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true
+    }
+  },
+  extends: [
+    'plugin:react/recommended',
+    'plugin:jsx-a11y/recommended',
+    'plugin:react-hooks/recommended'
+  ],
   plugins: [
     'react',
     'jsx-a11y',
-    'import',
     'react-hooks'
   ],
   rules: {
@@ -54,8 +46,6 @@ module.exports = {
     'react/display-name': 0,
     'react/no-children-prop': 0,
     'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx'] }],
-    'react/react-in-jsx-scope': 0,
-    'no-const-assign': 0
-    // 'eslintreact-hooks/exhaustive-deps': 0
+    'react/react-in-jsx-scope': 0
   }
 }

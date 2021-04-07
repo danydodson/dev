@@ -79,12 +79,13 @@ exports.createPages = async ({ actions, graphql }) => {
   const { edges } = res.data.allMdx
 
   const isDraft = edges => edges.frontmatter.draft === true
+  const isSnipPage = edges => edges.frontmatter.category === 'snip'
   const isAboutPage = edges => edges.fields.slug === '/pages/about/'
   const isContactPage = edges => edges.fields.slug === '/pages/contact/'
   const isCVPage = edges => edges.fields.slug === '/pages/resume/'
 
   // Skip node if it's about, draft, or dummy post
-  const skipNode = edges => isAboutPage(edges) || isContactPage(edges) || isCVPage(edges) || isDraft(edges)
+  const skipNode = edges => isAboutPage(edges) || isContactPage(edges) || isCVPage(edges) || isDraft(edges) || isSnipPage(edges)
 
   // Get next available next node
   const getNextAvailableNode = (edges, index) => {

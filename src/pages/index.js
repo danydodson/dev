@@ -4,7 +4,7 @@ import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 import MainCard from '../components/MainCard'
 
-const loadsPer = 5
+const loadsPer = 15
 
 const IndexPage = ({ data }) => {
   const [loaded, setLoaded] = useState(undefined)

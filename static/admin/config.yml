@@ -46,3 +46,19 @@ collections:
       - { label: 'CV', name: 'cv_pdf', widget: 'file', required: false }
       - { label: 'Category', name: 'category', widget: 'string', default: 'page' }
       - { label: 'Tags', name: 'tags', widget: 'list', default: [''] }
+
+  - name: 'snips'
+    label: 'Snips'
+    folder: 'content/snips'
+    create: true
+    slug: '{{slug}}'
+    path: '{{slug}}/index'
+    fields:
+      - { label: 'Template', name: 'template', widget: 'hidden', default: 'snip' }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Slug', name: 'slug', widget: 'string' }
+      - { label: 'Cover', name: 'cover', widget: 'image' }
+      - { label: 'Draft', name: 'draft', widget: 'boolean', default: false }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'Category', name: 'category', widget: 'string', default: 'snip' }
+      - { label: 'Tags', name: 'tags', widget: 'list', default: [''] }
