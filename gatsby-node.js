@@ -78,7 +78,7 @@ exports.createPages = async ({ actions, graphql }) => {
   const { edges } = res.data.allMdx
 
   const isDraft = edges => edges.frontmatter.draft === true
-  const isSnipPage = edges => edges.frontmatter.category === 'snip'
+  const isCodePage = edges => edges.frontmatter.template === 'code'
   const isAboutPage = edges => edges.fields.slug === '/pages/about/'
   const isContactPage = edges => edges.fields.slug === '/pages/contact/'
   const isCVPage = edges => edges.fields.slug === '/pages/resume/'

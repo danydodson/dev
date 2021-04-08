@@ -44,22 +44,23 @@ collections:
       - { label: 'Draft', name: 'draft', widget: 'boolean', default: false }
       - { label: 'Category', name: 'category', widget: 'string', default: 'page' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'PDF', name: 'pdf', widget: 'file', required: false }
       - { label: 'Tags', name: 'tags', widget: 'list', required: false, default: '' }
-      - { label: 'CV', name: 'cv_pdf', widget: 'file', required: false }
 
-  - name: 'snips'
-    label: 'Snips'
-    folder: 'content/snips'
+  - name: 'Code'
+    label: 'Code'
+    folder: 'content/code'
     create: true
     slug: '{{slug}}'
     path: '{{slug}}/index'
     fields:
-      - { label: 'Template', name: 'template', widget: 'hidden', default: 'snip' }
+      - { label: 'Template', name: 'template', widget: 'hidden', default: 'code' }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Slug', name: 'slug', widget: 'string' }
       - { label: 'Cover', name: 'cover', widget: 'image' }
       - { label: 'Draft', name: 'draft', widget: 'boolean', default: false }
       - { label: 'Excerpt', name: 'excerpt', widget: 'text' }
-      - { label: 'Category', name: 'category', widget: 'string', default: 'snip' }
+      - { label: 'Category', name: 'category', widget: 'string', default: 'code' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'PDF', name: 'pdf', widget: 'file', required: false }
       - { label: 'Tags', name: 'tags', widget: 'list', required: false, default: '' }

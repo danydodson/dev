@@ -1,12 +1,12 @@
 ---
-template: snip
+template: code
 title: Switch statement vs Object Search
 slug: switch-statement-vs-object-search
 cover: index.png
 draft: false
 date: 0000-00-00
 excerpt: object-search
-category: javascript
+category: js
 tags: 
 - ''
 ---
