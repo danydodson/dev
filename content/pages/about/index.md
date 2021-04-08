@@ -5,9 +5,9 @@ slug: about
 cover: cover.jpeg
 draft: false
 category: page
-type: partial
 tags:
 - ''
+type: partial
 ---
 
 # About

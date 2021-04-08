@@ -7,7 +7,7 @@ draft: false
 category: page
 pdf: cv_en.pdf
 tags:
-  - ""
+- ''
 type: partial
 ---
 # Resume

@@ -5,8 +5,10 @@ slug: 02-array-map-reduce
 cover: cover.png
 draft: false
 excerpt: array-map-reduce
-category: code
-tags: ""
+category: JavaScript
+type: snippet
+tags:
+- ''
 ---
 # 02 - .map() & .reduce()
 

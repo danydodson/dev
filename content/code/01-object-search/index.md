@@ -1,19 +1,18 @@
 ---
 template: code
-title: Switch statement vs Object Search
-slug: switch-statement-vs-object-search
+title: 01 Switch statement vs Object Search
+slug: 01-switch-statement-vs-object-search
 cover: cover.png
 draft: false
-date: 0000-00-00
 excerpt: object-search
-category: js
+category: JavaScript
 type: snippet
 tags:
 - ''
 ---
 # 01 - Switch statement vs Object Search
 
-```js:title=switch.js
+```javascript
 function handleSuccess(){}
 function handleUnauthorized(){}
 function handleNotFound(){}

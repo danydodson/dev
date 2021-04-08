@@ -10,7 +10,7 @@ publish_mode: editorial_workflow
 
 collections:
   - name: 'posts'
-    label: 'Posts'
+    label: 'Post'
     folder: 'content/posts'
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
@@ -31,7 +31,7 @@ collections:
       - { label: 'Tags', name: 'tags', widget: 'list' }
 
   - name: 'pages'
-    label: 'Pages'
+    label: 'Page'
     folder: 'content/pages'
     create: true
     slug: '{{slug}}'
@@ -45,6 +45,7 @@ collections:
       - { label: 'Category', name: 'category', widget: 'string', default: 'page' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - { label: 'PDF', name: 'pdf', widget: 'file', required: false }
+      - { label: 'Partial', name: 'partial', widget: 'string', required: false, default: 'partial' }
       - { label: 'Tags', name: 'tags', widget: 'list', required: false, default: '' }
 
   - name: 'Code'
@@ -63,4 +64,5 @@ collections:
       - { label: 'Category', name: 'category', widget: 'string', default: 'code' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - { label: 'PDF', name: 'pdf', widget: 'file', required: false }
+      - { label: 'Type', name: 'type', widget: 'string', required: false, default: 'snippet' }
       - { label: 'Tags', name: 'tags', widget: 'list', required: false, default: '' }

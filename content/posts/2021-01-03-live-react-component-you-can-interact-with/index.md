@@ -4,12 +4,11 @@ title: Live React component you can interact with
 slug: live-react-component-you-can-interact-with
 cover: cover.webp
 draft: false
-date: 2021-01-03T13:11:52.449Z
+date: 2021-01-03
 excerpt: Try hovering over the data to get more granular information
-category: post
+category: Tutorial
 tags:
-- how to
-- mdx
+- JavaScript
 ---
 import { Chart } from "react-charts"
 import Form from "./../../layout/form.js"
