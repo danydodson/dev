@@ -2,15 +2,14 @@
 template: page
 title: Resume
 slug: resume
-cover: index.jpg
+cover: cover.jpg
 draft: false
-category: 'page'
+category: page
+type: partial
 tags:
 - ''
 ---
 
 # Resume
 
-![about](index.jpeg)
-
-
+![about](cover.jpeg)

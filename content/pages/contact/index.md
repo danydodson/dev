@@ -2,14 +2,14 @@
 template: page
 title: Contact
 slug: contact
-cover: index.webp
+cover: cover.webp
 draft: false
 category: page
+type: partial
 tags:
 - ''
 ---
 
 # Contact
 
-![about](index.jpeg)
-
+![about](cover.jpeg)

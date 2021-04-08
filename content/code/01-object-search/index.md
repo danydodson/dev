@@ -2,16 +2,16 @@
 template: code
 title: Switch statement vs Object Search
 slug: switch-statement-vs-object-search
-cover: index.png
+cover: cover.png
 draft: false
 date: 0000-00-00
 excerpt: object-search
 category: js
-tags: 
+type: snippet
+tags:
 - ''
 ---
-
-01 - Switch statement vs Object Search
+# 01 - Switch statement vs Object Search
 
 ```js:title=switch.js
 function handleSuccess(){}

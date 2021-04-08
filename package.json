@@ -5,9 +5,9 @@
   "author": "Dany Dodson <hello@danydodson.dev>",
   "main": "n/a",
   "scripts": {
-    "dev": "gatsby develop",
-    "dev:mobile": "gatsby develop -H 0.0.0.0",
-    "dev:host": "gatsby develop --host 192.168.0.112",
+    "develop": "gatsby develop",
+    "develop:mobile": "gatsby develop -H 0.0.0.0",
+    "develop:host": "gatsby develop --host 192.168.0.112",
     "build": "gatsby build",
     "build:icons": "sh ./scripts/generate-app-icons.sh",
     "lint": "yarn lint:js && yarn lint:styles && yarn lint:md",
@@ -18,8 +18,7 @@
     "format:styles": "prettier '**/*.{css,scss}' --write",
     "write:good": "write-good $(glob 'content/**/*.md')",
     "serve": "gatsby serve",
-    "clean": "rm -rf public && rm -rf .cache",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "clean": "gatsby clean"
   },
   "dependencies": {
     "@babel/core": "^7.13.14",

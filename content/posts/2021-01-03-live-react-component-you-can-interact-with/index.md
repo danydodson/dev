@@ -1,18 +1,20 @@
 ---
-title: Post 8
-date: 2021-01-03
-cover: photo-8.webp
-tags: [how to, 'mdx']
-excerpt: Mdx Example 8
-category: post
+template: post
+title: Live React component you can interact with
+slug: live-react-component-you-can-interact-with
+cover: cover.webp
 draft: false
+date: 2021-01-03T13:11:52.449Z
+excerpt: Try hovering over the data to get more granular information
+category: post
+tags:
+- how to
+- mdx
 ---
-
 import { Chart } from "react-charts"
-import Form from "./form.js"
+import Form from "./../../layout/form.js"
 
 ## React Charts examples in MDX
-
 This file is written in MDX and has a live React component you can interact with; try hovering over the data to get more granular information.
 
 ### Data represented in BarChart

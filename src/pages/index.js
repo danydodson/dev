@@ -71,6 +71,7 @@ export const pageQuery = graphql`
             draft
             excerpt
             category
+            type
             tags
           }
         }

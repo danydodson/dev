@@ -174,6 +174,7 @@ export const postQuery = graphql`
         category
         excerpt
         draft
+        type
         tags
       }
     }

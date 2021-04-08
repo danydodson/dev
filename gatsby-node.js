@@ -57,6 +57,7 @@ exports.createPages = async ({ actions, graphql }) => {
               draft
               excerpt
               category
+              type
               tags
             }
           }
@@ -78,7 +79,7 @@ exports.createPages = async ({ actions, graphql }) => {
   const { edges } = res.data.allMdx
 
   const isDraft = edges => edges.frontmatter.draft === true
-  const isCodePage = edges => edges.frontmatter.template === 'code'
+  const isCodePage = edges => edges.frontmatter.type === 'snippet'
   const isAboutPage = edges => edges.fields.slug === '/pages/about/'
   const isContactPage = edges => edges.fields.slug === '/pages/contact/'
   const isCVPage = edges => edges.fields.slug === '/pages/resume/'
