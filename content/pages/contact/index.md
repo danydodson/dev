@@ -5,11 +5,10 @@ slug: contact
 cover: cover.webp
 draft: false
 category: page
-type: partial
 tags:
-- ''
+  - ""
+type: partial
 ---
-
 # Contact
 
-![about](cover.jpeg)
+![about](cover.webp)
