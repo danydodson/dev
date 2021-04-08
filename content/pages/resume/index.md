@@ -5,11 +5,11 @@ slug: resume
 cover: cover.jpg
 draft: false
 category: page
-type: partial
+pdf: cv_en.pdf
 tags:
-- ''
+  - ""
+type: partial
 ---
-
 # Resume
 
-![about](cover.jpeg)
+![about](cover.jpg)
