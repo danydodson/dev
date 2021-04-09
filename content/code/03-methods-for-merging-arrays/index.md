@@ -7,7 +7,8 @@ draft: false
 excerpt: merging arrays
 category: JavaScript
 type: snippet
-tags: ""
+tags:
+- ''
 ---
 # 03 - Methods for merging (aka concatenating) arrays
 

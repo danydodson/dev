@@ -4,21 +4,33 @@
   "description": "blog",
   "author": "Dany Dodson <hello@danydodson.dev>",
   "main": "n/a",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danydodson/dev"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
   "scripts": {
-    "develop": "gatsby develop",
-    "develop:mobile": "gatsby develop -H 0.0.0.0",
-    "develop:host": "gatsby develop --host 192.168.0.112",
     "build": "gatsby build",
-    "build:icons": "sh ./scripts/generate-app-icons.sh",
-    "lint": "yarn lint:js && yarn lint:styles && yarn lint:md",
-    "lint:js": "eslint '**/*.{js,jsx}' --fix",
-    "lint:styles": "stylelint src/**/*.{css,scss}",
-    "lint:md": "remark content/",
-    "format:js": "prettier '**/*.{js,jsx}' --write",
-    "format:styles": "prettier '**/*.{css,scss}' --write",
-    "write:good": "write-good $(glob 'content/**/*.md')",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "write": "write-good $(glob 'content/**/*.md')",
+    "remark": "remark content/",
+    "start": "npm run develop",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,css,json,md}": [
+      "prettier --write"
+    ],
+    "*.js": [
+      "eslint --fix"
+    ]
   },
   "dependencies": {
     "@babel/core": "^7.13.14",
@@ -113,23 +125,9 @@
     "webpack-bundle-analyzer": "^4.4.0",
     "write-good": "^1.0.8"
   },
-  "browserslist": [
-    "Last 2 versions"
-  ],
   "remarkConfig": {
     "plugins": [
       "remark-preset-lint-recommended"
     ]
-  },
-  "keywords": [
-    "gatsby"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/danydodson/dev"
-  },
-  "bugs": {
-    "url": "https://github.com/danydodson/dev/issues"
-  },
-  "license": "MIT"
+  }
 }

@@ -37,7 +37,7 @@ module.exports = {
     'react/no-children-prop': 0,
     'react/react-in-jsx-scope': 0,
     'object-curly-spacing': [2, 'always'],
-    'react/jsx-closing-bracket-location': [2, 'line-aligned'],
+    'react/jsx-closing-bracket-location': 0,
     'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx'] }]
   }
 }
