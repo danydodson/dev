@@ -59,7 +59,7 @@
     "gatsby-remark-responsive-iframe": "^3.2.0",
     "gatsby-remark-smartypants": "^3.2.0",
     "gatsby-source-filesystem": "^3.2.0",
-    "gatsby-transformer-remark": "^3.2.0",
+    "gatsby-transformer-remark": "^4.0.0",
     "gatsby-transformer-sharp": "^3.2.0",
     "local-storage-fallback": "^4.1.2",
     "mdx-utils": "^0.2.0",
