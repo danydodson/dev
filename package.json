@@ -53,7 +53,7 @@
     "gatsby-remark-code-titles": "^1.1.0",
     "gatsby-remark-copy-linked-files": "^3.2.0",
     "gatsby-remark-emoji": "0.0.3",
-    "gatsby-remark-images": "^4.2.0",
+    "gatsby-remark-images": "^5.0.0",
     "gatsby-remark-prismjs": "^4.2.0",
     "gatsby-remark-relative-images": "^2.0.2",
     "gatsby-remark-responsive-iframe": "^3.2.0",
