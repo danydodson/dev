@@ -32,7 +32,7 @@
     "@sentry/gatsby": "^6.2.5",
     "@sentry/tracing": "^6.2.5",
     "gatsby": "^3.2.1",
-    "gatsby-plugin-algolia": "^0.18.0",
+    "gatsby-plugin-algolia": "^0.19.0",
     "gatsby-plugin-catch-links": "^3.2.0",
     "gatsby-plugin-datadog": "^1.1.1",
     "gatsby-plugin-feed": "^3.2.0",
