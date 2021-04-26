@@ -10,6 +10,7 @@ category: Tutorial
 tags:
 - JavaScript
 ---
+
 import { Chart } from "react-charts"
 import Form from "./../../layout/form.js"
 
