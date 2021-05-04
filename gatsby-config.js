@@ -3,6 +3,14 @@ const path = require('path')
 const siteConfig = require('./data/site-config')
 
 module.exports = {
+  flags: {
+    FAST_DEV: true,
+    DEV_SSR: true,
+    PRESERVE_WEBPACK_CACHE: true,
+    PRESERVE_FILE_DOWNLOAD_CACHE: true,
+    PARALLEL_SOURCING: true,
+    FUNCTIONS: true
+  },
   siteMetadata: siteConfig,
   plugins: [
     'gatsby-plugin-react-helmet',
