@@ -1,10 +1,21 @@
 import React from 'react'
-import siteConfig from '../../../data/site-config'
-import { EmailShareButton, FacebookShareButton, RedditShareButton, TwitterShareButton, LinkedinShareButton, EmailIcon, FacebookIcon, RedditIcon, TwitterIcon, LinkedinIcon } from 'react-share'
-
+import { siteConfig } from '../../../src/config'
+import {
+  EmailShareButton,
+  FacebookShareButton,
+  TwitterShareButton,
+  RedditShareButton,
+  LinkedinShareButton,
+  EmailIcon,
+  FacebookIcon,
+  RedditIcon,
+  TwitterIcon,
+  LinkedinIcon
+} from 'react-share'
 import './styles.scss'
 
 const ShareButtons = ({ location }) => {
+  
   return (
     <div className='share-buttons-wrap'>
       {siteConfig.shareButtons.email && (

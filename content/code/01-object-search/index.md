@@ -6,8 +6,7 @@ cover: cover.png
 draft: true
 excerpt: object-search
 category: JavaScript
-tags:
-- ''
+tags: []
 type: snippet
 ---
 

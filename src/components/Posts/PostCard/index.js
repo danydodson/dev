@@ -1,15 +1,48 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React, { useState, useEffect } from "react"
+import { graphql, useStaticQuery, Link } from "gatsby"
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock } from '@fortawesome/free-solid-svg-icons'
-import { setThemeVars } from '../../../utilities/theme-helper'
+import { setThemeVars } from '../../../utils/theme-helper'
 import { theme } from '../../Shared/styles-global'
-import siteConfig from '../../../../data/site-config'
+import { siteConfig } from '../../../../src/config'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
 const PostCard = ({ id, title, cover, date, path, excerpt, timeToRead }) => {
+
   const image = cover.childrenImageSharp[0].gatsbyImageData
+
+  // --------------------------------------
+  // BUILD TIME DATA FETCHING USING GRAPHQL
+  // --------------------------------------
+  const gatsbyRepoData = useStaticQuery(graphql`
+    query {
+      github {
+        repository(name: "dev", owner: "danydodson") {
+          id
+          nameWithOwner
+          url
+        }
+      }
+    }
+  `)
+
+  // ----------------------
+  // RUNTIME DATA FETCHING
+  // ----------------------
+  const [repoName, setRepoName] = useState('')
+  const [watchersCount, setWatchersCount] = useState(0)
+  const [starsCount, setStarsCount] = useState(0)
+
+  useEffect(() => {
+    fetch(`https://api.github.com/repos/danydodson/dev`)
+      .then(res => res.json())
+      .then(res => {
+        setRepoName(res.name)
+        setWatchersCount(res.watchers_count)
+        setStarsCount(res.stargazers_count)
+      })
+  }, [])
 
   return (
     <>
@@ -26,7 +59,35 @@ const PostCard = ({ id, title, cover, date, path, excerpt, timeToRead }) => {
             </span>
           )}
 
+          <ul>
+            <li>
+              <span>
+                <a href={gatsbyRepoData.github.repository &&
+                  gatsbyRepoData.github.repository.nameWithOwner}
+                >
+                  {gatsbyRepoData.github.repository
+                    ? gatsbyRepoData.github.repository.url
+                    : 'to get this data at build time from GitHub you need to include a GitHub access token in the request by including a .env file'
+                  }
+                </a>
+              </span>
+            </li>
+
+            <li>
+              <span>
+                watchers count: {watchersCount}
+              </span>
+            </li>
+
+            <li>
+              <span>
+                star count: {starsCount}
+              </span>
+            </li>
+          </ul>
+
           <p>{excerpt}</p>
+
         </StyledPostCard>
       </Link>
     </>

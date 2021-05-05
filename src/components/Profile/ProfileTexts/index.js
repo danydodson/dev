@@ -1,7 +1,7 @@
 import React from 'react'
 import AboutLink from '../../AboutLink'
 import MediaLinks from '../../MediaLinks'
-import { profileDescription } from '../../../../data/site-config'
+import { profileDescription } from '../../../../src/config/site-config'
 import ProfileLocation from '../ProfileLocation'
 import styled from 'styled-components'
 

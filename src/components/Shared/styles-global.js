@@ -1,8 +1,8 @@
 import { createGlobalStyle, keyframes } from 'styled-components'
 import { isMobile } from 'react-device-detect'
 import { setThemeVars } from '../../utils/theme-helper'
-import siteConfig from '../../../data/site-config'
-import styleConfig from '../../../data/style-config'
+import { siteConfig, styleConfig } from '../../../src/config'
+
 
 const globalVar = {
   primaryColor: '#fff',

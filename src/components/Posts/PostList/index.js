@@ -2,11 +2,11 @@ import React from 'react'
 import PostCard from '../PostCard'
 
 const PostList = ({ posts }) => {
-  const filteredPosts = posts.filter(
-    post =>
-      post.node.fields.slug !== '/pages/about/' &&
-            post.node.fields.slug !== '/pages/contact/' &&
-            post.node.fields.slug !== '/pages/resume/'
+  
+  const filteredPosts = posts.filter(post =>
+    post.node.fields.slug !== '/pages/about/' &&
+    post.node.fields.slug !== '/pages/contact/' &&
+    post.node.fields.slug !== '/pages/resume/'
   )
 
   return (

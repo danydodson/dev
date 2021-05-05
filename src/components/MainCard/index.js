@@ -9,6 +9,7 @@ import { isMobile } from 'react-device-detect'
 import { TAG } from '../../constants'
 
 class MainCard extends Component {
+  
   constructor(props) {
     super(props)
     this.state = {

@@ -1,8 +1,7 @@
 /* Code block stylings based on main theme */
 import { createGlobalStyle } from 'styled-components'
 import { setThemeVars } from '../../../utils/theme-helper'
-import siteConfig from '../../../../data/site-config'
-import styleConfig from '../../../../data/style-config'
+import { siteConfig, styleConfig } from '../../../../src/config'
 
 const bgColor = () => setThemeVars('#f6f8fa !important', '#2d323e !important')
 const bgColorBorder = () => setThemeVars('#e8e6ef !important', '#43485f !important')

@@ -5,7 +5,7 @@ import Layout from '../components/Layout'
 import ToggleMode from '../components/Layout/ToggleMode'
 import PostList from '../components/Posts/PostList'
 import SEO from '../components/SEO'
-import siteConfig from '../../data/site-config'
+import { siteConfig } from '../../src/config'
 
 function LandingTemplate({ data }) {
   const postEdges = data.allMdx.edges

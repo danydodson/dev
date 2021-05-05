@@ -1,9 +1,6 @@
 **/.cache
 **/.github
-**/.vscode
+**/content
 **/node_modules
 **/public
 **/static
-**/content
-**/package-lock.json
-**/yarn.lock

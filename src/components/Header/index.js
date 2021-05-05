@@ -2,15 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import styled, { withTheme } from 'styled-components'
-
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
 import { faGithub, faFacebook, faInstagram, faTwitter, faLinkedin, faMedium, faDev } from '@fortawesome/free-brands-svg-icons'
-
 import HeaderIcon from '../HeaderIcon'
 import ProgressBar from './ProgressBar'
-
-import siteConfig from '../../../data/site-config'
-import styleConfig from '../../../data/style-config'
+import { siteConfig, styleConfig } from '../../../src/config'
 
 const Header = ({ siteTitle, showTitle, isPostTemplate }) => {
   return (

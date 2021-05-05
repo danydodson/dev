@@ -12,7 +12,7 @@ const ProfileImage = ({ home }) => {
             <StyledInnerInner className='profile-image-inner-inner' />
           </StyledInner>
           <Image
-            src='cards/card-630x630.webp'
+            src='imgs/card-630x.png'
             objectFit='cover'
             objectPosition='100% 100%'
             alt='profileImage'
@@ -24,7 +24,7 @@ const ProfileImage = ({ home }) => {
             <StyledInnerInner className='profile-image-inner-inner' />
           </StyledInner>
           <Image
-            src='cards/card-630x630.webp'
+            src='imgs/card-630x.png'
             objectFit='cover'
             objectPosition='100% 100%'
             alt='profileImage'

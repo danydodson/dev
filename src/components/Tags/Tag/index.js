@@ -4,6 +4,7 @@ import { theme } from '../../Shared/styles-global'
 import { isMobile } from 'react-device-detect'
 
 const Tag = ({ title, selectTag, selectedTag, unmountTagsAnimation }) => {
+
   const handleClick = () => {
     selectTag(title)
   }

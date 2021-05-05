@@ -3,8 +3,8 @@ backend:
   branch: main
   repo: 'danydodson/dev'
 
-media_folder: 'src/images/uploads'
-public_folder: '/images'
+media_folder: 'src/assets/imgs'
+public_folder: '/assets'
 
 publish_mode: editorial_workflow
 

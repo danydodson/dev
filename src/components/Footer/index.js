@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import siteConfig from '../../../data/site-config'
-import RSS from '../../images/svgs/rss.svg'
+import { siteConfig } from '../../../src/config'
+import RSS from '../../assets/svgs/rss.svg'
 import { setThemeVars } from '../../utils/theme-helper'
 
 const Footer = () => {

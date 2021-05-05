@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
-import siteConfig from '../../../data/site-config'
+import { siteConfig } from '../../../src/config'
 
 const Image = ({ src, ...props }) => {
 
@@ -22,7 +22,7 @@ const Image = ({ src, ...props }) => {
     }
   `)
 
-  
+
   const match = useMemo(() => data.allFile.edges.find(({ node }) => src === node.relativePath), [data, src])
 
   const image = match.node.childImageSharp.gatsbyImageData

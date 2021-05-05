@@ -5,8 +5,7 @@ slug: about
 cover: cover.webp
 draft: false
 category: page
-tags:
-- ''
+tags: []
 type: partial
 ---
 
