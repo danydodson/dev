@@ -1,11 +1,114 @@
-<!-- <figure style={{ height: 300 }}>
-  <img src='static/cards/card-1200x630.webp' alt='Logo' width='50%'/>
-</figure> -->
+<p align="center">
+  <a href="" rel="noopener">
+  <img height=200px src="https://ik.imagekit.io/vdyy86fmjx/dev/card-1200x630_ePTEx3_kK.webp" alt="Project logo"></a>
+</p>
 
-[![Build Status](https://badges.netlify.com/api/danydodson-dev.svg?branch=main)](https://app.netlify.com/sites/danydodson-dev/deploys)
-![https://www.codacy.com/app/danydodson/dev?utm_source=github.com&utm_medium=referral&utm_content=danydodson/dev&utm_campaign=Badge_Grade](https://api.codacy.com/project/badge/Grade/990fb54ea8094f2aa0ed77f14e859820)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/56c754afeaf44e45ba157836519923c8)](https://www.codacy.com/gh/danydodson/dev/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=danydodson/dev&amp;utm_campaign=Badge_Grade)
-![https://codeclimate.com/github/danydodson/dev](https://codeclimate.com/github/danydodson/dev/badges/gpa.svg)
-![https://twitter.com/intent/tweet?text=A%20cool%20%40gatsbyjs%20starter%3A&url=https%3A%2F%2Fgithub.com%2Fdanydodson%2Fdev](https://img.shields.io/twitter/url/https/github.com/danydodson/dev.svg?style=social)
+<h3 align="center">developer blog</h3>
 
-## Developer Blog
+<div align="center">
+
+[![Status](https://img.shields.io/badge/status-active-success.svg)]()
+[![GitHub Issues](https://img.shields.io/github/issues/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/issues)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/pulls)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
+
+</div>
+
+---
+
+<p align="center"> Few lines describing your project.
+  <br> 
+</p>
+
+## 📝 Table of Contents
+
+- [About](#about)
+- [Getting Started](#getting_started)
+- [Deployment](#deployment)
+- [Usage](#usage)
+- [Built Using](#built_using)
+- [TODO](../TODO.md)
+- [Contributing](../CONTRIBUTING.md)
+- [Authors](#authors)
+- [Acknowledgments](#acknowledgement)
+
+## 🧐 About <a name = "about"></a>
+
+Write about 1-2 paragraphs describing the purpose of your project.
+
+## 🏁 Getting Started <a name = "getting_started"></a>
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
+
+### Prerequisites
+
+What things you need to install the software and how to install them.
+
+```
+Give examples
+```
+
+### Installing
+
+A step by step series of examples that tell you how to get a development env running.
+
+Say what the step will be
+
+```
+Give the example
+```
+
+And repeat
+
+```
+until finished
+```
+
+End with an example of getting some data out of the system or using it for a little demo.
+
+## 🔧 Running the tests <a name = "tests"></a>
+
+Explain how to run the automated tests for this system.
+
+### Break down into end to end tests
+
+Explain what these tests test and why
+
+```
+Give an example
+```
+
+### And coding style tests
+
+Explain what these tests test and why
+
+```
+Give an example
+```
+
+## 🎈 Usage <a name="usage"></a>
+
+Add notes about how to use the system.
+
+## 🚀 Deployment <a name = "deployment"></a>
+
+Add additional notes about how to deploy this on a live system.
+
+## ⛏️ Built Using <a name = "built_using"></a>
+
+- [MongoDB](https://www.mongodb.com/) - Database
+- [Express](https://expressjs.com/) - Server Framework
+- [VueJs](https://vuejs.org/) - Web Framework
+- [NodeJs](https://nodejs.org/en/) - Server Environment
+
+## ✍️ Authors <a name = "authors"></a>
+
+- [@kylelobo](https://github.com/kylelobo) - Idea & Initial work
+
+See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors) who participated in this project.
+
+## 🎉 Acknowledgements <a name = "acknowledgement"></a>
+
+- Hat tip to anyone whose code was used
+- Inspiration
+- References

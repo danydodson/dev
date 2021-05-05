@@ -1,7 +1,7 @@
-**/.vscode
-**/.env
-**/*.log
-**/.eslintcache
 **/.cache/
-**/public
+**/.vscode
 **/node_modules
+**/public
+**/.env
+**/.eslintcache
+**/*.log

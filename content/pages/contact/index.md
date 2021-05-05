@@ -9,6 +9,5 @@ tags:
 - ''
 type: partial
 ---
-# Contact
 
-![about](cover.webp)
+# Contact

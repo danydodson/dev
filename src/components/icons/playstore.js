@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const IconPlayStore = () => (
   <svg xmlns="http://www.w3.org/2000/svg" role="img" x="0px" y="0px" viewBox="0 0 512.001 512.001">
@@ -12,6 +12,6 @@ const IconPlayStore = () => (
       c7.746,4.335,8.583,11.68,8.583,14.637C456.455,258.958,455.62,266.302,447.874,270.637z"
     />
   </svg>
-);
+)
 
-export default IconPlayStore;
+export default IconPlayStore

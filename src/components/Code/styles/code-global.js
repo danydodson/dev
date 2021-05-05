@@ -1,6 +1,6 @@
 /* Code block stylings based on main theme */
 import { createGlobalStyle } from 'styled-components'
-import { setThemeVars } from '../../../utilities/theme-helper'
+import { setThemeVars } from '../../../utils/theme-helper'
 import siteConfig from '../../../../data/site-config'
 import styleConfig from '../../../../data/style-config'
 
@@ -29,8 +29,7 @@ const selectionColor = () => setThemeVars('#ccf1fb !important', '#073642 !import
 const copyBtnBg = () => setThemeVars('#efefef !important', '#3b3d46 !important')
 const copyBtnColor = () => setThemeVars('#9c9c9c !important', '#888598 !important')
 const copyBtnColorHover = () => setThemeVars('#111 !important', '#b7b5bf !important')
-const fontColor = () =>
-  setThemeVars(`${styleConfig.fontColorLight} !important`, `${styleConfig.fontColorDark} !important`)
+const fontColor = () => setThemeVars(`${styleConfig.fontColorLight} !important`, `${styleConfig.fontColorDark} !important`)
 
 // Code block styling for light/dark theme
 const codeBlockStyles = createGlobalStyle`

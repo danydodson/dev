@@ -5,6 +5,11 @@ export { default as Warning } from './TextBlock/Warning'
 export { default as Success } from './TextBlock/Success'
 export { default as Info } from './TextBlock/Info'
 
+// Resume
+export { default as Resume } from './Resume'
+
+// Collapsable
 export { default as Collapsable } from './Collapsable'
 
+// Underline
 export { default as U } from './Underline'

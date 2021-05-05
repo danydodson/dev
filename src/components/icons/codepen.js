@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const IconCodepen = () => (
   <svg
@@ -17,6 +17,6 @@ const IconCodepen = () => (
     <polyline points="2 15.5 12 8.5 22 15.5"></polyline>
     <line x1="12" y1="2" x2="12" y2="8.5"></line>
   </svg>
-);
+)
 
-export default IconCodepen;
+export default IconCodepen

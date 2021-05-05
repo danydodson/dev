@@ -1,0 +1,122 @@
+---
+template: post
+title: Live React
+slug: live-react
+cover: cover.webp
+draft: false
+date: 2021-05-03
+excerpt: Live React
+category: Tutorial
+tags:
+- mdx
+---
+
+import { Chart } from 'react-charts'
+
+# Live React
+
+<Collapsable title='Headings' titleSize='1rem'>
+
+# go
+
+</Collapsable>
+
+<Primary>
+
+Eiusmod `culpa duis dolor` consequat mollit aliquip incididunt nostrud veniam laboris. Minim culpa eiusmod pariatur ex consequat irure occaecat veniam nostrud dolor reprehenderit ut consectetur. Nisi cupidatat commodo ea nulla consectetur. Consequat do pariatur ullamco Lorem culpa qui sint. Sit aliqua nulla minim minim officia occaecat nisi est ex ullamco nisi.
+</Primary>
+
+<Success>
+
+Eiusmod culpa duis dolor consequat mollit aliquip incididunt nostrud veniam laboris. Minim culpa eiusmod pariatur ex consequat irure occaecat veniam nostrud dolor reprehenderit ut consectetur. Nisi cupidatat commodo ea nulla consectetur. Consequat do pariatur ullamco Lorem culpa qui sint. Sit aliqua nulla minim minim officia occaecat nisi est ex ullamco nisi.
+</Success>
+
+<Info>
+
+Eiusmod culpa duis dolor consequat mollit aliquip incididunt nostrud veniam laboris. Minim culpa eiusmod pariatur ex consequat irure occaecat veniam nostrud dolor reprehenderit ut consectetur. Nisi cupidatat commodo ea nulla consectetur. Consequat do pariatur ullamco Lorem culpa qui sint. Sit aliqua nulla minim minim officia occaecat nisi est ex ullamco nisi.
+</Info>
+
+<Warning>
+
+Eiusmod culpa duis dolor consequat mollit aliquip incididunt nostrud veniam laboris. Minim culpa eiusmod pariatur ex consequat irure occaecat veniam nostrud dolor reprehenderit ut consectetur. Nisi cupidatat commodo ea nulla consectetur. Consequat do pariatur ullamco Lorem culpa qui sint. Sit aliqua nulla minim minim officia occaecat nisi est ex ullamco nisi.
+</Warning>
+
+<Danger>
+
+Eiusmod culpa duis dolor consequat mollit aliquip incididunt nostrud veniam laboris. Minim culpa eiusmod pariatur ex consequat irure occaecat veniam nostrud dolor reprehenderit ut consectetur. Nisi cupidatat commodo ea nulla consectetur. Consequat do pariatur ullamco Lorem culpa qui sint. Sit aliqua nulla minim minim officia occaecat nisi est ex ullamco nisi.
+</Danger>
+
+
+```jsx:title=alert-button.js react-live
+const handleClick = () => alert('Hello!')
+
+render(<button onClick={handleClick}>Click</button>)
+```
+
+# React Charts
+
+<figure style={{ height: 300 }}>
+  <Chart
+    data={data}
+    series={{ type: 'bar' }}
+    axes={[
+      { primary: true, type: 'ordinal', position: 'bottom' },
+      { position: 'left', type: 'linear', stacked: false },
+    ]}
+    tooltip
+  />
+</figure>
+
+# Dump Component
+
+```jsx
+import React from 'react'
+
+const Dump = props => (
+  <div
+    style={{
+      fontSize: 20,
+      border: '1px solid #efefef',
+      padding: 10,
+      background: 'white',
+    }}>
+    {Object.entries(props).map(([key, val]) => (
+      <pre key={key}>
+        <strong style={{ color: 'white', background: 'red' }}>
+          {key} ?
+        </strong>
+        {JSON.stringify(val, '', ' ')}
+      </pre>
+    ))}
+  </div>
+)
+
+export default Dump
+```
+
+export const data = [
+  {
+    label: "In App Purchase Income",
+    datums: [
+      { x: "2020", y: 9 },
+      { x: "2019", y: 32 },
+      { x: "2018", y: 35 },
+      { x: "2017", y: 36 },
+      { x: "2016", y: 38 },
+      { x: "2015", y: 30 },
+      { x: "2014", y: 29 },
+    ],
+  },
+  {
+    label: "Advertising Income",
+    datums: [
+      { x: "2020", y: 4 },
+      { x: "2019", y: 3 },
+      { x: "2018", y: 12 },
+      { x: "2017", y: 14 },
+      { x: "2016", y: 10 },
+      { x: "2015", y: 9 },
+      { x: "2014", y: 17 },
+    ],
+  },
+]

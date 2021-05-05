@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const HeaderIcon = ({ accountInfo, mediaName, preHref, icon }) => {
+  
   const accountName = accountInfo.accountName ? accountInfo.accountName : accountInfo.emailAddress
 
   return (

@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import { isMobile } from 'react-device-detect'
-import { setThemeVars } from '../utilities/theme-helper'
+import { setThemeVars } from '../utils/theme-helper'
 import { comments } from '../../data/site-config'
 import styleConfig from '../../data/style-config'
 import Layout from '../components/Layout'
@@ -15,8 +15,8 @@ import ToggleMode from '../components/Layout/ToggleMode'
 import { theme } from '../components/Shared/styles-global'
 import LinkEdgePosts from '../components/LinkEdgePosts'
 import ShareButtons from '../components/ShareButtons'
-import ChevronRight from '../../static/svgs/chevron-right.svg'
-import { Info, Primary, Danger, Warning, Success, U, Collapsable } from '../components/MdxComponents'
+import ChevronRight from '../images/svgs/chevron-right.svg'
+import { Info, Primary, Danger, Warning, Success, Resume, U, Collapsable } from '../components/MdxComponents'
 import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 
@@ -25,6 +25,7 @@ const PostTemplate = function ({ pageContext, data }) {
 
   const post = data.mdx
   const isAboutPage = post.fields.slug.includes('/pages/about/')
+  const isInfoPage = post.fields.slug.includes('/pages/resume/')
   const category = pageContext.category
   const utterancesRef = useRef()
 
@@ -94,6 +95,7 @@ const PostTemplate = function ({ pageContext, data }) {
     Warning,
     Success,
     Collapsable,
+    Resume,
     U
   }
 
@@ -104,7 +106,7 @@ const PostTemplate = function ({ pageContext, data }) {
         <ToggleMode />
       </div>
       <StyledHTML className='post-html'>
-        {!isAboutPage && (
+        {!isAboutPage && !isInfoPage && (
           <>
             <h1 className='post-title'>{post.frontmatter.title}</h1>
             {/* Show post cover image */}

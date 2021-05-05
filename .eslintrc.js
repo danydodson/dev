@@ -19,6 +19,7 @@ module.exports = {
   },
   extends: [
     'plugin:react/recommended',
+    'plugin:mdx/recommended',
     'plugin:jsx-a11y/recommended',
     'plugin:react-hooks/recommended'
   ],
@@ -28,6 +29,8 @@ module.exports = {
     'react-hooks'
   ],
   rules: {
+    // "mdx/code-blocks": 0,
+    // "mdx/language-mapper": {}, // optional, if you want to disable language mapper, set it to `false` if you want to override the default language mapper inside, you can provide your own
     'no-unused-vars': 0,
     'no-unreachable': 0,
     'react/prop-types': 0,

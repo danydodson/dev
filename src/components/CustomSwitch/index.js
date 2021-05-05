@@ -4,7 +4,7 @@ import { withTheme } from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMoon } from '@fortawesome/free-solid-svg-icons'
 import { Icon } from '@components/icons'
-import SunIcon from '../../../static/svgs/sun.svg'
+import SunIcon from '../../images/svgs/sun.svg'
 import siteConfig from '../../../data/site-config'
 
 import './styles.scss'

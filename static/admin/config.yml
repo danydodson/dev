@@ -3,7 +3,7 @@ backend:
   branch: main
   repo: 'danydodson/dev'
 
-media_folder: 'static/images'
+media_folder: 'src/images/uploads'
 public_folder: '/images'
 
 publish_mode: editorial_workflow
@@ -23,7 +23,7 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Slug', name: 'slug', widget: 'string' }
       - { label: 'Cover', name: 'cover', widget: 'image' }
-      - { label: 'Draft', name: 'draft', widget: 'boolean', default: false }
+      - { label: 'Draft', name: 'draft', widget: 'boolean'}
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Excerpt', name: 'excerpt', widget: 'text' }
       - { label: 'Category', name: 'category', widget: 'string' }
@@ -41,14 +41,14 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Slug', name: 'slug', widget: 'string' }
       - { label: 'Cover', name: 'cover', widget: 'image' }
-      - { label: 'Draft', name: 'draft', widget: 'boolean', default: false }
+      - { label: 'Draft', name: 'draft', widget: 'boolean'}
       - { label: 'Category', name: 'category', widget: 'string', default: 'page' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - { label: 'PDF', name: 'pdf', widget: 'file', required: false }
-      - { label: 'Partial', name: 'partial', widget: 'string', required: false, default: 'partial' }
+      - { label: 'Type', name: 'type', widget: 'string', required: false, default: 'partial' }
       - { label: 'Tags', name: 'tags', widget: 'list', required: false, default: '' }
 
-  - name: 'Code'
+  - name: 'code'
     label: 'Code'
     folder: 'content/code'
     create: true
@@ -59,10 +59,9 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Slug', name: 'slug', widget: 'string' }
       - { label: 'Cover', name: 'cover', widget: 'image' }
-      - { label: 'Draft', name: 'draft', widget: 'boolean', default: false }
+      - { label: 'Draft', name: 'draft', widget: 'boolean' }
       - { label: 'Excerpt', name: 'excerpt', widget: 'text' }
       - { label: 'Category', name: 'category', widget: 'string', default: 'code' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
-      - { label: 'PDF', name: 'pdf', widget: 'file', required: false }
       - { label: 'Type', name: 'type', widget: 'string', required: false, default: 'snippet' }
       - { label: 'Tags', name: 'tags', widget: 'list', required: false, default: '' }

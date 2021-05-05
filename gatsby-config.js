@@ -1,3 +1,7 @@
+require(`dotenv`).config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 const { config } = require('@fortawesome/fontawesome-svg-core')
 const path = require('path')
 const siteConfig = require('./data/site-config')
@@ -24,9 +28,30 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'posts',
-        path: `${__dirname}/content`
+        name: 'code',
+        path: `${__dirname}/content/code`
       }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'pages',
+        path: `${__dirname}/content/pages`
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'posts',
+        path: `${__dirname}/content/posts`
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
     },
     {
       resolve: 'gatsby-source-filesystem',
@@ -36,6 +61,17 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        typeName: `GitHub`,
+        fieldName: `github`,
+        url: `https://api.github.com/graphql`,
+        headers: {
+          Authorization: `Bearer ${process.env.GATSBY_GITHUB_TOKEN}`,
+        },
+      },
+    },
+    {
       resolve: 'gatsby-plugin-eslint',
       options: {
         stages: ['develop'],
@@ -43,16 +79,16 @@ module.exports = {
         exclude: ['node_modules', '.cache', 'public']
       }
     },
-    {
-      resolve: 'gatsby-plugin-netlify-cms',
-      options: {
-        modulePath: path.resolve('src/cms/index.js'),
-        enableIdentityWidget: true,
-        publicPath: 'admin',
-        htmlTitle: 'Content Manager',
-        includeRobots: false
-      }
-    },
+    // {
+    //   resolve: 'gatsby-plugin-netlify-cms',
+    //   options: {
+    //     modulePath: path.resolve('src/cms/index.js'),
+    //     enableIdentityWidget: true,
+    //     publicPath: 'admin',
+    //     htmlTitle: 'Content Manager',
+    //     includeRobots: false
+    //   }
+    // },
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
@@ -92,7 +128,7 @@ module.exports = {
       resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
-          include: /static/
+          include: /images/
         }
       }
     },
@@ -207,38 +243,38 @@ module.exports = {
         display: 'minimal-ui',
         icons: [
           {
-            src: '/icons/icon-48x48.png',
+            src: 'src/images/icons/icon-48x48.png',
             sizes: '48x48',
             type: 'image/png'
           },
           {
-            src: '/icons/icon-96x96.png',
+            src: 'src/images/icons/icon-96x96.png',
             sizes: '96x96',
             type: 'image/png'
           },
           {
-            src: '/icons/icon-144x144.png',
+            src: 'src/images/icons/icon-144x144.png',
             sizes: '144x144',
             type: 'image/png'
           },
           {
-            src: 'icons/maskable-icon-192x192.png',
+            src: 'src/imagesicons/maskable-icon-192x192.png',
             sizes: '192x192',
             type: 'image/png',
             purpose: 'any maskable'
           },
           {
-            src: '/icons/icon-256x256.png',
+            src: 'src/images/icons/icon-256x256.png',
             sizes: '256x256',
             type: 'image/png'
           },
           {
-            src: '/icons/icon-384x384.png',
+            src: 'src/images/icons/icon-384x384.png',
             sizes: '384x384',
             type: 'image/png'
           },
           {
-            src: 'icons/maskable-icon-512x512.png',
+            src: 'src/images/icons/maskable-icon-512x512.png',
             sizes: '512x512',
             type: 'image/png',
             purpose: 'any maskable'
@@ -246,12 +282,12 @@ module.exports = {
         ],
         screenshots: [
           {
-            src: 'images/home-1.png',
+            src: 'src/images/cards/home-1.png',
             type: 'image/png',
             sizes: '540x720'
           },
           {
-            src: 'images/home-2.jpg',
+            src: 'src/images/cards/home-2.jpg',
             type: 'image/jpg',
             sizes: '540x720'
           }

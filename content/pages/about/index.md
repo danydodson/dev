@@ -2,7 +2,7 @@
 template: page
 title: About
 slug: about
-cover: cover.jpeg
+cover: cover.webp
 draft: false
 category: page
 tags:
@@ -11,5 +11,3 @@ type: partial
 ---
 
 # About
-
-![about](cover.jpeg)

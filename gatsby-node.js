@@ -71,7 +71,7 @@ exports.createPages = async ({ actions, graphql }) => {
     return Promise.reject(res.errors)
   }
 
-  console.info(JSON.stringify(res, null, 4))
+  // console.info(JSON.stringify(res, null, 4))
 
   const tagSet = new Set()
   const categorySet = new Set()

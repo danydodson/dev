@@ -1,6 +1,6 @@
 import { createGlobalStyle, keyframes } from 'styled-components'
 import { isMobile } from 'react-device-detect'
-import { setThemeVars } from '../../utilities/theme-helper'
+import { setThemeVars } from '../../utils/theme-helper'
 import siteConfig from '../../../data/site-config'
 import styleConfig from '../../../data/style-config'
 
@@ -48,6 +48,7 @@ export const theme = {
 }
 
 let profileHomeBorder = () => setThemeVars('#ddd', '#333')
+
 if (isMobile) {
   profileHomeBorder = 'transparent'
 }
@@ -61,7 +62,6 @@ const glowing = keyframes`
 const foregroundColor = () => setThemeVars(theme.fontColorLight, theme.fontColorDark)
 
 const scrollBarColor = () => setThemeVars(styleConfig.scrollbarColorLight, styleConfig.scrollbarColorDark)
-
 const scrollBarBg = () => setThemeVars(styleConfig.scrollbarBgLight, styleConfig.scrollbarBgDark)
 const scrollBarHover = () => setThemeVars(styleConfig.scrollbarHoverLight, styleConfig.scrollbarHoverDark)
 
@@ -114,7 +114,6 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .text-xs {
-    /* font-size: 0.7rem; */
     font-size: 0.75rem;
   }
 
@@ -207,6 +206,9 @@ export const GlobalStyles = createGlobalStyle`
     border-color: ${underlineColor}
   }
 
+  .resume {
+      outline: none;
+  }
 
   .main-card-name {
     h2 {

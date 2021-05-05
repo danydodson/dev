@@ -3,13 +3,14 @@ template: code
 title: 01 Switch statement vs Object Search
 slug: 01-switch-statement-vs-object-search
 cover: cover.png
-draft: false
+draft: true
 excerpt: object-search
 category: JavaScript
-type: snippet
 tags:
 - ''
+type: snippet
 ---
+
 # 01 - Switch statement vs Object Search
 
 ```javascript
@@ -36,6 +37,7 @@ switch (status) {
     break
 }
 ```
+
 ___Equivalent using object key search in O(1) time___
 
 ```js
