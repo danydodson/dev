@@ -1,4 +1,4 @@
-require('dotenv').config({ path: '.env.dev' })
+require('dotenv').config({ path: '.env.prod' })
 
 const path = require('path')
 const { siteConfig } = require('./src/config')
@@ -276,9 +276,9 @@ module.exports = {
   flags: {
     FAST_DEV: true,
     DEV_SSR: true,
-    PRESERVE_WEBPACK_CACHE: true,
-    PRESERVE_FILE_DOWNLOAD_CACHE: true,
-    PARALLEL_SOURCING: true,
-    FUNCTIONS: true,
+    // PRESERVE_WEBPACK_CACHE: true,
+    // PRESERVE_FILE_DOWNLOAD_CACHE: true,
+    // PARALLEL_SOURCING: true,
+    // FUNCTIONS: true,
   },
 }
