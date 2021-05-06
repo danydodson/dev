@@ -2,9 +2,7 @@ import React, { Component } from 'react'
 import Switch from 'react-switch'
 import { withTheme } from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMoon } from '@fortawesome/free-solid-svg-icons'
-import MoonIcon from '../../media/svgs/moon.svg'
-import SunIcon from '../../media/svgs/sun.svg'
+import { IconMoon, IconSun } from '../icons'
 import { siteConfig } from '../../../src/config'
 
 import './styles.scss'
@@ -41,8 +39,8 @@ class CustomSwitch extends Component {
           checked={this.state.checked}
           offColor='#bbb'
           onColor='#4a4a4a'
-          uncheckedIcon={<MoonIcon className='icon-moon' />}
-          checkedIcon={<SunIcon className='icon-sun' />}
+          uncheckedIcon={<IconMoon className='icon-moon' />}
+          checkedIcon={<IconSun className='icon-sun' />}
           handleDiameter={21}
           height={23}
           width={40}

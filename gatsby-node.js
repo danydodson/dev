@@ -161,18 +161,19 @@ exports.createPages = async ({ actions, graphql }) => {
 // https://www.gatsbyjs.org/docs/node-apis/#onCreateWebpackConfig
 // https://www.gatsbyjs.org/docs/debugging-html-builds/#fixing-third-party-modules
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
-  // if (stage === 'build-html') {
-  //   actions.setWebpackConfig({
-  //     module: {
-  //       rules: [
-  //         {
-  //           test: /bad-module/,
-  //           use: loaders.null()
-  //         }
-  //       ]
-  //     }
-  //   })
-  // }
+  if (stage === 'build-html') {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /bad-module/,
+            use: loaders.null()
+          }
+        ]
+      }
+    })
+  }
+
   actions.setWebpackConfig({
     resolve: {
       modules: [path.resolve(__dirname, 'src'), 'node_modules'],

@@ -29,7 +29,7 @@ collections:
       - { label: 'Category', name: 'category', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - { label: 'Type', name: 'type', widget: 'string', default: 'post' }
-      - { label: 'Tags', name: 'tags', widget: 'list' }
+      - { label: 'Tags', name: 'tags', widget: 'list', required: false }
 
   - name: 'pages'
     label: 'Page'
@@ -46,7 +46,7 @@ collections:
       - { label: 'Category', name: 'category', widget: 'string', default: 'page' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - { label: 'Type', name: 'type', widget: 'string', default: 'partial' }
-      - { label: 'Tags', name: 'tags', widget: 'list', default: '' }
+      - { label: 'Tags', name: 'tags', widget: 'list', required: false }
 
   - name: 'code'
     label: 'Code'
@@ -64,4 +64,4 @@ collections:
       - { label: 'Category', name: 'category', widget: 'string', default: 'code' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - { label: 'Type', name: 'type', widget: 'string', default: 'snippet' }
-      - { label: 'Tags', name: 'tags', widget: 'list', required: false, default: '' }
+      - { label: 'Tags', name: 'tags', widget: 'list', required: false }
