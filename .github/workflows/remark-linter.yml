@@ -1,4 +1,4 @@
-name: Lint & Remark
+name: "Remark Linter"
 on:
   push:
     branches: [master]
