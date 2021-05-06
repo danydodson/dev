@@ -14,14 +14,6 @@
 
 </div>
 
----
-<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/home/dany/Projects/Current/dev/.cache/webpack/stage-build-html/1.pack_' -> '/home/dany/Projects/Current/dev/.cache/webpack/stage-build-html/1.pack'
-<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/home/dany/Projects/Current/dev/.cache/webpack/stage-build-html/0.pack_' -> '/home/dany/Projects/Current/dev/.cache/webpack/stage-build-html/0.pack'
-<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/home/dany/Projects/Current/dev/.cache/webpack/stage-build-html/1.pack_warn gatsby-plugin-mdx
-
-'/home/dany/Projects/Current/dev/.cache/webpack/stage-build-html/1.pack_'
-'/home/dany/Projects/Current/dev/.cache/webpack/stage-build-html/1.pack'
-
 <p align="center"> Few lines describing your project.
   <br> 
 </p>
