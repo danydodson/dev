@@ -1,11 +1,8 @@
-// 
 require('dotenv').config({ path: '.env.dev' })
 
-// 
 const path = require('path')
 const { siteConfig } = require('./src/config')
 
-// 
 module.exports = {
   siteMetadata: siteConfig,
   plugins: [
@@ -16,7 +13,6 @@ module.exports = {
     'gatsby-plugin-sass',
     'gatsby-plugin-sharp',
     'gatsby-plugin-styled-components',
-    'gatsby-plugin-gatsby-cloud',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -59,7 +55,7 @@ module.exports = {
         fieldName: 'github',
         url: 'https://api.github.com/graphql',
         headers: {
-          Authorization: `Bearer ${siteConfig.githubToken}`,
+          Authorization: `Bearer ${siteConfig.gatsby.gitToken}`,
         },
       },
     },

@@ -64,7 +64,9 @@ const siteConfig = {
 
   /* Tokens
   ========================================= */
-  githubToken: process.env.GATSBY_GITHUB_TOKEN,
+  gatsby: {
+    gitToken: process.env.GATSBY_GITHUB_TOKEN,
+  },
 
   /* Algolia
   ========================================= */
