@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
-import Profile from '../Profile'
-import Tags from '../Tags'
-import PostList from '../Posts/PostList'
-import Loader from '../Loader'
-import ToggleMode from '../Layout/ToggleMode'
 import { isMobile } from 'react-device-detect'
-import { TAG } from '../../constants'
+import styled from 'styled-components'
+import ToggleMode from '~components/Layout/ToggleMode'
+import Loader from '~components/Loader'
+import PostList from '~components/Posts/PostList'
+import Profile from '~components/Profile'
+import Tags from '~components/Tags'
+import { TAG } from '~constants'
 
 class MainCard extends Component {
-  
+
   constructor(props) {
     super(props)
     this.state = {
@@ -33,110 +33,110 @@ class MainCard extends Component {
     })
   }
 
-    // Check if tag in storage exists
-    checkTag = storageTag => {
-      // Input checks
-      if (!storageTag) {
-        return false
-      }
-      if (storageTag === TAG.ALL) {
-        return true
-      }
-      const posts = this.props.posts
-      for (let i = 0; i < posts.length; i++) {
-        const tags = posts[i].node.frontmatter.tags
-        if (tags && tags.length > 0 && tags.includes(storageTag)) {
-          return true
-        }
-      }
+  // Check if tag in storage exists
+  checkTag = storageTag => {
+    // Input checks
+    if (!storageTag) {
       return false
     }
+    if (storageTag === TAG.ALL) {
+      return true
+    }
+    const posts = this.props.posts
+    for (let i = 0; i < posts.length; i++) {
+      const tags = posts[i].node.frontmatter.tags
+      if (tags && tags.length > 0 && tags.includes(storageTag)) {
+        return true
+      }
+    }
+    return false
+  }
 
-    // Filter tags and sort them by occurrences
-    filterTags = () => {
-      const posts = this.props.posts
-      const tagsByFrequency = {}
-      const sortedTags = []
-      // Exclude about page & dummy page
-      const filteredPosts = posts.filter(
-        post =>
-          post.node.fields.slug !== '/pages/about/' &&
-                post.node.fields.slug !== '/pages/contact/' &&
-                post.node.fields.slug !== '/pages/resume/'
-      )
-      filteredPosts.forEach(post => {
-        let tags = post.node.frontmatter.tags
+  // Filter tags and sort them by occurrences
+  filterTags = () => {
+    const posts = this.props.posts
+    const tagsByFrequency = {}
+    const sortedTags = []
+    // Exclude about page & dummy page
+    const filteredPosts = posts.filter(
+      post =>
+        post.node.fields.slug !== '/about/' &&
+        post.node.fields.slug !== '/contact/' &&
+        post.node.fields.slug !== '/resume/'
+    )
+    filteredPosts.forEach(post => {
+      let tags = post.node.frontmatter.tags
 
-        if (!tags) {
-          // Register tag to the post if does not have any
-          post.node.frontmatter.tags = ['Uncategorized']
-          tags = ['Uncategorized']
+      if (!tags) {
+        // Register tag to the post if does not have any
+        post.node.frontmatter.tags = ['Uncategorized']
+        tags = ['Uncategorized']
+      }
+
+      tags.forEach(tag => {
+        if (tagsByFrequency[tag]) {
+          tagsByFrequency[tag] = tagsByFrequency[tag] + 1 // update frequency
+        } else {
+          tagsByFrequency[tag] = 1
+          sortedTags.push(tag)
         }
-
-        tags.forEach(tag => {
-          if (tagsByFrequency[tag]) {
-            tagsByFrequency[tag] = tagsByFrequency[tag] + 1 // update frequency
-          } else {
-            tagsByFrequency[tag] = 1
-            sortedTags.push(tag)
-          }
-        })
       })
+    })
 
-      sortedTags.sort(function (a, b) {
-        return tagsByFrequency[b] - tagsByFrequency[a]
-      })
+    sortedTags.sort(function (a, b) {
+      return tagsByFrequency[b] - tagsByFrequency[a]
+    })
 
-      this.setState({ tags: sortedTags })
-    }
+    this.setState({ tags: sortedTags })
+  }
 
-    filterPosts = () => {
-      const posts = this.props.posts
-      const filtered = posts.filter(({ node }, i) => {
-        return (
-          this.state.selectedTag === TAG.ALL ||
-                (node.frontmatter.tags && node.frontmatter.tags.includes(this.state.selectedTag))
-        )
-      })
-
-      this.setState({ filteredPosts: filtered })
-    }
-
-    handleSelectTag = async tag => {
-      // Save current tag in storage
-      sessionStorage.setItem('curTag', tag)
-      await this.setState({ selectedTag: tag })
-      await this.filterPosts()
-    }
-
-    render() {
+  filterPosts = () => {
+    const posts = this.props.posts
+    const filtered = posts.filter(({ node }, i) => {
       return (
-        <StyledMainCard className='main-card'>
-          <StyledSwitchContainer className='switch-container'>
-            <ToggleMode />
-          </StyledSwitchContainer>
-          <StyledSubMain className='sub-main'>
-            <StyledSubMainInner>
-              <Profile home />
-              {this.state.filteredPosts.length > 0 ? (
-                <StyledTagsPosts>
-                  <Tags
-                    selectedTag={this.state.selectedTag}
-                    selectTag={this.handleSelectTag}
-                    tags={this.state.tags}
-                  />
-                  <PostList posts={this.state.filteredPosts.slice(0, this.props.loads)} />
-                </StyledTagsPosts>
-              ) : (
-                <div style={{ textAlign: 'center' }}>
-                  <Loader />
-                </div>
-              )}
-            </StyledSubMainInner>
-          </StyledSubMain>
-        </StyledMainCard>
+        this.state.selectedTag === TAG.ALL ||
+        (node.frontmatter.tags && node.frontmatter.tags.includes(this.state.selectedTag))
       )
-    }
+    })
+
+    this.setState({ filteredPosts: filtered })
+  }
+
+  handleSelectTag = async tag => {
+    // Save current tag in storage
+    sessionStorage.setItem('curTag', tag)
+    await this.setState({ selectedTag: tag })
+    await this.filterPosts()
+  }
+
+  render() {
+    return (
+      <StyledMainCard className='main-card'>
+        <StyledSwitchContainer className='switch-container'>
+          <ToggleMode />
+        </StyledSwitchContainer>
+        <StyledSubMain className='sub-main'>
+          <StyledSubMainInner>
+            <Profile home />
+            {this.state.filteredPosts.length > 0 ? (
+              <StyledTagsPosts>
+                <Tags
+                  selectedTag={this.state.selectedTag}
+                  selectTag={this.handleSelectTag}
+                  tags={this.state.tags}
+                />
+                <PostList posts={this.state.filteredPosts.slice(0, this.props.loads)} />
+              </StyledTagsPosts>
+            ) : (
+              <div style={{ textAlign: 'center' }}>
+                <Loader />
+              </div>
+            )}
+          </StyledSubMainInner>
+        </StyledSubMain>
+      </StyledMainCard>
+    )
+  }
 }
 
 export default MainCard

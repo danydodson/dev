@@ -7,6 +7,7 @@ import { calculateLinesToHighlight, highlightLine, linesToHighlight, addClassNam
 import './styles/main.scss'
 
 const comments = ['//highlight-start', '//highlight-end']
+
 // Remote highlight comments
 const removeHighlightComments = line => {
   let newStr = line

@@ -8,6 +8,20 @@ module.exports = {
   settings: {
     react: {
       version: 'detect'
+    },
+    'import/resolver': {
+      alias: [
+        ['~media', 'src/media'],
+        ['~cms', 'cms'],
+        ['~components', 'src/components'],
+        ['~config', 'src/config'],
+        ['~constants', 'src/constants'],
+        ['~hooks', 'src/hooks'],
+        ['~pages', 'src/pages'],
+        ['~templates', 'src/templates'],
+        ['~utils', 'src/utils'],
+        ['~static', 'static'],
+      ]
     }
   },
   parserOptions: {

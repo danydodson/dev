@@ -1,19 +1,19 @@
 import React from 'react'
-import styled from 'styled-components'
 import { Link } from 'gatsby'
-import { enableAbout as enabled, author } from '../../../src/config/site-config'
+import styled from 'styled-components'
+import { siteConfig } from '../../../src/config'
 
 const AboutLink = () => (
   <>
-    {enabled ? (
+    {siteConfig.enableAbout ? (
       <StyledMainCardName className='main-card-name'>
         <h2>
-          <Link to='/pages/about'>{author}</Link>
+          <Link to='/about'>{siteConfig.author}</Link>
         </h2>
       </StyledMainCardName>
     ) : (
       <StyledMainCardNameAboutDisabled>
-        <h2>{author}</h2>
+        <h2>{siteConfig,author}</h2>
       </StyledMainCardNameAboutDisabled>
     )}
   </>

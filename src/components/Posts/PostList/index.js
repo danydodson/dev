@@ -4,9 +4,9 @@ import PostCard from '../PostCard'
 const PostList = ({ posts }) => {
   
   const filteredPosts = posts.filter(post =>
-    post.node.fields.slug !== '/pages/about/' &&
-    post.node.fields.slug !== '/pages/contact/' &&
-    post.node.fields.slug !== '/pages/resume/'
+    post.node.fields.slug !== '/about/' &&
+    post.node.fields.slug !== '/contact/' &&
+    post.node.fields.slug !== '/resume/'
   )
 
   return (

@@ -3,8 +3,8 @@ backend:
   branch: main
   repo: 'danydodson/dev'
 
-media_folder: 'src/assets/imgs'
-public_folder: '/assets'
+media_folder: 'src/media/imgs'
+public_folder: '/media'
 
 publish_mode: editorial_workflow
 
@@ -28,6 +28,7 @@ collections:
       - { label: 'Excerpt', name: 'excerpt', widget: 'text' }
       - { label: 'Category', name: 'category', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'Type', name: 'type', widget: 'string', default: 'post' }
       - { label: 'Tags', name: 'tags', widget: 'list' }
 
   - name: 'pages'
@@ -44,9 +45,8 @@ collections:
       - { label: 'Draft', name: 'draft', widget: 'boolean'}
       - { label: 'Category', name: 'category', widget: 'string', default: 'page' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
-      - { label: 'PDF', name: 'pdf', widget: 'file', required: false }
-      - { label: 'Type', name: 'type', widget: 'string', required: false, default: 'partial' }
-      - { label: 'Tags', name: 'tags', widget: 'list', required: false, default: '' }
+      - { label: 'Type', name: 'type', widget: 'string', default: 'partial' }
+      - { label: 'Tags', name: 'tags', widget: 'list', default: '' }
 
   - name: 'code'
     label: 'Code'
@@ -63,5 +63,5 @@ collections:
       - { label: 'Excerpt', name: 'excerpt', widget: 'text' }
       - { label: 'Category', name: 'category', widget: 'string', default: 'code' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
-      - { label: 'Type', name: 'type', widget: 'string', required: false, default: 'snippet' }
+      - { label: 'Type', name: 'type', widget: 'string', default: 'snippet' }
       - { label: 'Tags', name: 'tags', widget: 'list', required: false, default: '' }

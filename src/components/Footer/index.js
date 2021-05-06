@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { siteConfig } from '../../../src/config'
-import RSS from '../../assets/svgs/rss.svg'
+import RSS from '../../media/svgs/rss.svg'
 import { setThemeVars } from '../../utils/theme-helper'
 
 const Footer = () => {

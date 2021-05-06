@@ -1,7 +1,7 @@
 {
-  "name": "blog",
+  "name": "dev-blog",
   "version": "v1.0.0",
-  "description": "blog",
+  "description": "dev-blog",
   "author": "Dany Dodson <hello@danydodson.dev>",
   "main": "n/a",
   "repository": {
@@ -20,17 +20,7 @@
     "write-good": "write-good $(glob 'content/**/*.{md,mdx}')",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "prepare": "husky install",
-    "lint-staged": "lint-staged"
-  },
-  "lint-staged": {
-    "*.{js,css,json,md,mdx}": [
-      "prettier --write"
-    ],
-    "*.js": [
-      "eslint --fix"
-    ]
+    "clean": "gatsby clean"
   },
   "remarkConfig": {
     "plugins": [
@@ -46,13 +36,11 @@
     "@fortawesome/react-fontawesome": "^0.1.14",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
-    "@sentry/gatsby": "^6.3.5",
-    "@sentry/tracing": "^6.3.5",
-    "dotenv": "^8.5.1",
+    "dotenv": "^9.0.0",
     "gatsby": "^3.4.1",
+    "gatsby-mdx-fix": "^0.0.3",
     "gatsby-plugin-algolia": "^0.19.0",
     "gatsby-plugin-catch-links": "^3.4.0",
-    "gatsby-plugin-datadog": "^1.1.1",
     "gatsby-plugin-feed": "^3.4.0",
     "gatsby-plugin-google-analytics": "^3.4.0",
     "gatsby-plugin-image": "^1.4.0",
@@ -97,13 +85,13 @@
     "react-device-detect": "^1.17.0",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
-    "react-instantsearch": "^6.10.3",
+    "react-instantsearch": "^6.11.0",
     "react-live": "^2.2.3",
     "react-popper": "2.2.5",
     "react-share": "^4.4.0",
     "react-switch": "^6.0.0",
     "screenfull": "^5.1.0",
-    "styled-components": "^5.2.3"
+    "styled-components": "^5.3.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
@@ -112,6 +100,7 @@
     "babel-preset-gatsby": "^1.4.0",
     "cli-glob": "^0.1.0",
     "eslint": "^7.25.0",
+    "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-mdx": "^1.13.0",

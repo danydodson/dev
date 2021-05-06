@@ -6,14 +6,14 @@ const siteConfig = {
   siteUrl: 'https://danydodson.dev',
   titleAlt: 'Full Stack Developer Blog',
   description: 'Welcome! This is my Full Stack Web Developer blog',
-  faviconSrc: 'src/assets/imgs/icon-256x.png',
+  faviconSrc: 'src/media/imgs/icon-256x.png',
 
   /* PWA
   ========================================= */
   shortName: 'dany',
   startUrl: '/',
-  siteLogo: 'src/assets/imgs/card-1200x.png',
-  siteLogoAlt: 'src/assets/imgs/card-1200x.png',
+  siteLogo: 'src/media/imgs/card-1200x.png',
+  siteLogoAlt: 'src/media/imgs/card-1200x.png',
   themeColor: '#c62828',
   backgroundColor: '#e0e0e0',
 
@@ -21,7 +21,7 @@ const siteConfig = {
   ========================================= */
   author: 'Dany Dodson',
   location: 'Evansville, IN',
-  profileImageName: 'src/assets/imgs/card-630x.png',
+  profileImageName: 'src/media/imgs/card-630x.png',
   profileDescription: '{ Full Stack Developer }',
   footerLink: 'about',
 
@@ -49,21 +49,21 @@ const siteConfig = {
 
   /* Social Media Links
   ========================================= */
-  socialMediaLinks: {
-    github: { accountName: 'danydodson', showHeaderIcon: true },
-    devto: { accountName: 'danydodson', showHeaderIcon: false },
-    codepen: { accountName: 'danydodson', showHeaderIcon: true },
-    facebook: { accountName: 'danydodson', showHeaderIcon: false },
-    instagram: { accountName: 'ugly_casanova', showHeaderIcon: false },
-    twitter: { accountName: 'dany_dodson', showHeaderIcon: false },
-    email: { emailAddress: 'hello@danydodson.dev', showHeaderIcon: true },
-    hashnode: { accountName: 'dany', showHeaderIcon: false },
-    linkedIn: { accountName: 'in/danydodson', showHeaderIcon: false },
-    medium: { accountName: 'danydodson', showHeaderIcon: false }
+  socials: {
+    github: { username: 'danydodson', showHeaderIcon: true },
+    devto: { username: 'danydodson', showHeaderIcon: false },
+    codepen: { username: 'danydodson', showHeaderIcon: true },
+    facebook: { username: 'danydodson', showHeaderIcon: false },
+    instagram: { username: 'ugly_casanova', showHeaderIcon: false },
+    twitter: { username: 'dany_dodson', showHeaderIcon: false },
+    email: { address: 'hello@danydodson.dev', showHeaderIcon: true },
+    hashnode: { username: 'dany', showHeaderIcon: false },
+    linkedIn: { username: 'in/danydodson', showHeaderIcon: false },
+    medium: { username: 'danydodson', showHeaderIcon: false }
   },
 
   /* Tokens
-========================================= */
+  ========================================= */
   githubToken: process.env.GATSBY_GITHUB_TOKEN,
 
   /* Algolia
@@ -93,7 +93,7 @@ const siteConfig = {
       showHeaderIcon: true
     },
     nonceCast: {
-      accountName: 'https://shows.acast.com/6045df1ab353eb47301f68e4',
+      username: 'https://shows.acast.com/6045df1ab353eb47301f68e4',
       showHeaderIcon: true
     }
   },

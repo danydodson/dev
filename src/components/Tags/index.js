@@ -1,12 +1,13 @@
 import React from 'react'
-import Tag from './Tag'
 import { isMobile } from 'react-device-detect'
-import styled, { keyframes } from 'styled-components'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHandPointer } from '@fortawesome/free-solid-svg-icons'
-import { TAG } from '../../constants'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import styled, { keyframes } from 'styled-components'
+import { TAG } from '~constants'
+import Tag from './Tag'
 
 class Tags extends React.Component {
+
   constructor(props) {
     super(props)
     this.tagRef = React.createRef()
@@ -47,61 +48,61 @@ class Tags extends React.Component {
     window.removeEventListener('scroll', this.detectSticky)
   }
 
-    detectSticky = () => {
-      const { sticky, topPos } = this.state
-      const offset = topPos - window.pageYOffset
-      const activated = offset <= 0
-      const activatedNear = activated && offset >= -55
+  detectSticky = () => {
+    const { sticky, topPos } = this.state
+    const offset = topPos - window.pageYOffset
+    const activated = offset <= 0
+    const activatedNear = activated && offset >= -55
 
-      if (activatedNear) {
-        sticky.classList.add('moveToBotAnimate')
-      } else if (activated) {
-        sticky.classList.add('moveToBot')
-      } else {
-        this.unmountTagsAnimation()
+    if (activatedNear) {
+      sticky.classList.add('moveToBotAnimate')
+    } else if (activated) {
+      sticky.classList.add('moveToBot')
+    } else {
+      this.unmountTagsAnimation()
+    }
+  }
+
+  unmountTagsAnimation = () => {
+    const sticky = this.tagRef.current
+    sticky.classList.remove('moveToBot')
+    sticky.classList.remove('moveToBotAnimate')
+  }
+
+  handleScrollX = () => {
+    if (this.state.sticky && this.state.horizontalScroll) {
+      const width = this.state.sticky.clientWidth
+      const scrollWidth = this.state.horizontalScroll.scrollWidth
+      if (scrollWidth > width) {
+        const scrolledPos = this.state.horizontalScroll.scrollLeft
+        sessionStorage.setItem('scrollX_', scrolledPos)
       }
     }
+  }
 
-    unmountTagsAnimation = () => {
-      const sticky = this.tagRef.current
-      sticky.classList.remove('moveToBot')
-      sticky.classList.remove('moveToBotAnimate')
-    }
-
-    handleScrollX = () => {
-      if (this.state.sticky && this.state.horizontalScroll) {
-        const width = this.state.sticky.clientWidth
-        const scrollWidth = this.state.horizontalScroll.scrollWidth
-        if (scrollWidth > width) {
-          const scrolledPos = this.state.horizontalScroll.scrollLeft
-          sessionStorage.setItem('scrollX_', scrolledPos)
-        }
-      }
-    }
-
-    render() {
-      const { tags, selectTag, selectedTag } = this.props
-      const childrenElement = (
-        <div className='tag-list' onScroll={this.handleScrollX}>
-          {isMobile && this.state.showSwipeIcon && <StyledFA className='icon-hand-ptr' icon={faHandPointer} />}
-          {/* Used to apply overflow to work with sticky */}
-          <div className='tag-list-inner'>
-            <Tag title={TAG.ALL} selectTag={selectTag} selectedTag={selectedTag} />
-            {tags.map((tag, i) => {
-              return <Tag key={i} title={tag} selectTag={selectTag} selectedTag={selectedTag} />
-            })}
-          </div>
+  render() {
+    const { tags, selectTag, selectedTag } = this.props
+    const childrenElement = (
+      <div className='tag-list' onScroll={this.handleScrollX}>
+        {isMobile && this.state.showSwipeIcon && <StyledFA className='icon-hand-ptr' icon={faHandPointer} />}
+        {/* Used to apply overflow to work with sticky */}
+        <div className='tag-list-inner'>
+          <Tag title={TAG.ALL} selectTag={selectTag} selectedTag={selectedTag} />
+          {tags.map((tag, i) => {
+            return <Tag key={i} title={tag} selectTag={selectTag} selectedTag={selectedTag} />
+          })}
         </div>
-      )
+      </div>
+    )
 
-      return !isMobile ? (
-        <StyledTagsVertical className='tags-vertical'>{childrenElement}</StyledTagsVertical>
-      ) : (
-        <StyledTagsHorizontal className='tags-horizontal' ref={this.tagRef}>
-          {childrenElement}
-        </StyledTagsHorizontal>
-      )
-    }
+    return !isMobile ? (
+      <StyledTagsVertical className='tags-vertical'>{childrenElement}</StyledTagsVertical>
+    ) : (
+      <StyledTagsHorizontal className='tags-horizontal' ref={this.tagRef}>
+        {childrenElement}
+      </StyledTagsHorizontal>
+    )
+  }
 }
 
 export default Tags

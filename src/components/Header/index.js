@@ -24,49 +24,49 @@ const Header = ({ siteTitle, showTitle, isPostTemplate }) => {
         <h1 style={{ fontSize: '1.5rem' }}>{showTitle && <Link to='/'>{`${siteTitle}`}</Link>}</h1>
         <StyledMediaIcons>
           <HeaderIcon
-            accountInfo={siteConfig.socialMediaLinks.devto}
+            accountInfo={siteConfig.socials.devto}
             preHref={'https://dev.to/'}
             mediaName={'dev'}
             icon={faDev}
           />
           <HeaderIcon
-            accountInfo={siteConfig.socialMediaLinks.github}
+            accountInfo={siteConfig.socials.github}
             preHref={'https://github.com/'}
             mediaName={'github'}
             icon={faGithub}
           />
           <HeaderIcon
-            accountInfo={siteConfig.socialMediaLinks.email}
+            accountInfo={siteConfig.socials.email}
             mediaName={'email'}
             preHref={'mailto:'}
             icon={faEnvelope}
           />
           <HeaderIcon
-            accountInfo={siteConfig.socialMediaLinks.facebook}
+            accountInfo={siteConfig.socials.facebook}
             mediaName={'facebook'}
             preHref={'https://facebook.com/'}
             icon={faFacebook}
           />
           <HeaderIcon
-            accountInfo={siteConfig.socialMediaLinks.instagram}
+            accountInfo={siteConfig.socials.instagram}
             mediaName={'instagram'}
             preHref={'https://instagram.com/'}
             icon={faInstagram}
           />
           <HeaderIcon
-            accountInfo={siteConfig.socialMediaLinks.twitter}
+            accountInfo={siteConfig.socials.twitter}
             mediaName={'twitter'}
             preHref={'https://twitter.com/'}
             icon={faTwitter}
           />
           <HeaderIcon
-            accountInfo={siteConfig.socialMediaLinks.linkedIn}
+            accountInfo={siteConfig.socials.linkedIn}
             mediaName={'linkedin'}
             preHref={'https://linkedin.com/'}
             icon={faLinkedin}
           />
           <HeaderIcon
-            accountInfo={siteConfig.socialMediaLinks.medium}
+            accountInfo={siteConfig.socials.medium}
             mediaName={'medium'}
             preHref={'https://medium.com/@'}
             icon={faMedium}

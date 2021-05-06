@@ -3,9 +3,9 @@ import { graphql, useStaticQuery, Link } from "gatsby"
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock } from '@fortawesome/free-solid-svg-icons'
-import { setThemeVars } from '../../../utils/theme-helper'
-import { theme } from '../../Shared/styles-global'
-import { siteConfig } from '../../../../src/config'
+import { setThemeVars } from '~utils/theme-helper'
+import { theme } from '~components/Shared/styles-global'
+import { siteConfig } from '~config'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
 const PostCard = ({ id, title, cover, date, path, excerpt, timeToRead }) => {
@@ -62,14 +62,10 @@ const PostCard = ({ id, title, cover, date, path, excerpt, timeToRead }) => {
           <ul>
             <li>
               <span>
-                <a href={gatsbyRepoData.github.repository &&
-                  gatsbyRepoData.github.repository.nameWithOwner}
-                >
-                  {gatsbyRepoData.github.repository
-                    ? gatsbyRepoData.github.repository.url
-                    : 'to get this data at build time from GitHub you need to include a GitHub access token in the request by including a .env file'
-                  }
-                </a>
+                {gatsbyRepoData.github.repository
+                  ? gatsbyRepoData.github.repository.url
+                  : 'to get this data at build time from GitHub you need to include a GitHub access token in the request by including a .env file'
+                }
               </span>
             </li>
 

@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "~media": ["src/media"],
+      "~cms": ["cms"],
+      "~components": ["src/components"],
+      "~config": ["src/config"],
+      "~constants": ["src/constants"],
+      "~hooks": ["src/hooks"],
+      "~pages": ["src/pages"],
+      "~templates": ["src/templates"],
+      "~utils": ["src/utils"],
+      "~static": ["static"]
+    }
+  },
+  "exclude": [".cache", "node_modules", "public"]
+}

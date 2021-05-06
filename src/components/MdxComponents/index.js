@@ -12,4 +12,4 @@ export { default as Resume } from './Resume'
 export { default as Collapsable } from './Collapsable'
 
 // Underline
-export { default as U } from './Underline'
+export { default as Underline } from './Underline'

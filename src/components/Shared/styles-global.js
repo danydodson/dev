@@ -3,7 +3,6 @@ import { isMobile } from 'react-device-detect'
 import { setThemeVars } from '../../utils/theme-helper'
 import { siteConfig, styleConfig } from '../../../src/config'
 
-
 const globalVar = {
   primaryColor: '#fff',
   secondaryColor: '#333',

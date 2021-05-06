@@ -1,31 +1,31 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { graphql } from 'gatsby'
-import styled from 'styled-components'
-import { isMobile } from 'react-device-detect'
-import { setThemeVars } from '../utils/theme-helper'
-import { comments } from '../../src/config/site-config'
-import { styleConfig } from '../../src/config'
-import Layout from '../components/Layout'
-import Ruler from '../components/Ruler'
-import Profile from '../components/Profile'
-import SEO from '../components/SEO'
-import { GatsbyImage } from 'gatsby-plugin-image'
-import { UtterancesComments } from '../components/Comments'
-import ToggleMode from '../components/Layout/ToggleMode'
-import { theme } from '../components/Shared/styles-global'
-import LinkEdgePosts from '../components/LinkEdgePosts'
-import ShareButtons from '../components/ShareButtons'
-import ChevronRight from '../assets/svgs/chevron-right.svg'
-import { Info, Primary, Danger, Warning, Success, Resume, U, Collapsable } from '../components/MdxComponents'
 import { MDXProvider } from '@mdx-js/react'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
+import { isMobile } from 'react-device-detect'
+import styled from 'styled-components'
+import { siteConfig, styleConfig } from '~config'
+import { UtterancesComments } from '~components/Comments'
+import Layout from '~components/Layout'
+import ToggleMode from '~components/Layout/ToggleMode'
+import LinkEdgePosts from '~components/LinkEdgePosts'
+import { Collapsable, Danger, Info, Primary, Resume, Success, Underline, Warning } from '~components/MdxComponents'
+import Profile from '~components/Profile'
+import Ruler from '~components/Ruler'
+import SEO from '~components/SEO'
+import ShareButtons from '~components/ShareButtons'
+import { theme } from '~components/Shared/styles-global'
+import ChevronRight from '~media/svgs/chevron-right.svg'
+import { setThemeVars } from '~utils/theme-helper'
 
 const PostTemplate = function ({ pageContext, data }) {
+
   const [location, setLocation] = useState(init => init)
 
   const post = data.mdx
-  const isAboutPage = post.fields.slug.includes('/pages/about/')
-  const isInfoPage = post.fields.slug.includes('/pages/resume/')
+  const isAboutPage = post.fields.slug.includes('/about/')
+  const isInfoPage = post.fields.slug.includes('/resume/')
   const category = pageContext.category
   const utterancesRef = useRef()
 
@@ -36,8 +36,8 @@ const PostTemplate = function ({ pageContext, data }) {
     if (isMobile) {
       moveAnchorHeadings()
     }
-    if (comments.utterances.enabled && comments.utterances.repoUrl) {
-      registerComments(comments.utterances.repoUrl)
+    if (siteConfig.comments.utterances.enabled && siteConfig.comments.utterances.repoUrl) {
+      registerComments(siteConfig.comments.utterances.repoUrl)
     }
     window.addEventListener('popstate', handleChange(window.location.href))
 
@@ -94,9 +94,9 @@ const PostTemplate = function ({ pageContext, data }) {
     Danger,
     Warning,
     Success,
-    Collapsable,
     Resume,
-    U
+    Collapsable,
+    Underline
   }
 
   return (
@@ -147,7 +147,7 @@ const PostTemplate = function ({ pageContext, data }) {
           <Ruler widthInPercent='97' verticalMargin='0.8rem' />
           <Profile />
           <Ruler widthInPercent='97' verticalMargin='0.8rem' />
-          {comments.utterances.enabled && comments.utterances.repoUrl && (
+          {siteConfig.comments.utterances.enabled && siteConfig.comments.utterances.repoUrl && (
             <UtterancesComments innerRef={utterancesRef} />
           )}
         </>

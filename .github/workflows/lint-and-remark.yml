@@ -17,7 +17,8 @@ jobs:
         with:
           path: '.'
           key: ${{ github.sha }}
-  lint:
+
+  remark:
     runs-on: ubuntu-latest
     needs: dependencies
     steps:

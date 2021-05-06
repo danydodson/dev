@@ -3,33 +3,33 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { theme } from '../../Shared/styles-global'
 import { setThemeVars } from '../../../utils/theme-helper'
-// Icons
-import Warning from '../../../assets/svgs/warning.svg'
-import Success from '../../../assets/svgs/success.svg'
-import Info from '../../../assets/svgs/info.svg'
-import Stop from '../../../assets/svgs/stop.svg'
+import Warning from '../../../media/svgs/warning.svg'
+import Success from '../../../media/svgs/success.svg'
+import Info from '../../../media/svgs/info.svg'
+import Stop from '../../../media/svgs/stop.svg'
 
 const TextBlock = ({ theme, children, padding = '2rem 1.5rem' }) => {
   let iconElement
 
   switch (theme) {
-  case 'success':
-    iconElement = <Success />
-    break
-  case 'warning':
-    iconElement = <Warning />
-    break
-  case 'danger':
-    iconElement = <Stop />
-    break
-    // For 'info' & 'primary'
-  default:
-    iconElement = <Info />
+    case 'success':
+      iconElement = <Success />
+      break
+    case 'warning':
+      iconElement = <Warning />
+      break
+    case 'danger':
+      iconElement = <Stop />
+      break
+    default:
+      iconElement = <Info /> // For 'info' & 'primary'
   }
 
   return (
     <StyledTextBlock theme={theme} padding={padding}>
-      <StyledIconWrap theme={theme}>{iconElement}</StyledIconWrap>
+      <StyledIconWrap theme={theme}>
+        {iconElement}
+      </StyledIconWrap>
       {children}
     </StyledTextBlock>
   )

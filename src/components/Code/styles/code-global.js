@@ -28,6 +28,7 @@ const selectionColor = () => setThemeVars('#ccf1fb !important', '#073642 !import
 const copyBtnBg = () => setThemeVars('#efefef !important', '#3b3d46 !important')
 const copyBtnColor = () => setThemeVars('#9c9c9c !important', '#888598 !important')
 const copyBtnColorHover = () => setThemeVars('#111 !important', '#b7b5bf !important')
+
 const fontColor = () => setThemeVars(`${styleConfig.fontColorLight} !important`, `${styleConfig.fontColorDark} !important`)
 
 // Code block styling for light/dark theme
@@ -111,7 +112,7 @@ const codeBlockStyles = createGlobalStyle`
       color: ${base7};
     }
 
-    .token.maybe-class-name, .token.operator, .token.plain, .token-parameter  {
+    .token.maybe-class-name, .token.operator, .token.plain, .token-parameter, .token.arrow.operator,  {
       color: ${fontColor};
     }
     
