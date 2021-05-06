@@ -1,6 +1,6 @@
 **/.cache
 **/node_modules
 **/public
-**/.env.production
+**/.env.prod
 **/.eslintcache
 **/*.log
