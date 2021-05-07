@@ -6,7 +6,7 @@ import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
 import { faGithub, faFacebook, faInstagram, faTwitter, faLinkedin, faMedium, faDev } from '@fortawesome/free-brands-svg-icons'
 import HeaderIcon from '../HeaderIcon'
 import ProgressBar from './ProgressBar'
-import { siteConfig, styleConfig } from '../../../src/config'
+import { siteConfig, styleConfig } from '../../../config'
 
 const Header = ({ siteTitle, showTitle, isPostTemplate }) => {
   return (

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import ProfileTexts from './ProfileTexts'
 import ProfileImg from './ProfileImg'
-import { styleConfig } from '../../../src/config'
+import { styleConfig } from '../../../config'
 
 const Profile = ({ home }) => {
   return (

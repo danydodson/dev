@@ -1,7 +1,7 @@
-require('dotenv').config({ path: '.env.prod' })
-
+const { siteConfig } = require('./config')
 const path = require('path')
-const { siteConfig } = require('./src/config')
+
+require('dotenv').config({ path: '.env.prod' })
 
 module.exports = {
   siteMetadata: siteConfig,
@@ -62,9 +62,9 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
-        // defaultLayouts: {
-        //   default: require.resolve('./src/components/Layout')
-        // },
+        defaultLayouts: {
+          default: require.resolve('./src/components/Layout')
+        },
         extensions: ['.mdx', '.md'],
         gatsbyRemarkPlugins: [
           {
@@ -273,12 +273,4 @@ module.exports = {
       },
     },
   ],
-  flags: {
-    FAST_DEV: true,
-    DEV_SSR: true,
-    // PRESERVE_WEBPACK_CACHE: true,
-    // PRESERVE_FILE_DOWNLOAD_CACHE: true,
-    // PARALLEL_SOURCING: true,
-    // FUNCTIONS: true,
-  },
 }

@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { isMobile } from 'react-device-detect'
 import styled from 'styled-components'
-import ToggleMode from '~components/Layout/ToggleMode'
-import Loader from '~components/Loader'
-import PostList from '~components/Posts/PostList'
-import Profile from '~components/Profile'
-import Tags from '~components/Tags'
-import { TAG } from '~constants'
+import ToggleMode from '../../components/Layout/ToggleMode'
+import Loader from '../../components/Loader'
+import PostList from '../../components/Posts/PostList'
+import Profile from '../../components/Profile'
+import Tags from '../Tags'
+import { TAG } from '../../constants'
 
 class MainCard extends Component {
 
@@ -60,9 +60,7 @@ class MainCard extends Component {
     // Exclude about page & dummy page
     const filteredPosts = posts.filter(
       post =>
-        post.node.fields.slug !== '/about/' &&
-        post.node.fields.slug !== '/contact/' &&
-        post.node.fields.slug !== '/resume/'
+        post.node.frontmatter.type !== 'partial'
     )
     filteredPosts.forEach(post => {
       let tags = post.node.frontmatter.tags

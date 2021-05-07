@@ -18,4 +18,3 @@ const IconExternal = () => (
 )
 
 export default IconExternal
-

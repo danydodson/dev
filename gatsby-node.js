@@ -1,7 +1,7 @@
 const path = require('path')
 const _ = require('lodash')
 const moment = require('moment')
-const { siteConfig } = require('./src/config')
+const { siteConfig } = require('./config')
 const { createFilePath } = require('gatsby-source-filesystem')
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
@@ -31,12 +31,12 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 }
 
-exports.createPages = async ({ actions, graphql }) => {
+exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
 
   const PostTemplate = path.resolve('src/templates/post.js')
-  const CategoryPage = path.resolve('src/templates/category.jsx')
   const TagPage = path.resolve('src/templates/tag.jsx')
+  const CategoryPage = path.resolve('src/templates/category.jsx')
 
   const res = await graphql(`
     {
@@ -67,11 +67,18 @@ exports.createPages = async ({ actions, graphql }) => {
   `)
 
   if (res.errors) {
-    console.error(res.errors)
+    reporter.panicOnBuild(`🙅 🚫 → ${res.errors}`)
     return Promise.reject(res.errors)
   }
 
-  console.info(JSON.stringify(res, null, 4))
+  // function replacer(key, value) {
+  //   return key === 'srcSet' ? undefined : value
+  // }
+
+  JSON.stringify(res, (key, value) => key === 'srcSet' ? undefined : value, 2)
+  console.info(JSON.stringify(res, (key, value) => key === 'srcSet' ? undefined : value, 2))
+
+  // console.info(JSON.stringify(res, replacer, 2))
 
   const tagSet = new Set()
   const categorySet = new Set()
@@ -142,11 +149,13 @@ exports.createPages = async ({ actions, graphql }) => {
   //  Create tag pages
   tagSet.forEach(tag => {
     createPage({
-      path: `/tags/${_.kebabCase(tag)}/`,
+      path: `/ tags / ${_.kebabCase(tag)} /`,
       component: TagPage,
       context: { tag },
     })
   })
+
+  console.info(tagSet)
 
   // Create category pages
   categorySet.forEach(category => {
@@ -156,39 +165,27 @@ exports.createPages = async ({ actions, graphql }) => {
       context: { category },
     })
   })
+
+  console.info(categorySet)
+
 }
 
 // https://www.gatsbyjs.org/docs/node-apis/#onCreateWebpackConfig
 // https://www.gatsbyjs.org/docs/debugging-html-builds/#fixing-third-party-modules
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
-  if (stage === 'build-html') {
-    actions.setWebpackConfig({
-      module: {
-        rules: [
-          {
-            test: /bad-module/,
-            use: loaders.null()
-          }
-        ]
-      }
-    })
-  }
-
   actions.setWebpackConfig({
     resolve: {
       modules: [path.resolve(__dirname, 'src'), 'node_modules'],
-      alias: {
-        '~media': path.resolve(__dirname, 'src/media'),
-        '~cms': path.resolve(__dirname, 'cms'),
-        '~components': path.resolve(__dirname, 'src/components'),
-        '~config': path.resolve(__dirname, 'src/config'),
-        '~constants': path.resolve(__dirname, 'src/constants'),
-        '~hooks': path.resolve(__dirname, 'src/hooks'),
-        '~pages': path.resolve(__dirname, 'src/pages'),
-        '~templates': path.resolve(__dirname, 'src/templates'),
-        '~utils': path.resolve(__dirname, 'src/utils'),
-        '~static': path.resolve(__dirname, 'static'),
-      }
+      // alias: {
+      //   '~media': path.resolve(__dirname, 'src/media'),
+      //   '~components': path.resolve(__dirname, 'src/components'),
+      //   '~config': path.resolve(__dirname, 'src/config'),
+      //   '~constants': path.resolve(__dirname, 'src/constants'),
+      //   '~hooks': path.resolve(__dirname, 'src/hooks'),
+      //   '~pages': path.resolve(__dirname, 'src/pages'),
+      //   '~templates': path.resolve(__dirname, 'src/templates'),
+      //   '~utils': path.resolve(__dirname, 'src/utils')
+      // },
     }
   })
 }

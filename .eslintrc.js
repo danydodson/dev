@@ -9,20 +9,6 @@ module.exports = {
     react: {
       version: 'detect'
     },
-    'import/resolver': {
-      alias: [
-        ['~media', 'src/media'],
-        ['~cms', 'cms'],
-        ['~components', 'src/components'],
-        ['~config', 'src/config'],
-        ['~constants', 'src/constants'],
-        ['~hooks', 'src/hooks'],
-        ['~pages', 'src/pages'],
-        ['~templates', 'src/templates'],
-        ['~utils', 'src/utils'],
-        ['~static', 'static'],
-      ]
-    }
   },
   parserOptions: {
     ecmaVersion: 2020,
@@ -43,8 +29,10 @@ module.exports = {
     'react-hooks'
   ],
   rules: {
-    // "mdx/code-blocks": 0,
-    // "mdx/language-mapper": {}, // optional, if you want to disable language mapper, set it to `false` if you want to override the default language mapper inside, you can provide your own
+    "mdx/code-blocks": 0,
+    'mdx/no-unused-expressions': 0,
+    // optional, if you want to disable language mapper, set it to `false` if you want to override the default language mapper inside, you can provide your own
+    // "mdx/language-mapper": {}, 
     'no-unused-vars': 0,
     'no-unreachable': 0,
     'react/prop-types': 0,

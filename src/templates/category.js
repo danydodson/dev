@@ -3,14 +3,16 @@ import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import PostList from '../components/Posts/PostList'
-import { siteConfig } from '../../src/config'
+import { siteConfig } from '../../config'
 
-export default function CategoryTemplate({ pageContext, data }) {
+const CategoryTemplate = function ({ pageContext, data }) {
   const { category } = pageContext
   const postEdges = data.allMdx.edges
 
   return <Layout showTitle>{/* <PostList postEdges={postEdges} /> */}</Layout>
 }
+
+export default CategoryTemplate
 
 export const pageQuery = graphql`
   query CategoryPage($category: String) {

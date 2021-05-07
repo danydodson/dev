@@ -1,7 +1,7 @@
 import React from 'react'
 import AboutLink from '../../AboutLink'
 import MediaLinks from '../../MediaLinks'
-import { siteConfig } from '../../../../src/config'
+import { siteConfig } from '../../../../config'
 import ProfileLocation from '../ProfileLocation'
 import styled from 'styled-components'
 

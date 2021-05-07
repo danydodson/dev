@@ -1,7 +1,7 @@
 import React from 'react'
 import { isMobile } from 'react-device-detect'
 import styled from 'styled-components'
-import { theme } from '~components/Shared/styles-global'
+import { theme } from '../../../components/Shared/styles-global'
 
 const Tag = ({ title, selectTag, selectedTag, unmountTagsAnimation }) => {
 

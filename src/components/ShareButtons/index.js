@@ -1,5 +1,5 @@
 import React from 'react'
-import { siteConfig } from '../../../src/config'
+import { siteConfig } from '../../../config'
 import {
   EmailShareButton,
   FacebookShareButton,

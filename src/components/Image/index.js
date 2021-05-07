@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
-import { siteConfig } from '../../../src/config'
+import { siteConfig } from '../../../config'
 
 const Image = ({ src, ...props }) => {
 

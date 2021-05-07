@@ -5,13 +5,10 @@ import { wrapRootElement as wrap } from './src/components/Code/wrap-root-element
 
 export const wrapRootElement = wrap
 
-// Using line numbering for code blocks
 require('prismjs/plugins/line-numbers/prism-line-numbers')
 
-// Using shell prompt in code blocks
 require('prismjs/plugins/command-line/prism-command-line.css')
 
-// You can import missing languages supported by prismjs – https://prismjs.com/
 require('prismjs/components/prism-actionscript')
 require('prismjs/components/prism-applescript')
 require('prismjs/components/prism-arduino')

@@ -1,7 +1,7 @@
 import React from 'react'
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { siteConfig as conf } from '../../../../src/config'
+import { siteConfig as conf } from '../../../../config'
 import styled from 'styled-components'
 
 const ProfileLocation = () => {

@@ -3,12 +3,13 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import ArrowDown from '../../../media/svgs/arrow-down.svg'
 import Button from '../../Button'
-import { setThemeVars } from '../../../utils/theme-helper'
+import { setThemeVars } from '../../../utils/set-theme'
 import { theme } from '../../Shared/styles-global'
 
 let sizeType = 'rem'
 
 const Collapsable = ({ children, title, titleSize = '1.25rem', defaultShow = false }) => {
+  
   const [show, setShow] = useState(defaultShow)
 
   if (titleSize.includes('px')) sizeType = 'px'

@@ -3,14 +3,16 @@ import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import PostList from '../components/Posts/PostList'
-import { siteConfig } from '../../src/config'
+import { siteConfig } from '../../config'
 
-export default function TagTemplate({ pageContext, data }) {
+const TagTemplate = function ({ pageContext, data }) {
   const { tag } = pageContext
   const postEdges = data.allMdx.edges
 
   return <Layout showTitle>{/* <PostList postEdges={postEdges} /> */}</Layout>
 }
+
+export default TagTemplate
 
 export const pageQuery = graphql`
   query TagPage($tag: String) {

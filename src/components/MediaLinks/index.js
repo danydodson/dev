@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import MediaLink from './MediaLink'
-import { siteConfig } from '../../config'
+import { siteConfig } from '../../../config'
 
 const MediaLinks = () => (
   <StyledMediaLinks>

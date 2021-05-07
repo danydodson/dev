@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
-import { siteConfig } from '../../../src/config'
+import { siteConfig } from '../../../config'
 
 const AboutLink = () => (
   <>
@@ -13,7 +13,7 @@ const AboutLink = () => (
       </StyledMainCardName>
     ) : (
       <StyledMainCardNameAboutDisabled>
-        <h2>{siteConfig,author}</h2>
+        <h2>{siteConfig.author}</h2>
       </StyledMainCardNameAboutDisabled>
     )}
   </>

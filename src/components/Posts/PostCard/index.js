@@ -3,9 +3,9 @@ import { graphql, useStaticQuery, Link } from "gatsby"
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock } from '@fortawesome/free-solid-svg-icons'
-import { setThemeVars } from '~utils/theme-helper'
-import { theme } from '~components/Shared/styles-global'
-import { siteConfig } from '~config'
+import { setThemeVars } from '../../../utils/set-theme'
+import { theme } from '../../../components/Shared/styles-global'
+import { siteConfig } from '../../../../config'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
 const PostCard = ({ id, title, cover, date, path, excerpt, timeToRead }) => {
