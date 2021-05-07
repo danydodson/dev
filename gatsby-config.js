@@ -1,72 +1,72 @@
-const { siteConfig } = require('./config')
+const config = require('./config')
 const path = require('path')
 
-require('dotenv').config({ path: '.env.prod' })
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`
+})
 
 module.exports = {
-  siteMetadata: siteConfig,
+  siteMetadata: config,
   plugins: [
-    'gatsby-plugin-catch-links',
-    'gatsby-remark-emoji',
-    'gatsby-plugin-image',
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-catch-links',
     'gatsby-plugin-sass',
+    'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'code',
-        path: `${__dirname}/content/code`,
+        path: `${__dirname}/src/content/coding`,
+        name: 'coding',
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'pages',
-        path: `${__dirname}/content/pages`,
+        path: `${__dirname}/src/content/featured`,
+        name: 'featured',
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        path: `${__dirname}/src/content/jobs`,
+        name: 'jobs',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/content/posts`,
         name: 'posts',
-        path: `${__dirname}/content/posts`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `media`,
-        path: `${__dirname}/src/media`,
+        path: `${__dirname}/src/content/projects`,
+        name: `projects`,
       },
     },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'static',
-        path: `${__dirname}/static`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-graphql',
-      options: {
-        typeName: 'GitHub',
-        fieldName: 'github',
-        url: 'https://api.github.com/graphql',
-        headers: {
-          Authorization: `Bearer ${siteConfig.gatsby.gitToken}`,
-        },
-      },
-    },
+    // {
+    //   resolve: 'gatsby-source-filesystem',
+    //   options: {
+    //     name: 'static',
+    //     path: `${__dirname}/static`,
+    //   },
+    // },
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
-        defaultLayouts: {
-          default: require.resolve('./src/components/Layout')
-        },
         extensions: ['.mdx', '.md'],
         gatsbyRemarkPlugins: [
+          'gatsby-remark-prismjs',
+          'gatsby-remark-smartypants',
+          'gatsby-remark-emoji',
+          {
+            resolve: 'gatsby-remark-relative-images',
+          },
           {
             resolve: 'gatsby-remark-code-titles',
             options: {
@@ -76,10 +76,13 @@ module.exports = {
           {
             resolve: 'gatsby-remark-images',
             options: {
-              maxWidth: siteConfig.maxWidth,
+              maxWidth: config.maxWidth,
               backgroundColor: 'transparent',
               linkImagesToOriginal: false,
             },
+          },
+          {
+            resolve: 'gatsby-remark-responsive-iframe',
           },
           {
             resolve: 'gatsby-remark-autolink-headers',
@@ -98,71 +101,77 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-react-svg',
-      options: {
-        rule: {
-          include: /media/,
-        },
-      },
-    },
-    {
       resolve: 'gatsby-transformer-sharp',
       options: {
         checkSupportedExtensions: false,
       },
     },
+    // {
+    //   resolve: 'gatsby-transformer-remark',
+    //   options: {
+    //     // plugins: [
+    //       {
+    //         resolve: 'gatsby-remark-relative-images',
+    //       },
+    //       {
+    //         resolve: 'gatsby-remark-images',
+    //         options: {
+    //           maxWidth: config.maxWidth,
+    //           backgroundColor: 'transparent',
+    //           linkImagesToOriginal: false,
+    //         },
+    //       },
+    //       {
+    //         resolve: 'gatsby-remark-responsive-iframe',
+    //       },
+    //       {
+    //         resolve: 'gatsby-remark-autolink-headers',
+    //         options: {
+    //           className: 'anchor-heading',
+    //         },
+    //       },
+    //       'gatsby-remark-prismjs',
+    //       'gatsby-remark-smartypants',
+    //       'gatsby-remark-copy-linked-files',
+    //     ],
+    //   },
+    // },
+    // {
+    //   resolve: 'gatsby-plugin-react-svg',
+    //   options: {
+    //     rule: {
+    //       include: /media/,
+    //     },
+    //   },
+    // },
     {
-      resolve: 'gatsby-transformer-remark',
+      resolve: 'gatsby-plugin-google-analytics',
       options: {
-        plugins: [
-          {
-            resolve: 'gatsby-remark-relative-images',
-          },
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              maxWidth: siteConfig.maxWidth,
-              backgroundColor: 'transparent',
-              linkImagesToOriginal: false,
-            },
-          },
-          {
-            resolve: 'gatsby-remark-responsive-iframe',
-          },
-          {
-            resolve: 'gatsby-remark-autolink-headers',
-            options: {
-              className: 'anchor-heading',
-            },
-          },
-          'gatsby-remark-smartypants',
-          'gatsby-remark-copy-linked-files',
-          'gatsby-remark-prismjs',
-        ],
+        trackingId: config.google.trackingId,
       },
     },
-    // {
-    //   resolve: 'gatsby-plugin-netlify-cms',
-    //   options: {
-    //     modulePath: path.resolve('src/cms/index.js'),
-    //     enableIdentityWidget: true,
-    //     publicPath: 'admin',
-    //     htmlTitle: 'Content Manager',
-    //     includeRobots: false
-    //   }
-    // },
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: siteConfig.title,
-        short_name: siteConfig.shortName,
-        description: siteConfig.description,
-        start_url: siteConfig.startUrl,
-        theme_color: siteConfig.themeColor,
-        background_color: siteConfig.backgroundColor,
-        icon: siteConfig.faviconSrc,
+        name: config.title,
+        short_name: config.shortName,
+        description: config.description,
+        start_url: config.startUrl,
         display: 'minimal-ui',
-        icon: `src/media/imgs/icon-512x.png`
+        background_color: config.backgroundColor,
+        theme_color: config.themeColor,
+        icon: config.favicon,
+      },
+    },
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'GitHub',
+        fieldName: 'github',
+        url: 'https://api.github.com/graphql',
+        headers: {
+          Authorization: `Bearer ${config.gatsby.gitToken}`,
+        },
       },
     },
     {
@@ -266,11 +275,15 @@ module.exports = {
     //     ],
     //   },
     // },
-    {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: siteConfig.google.trackingId,
-      },
-    },
+    // {
+    //   resolve: 'gatsby-plugin-netlify-cms',
+    //   options: {
+    //     modulePath: path.resolve('src/cms/index.js'),
+    //     enableIdentityWidget: true,
+    //     publicPath: 'admin',
+    //     htmlTitle: 'Content Manager',
+    //     includeRobots: false
+    //   }
+    // },
   ],
 }

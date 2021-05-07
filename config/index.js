@@ -1,20 +1,18 @@
-/* Configs */
-
-const siteConfig = {
+const config = {
   /* Site
   ========================================= */
   title: 'Dany Dodson',
   siteUrl: 'https://danydodson.dev',
   titleAlt: 'Full Stack Developer Blog',
   description: 'Welcome! This is my Full Stack Web Developer blog',
-  faviconSrc: 'src/media/imgs/icon-256x.png',
+  favicon: 'src/images/favicon.png',
 
   /* PWA
   ========================================= */
   shortName: 'dany',
   startUrl: '/',
-  siteLogo: 'src/media/imgs/card-1200x.png',
-  siteLogoAlt: 'src/media/imgs/card-1200x.png',
+  siteLogo: 'src/images/og@2x.png',
+  siteLogoAlt: 'src/images/og@2x.png',
   themeColor: '#c62828',
   backgroundColor: '#e0e0e0',
 
@@ -22,7 +20,7 @@ const siteConfig = {
   ========================================= */
   author: 'Dany Dodson',
   location: 'Evansville, IN',
-  profileImageName: 'src/media/imgs/card-630x.png',
+  profileImageName: 'src/images/og@1x.png',
   profileDescription: '{ Full Stack Developer }',
   footerLink: 'about',
 
@@ -169,4 +167,4 @@ const siteConfig = {
 
 }
 
-module.exports = siteConfig
+module.exports = config

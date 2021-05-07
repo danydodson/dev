@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import storage from 'local-storage-fallback'
-import { siteConfig } from '../../config'
+import config from '../../config'
 import { theme as globalTheme } from '../components/Shared/styles-global'
 
-function UseTheme(defaultTheme = { mode: siteConfig.defaultTheme }) {
+function UseTheme(defaultTheme = { mode: config.defaultTheme }) {
   const [theme, _setTheme] = useState(getInitialTheme)
 
   // Get theme from local storage

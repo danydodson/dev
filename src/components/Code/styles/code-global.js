@@ -1,7 +1,7 @@
 /* Code block stylings based on main theme */
 import { createGlobalStyle } from 'styled-components'
-import { setThemeVars } from '../../../utils/set-theme'
-import { siteConfig, styleConfig } from '../../../../config'
+import { setThemeVars } from '../../../utilities/set-theme'
+import config from '../../../../config'
 
 const bgColor = () => setThemeVars('#f6f8fa !important', '#2d323e !important')
 const bgColorBorder = () => setThemeVars('#e8e6ef !important', '#43485f !important')
@@ -29,7 +29,7 @@ const copyBtnBg = () => setThemeVars('#efefef !important', '#3b3d46 !important')
 const copyBtnColor = () => setThemeVars('#9c9c9c !important', '#888598 !important')
 const copyBtnColorHover = () => setThemeVars('#111 !important', '#b7b5bf !important')
 
-const fontColor = () => setThemeVars(`${styleConfig.fontColorLight} !important`, `${styleConfig.fontColorDark} !important`)
+const fontColor = () => setThemeVars(`${config.fontColorLight} !important`, `${config.fontColorDark} !important`)
 
 // Code block styling for light/dark theme
 const codeBlockStyles = createGlobalStyle`
@@ -40,7 +40,7 @@ const codeBlockStyles = createGlobalStyle`
 
     .live-highlight, .live-preview {
       &:before {
-       font-family: ${styleConfig.fontCodeBlocks + styleConfig.fontsBackUp}
+       font-family: ${config.fontCodeBlocks + config.fontsBackUp}
       }
     }
     
@@ -51,14 +51,14 @@ const codeBlockStyles = createGlobalStyle`
     code[class*="language-"],
     pre[class*="language-"],
     .code-title-custom, .live-error {
-      font-family: ${styleConfig.fontCodeBlocks + styleConfig.fontsBackUp} !important;
+      font-family: ${config.fontCodeBlocks + config.fontsBackUp} !important;
       color: ${base0};
-      white-space: ${siteConfig.breakCodeLines ? 'pre-wrap' : 'pre'}
+      white-space: ${config.breakCodeLines ? 'pre-wrap' : 'pre'}
     }
 
     ${'' /* Language badge & copy button font */}
     .language-badge, .btn-copy {
-      font-family: ${styleConfig.fontCodeBlocks + styleConfig.fontsBackUp};
+      font-family: ${config.fontCodeBlocks + config.fontsBackUp};
       font-size: 0.7rem;
     }
 
@@ -120,7 +120,7 @@ const codeBlockStyles = createGlobalStyle`
     code {
       background: ${inlineBg};
       color: ${inlineColor};
-      font-family: ${styleConfig.fontCodeBlocks + styleConfig.fontsBackUp};
+      font-family: ${config.fontCodeBlocks + config.fontsBackUp};
     }
 
     pre[class*="language-"]::-moz-selection,

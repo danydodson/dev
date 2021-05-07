@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import { siteConfig } from '../../../config'
+import config from '../../../config'
 import RSS from '../../media/svgs/rss.svg'
-import { setThemeVars } from '../../utils/set-theme'
+import { setThemeVars } from '../../utilities/set-theme'
 
 const Footer = () => {
   return (
@@ -11,8 +11,8 @@ const Footer = () => {
       <div />
       <div>
         <span>© {new Date().getFullYear()} </span>
-        <StyledA href={siteConfig.footerLink} target='_blank' rel='noopener noreferrer'>
-          {siteConfig.author}
+        <StyledA href={config.footerLink} target='_blank' rel='noopener noreferrer'>
+          {config.author}
         </StyledA>
         , Built with {' '}
         <StyledA href='https://github.com/EllisMin/gatsby-blog-mdx' target='_blank' rel='noopener noreferrer'>

@@ -1,24 +1,24 @@
 import { createGlobalStyle, keyframes } from 'styled-components'
 import { isMobile } from 'react-device-detect'
-import { setThemeVars } from '../../utils/set-theme'
-import { siteConfig, styleConfig } from '../../../config'
+import { setThemeVars } from '../../utilities/set-theme'
+import config from '../../../config'
 
 const globalVar = {
   primaryColor: '#fff',
   secondaryColor: '#333',
 
-  bgColorLight: styleConfig.bgColorLight,
-  bgColorDark: styleConfig.bgColorDark,
-  bgSubColorLight: styleConfig.bgSubColorLight,
-  bgSubColorDark: styleConfig.bgSubColorDark,
+  bgColorLight: config.bgColorLight,
+  bgColorDark: config.bgColorDark,
+  bgSubColorLight: config.bgSubColorLight,
+  bgSubColorDark: config.bgSubColorDark,
 
-  headerColorLight: styleConfig.headerColorLight,
-  headerColorDark: styleConfig.headerColorDark,
+  headerColorLight: config.headerColorLight,
+  headerColorDark: config.headerColorDark,
 
-  fontColorLight: styleConfig.fontColorLight,
-  fontSubColorLight: styleConfig.fontSubColorLight,
-  fontColorDark: styleConfig.fontColorDark,
-  fontSubColorDark: styleConfig.fontSubColorDark,
+  fontColorLight: config.fontColorLight,
+  fontSubColorLight: config.fontSubColorLight,
+  fontColorDark: config.fontColorDark,
+  fontSubColorDark: config.fontSubColorDark,
 
   darkColor: '#333',
   midColor: '#444',
@@ -28,7 +28,7 @@ const globalVar = {
   midGreyColor: '#ccc',
   mintColor: '#bfe2ca',
 
-  maxWidthSite: `${siteConfig.maxWidth}px`,
+  maxWidthSite: `${config.maxWidth}px`,
 
   // @mixin disable-selection()
   disableSelection: `
@@ -60,11 +60,11 @@ const glowing = keyframes`
 
 const foregroundColor = () => setThemeVars(theme.fontColorLight, theme.fontColorDark)
 
-const scrollBarColor = () => setThemeVars(styleConfig.scrollbarColorLight, styleConfig.scrollbarColorDark)
-const scrollBarBg = () => setThemeVars(styleConfig.scrollbarBgLight, styleConfig.scrollbarBgDark)
-const scrollBarHover = () => setThemeVars(styleConfig.scrollbarHoverLight, styleConfig.scrollbarHoverDark)
+const scrollBarColor = () => setThemeVars(config.scrollbarColorLight, config.scrollbarColorDark)
+const scrollBarBg = () => setThemeVars(config.scrollbarBgLight, config.scrollbarBgDark)
+const scrollBarHover = () => setThemeVars(config.scrollbarHoverLight, config.scrollbarHoverDark)
 
-const underlineColor = () => setThemeVars(styleConfig.underlineColorLight, styleConfig.underlineColorDark)
+const underlineColor = () => setThemeVars(config.underlineColorLight, config.underlineColorDark)
 
 export const GlobalStyles = createGlobalStyle`
   * {
@@ -78,7 +78,7 @@ export const GlobalStyles = createGlobalStyle`
     align-items: center;
     background: ${() => setThemeVars(theme.bgSubColorLight, theme.bgSubColorDark)};
     color: ${foregroundColor};
-    font-family: ${styleConfig.fontMain + styleConfig.fontsBackUp}
+    font-family: ${config.fontMain + config.fontsBackUp}
   }
 
   header,
@@ -197,7 +197,7 @@ export const GlobalStyles = createGlobalStyle`
   .progress-container {
     background: ${() => setThemeVars(theme.headerColorLight, theme.headerColorDark)};
     .progress-bar {
-      background: ${() => setThemeVars(styleConfig.progressBarColorLight, styleConfig.progressBarColorLight)};
+      background: ${() => setThemeVars(config.progressBarColorLight, config.progressBarColorLight)};
     }
   }
 
@@ -326,7 +326,7 @@ export const GlobalStyles = createGlobalStyle`
 
   ${'' /* Applies to react live code */}
   .live-highlight {
-      font-family: ${styleConfig.fontCodeBlocks + styleConfig.fontsBackUp} !important;
+      font-family: ${config.fontCodeBlocks + config.fontsBackUp} !important;
   }
 
   ${'' /* Custom scrollbar styling for non mobile */}

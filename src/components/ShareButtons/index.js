@@ -1,5 +1,5 @@
 import React from 'react'
-import { siteConfig } from '../../../config'
+import config from '../../../config'
 import {
   EmailShareButton,
   FacebookShareButton,
@@ -18,27 +18,27 @@ const ShareButtons = ({ location }) => {
   
   return (
     <div className='share-buttons-wrap'>
-      {siteConfig.shareButtons.email && (
+      {config.shareButtons.email && (
         <EmailShareButton url={location}>
           <EmailIcon round size={32} />
         </EmailShareButton>
       )}
-      {siteConfig.shareButtons.facebook && (
+      {config.shareButtons.facebook && (
         <FacebookShareButton url={location}>
           <FacebookIcon round size={32} />
         </FacebookShareButton>
       )}
-      {siteConfig.shareButtons.twitter && (
+      {config.shareButtons.twitter && (
         <TwitterShareButton url={location}>
           <TwitterIcon round size={32} />
         </TwitterShareButton>
       )}
-      {siteConfig.shareButtons.reddit && (
+      {config.shareButtons.reddit && (
         <RedditShareButton url={location}>
           <RedditIcon round size={32} />
         </RedditShareButton>
       )}
-      {siteConfig.shareButtons.linkedIn && (
+      {config.shareButtons.linkedIn && (
         <LinkedinShareButton url={location}>
           <LinkedinIcon round size={32} />
         </LinkedinShareButton>

@@ -14,9 +14,9 @@ import Ruler from '../components/Ruler'
 import SEO from '../components/SEO'
 import ShareButtons from '../components/ShareButtons'
 import { theme } from '../components/Shared/styles-global'
-import { siteConfig, styleConfig } from '../../config'
+import config from '../../config'
 import ChevronRight from '../media/svgs/chevron-right.svg'
-import { setThemeVars } from '../utils/set-theme'
+import { setThemeVars } from '../utilities/set-theme'
 import Collapsable from '../components/MdxComponents/Collapsable'
 import Resume from '../components/MdxComponents/Resume'
 import Danger from '../components/MdxComponents/TextBlock/Danger'
@@ -25,6 +25,7 @@ import Primary from '../components/MdxComponents/TextBlock/Primary'
 import Success from '../components/MdxComponents/TextBlock/Success'
 import Warning from '../components/MdxComponents/TextBlock/Warning'
 import Underline from '../components/MdxComponents/Underline'
+
 
 const PostTemplate = function ({ pageContext, data }) {
 
@@ -43,8 +44,8 @@ const PostTemplate = function ({ pageContext, data }) {
     if (isMobile) {
       moveAnchorHeadings()
     }
-    if (siteConfig.comments.utterances.enabled && siteConfig.comments.utterances.repoUrl) {
-      registerComments(siteConfig.comments.utterances.repoUrl)
+    if (config.comments.utterances.enabled && config.comments.utterances.repoUrl) {
+      registerComments(config.comments.utterances.repoUrl)
     }
     window.addEventListener('popstate', handleChange(window.location.href))
 
@@ -77,7 +78,7 @@ const PostTemplate = function ({ pageContext, data }) {
     })
   }
 
-  const mdxComponents = {
+  const shortcodes = {
     'ul.li': ({ children }) => {
       return (
         <li>
@@ -143,7 +144,7 @@ const PostTemplate = function ({ pageContext, data }) {
           </>
         )}
         {/* Render mdx */}
-        <MDXProvider components={mdxComponents}>
+        <MDXProvider components={shortcodes}>
           <MDXRenderer>{post.body}</MDXRenderer>
         </MDXProvider>
       </StyledHTML>
@@ -154,7 +155,7 @@ const PostTemplate = function ({ pageContext, data }) {
           <Ruler widthInPercent='97' verticalMargin='0.8rem' />
           <Profile />
           <Ruler widthInPercent='97' verticalMargin='0.8rem' />
-          {siteConfig.comments.utterances.enabled && siteConfig.comments.utterances.repoUrl && (
+          {config.comments.utterances.enabled && config.comments.utterances.repoUrl && (
             <UtterancesComments innerRef={utterancesRef} />
           )}
         </>
@@ -208,7 +209,7 @@ const StyledListingCoverImage = styled.div`
 const StyledHTML = styled.div`
   word-wrap: break-word;
   padding: 1rem;
-  font-family: ${styleConfig.fontMain + styleConfig.fontsBackUp};
+  font-family: ${config.fontMain + config.fontsBackUp};
   margin-top: 1rem;
   font-size: 105%;
   h1 {
@@ -278,7 +279,7 @@ const StyledHTML = styled.div`
           width: 0.75rem;
           height: 0.75rem;
           margin-right: 0.5rem;
-          fill: ${() => setThemeVars(styleConfig.fontColorLight, styleConfig.fontColorDark)};
+          fill: ${() => setThemeVars(config.fontColorLight, config.fontColorDark)};
         }
       }
       span.ul-children {

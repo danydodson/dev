@@ -3,9 +3,9 @@ import { graphql, useStaticQuery, Link } from "gatsby"
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock } from '@fortawesome/free-solid-svg-icons'
-import { setThemeVars } from '../../../utils/set-theme'
+import { setThemeVars } from '../../../utilities/set-theme'
 import { theme } from '../../../components/Shared/styles-global'
-import { siteConfig } from '../../../../config'
+import config from '../../../../config'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
 const PostCard = ({ id, title, cover, date, path, excerpt, timeToRead }) => {
@@ -52,7 +52,7 @@ const PostCard = ({ id, title, cover, date, path, excerpt, timeToRead }) => {
 
           <h3>{title}</h3>
 
-          {siteConfig.showTimeToRead && (
+          {config.showTimeToRead && (
             <span>
               <FontAwesomeIcon className='icon-clock' icon={faClock} size='xs' />
               {timeToRead} minute read

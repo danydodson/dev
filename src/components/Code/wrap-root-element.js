@@ -1,7 +1,6 @@
 import React from 'react'
 import { MDXProvider } from '@mdx-js/react'
 import { preToCodeBlock } from 'mdx-utils'
-// import { Info, Primary, Danger, Warning, Success, Resume, Underline, Collapsable } from '../components/MdxComponents'
 import Code from '../Code'
 
 /**

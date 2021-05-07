@@ -3,8 +3,12 @@ import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import PostList from '../components/Posts/PostList'
-import { siteConfig } from '../../config'
+import config from '../../config'
 
+/**
+ * @param  {} {pageContext}
+ * @param  {} {data}
+ */
 const CategoryTemplate = function ({ pageContext, data }) {
   const { category } = pageContext
   const postEdges = data.allMdx.edges

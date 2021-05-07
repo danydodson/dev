@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { setThemeVars } from '../../../utils/set-theme'
+import { setThemeVars } from '../../../utilities/set-theme'
 import { theme } from '../../Shared/styles-global'
 import './styles.scss'
 

@@ -1,15 +1,15 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { useStaticQuery, graphql } from 'gatsby'
-import styled, { ThemeProvider } from 'styled-components'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
-import { GlobalStyles, theme } from '../Shared/styles-global'
+import { graphql, useStaticQuery } from 'gatsby'
+import PropTypes from 'prop-types'
+import React from 'react'
+import styled, { ThemeProvider } from 'styled-components'
 import CodeBlockStyles from '../../components/Code/styles/code-global'
-import Header from '../Header'
 import UseTheme from '../../hooks/use-theme'
 import Footer from '../Footer'
+import Header from '../Header'
 import ScrollTopButton from '../ScrollTopButton'
+import { GlobalStyles, theme } from '../Shared/styles-global'
 
 config.autoAddCss = false
 

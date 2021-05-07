@@ -1,42 +1,42 @@
 import React from 'react'
 import styled from 'styled-components'
 import MediaLink from './MediaLink'
-import { siteConfig } from '../../../config'
+import config from '../../../config'
 
 const MediaLinks = () => (
   <StyledMediaLinks>
     <MediaLink
-      accountInfo={siteConfig.socials.email.address}
+      accountInfo={config.socials.email.address}
       mediaName='Email'
       preHref='mailto:'
     />
     <MediaLink
-      accountInfo={siteConfig.socials.github.username}
+      accountInfo={config.socials.github.username}
       mediaName='GitHub'
       preHref='https://github.com/'
     />
     <MediaLink
-      accountInfo={siteConfig.socials.facebook.username}
+      accountInfo={config.socials.facebook.username}
       mediaName='Facebook'
       preHref='https://www.facebook.com/'
     />
     <MediaLink
-      accountInfo={siteConfig.socials.instagram.username}
+      accountInfo={config.socials.instagram.username}
       mediaName='Instagram'
       preHref='https://instagram.com/'
     />
     <MediaLink
-      accountInfo={siteConfig.socials.twitter.username}
+      accountInfo={config.socials.twitter.username}
       mediaName='Twitter'
       preHref='https://twitter.com/'
     />
     <MediaLink
-      accountInfo={siteConfig.socials.linkedIn.username}
+      accountInfo={config.socials.linkedIn.username}
       mediaName='LinkedIn'
       preHref='https://linkedin.com/'
     />
     <MediaLink
-      accountInfo={siteConfig.socials.medium.username}
+      accountInfo={config.socials.medium.username}
       mediaName='Medium'
       preHref='https://medium.com/@'
     />

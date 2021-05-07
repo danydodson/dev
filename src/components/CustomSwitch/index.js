@@ -3,7 +3,7 @@ import Switch from 'react-switch'
 import { withTheme } from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconMoon, IconSun } from '../icons'
-import { siteConfig } from '../../../config'
+import config from '../../../config'
 
 import './styles.scss'
 
@@ -11,7 +11,7 @@ class CustomSwitch extends Component {
   constructor(props) {
     super(props)
 
-    if (siteConfig.defaultTheme === 'dark') {
+    if (config.defaultTheme === 'dark') {
       this.state = { checked: true }
     } else {
       this.state = { checked: false }

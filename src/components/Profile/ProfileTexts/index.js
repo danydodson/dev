@@ -1,7 +1,7 @@
 import React from 'react'
 import AboutLink from '../../AboutLink'
 import MediaLinks from '../../MediaLinks'
-import { siteConfig } from '../../../../config'
+import config from '../../../../config'
 import ProfileLocation from '../ProfileLocation'
 import styled from 'styled-components'
 
@@ -12,7 +12,7 @@ const ProfileTexts = ({ home }) => {
       {home ? (
         <StyledProfileTextsHome className='profile-texts'>
           <AboutLink />
-          <p>{siteConfig.profileDescription}</p>
+          <p>{config.profileDescription}</p>
           <ProfileLocation />
           <MediaLinks />
         </StyledProfileTextsHome>
@@ -20,7 +20,7 @@ const ProfileTexts = ({ home }) => {
         <StyledProfileTexts className='profile-texts'>
           <h4>WRITTEN BY</h4>
           <AboutLink />
-          <p>{siteConfig.profileDescription}</p>
+          <p>{config.profileDescription}</p>
           <ProfileLocation />
           <MediaLinks />
         </StyledProfileTexts>

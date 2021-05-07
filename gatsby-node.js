@@ -1,7 +1,7 @@
 const path = require('path')
 const _ = require('lodash')
 const moment = require('moment')
-const { siteConfig } = require('./config')
+const config = require('./config')
 const { createFilePath } = require('gatsby-source-filesystem')
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
@@ -21,7 +21,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     })
 
     if (Object.prototype.hasOwnProperty.call(node.frontmatter, 'date')) {
-      const date = moment(node.frontmatter.date, siteConfig.dateFromFormat)
+      const date = moment(node.frontmatter.date, config.dateFromFormat)
       createNodeField({
         node,
         name: 'date',
@@ -117,6 +117,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   return edges.forEach((edge, index) => {
     const { node } = edge
+
     // Generate a list of tags
     if (node.frontmatter.tags) {
       node.frontmatter.tags.forEach((tag) => {
@@ -167,7 +168,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   })
 
   console.info(categorySet)
-
 }
 
 // https://www.gatsbyjs.org/docs/node-apis/#onCreateWebpackConfig
@@ -175,17 +175,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
   actions.setWebpackConfig({
     resolve: {
-      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
-      // alias: {
-      //   '~media': path.resolve(__dirname, 'src/media'),
-      //   '~components': path.resolve(__dirname, 'src/components'),
-      //   '~config': path.resolve(__dirname, 'src/config'),
-      //   '~constants': path.resolve(__dirname, 'src/constants'),
-      //   '~hooks': path.resolve(__dirname, 'src/hooks'),
-      //   '~pages': path.resolve(__dirname, 'src/pages'),
-      //   '~templates': path.resolve(__dirname, 'src/templates'),
-      //   '~utils': path.resolve(__dirname, 'src/utils')
-      // },
-    }
+      modules: [path.resolve(__dirname, "src"), "node_modules"],
+      alias: {
+        '~config$': path.resolve(__dirname, 'src/config'),
+      },
+    },
   })
 }

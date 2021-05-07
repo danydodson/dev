@@ -1,48 +1,55 @@
 module.exports = {
-  parser: 'babel-eslint',
-  env: {
-    browser: true,
-    es2021: true,
-    node: true
+  parser: 'babel-eslint', // uses babel-eslint transforms
+  parserOptions: {
+    // ecmaVersion: 2020,
+    // sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+    },
   },
   settings: {
     react: {
-      version: 'detect'
+      version: 'detect',
     },
+    linkComponents: [
+      'Hyperlink',
+      { name: 'Link', linkAttribute: 'to' }
+    ]
   },
-  parserOptions: {
-    ecmaVersion: 2020,
-    sourceType: 'module',
-    ecmaFeatures: {
-      jsx: true
-    }
+  env: {
+    browser: true,
+    es2021: true,
+    node: true, // defines things like process.env when generating through node
   },
   extends: [
-    'plugin:react/recommended',
+    `eslint:recommended`,
+    `plugin:react/recommended`,
     'plugin:mdx/recommended',
-    'plugin:jsx-a11y/recommended',
-    'plugin:react-hooks/recommended'
   ],
   plugins: [
+    'eslint',
     'react',
-    'jsx-a11y',
-    'react-hooks'
+    'mdx',
   ],
   rules: {
-    "mdx/code-blocks": 0,
+    'mdx/code-blocks': 0,
     'mdx/no-unused-expressions': 0,
-    // optional, if you want to disable language mapper, set it to `false` if you want to override the default language mapper inside, you can provide your own
-    // "mdx/language-mapper": {}, 
-    'no-unused-vars': 0,
-    'no-unreachable': 0,
+    // 
+    // 'no-unused-vars': 0,
+    // 'no-unreachable': 0,
+    // 
     'react/prop-types': 0,
     'react/no-deprecated': 0,
-    'react/jsx-key': 0,
     'react/display-name': 0,
     'react/no-children-prop': 0,
     'react/react-in-jsx-scope': 0,
-    'object-curly-spacing': [2, 'always'],
+    // 
+    'react/jsx-key': 0,
+    'react/jsx-uses-react': 0,
+    'react/jsx-uses-vars': 0,
     'react/jsx-closing-bracket-location': 0,
-    'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx'] }]
+    'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx'] }],
+    // 
+    'object-curly-spacing': [2, 'always'],
   }
 }
