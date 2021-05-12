@@ -27,10 +27,10 @@ const config = {
   
   /* Fonts
   ========================================= */  
-  // fontSans: 'Calibre',
-  // fontProfile: '"Oxanium"', // Font inside profile
-  fontMain: '"IBM Plex Sans"', // Main Font
-  fontMono: 'SF Mono',
+  // fontSans: 'Calibre', -- 'IBM Plex Sans'
+  // fontMono: 'SF Mono', -- 'Oxanium'
+  fontMain: 'Calibre', // Main Font
+  fontProfile: '"Oxanium"', // Font inside profile
   fontCodeBlocks: 'Menlo, Monaco, monospace', // Font for code blocks
   // These fonts will be used if above fonts are unavailable
   fontsBackUp: `, sans-serif, -apple-system, BlinkMacSystemFont,
