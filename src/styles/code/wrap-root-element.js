@@ -1,7 +1,7 @@
 import React from 'react'
 import { MDXProvider } from '@mdx-js/react'
 import { preToCodeBlock } from 'mdx-utils'
-import Code from '../code'
+import Code from './code'
 
 /**
  * @param {string}

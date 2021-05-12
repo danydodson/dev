@@ -1,137 +1,179 @@
-import React, { useState, useEffect } from 'react'
-import Highlight, { defaultProps } from 'prism-react-renderer'
-import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
-import { CopyToClipboard } from 'react-copy-to-clipboard'
-import { calculateLinesToHighlight, highlightLine, linesToHighlight, addClassName } from './highlight-line'
+/* Code block stylings based on main theme */
+import { createGlobalStyle } from 'styled-components'
+import { setThemeVars } from '../global/theme'
+import config from '../../config'
 
-import './main.scss'
+const bgColor = () => setThemeVars('#f6f8fa !important', '#2d323e !important')
+const bgColorBorder = () => setThemeVars('#e8e6ef !important', '#43485f !important')
 
-const comments = ['//highlight-start', '//highlight-end']
+const base0 = () => setThemeVars('#000 !important', '#ddd !important')
+const base1 = () => setThemeVars('#d73a49 !important', '#fa69e5 !important')
+const base2 = () => setThemeVars('#220b83 !important', '#63fa83 !important')
+const base3 = () => setThemeVars('#6f42c0 !important', '#f5ff98 !important')
+const base4 = () => setThemeVars('#005cc5 !important', '#6ad7f9 !important')
+const base5 = () => setThemeVars('#5b581a !important', '#d2ceab !important')
+const base6 = () => setThemeVars('#22863a !important', '#e48080 !important')
+const base7 = () => setThemeVars('#22863a !important', '#e48080 !important')
 
-// Remote highlight comments
-const removeHighlightComments = line => {
-  let newStr = line
-  const trimmed = line.replace(/\s/g, '')
+const base99 = () => setThemeVars('#248537 !important', '#63fa83 !important') // Token inserted
+const base98 = () => setThemeVars('#8e3232 !important', '#e48080 !important') // Token deleted
 
-  comments.forEach(comment => {
-    if (trimmed === comment) {
-      newStr = null
+const inlineBg = () => setThemeVars('#f1f1f1 !important', '#3b3948 !important')
+const inlineColor = () => setThemeVars('#de498d !important', '#ca6c9a !important')
+
+const highlight = () => setThemeVars('#e7e8ec !important', '#353e50 !important')
+const selectionColor = () => setThemeVars('#ccf1fb !important', '#073642 !important')
+
+// Copy Button Colors
+const copyBtnBg = () => setThemeVars('#efefef !important', '#3b3d46 !important')
+const copyBtnColor = () => setThemeVars('#9c9c9c !important', '#888598 !important')
+const copyBtnColorHover = () => setThemeVars('#111 !important', '#b7b5bf !important')
+
+const fontColor = () => setThemeVars(`${config.fontColorLight} !important`, `${config.fontColorDark} !important`)
+
+// Code block styling for light/dark theme
+const codeBlockStyles = createGlobalStyle`
+    .gatsby-highlight,
+    .live-highlight, 
+    .live-preview, 
+    .live-error {
+      background: ${bgColor};
+      border: 1px solid ${bgColorBorder};
     }
-  })
 
-  if (trimmed.includes('//highlight-range{')) {
-    newStr = null
-  }
-
-  if (newStr) {
-    newStr = newStr.replace('//highlight-line', '').replace('// highlight-line', '')
-  }
-
-  return newStr
-}
-
-const Code = ({ codeString, language, metastring, ...props }) => {
-
-  const [copyBtnText, setCopyBtnText] = useState('Copy')
-  const [copyText, setCopyText] = useState('')
-  const [loadingText, setLoadingText] = useState(false)
-
-  // Set up texts to be copied on copy button
-  useEffect(() => {
-    let newStr = ''
-    // Remove highlight comments
-    let line = ''
-    for (let i = 0; i < codeString.length; i++) {
-      const c = codeString.charAt(i)
-      if (c === '\n') {
-        const result = removeHighlightComments(line)
-        if (result) {
-          newStr += result
-          if (i !== codeString.length - 1) {
-            newStr += '\n'
-          }
-        }
-        line = ''
-      } else {
-        line += c
+    .live-highlight, 
+    .live-preview {
+      &:before {
+       font-family: ${config.fontCodeBlocks + config.fontsBackUp}
       }
     }
-    // Last line
-    const result = removeHighlightComments(line)
-    if (result) newStr += result
-    setCopyText(newStr)
-  }, [])
+    
+    .gatsby-highlight-code-line {
+      background-color: ${highlight};
+    }
 
-  // Set default language to text
-  if (!language) language = 'text'
+    code[class*="language-"],
+    pre[class*="language-"],
+    .code-title-custom, 
+    .live-error {
+      font-family: ${config.fontCodeBlocks + config.fontsBackUp} !important;
+      color: ${base0};
+      white-space: ${config.breakCodeLines ? 'pre-wrap' : 'pre'}
+    }
 
-  if (props['react-live']) {
-    return (
-      <LiveProvider code={codeString} noInline={true} theme={undefined}>
-        <LiveEditor className='live-highlight' style={undefined} />
-        <LiveError className='live-error' />
-        <LivePreview className='live-preview' />
-      </LiveProvider>
-    )
-  }
+    ${'' /* Language badge & copy button font */}
+    .language-badge, 
+    .btn-copy {
+      font-family: ${config.fontCodeBlocks + config.fontsBackUp};
+      font-size: 0.7rem;
+    }
 
-  const handleCopy = () => {
-    setCopyBtnText('Copied!')
-    if (!loadingText) {
-      setLoadingText(true)
-      setTimeout(() => {
-        setCopyBtnText('Copy')
-        setLoadingText(false)
-      }, 4000)
+    ${'' /* Need to have less precedence since most other tags have .token.tag */}
+    .token.tag {
+      color: ${base6};
+    }
+
+    .token.class-name {
+      color: ${base0};
+    }
+
+    .token.atrule,
+    .token.keyword {
+      color: ${base1};
+    }
+
+    .token.selector,
+    .token.string,
+    .token.char,
+    .token.builtin,
+    .token.url,
+    .token.number,
+    .token.attr-value {
+      color: ${base2};
+    }
+
+    .token.inserted {
+      color: ${base99};
+    }
+    .token.deleted {
+      color: ${base98};
+    }
+    .token.attr-name {
+      color: ${base3};
+    }
+    .token.function {
+      color: ${base4};
+    }
+    .token.punctuation {
+      color: ${base5};
+    }
+
+    .token.boolean,
+    .token.constant,
+    .token.symbol {
+      color: ${base6};
+    }
+
+    .token.property {
+      color: ${base7};
+    }
+
+    .token.maybe-class-name, 
+    .token.operator, 
+    .token.plain, 
+    .token-parameter, 
+    .token.arrow.operator,  {
+      color: ${fontColor};
+    }
+    
+    /* Inline code block */
+    code {
+      background: ${inlineBg};
+      color: ${inlineColor};
+      font-family: ${config.fontCodeBlocks + config.fontsBackUp};
+    }
+
+    pre[class*="language-"]::-moz-selection,
+    pre[class*="language-"] ::-moz-selection,
+    code[class*="language-"]::-moz-selection,
+    code[class*="language-"] ::-moz-selection {
+      background: ${selectionColor};
+    }
+
+    pre[class*="language-"]::selection,
+    pre[class*="language-"] ::selection,
+    code[class*="language-"]::selection,
+    code[class*="language-"] ::selection {
+      background: ${selectionColor};
+    }
+
+    .btn-copy {
+      color: ${copyBtnColor};
+      &:hover {
+        background: ${copyBtnBg};
+        color: ${copyBtnColorHover}
+      }
+    }
+
+    .code-title-custom {
+      background: ${bgColor};
+      border-top: 1px solid ${bgColorBorder};
+      border-right: 1px solid ${bgColorBorder};
+      border-left: 1px solid ${bgColorBorder};
+      border-bottom: none;
+    }
+
+  @media (max-width: 680px) {
+    html {
+      font-size: 90%;
     }
   }
 
-  const shouldHighlightLine = calculateLinesToHighlight(metastring)
+  @media (max-width: 500px) {
+    html {
+      font-size: 85%;
+    }
+  }
+  `
 
-  return (
-    <Highlight {...defaultProps} code={codeString} language={language} theme={false}>
-      {({ className, style, tokens, getLineProps, getTokenProps }) => {
-        return (
-          <div className='gatsby-highlight' data-language={language}>
-            <div className='badge-btn-wrap'>
-              <div className={`language-badge language-badge-${language}`}>{language.toUpperCase()}</div>
-              <CopyToClipboard text={copyText} onCopy={handleCopy}>
-                <button className='btn-copy'>{copyBtnText}</button>
-              </CopyToClipboard>
-            </div>
-            <pre className={className} style={style}>
-              {tokens.map((line, i) => {
-                const lineProps = getLineProps({ line, key: i })
-                const shouldExclude = highlightLine(line, lineProps, i)
-
-                if (shouldHighlightLine(i)) {
-                  addClassName(lineProps)
-                }
-
-                if (linesToHighlight.length > 0) {
-                  if (linesToHighlight[0] === i) {
-                    // Add class name & pop
-                    addClassName(lineProps)
-                    linesToHighlight.shift()
-                  }
-                }
-                return !shouldExclude ? (
-                  <div key={i} {...lineProps}>
-                    {line.map((token, key) => (
-                      <span
-                        key={key}
-                        {...getTokenProps({ token, key })}
-                      />
-                    ))}
-                  </div>
-                ) : null
-              })}
-            </pre>
-          </div>
-        )
-      }}
-    </Highlight>
-  )
-}
-
-export default Code
+export default codeBlockStyles

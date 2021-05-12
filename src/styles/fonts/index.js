@@ -68,7 +68,8 @@ const createFontFaces = (family, style = 'normal') => {
     styles += `
       @font-face {
         font-family: '${family.name}';
-        src: url(${woff2}) format('woff2'), url(${woff}) format('woff');
+        src: url(${woff2}) format('woff2'), 
+            url(${woff}) format('woff');
         font-weight: ${weight};
         font-style: ${style};
         font-display: auto;

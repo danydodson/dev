@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react"
-import { graphql, useStaticQuery, Link } from "gatsby"
+import React from "react"
+import { Link } from "gatsby"
+// import React, { useState, useEffect } from "react"
+// import { graphql, useStaticQuery, Link } from "gatsby"
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock } from '@fortawesome/free-solid-svg-icons'
@@ -14,34 +16,34 @@ const PostCard = ({ id, title, cover, date, path, excerpt, timeToRead }) => {
   // --------------------------------------
   // BUILD TIME DATA FETCHING USING GRAPHQL
   // --------------------------------------
-  const gatsbyRepoData = useStaticQuery(graphql`
-    query {
-      github {
-        repository(name: "dev", owner: "danydodson") {
-          id
-          nameWithOwner
-          url
-        }
-      }
-    }
-  `)
+  // const gatsbyRepoData = useStaticQuery(graphql`
+  //   query {
+  //     github {
+  //       repository(name: "dev", owner: "danydodson") {
+  //         id
+  //         nameWithOwner
+  //         url
+  //       }
+  //     }
+  //   }
+  // `)
 
   // ----------------------
   // RUNTIME DATA FETCHING
   // ----------------------
-  const [repoName, setRepoName] = useState('')
-  const [watchersCount, setWatchersCount] = useState(0)
-  const [starsCount, setStarsCount] = useState(0)
+  // const [repoName, setRepoName] = useState('')
+  // const [watchersCount, setWatchersCount] = useState(0)
+  // const [starsCount, setStarsCount] = useState(0)
 
-  useEffect(() => {
-    fetch(`https://api.github.com/repos/danydodson/dev`)
-      .then(res => res.json())
-      .then(res => {
-        setRepoName(res.name)
-        setWatchersCount(res.watchers_count)
-        setStarsCount(res.stargazers_count)
-      })
-  }, [])
+  // useEffect(() => {
+  //   fetch(`https://api.github.com/repos/danydodson/dev`)
+  //     .then(res => res.json())
+  //     .then(res => {
+  //       setRepoName(res.name)
+  //       setWatchersCount(res.watchers_count)
+  //       setStarsCount(res.stargazers_count)
+  //     })
+  // }, [])
 
   return (
     <>
@@ -58,7 +60,7 @@ const PostCard = ({ id, title, cover, date, path, excerpt, timeToRead }) => {
             </span>
           )}
 
-          <ul>
+          {/* <ul>
             <li>
               <span>
                 {gatsbyRepoData.github.repository
@@ -79,7 +81,7 @@ const PostCard = ({ id, title, cover, date, path, excerpt, timeToRead }) => {
                 star count: {starsCount}
               </span>
             </li>
-          </ul>
+          </ul> */}
 
           <p>{excerpt}</p>
 

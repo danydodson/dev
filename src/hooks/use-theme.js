@@ -22,6 +22,7 @@ function UseTheme(defaultTheme = { mode: config.defaultTheme }) {
 
   return {
     ...theme,
+    // eslint-disable-next-line no-unused-vars
     setTheme: ({ setTheme, ...theme }) => _setTheme(theme)
   }
 }

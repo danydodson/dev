@@ -24,12 +24,12 @@ const config = {
   profileDescription: '{ Full Stack Developer }',
   footerLink: 'about',
 
-  /* Fonts
-  ========================================= */
   
+  /* Fonts
+  ========================================= */  
+  // fontSans: 'Calibre',
+  // fontProfile: '"Oxanium"', // Font inside profile
   fontMain: '"IBM Plex Sans"', // Main Font
-  fontProfile: '"Oxanium"', // Font inside profile
-  fontSans: 'Calibre',
   fontMono: 'SF Mono',
   fontCodeBlocks: 'Menlo, Monaco, monospace', // Font for code blocks
   // These fonts will be used if above fonts are unavailable
