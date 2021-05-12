@@ -15,8 +15,8 @@ import SEO from '../components/SEO'
 import ShareButtons from '../components/ShareButtons'
 import { theme } from '../components/Shared/styles-global'
 import config from '../../config'
-import ChevronRight from '../media/svgs/chevron-right.svg'
-import { setThemeVars } from '../utilities/set-theme'
+import { IconChevronRight } from '../components/icons'
+import { setThemeVars } from '../styles/set-theme'
 import Collapsable from '../components/MdxComponents/Collapsable'
 import Resume from '../components/MdxComponents/Resume'
 import Danger from '../components/MdxComponents/TextBlock/Danger'
@@ -83,7 +83,7 @@ const PostTemplate = function ({ pageContext, data }) {
       return (
         <li>
           <span className='icon-wrap'>
-            <ChevronRight className='icon-chevron-right' />
+            <IconChevronRight className='icon-chevron-right' />
           </span>
           <span className='ul-children'>{children}</span>
         </li>
@@ -180,7 +180,7 @@ export const postQuery = graphql`
             gatsbyImageData(aspectRatio: 1.3)
           }
         }
-        date(formatString: "MM/DD/YYYY")
+        date
         category
         excerpt
         draft

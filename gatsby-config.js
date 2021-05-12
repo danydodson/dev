@@ -1,61 +1,55 @@
-const config = require('./config')
-const path = require('path')
+require('dotenv').config({ path: `.env.dev` })
 
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`
-})
+const config = require('./config')
+// const path = require('path')
 
 module.exports = {
   siteMetadata: config,
   plugins: [
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-styled-components',
+    'gatsby-plugin-sharp',
+    `gatsby-plugin-sitemap`,
+    `gatsby-plugin-robots-txt`,
     'gatsby-plugin-catch-links',
     'gatsby-plugin-sass',
     'gatsby-plugin-image',
-    'gatsby-plugin-sharp',
-    'gatsby-plugin-styled-components',
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/src/content/coding`,
-        name: 'coding',
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/src/content/featured`,
-        name: 'featured',
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/src/content/jobs`,
-        name: 'jobs',
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/src/content/posts`,
-        name: 'posts',
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/content/projects`,
-        name: `projects`,
-      },
-    },
+    'gatsby-plugin-gatsby-cloud',
     // {
     //   resolve: 'gatsby-source-filesystem',
     //   options: {
-    //     name: 'static',
-    //     path: `${__dirname}/static`,
+    //     path: `${__dirname}/content/featured`,
+    //     name: 'featured',
     //   },
     // },
+    // {
+    //   resolve: 'gatsby-source-filesystem',
+    //   options: {
+    //     path: `${__dirname}/content/jobs`,
+    //     name: 'jobs',
+    //   },
+    // },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/posts`,
+        name: 'posts',
+      },
+    },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     path: `${__dirname}/content/projects`,
+    //     name: `projects`,
+    //   },
+    // },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/static`,
+        name: `static`,
+      },
+    },
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
@@ -174,20 +168,20 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: 'gatsby-plugin-sitemap',
-      options: {
-        query:
-          '{ site { siteMetadata { siteUrl: siteUrl } } allSitePage(filter: { path: { regex: "/^(?!/404/|/404.html|/dev-404-page/)/" } }) { edges { node { path } } } }',
-        output: '/sitemap.xml',
-        serialize: ({ site, allSitePage }) =>
-          allSitePage.edges.map((edge) => ({
-            url: site.siteMetadata.siteUrl + edge.node.path,
-            changefreq: 'daily',
-            priority: 0.7,
-          })),
-      },
-    },
+    // {
+    //   resolve: 'gatsby-plugin-sitemap',
+    //   options: {
+    //     query:
+    //       '{ site { siteMetadata { siteUrl: siteUrl } } allSitePage(filter: { path: { regex: "/^(?!/404/|/404.html|/dev-404-page/)/" } }) { edges { node { path } } } }',
+    //     output: '/sitemap.xml',
+    //     serialize: ({ site, allSitePage }) =>
+    //       allSitePage.edges.map((edge) => ({
+    //         url: site.siteMetadata.siteUrl + edge.node.path,
+    //         changefreq: 'daily',
+    //         priority: 0.7,
+    //       })),
+    //   },
+    // },
     // {
     //   resolve: 'gatsby-plugin-offline',
     //   options: {

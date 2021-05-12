@@ -3,7 +3,7 @@ import { isMobile } from 'react-device-detect'
 import { faHandPointer } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled, { keyframes } from 'styled-components'
-import { TAG } from '../../constants'
+import { TAG } from './enum'
 import Tag from './Tag'
 
 class Tags extends React.Component {

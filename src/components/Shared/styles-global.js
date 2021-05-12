@@ -1,6 +1,6 @@
 import { createGlobalStyle, keyframes } from 'styled-components'
 import { isMobile } from 'react-device-detect'
-import { setThemeVars } from '../../utilities/set-theme'
+import { setThemeVars } from '../../styles/set-theme'
 import config from '../../../config'
 
 const globalVar = {

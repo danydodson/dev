@@ -2,11 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { theme } from '../../Shared/styles-global'
-import { setThemeVars } from '../../../utilities/set-theme'
-import Warning from '../../../media/svgs/warning.svg'
-import Success from '../../../media/svgs/success.svg'
-import Info from '../../../media/svgs/info.svg'
-import Stop from '../../../media/svgs/stop.svg'
+import { setThemeVars } from '../../../styles/set-theme'
+import { IconWarning } from '../../icons'
+import { IconSuccess } from '../../icons'
+import { IconInfo } from '../../icons'
+import { IconStop } from '../../icons'
 
 const TextBlock = ({ theme, children, padding = '2rem 1.5rem' }) => {
   let iconElement

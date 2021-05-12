@@ -1,52 +1,58 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {
-  IconAppStore,
+  IconArrowDown,
+  IconChevronRight,
   IconCodepen,
   IconExternal,
-  IconFolder,
-  IconFork,
   IconGitHub,
+  IconInfo,
   IconInstagram,
   IconLinkedin,
-  IconLoader,
   IconLogo,
-  IconPlayStore,
-  IconStar,
+  IconMoon,
+  IconRss,
+  IconStop,
+  IconSuccess,
+  IconSun,
   IconTwitter,
-  IconZap,
-} from '@components/icons'
+  IconWarning,
+} from '../icons'
 
 const Icon = ({ name }) => {
   switch (name) {
-    case 'AppStore':
-      return <IconAppStore />
-    case 'Codepen':
+    case 'arrowDown':
+      return <IconArrowDown />
+    case 'chevronRight':
+      return <IconChevronRight />
+    case 'codepen':
       return <IconCodepen />
-    case 'External':
+    case 'external':
       return <IconExternal />
-    case 'Folder':
-      return <IconFolder />
-    case 'Fork':
-      return <IconFork />
-    case 'GitHub':
+    case 'gitHub':
       return <IconGitHub />
-    case 'Instagram':
+    case 'info':
+      return <IconInfo />
+    case 'instagram':
       return <IconInstagram />
-    case 'Linkedin':
+    case 'linkedin':
       return <IconLinkedin />
-    case 'Loader':
-      return <IconLoader />
-    case 'Logo':
+    case 'logo':
       return <IconLogo />
-    case 'PlayStore':
-      return <IconPlayStore />
-    case 'Star':
-      return <IconStar />
-    case 'Twitter':
+    case 'moon':
+      return <IconMoon />
+    case 'rss':
+      return <IconRss />
+    case 'stop':
+      return <IconStop />
+    case 'success':
+      return <IconSuccess />
+    case 'sun':
+      return <IconSun />
+    case 'twitter':
       return <IconTwitter />
-    case 'Zap':
-      return <IconZap />
+    case 'warning':
+      return <IconWarning />
     default:
       return <IconExternal />
   }

@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import ArrowDown from '../../../media/svgs/arrow-down.svg'
+import { IconArrowDown } from '../../icons'
 import Button from '../../Button'
-import { setThemeVars } from '../../../utilities/set-theme'
+import { setThemeVars } from '../../../styles/set-theme'
 import { theme } from '../../Shared/styles-global'
 
 let sizeType = 'rem'
 
 const Collapsable = ({ children, title, titleSize = '1.25rem', defaultShow = false }) => {
-  
+
   const [show, setShow] = useState(defaultShow)
 
   if (titleSize.includes('px')) sizeType = 'px'
@@ -19,7 +19,7 @@ const Collapsable = ({ children, title, titleSize = '1.25rem', defaultShow = fal
       rotate={show.toString()}
       titleSize={((parseFloat(titleSize) * 2) / 3).toString() + sizeType}
     >
-      <ArrowDown />
+      <IconArrowDown />
     </StyledIconWrapper>
   )
 

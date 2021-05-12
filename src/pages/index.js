@@ -68,7 +68,7 @@ export const pageQuery = graphql`
                 gatsbyImageData(aspectRatio: 1.3)
               }
             }
-            date(formatString: "MM/DD/YYYY")
+            date
             draft
             excerpt
             category

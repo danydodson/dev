@@ -1,55 +1,60 @@
 module.exports = {
-  parser: 'babel-eslint', // uses babel-eslint transforms
-  parserOptions: {
-    // ecmaVersion: 2020,
-    // sourceType: 'module',
-    ecmaFeatures: {
-      jsx: true,
-    },
-  },
-  settings: {
-    react: {
-      version: 'detect',
-    },
-    linkComponents: [
-      'Hyperlink',
-      { name: 'Link', linkAttribute: 'to' }
-    ]
-  },
+  parser: 'babel-eslint',
   env: {
     browser: true,
     es2021: true,
-    node: true, // defines things like process.env when generating through node
+    node: true
   },
   extends: [
-    `eslint:recommended`,
-    `plugin:react/recommended`,
-    'plugin:mdx/recommended',
+    'eslint:recommended',
+    // 'plugin:mdx/recommended',
+    'plugin:react/recommended'
   ],
+  parserOptions: {
+    ecmaVersion: 2020,
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true
+    }
+  },
   plugins: [
-    'eslint',
     'react',
-    'mdx',
+    // 'mdx'
   ],
+  settings: {
+    react: { version: 'detect' },
+    // 'mdx/code-blocks': true,
+    // 'mdx/language-mapper': {},
+    // 'mdx/remark': true
+  },
+  // overrides: [
+  //   {
+  //     files: ['*.md'],
+  //     rules: { 'prettier/prettier': [2, { parser: 'markdown' }] }
+  //   },
+  //   {
+  //     files: ['*.mdx'],
+  //     extends: ['plugin:mdx/overrides']
+  //   },
+  //   {
+  //     files: '**/*.{md,mdx}/**',
+  //     extends: 'plugin:mdx/code-blocks'
+  //   }
+  // ],
   rules: {
-    'mdx/code-blocks': 0,
-    'mdx/no-unused-expressions': 0,
-    // 
-    // 'no-unused-vars': 0,
-    // 'no-unreachable': 0,
-    // 
+    // 'mdx/no-jsx-html-comments': 1,
+    // 'mdx/no-unused-expressions': 1,
+    'no-unused-vars': 1,
+    'no-unreachable': 1,
     'react/prop-types': 0,
-    'react/no-deprecated': 0,
+    'react/no-deprecated': 1,
     'react/display-name': 0,
-    'react/no-children-prop': 0,
-    'react/react-in-jsx-scope': 0,
-    // 
-    'react/jsx-key': 0,
-    'react/jsx-uses-react': 0,
-    'react/jsx-uses-vars': 0,
-    'react/jsx-closing-bracket-location': 0,
-    'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx'] }],
-    // 
-    'object-curly-spacing': [2, 'always'],
-  }
+    'react/no-children-prop': 1,
+    'react/react-in-jsx-scope': 1,
+    'react/jsx-key': 1,
+    'react/jsx-uses-react': 1,
+    'react/jsx-uses-vars': 1,
+    'object-curly-spacing': [1, 'always']
+  },
+  // reportUnusedDisableDirectives: true,
 }

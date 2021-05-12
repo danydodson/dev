@@ -6,7 +6,7 @@ import Loader from '../../components/Loader'
 import PostList from '../../components/Posts/PostList'
 import Profile from '../../components/Profile'
 import Tags from '../Tags'
-import { TAG } from '../../constants'
+import { TAG } from '../Tags/enum'
 
 class MainCard extends Component {
 

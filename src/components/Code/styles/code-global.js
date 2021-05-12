@@ -1,6 +1,6 @@
 /* Code block stylings based on main theme */
 import { createGlobalStyle } from 'styled-components'
-import { setThemeVars } from '../../../utilities/set-theme'
+import { setThemeVars } from '../../../styles/set-theme'
 import config from '../../../../config'
 
 const bgColor = () => setThemeVars('#f6f8fa !important', '#2d323e !important')

@@ -31,6 +31,7 @@ const removeHighlightComments = line => {
 }
 
 const Code = ({ codeString, language, metastring, ...props }) => {
+
   const [copyBtnText, setCopyBtnText] = useState('Copy')
   const [copyText, setCopyText] = useState('')
   const [loadingText, setLoadingText] = useState(false)
@@ -59,7 +60,6 @@ const Code = ({ codeString, language, metastring, ...props }) => {
     const result = removeHighlightComments(line)
     if (result) newStr += result
     setCopyText(newStr)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   // Set default language to text
@@ -118,7 +118,10 @@ const Code = ({ codeString, language, metastring, ...props }) => {
                 return !shouldExclude ? (
                   <div key={i} {...lineProps}>
                     {line.map((token, key) => (
-                      <span {...getTokenProps({ token, key })} />
+                      <span
+                        key={key}
+                        {...getTokenProps({ token, key })}
+                      />
                     ))}
                   </div>
                 ) : null

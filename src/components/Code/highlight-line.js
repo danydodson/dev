@@ -29,7 +29,7 @@ export const highlightLine = (lineArray, lineProps, index) => {
   // Encountering "//highlight-start & //highlight-end" returns true to exclude line
   let shouldExclude = false
 
-  lineArray.forEach((line, i) => {
+  lineArray.forEach((line) => {
     const content = line.content
 
     // Code line contains trimmed "//highlight-line"
@@ -73,7 +73,7 @@ export const highlightLine = (lineArray, lineProps, index) => {
     }
   })
   // Highlight lines after //highlight-start
-  if (!!highlightStart) {
+  if (highlightStart) {
     addClassName(lineProps)
   }
 

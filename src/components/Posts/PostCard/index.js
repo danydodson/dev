@@ -3,7 +3,7 @@ import { graphql, useStaticQuery, Link } from "gatsby"
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock } from '@fortawesome/free-solid-svg-icons'
-import { setThemeVars } from '../../../utilities/set-theme'
+import { setThemeVars } from '../../../styles/set-theme'
 import { theme } from '../../../components/Shared/styles-global'
 import config from '../../../../config'
 import { GatsbyImage } from 'gatsby-plugin-image'

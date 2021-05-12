@@ -1,8 +1,6 @@
-**/_
 **/.cache
 **/.vscode
 **/node_modules
 **/public
-**/.env.prod
-**/.eslintcache
+**/.env.*
 **/*.log

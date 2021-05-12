@@ -75,10 +75,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   //   return key === 'srcSet' ? undefined : value
   // }
 
-  JSON.stringify(res, (key, value) => key === 'srcSet' ? undefined : value, 2)
-  console.info(JSON.stringify(res, (key, value) => key === 'srcSet' ? undefined : value, 2))
-
-  // console.info(JSON.stringify(res, replacer, 2))
+  console.info(JSON.stringify(res, null, 2))
 
   const tagSet = new Set()
   const categorySet = new Set()
@@ -147,7 +144,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     }
   })
 
-  //  Create tag pages
+  // Create tag pages
+  // eslint-disable-next-line no-unreachable
   tagSet.forEach(tag => {
     createPage({
       path: `/ tags / ${_.kebabCase(tag)} /`,
@@ -156,6 +154,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     })
   })
 
+  // eslint-disable-next-line no-unreachable
   console.info(tagSet)
 
   // Create category pages
@@ -167,18 +166,17 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     })
   })
 
+  // eslint-disable-next-line no-unreachable
   console.info(categorySet)
+
 }
 
 // https://www.gatsbyjs.org/docs/node-apis/#onCreateWebpackConfig
 // https://www.gatsbyjs.org/docs/debugging-html-builds/#fixing-third-party-modules
-exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
-  actions.setWebpackConfig({
-    resolve: {
-      modules: [path.resolve(__dirname, "src"), "node_modules"],
-      alias: {
-        '~config$': path.resolve(__dirname, 'src/config'),
-      },
-    },
-  })
-}
+// exports.onCreateWebpackConfig = ({ actions }) => {
+//   actions.setWebpackConfig({
+//     resolve: {
+//       modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+//     },
+//   })
+// }

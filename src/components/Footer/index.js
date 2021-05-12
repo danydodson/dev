@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import config from '../../../config'
-import RSS from '../../media/svgs/rss.svg'
-import { setThemeVars } from '../../utilities/set-theme'
+import { IconRss } from '../icons'
+import { setThemeVars } from '../../styles/set-theme'
 
 const Footer = () => {
   return (
@@ -43,7 +43,7 @@ const StyledFooter = styled.footer`
 `
 const StyledA = styled.a``
 
-const StyledRSS = styled(RSS)`
+const StyledRSS = styled(IconRss)`
     width: 20px;
     height: 20px;
     fill: ${() => setThemeVars('#aaa', '#888')};

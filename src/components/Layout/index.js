@@ -14,7 +14,7 @@ import { GlobalStyles, theme } from '../Shared/styles-global'
 config.autoAddCss = false
 
 const Layout = ({ children, showTitle, isPostTemplate }) => {
-  
+
   const setTheme = UseTheme()
 
   const data = useStaticQuery(graphql`
@@ -50,7 +50,9 @@ const Layout = ({ children, showTitle, isPostTemplate }) => {
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  showTitle: PropTypes.bool,
+  isPostTemplate: PropTypes.bool,
 }
 
 export default Layout
