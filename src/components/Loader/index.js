@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
-import { theme } from '../Shared/styles-global'
+import { theme } from '../../styles/global/theme'
 
 const loader = keyframes`
   0% {

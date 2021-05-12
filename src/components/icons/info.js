@@ -1,6 +1,6 @@
 import * as React from "react"
 
-function IconInfo(props) {
+function Info(props) {
   return (
     <svg viewBox="0 0 330 330" width="1em" height="1em" {...props}>
       <path d="M165 0C74.019 0 0 74.02 0 165.001 0 255.982 74.019 330 165 330s165-74.018 165-164.999S255.981 0 165 0zm0 300c-74.44 0-135-60.56-135-134.999S90.56 30 165 30s135 60.562 135 135.001C300 239.44 239.439 300 165 300z" />
@@ -10,4 +10,4 @@ function IconInfo(props) {
 }
 
 // const IconInfo = React.memo(Info)
-export default IconInfo
+export default Info

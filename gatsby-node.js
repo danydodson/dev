@@ -1,7 +1,7 @@
 const path = require('path')
 const _ = require('lodash')
 const moment = require('moment')
-const config = require('./config')
+const config = require('./src/config')
 const { createFilePath } = require('gatsby-source-filesystem')
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
@@ -172,11 +172,33 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 }
 
 // https://www.gatsbyjs.org/docs/node-apis/#onCreateWebpackConfig
-// https://www.gatsbyjs.org/docs/debugging-html-builds/#fixing-third-party-modules
-// exports.onCreateWebpackConfig = ({ actions }) => {
-//   actions.setWebpackConfig({
-//     resolve: {
-//       modules: [path.resolve(__dirname, 'src'), 'node_modules'],
-//     },
-//   })
-// }
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+  // https://www.gatsbyjs.org/docs/debugging-html-builds/#fixing-third-party-modules
+  if (stage === 'build-html') {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /screenfull/,
+            use: loaders.null(),
+          },
+        ],
+      },
+    })
+  }
+
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        '@components': path.resolve(__dirname, 'src/components'),
+        '@config': path.resolve(__dirname, 'src/config'),
+        '@fonts': path.resolve(__dirname, 'src/fonts'),
+        '@hooks': path.resolve(__dirname, 'src/hooks'),
+        '@images': path.resolve(__dirname, 'src/images'),
+        '@pages': path.resolve(__dirname, 'src/pages'),
+        '@styles': path.resolve(__dirname, 'src/styles'),
+        '@utils': path.resolve(__dirname, 'src/utils'),
+      },
+    },
+  })
+}

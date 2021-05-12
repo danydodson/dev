@@ -1,5 +1,6 @@
 import React from 'react'
-import config from '../../../config'
+import styled from 'styled-components'
+import config from '../../config'
 import {
   EmailShareButton,
   FacebookShareButton,
@@ -12,12 +13,11 @@ import {
   TwitterIcon,
   LinkedinIcon
 } from 'react-share'
-import './styles.scss'
 
 const ShareButtons = ({ location }) => {
-  
+
   return (
-    <div className='share-buttons-wrap'>
+    <StyledShareButtonsWrap className='share-buttons-wrap'>
       {config.shareButtons.email && (
         <EmailShareButton url={location}>
           <EmailIcon round size={32} />
@@ -43,8 +43,12 @@ const ShareButtons = ({ location }) => {
           <LinkedinIcon round size={32} />
         </LinkedinShareButton>
       )}
-    </div>
+    </StyledShareButtonsWrap>
   )
 }
 
 export default ShareButtons
+
+const StyledShareButtonsWrap = styled.div`
+  ${({ theme }) => theme.mixins.shareButtonsWrap};
+`

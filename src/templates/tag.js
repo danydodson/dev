@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import PostList from '../components/Posts/PostList'
-import config from '../../config'
+import config from '../config'
 
 const TagTemplate = function ({ pageContext, data }) {
   const { tag } = pageContext

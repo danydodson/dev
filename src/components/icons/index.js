@@ -12,7 +12,7 @@ export { default as IconMoon } from './moon'
 export { default as IconRss } from './rss'
 export { default as IconStop } from './stop'
 export { default as IconSuccess } from './success'
-export { default as IconSun } from './Sun'
+export { default as IconSun } from './sun'
 export { default as IconTwitter } from './twitter'
 export { default as IconWarning } from './warning'
 

@@ -1,28 +1,27 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { theme } from '../../Shared/styles-global'
-import { setThemeVars } from '../../../styles/set-theme'
-import { IconWarning } from '../../icons'
+import { theme, setThemeVars } from '../../../styles/global/theme'
 import { IconSuccess } from '../../icons'
-import { IconInfo } from '../../icons'
+import { IconWarning } from '../../icons'
 import { IconStop } from '../../icons'
+import { IconInfo } from '../../icons'
 
 const TextBlock = ({ theme, children, padding = '2rem 1.5rem' }) => {
   let iconElement
 
   switch (theme) {
     case 'success':
-      iconElement = <Success />
+      iconElement = <IconSuccess />
       break
     case 'warning':
-      iconElement = <Warning />
+      iconElement = <IconWarning />
       break
     case 'danger':
-      iconElement = <Stop />
+      iconElement = <IconStop />
       break
     default:
-      iconElement = <Info /> // For 'info' & 'primary'
+      iconElement = <IconInfo /> // For 'info' & 'primary'
   }
 
   return (

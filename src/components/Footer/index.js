@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import config from '../../../config'
+import config from '../../config'
 import { IconRss } from '../icons'
-import { setThemeVars } from '../../styles/set-theme'
+import { setThemeVars } from '../../styles/global/theme'
 
 const Footer = () => {
   return (

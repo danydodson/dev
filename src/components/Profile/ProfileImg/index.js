@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Image from '../../Image'
-import { theme } from '../../Shared/styles-global'
+import { theme } from '../../../styles/global/theme'
 
 const ProfileImage = ({ home }) => {
   return (

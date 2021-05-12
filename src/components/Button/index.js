@@ -1,13 +1,16 @@
 import React from 'react'
-
-import './styles.scss'
+import styled from 'styled-components'
 
 const Button = ({ children, className, ...otherProps }) => {
   return (
-    <button className={`${className || ''} btn-custom`} {...otherProps}>
+    <StyledButton className={`${className || ''} btn_custom`} {...otherProps}>
       {children}
-    </button>
+    </StyledButton>
   )
 }
 
 export default Button
+
+const StyledButton = styled.button`
+  ${({ theme }) => theme.mixins.btnCustom};
+`

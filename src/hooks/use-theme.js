@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import storage from 'local-storage-fallback'
-import config from '../../config'
-import { theme as globalTheme } from '../components/Shared/styles-global'
+import config from '../config'
+import { theme as globalTheme } from '../styles/global/theme'
 
 function UseTheme(defaultTheme = { mode: config.defaultTheme }) {
   const [theme, _setTheme] = useState(getInitialTheme)

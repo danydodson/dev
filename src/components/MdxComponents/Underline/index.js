@@ -1,9 +1,14 @@
 import React from 'react'
-
-import './styles.scss'
+import styled from 'styled-components'
 
 const Underline = ({ children }) => {
-  return <span className='custom-underline'>{children}</span>
+  return (
+    <StyledUnderline className='custom-underline'>{children}</StyledUnderline>
+  )
 }
 
 export default Underline
+
+const StyledUnderline = styled.span`
+  ${({ theme }) => theme.mixins.customUnderline};
+`

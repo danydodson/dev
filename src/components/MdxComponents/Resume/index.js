@@ -1,8 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { setThemeVars } from '../../../styles/set-theme'
-import { theme } from '../../Shared/styles-global'
-import './styles.scss'
 
 const Resume = () => {
   return (
@@ -20,7 +17,7 @@ const Resume = () => {
 export default Resume
 
 const StyledResumeObject = styled.object`
+  ${({ theme }) => theme.mixins.reset}; 
   width: 700px;
   height: 700px;
 `
-

@@ -1,6 +1,6 @@
 import * as React from "react"
 
-function IconWarning(props) {
+function Warning(props) {
   return (
     <svg viewBox="0 0 486.463 486.463" width="1em" height="1em" {...props}>
       <path d="M243.225 333.382c-13.6 0-25 11.4-25 25s11.4 25 25 25c13.1 0 25-11.4 24.4-24.4.6-14.3-10.7-25.6-24.4-25.6z" />
@@ -11,4 +11,4 @@ function IconWarning(props) {
 }
 
 // const MemoWarning = React.memo(Warning)
-export default IconWarning
+export default Warning

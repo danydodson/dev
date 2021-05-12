@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
 import Switch from 'react-switch'
 import { withTheme } from 'styled-components'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconMoon, IconSun } from '../icons'
-import config from '../../../config'
-
-import './styles.scss'
+import config from '../../config'
 
 class CustomSwitch extends Component {
   constructor(props) {
@@ -33,7 +31,7 @@ class CustomSwitch extends Component {
 
   render() {
     return (
-      <div className='custom-switch'>
+      <div className='custom_switch'>
         <Switch
           onChange={this.handleToggle}
           checked={this.state.checked}

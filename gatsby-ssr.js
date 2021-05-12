@@ -6,6 +6,6 @@
  *  
 */
 
-import { wrapRootElement as wrap } from './src/components/Code/wrap-root-element'
+import { wrapRootElement as wrap } from './src/styles/code/wrap-root-element'
 
 export const wrapRootElement = wrap

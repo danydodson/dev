@@ -1,7 +1,6 @@
 import Prism from 'prism-react-renderer/prism'
-import { wrapRootElement as wrap } from './src/components/Code/wrap-root-element'
-
-(typeof global !== 'undefined' ? global : window).Prism = Prism
+import { wrapRootElement as wrap } from './src/styles/code/wrap-root-element'
+;(typeof global !== 'undefined' ? global : window).Prism = Prism
 
 export const wrapRootElement = wrap
 

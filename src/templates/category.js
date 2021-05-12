@@ -1,17 +1,17 @@
 import React from 'react'
-import { Helmet } from 'react-helmet'
+// import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import PostList from '../components/Posts/PostList'
-import config from '../../config'
+// import PostList from '../components/Posts/PostList'
+// import config from '../config'
 
 /**
  * @param  {} {pageContext}
  * @param  {} {data}
  */
-const CategoryTemplate = function ({ pageContext, data }) {
-  const { category } = pageContext
-  const postEdges = data.allMdx.edges
+const CategoryTemplate = function () {
+  // const { category } = pageContext
+  // const postEdges = data.allMdx.edges
 
   return <Layout showTitle>{/* <PostList postEdges={postEdges} /> */}</Layout>
 }
