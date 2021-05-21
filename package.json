@@ -35,6 +35,15 @@
       "eslint --fix"
     ]
   },
+  "engines": {
+    "node": "14.17.0",
+    "npm": "6.14.13",
+    "yarn": "1.22.10"
+  },
+  "volta": {
+    "node": "14.17.0",
+    "yarn": "1.22.10"
+  },
   "dependencies": {
     "@babel/core": "^7.14.3",
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
