@@ -1,4 +1,5 @@
-name: "Remark Linter"
+name: 'Lint & Remark'
+
 on:
   push:
     branches: [main]
@@ -16,8 +17,7 @@ jobs:
         with:
           path: '.'
           key: ${{ github.sha }}
-
-  remark:
+  lint:
     runs-on: ubuntu-latest
     needs: dependencies
     steps:
@@ -26,4 +26,5 @@ jobs:
         with:
           path: '.'
           key: ${{ github.sha }}
+      - run: yarn lint
       - run: yarn remark

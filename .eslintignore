@@ -1,8 +1,0 @@
-**/.cache
-**/.vscode
-**/node_modules
-**/public
-**/.env.*
-**/*.log
-
-# **/content

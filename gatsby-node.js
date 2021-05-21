@@ -176,6 +176,7 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
   // https://www.gatsbyjs.org/docs/debugging-html-builds/#fixing-third-party-modules
   if (stage === 'build-html') {
     actions.setWebpackConfig({
+      devtool: 'eval-source-map',
       module: {
         rules: [
           {
@@ -188,6 +189,7 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
   }
 
   actions.setWebpackConfig({
+    devtool: 'eval-source-map',
     resolve: {
       alias: {
         '@components': path.resolve(__dirname, 'src/components'),

@@ -8,9 +8,8 @@ excerpt: 'docker-compose version discrepancies'
 category: post 
 type: post
 tags:
-  - Info 
+  - Info
   - Docker-Compose
 ---
 
 # Docker Compose
-

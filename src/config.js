@@ -29,7 +29,7 @@ const config = {
   ========================================= */  
   // fontSans: 'Calibre', -- 'IBM Plex Sans'
   // fontMono: 'SF Mono', -- 'Oxanium'
-  fontMain: 'Calibre', // Main Font
+  fontMain: '"IBM Plex Sans"', // Main Font
   fontProfile: '"Oxanium"', // Font inside profile
   fontCodeBlocks: 'Menlo, Monaco, monospace', // Font for code blocks
   // These fonts will be used if above fonts are unavailable
