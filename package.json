@@ -17,7 +17,7 @@
     "build": "yarn run clean && gatsby build ",
     "develop": "yarn run clean && gatsby develop",
     "start": "yarn run develop",
-    "lint": "eslint src --ext .js",
+    "lint": "eslint src --ext .js --fix",
     "remark": "remark content/posts/",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "write-good": "write-good $(glob 'content/**/*.{md,mdx}')",
@@ -38,10 +38,6 @@
   "engines": {
     "node": "14.17.0",
     "npm": "6.14.13",
-    "yarn": "1.22.10"
-  },
-  "volta": {
-    "node": "14.17.0",
     "yarn": "1.22.10"
   },
   "dependencies": {
