@@ -17,7 +17,7 @@
     "build": "yarn run clean && gatsby build ",
     "develop": "yarn run clean && gatsby develop",
     "start": "yarn run develop",
-    "lint": "eslint src --ext .js --fix",
+    "lint": "eslint src --ext .js",
     "remark": "remark content/posts/",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "write-good": "write-good $(glob 'content/**/*.{md,mdx}')",
@@ -34,7 +34,7 @@
   },
   "lint-staged": {
     "*.js": [
-      "eslint --fix"
+      "eslint src --ext .js --fix"
     ]
   },
   "dependencies": {
