@@ -23,7 +23,9 @@
     "write-good": "write-good $(glob 'content/**/*.{md,mdx}')",
     "build:gh": "gatsby build ----prefix-paths",
     "serve:gh": "gatsby serve --prefix-paths",
-    "serve": "gatsby serve"
+    "serve": "gatsby serve",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged"
   },
   "remarkConfig": {
     "plugins": [
@@ -37,7 +39,6 @@
   },
   "engines": {
     "node": "14.17.0",
-    "npm": "6.14.13",
     "yarn": "1.22.10"
   },
   "dependencies": {
