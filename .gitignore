@@ -1,6 +1,6 @@
 **/_
 **/.cache
-**/.vscode
+# **/.vscode
 **/node_modules
 **/public
 **/.env.*
