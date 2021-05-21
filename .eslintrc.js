@@ -70,6 +70,7 @@ module.exports = {
   },
   ignorePatterns: [
     '**/.cache',
+    '**/cypress',
     '**/.vscode',
     '**/node_modules',
     '**/public',

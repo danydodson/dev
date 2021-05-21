@@ -1,12 +1,12 @@
 import { css } from 'styled-components'
 
-const button = css`
-  color: var(--green);
-  &:hover,
-  &:focus,
-  &:active {}
-  &:after {}
-`
+// const button = css`
+//   color: var(--green);
+//   &:hover,
+//   &:focus,
+//   &:active {}
+//   &:after {}
+// `
 
 const mixins = {
 
@@ -62,31 +62,12 @@ const mixins = {
     user-select: none;
     font-size: inherit;
     &:focus {
-      // outline-width: 1px;
-      outline: 0;
+      outline-width: 1px;
+      /* outline: 0; */
     }
   `,
 
-  customSwitch: css`
-    .icon-moon,
-    .icon-sun {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      margin: 0 !important;
-    }
-    .icon-sun {
-      width: 14px;
-      height: 14px;
-    }
-    .icon-moon {
-      font-size: 0.8rem;
-      color: #f1e21d;
-    }
-  `,
-
-  button,
+  // button,
 
 }
 

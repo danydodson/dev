@@ -1,52 +1,41 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import Switch from 'react-switch'
 import { withTheme } from 'styled-components'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconMoon, IconSun } from '../icons'
 import config from '../../config'
 
-class CustomSwitch extends Component {
-  constructor(props) {
-    super(props)
+const CustomSwitch = (props) => {
+  const [checked, setChecked] = useState(false)
+  const [currentTheme, setCurrentTheme] = useState('')
 
-    if (config.defaultTheme === 'dark') {
-      this.state = { checked: true }
+  const changeTheme = (nextChecked) => {
+    setChecked(nextChecked)
+    props.onClick()
+  }
+
+  useEffect((nextChecked) => {
+    if (props.theme.mode !== 'dark') {
+      setChecked(false)
     } else {
-      this.state = { checked: false }
+      setChecked(true)
     }
-  }
+  }, [])
 
-  componentDidMount() {
-    if (this.props.theme.mode !== 'dark') {
-      this.setState({ checked: false })
-    } else {
-      this.setState({ checked: true })
-    }
-  }
-  handleToggle = checked => {
-    this.setState({ checked })
-    // Passed from ToggleMode to change theme
-    this.props.onClick()
-  }
-
-  render() {
-    return (
-      <div className='custom_switch'>
-        <Switch
-          onChange={this.handleToggle}
-          checked={this.state.checked}
-          offColor='#bbb'
-          onColor='#4a4a4a'
-          uncheckedIcon={<IconMoon className='icon-moon' />}
-          checkedIcon={<IconSun className='icon-sun' />}
-          handleDiameter={21}
-          height={23}
-          width={40}
-          onHandleColor='#333'
-        />
-      </div>
-    )
-  }
+  return (
+    <Switch
+      onChange={changeTheme}
+      checked={checked}
+      offColor='#bbb'
+      onColor='#4a4a4a'
+      className='react-switch'
+      uncheckedIcon={<IconMoon />}
+      checkedIcon={<IconSun />}
+      handleDiameter={21}
+      height={23}
+      width={40}
+      onHandleColor='#333'
+    />
+  )
 }
 
 export default withTheme(CustomSwitch)

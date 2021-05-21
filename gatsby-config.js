@@ -1,7 +1,6 @@
 require('dotenv').config({ path: `.env.dev` })
 
 const config = require('./src/config')
-// const path = require('path')
 
 module.exports = {
   siteMetadata: config,

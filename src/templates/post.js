@@ -25,8 +25,9 @@ import Success from '../components/MdxComponents/TextBlock/Success'
 import Warning from '../components/MdxComponents/TextBlock/Warning'
 import Underline from '../components/MdxComponents/Underline'
 
-
 const PostTemplate = function ({ pageContext, data }) {
+
+  console.log(data)
 
   const [location, setLocation] = useState(init => init)
 

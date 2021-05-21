@@ -40,7 +40,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   const res = await graphql(`
     {
-      allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+      allMdx(
+        sort: { fields: [frontmatter___date], order: DESC }
+        limit: 1000
+      ) {
         edges {
           node {
             fields {
@@ -48,17 +51,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             }
             frontmatter {
               title
-              cover {
-                childImageSharp {
-                  gatsbyImageData
-                }
-              }
-              date
-              draft
-              excerpt
-              category
-              type
-              tags
             }
           }
         }
@@ -71,11 +63,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return Promise.reject(res.errors)
   }
 
-  // function replacer(key, value) {
-  //   return key === 'srcSet' ? undefined : value
-  // }
+  function replacer(key, value) {
+    return key === 'srcSet' ? undefined : value
+  }
 
-  console.info(JSON.stringify(res, null, 2))
+  console.info(JSON.stringify(res, replacer, 2))
 
   const tagSet = new Set()
   const categorySet = new Set()
@@ -166,7 +158,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     })
   })
 
-  
+
   // eslint-disable-next-line no-unreachable
   console.info(categorySet)
 

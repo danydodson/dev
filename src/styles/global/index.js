@@ -25,7 +25,7 @@ const scrollBarHover = () => setThemeVars(config.scrollbarHoverLight, config.scr
 const underlineColor = () => setThemeVars(config.underlineColorLight, config.underlineColorDark)
 
 export const GlobalStyles = createGlobalStyle`
-  ${Fonts};
+  ${Fonts}
   
   * {
     box-sizing: border-box;
@@ -60,39 +60,17 @@ export const GlobalStyles = createGlobalStyle`
     text-decoration: none;
   }
 
-  .text-lg {
-    font-size: 1.125rem;
-  }
+  .text-lg {font-size: 1.125rem;}
+  .text-md {font-size: 1rem;}
+  .text-sm {font-size: 0.875rem;}
+  .text-xs {font-size: 0.75rem;}
 
-  .text-md {
-    font-size: 1rem;
-  }
-
-  .text-sm {
-    font-size: 0.875rem;
-  }
-
-  .text-xs {
-    font-size: 0.75rem;
-  }
-
-  .font-bold {
-    font-weight: bold;
-  }
-
-  .font-md {
-    font-weight: 500;
-  }
-
-  .text-center {
-    text-align: center;
-  }
-  .text-right {
-    text-align: right;
-  }
-  .text-left {
-    text-align: left;
-  }
+  .font-bold {font-weight: bold;}
+  .font-md {font-weight: 500;}
+  
+  .text-center {text-align: center;}
+  .text-right {text-align: right;}
+  .text-left {text-align: left;}
 
   .main-header {
     border-bottom: 1px solid ${() => setThemeVars('#dbdbdb', '#2d2d2d')};
@@ -129,6 +107,29 @@ export const GlobalStyles = createGlobalStyle`
         opacity: 1;
       }
     }
+  }
+  
+  .icon-moon,
+  .icon-sun {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0 !important;
+  }
+  
+  .icon-sun {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .icon-moon {
+      font-size: 11px;
+      color: #f1e21d;
+  }
+  
+  .react-switch {
+    
   }
 
   .post-bg-color {
@@ -243,7 +244,6 @@ export const GlobalStyles = createGlobalStyle`
       -webkit-box-shadow: 0px 0px 7px -5px ${() => setThemeVars('#000000bf', '#000000bf')};
       -moz-box-shadow: 0px 0px 7px -5px ${() => setThemeVars('#000000bf', '#000000bf')};
       box-shadow: 0px 0px 7px -5px ${() => setThemeVars('#000000bf', '#000000bf')};
-
       background: ${() => setThemeVars('#f5f5f5', theme.headerColorDark)};
       border-left: 3px solid ${() => setThemeVars('#bbb', '#444')};
       border-right: 3px solid ${() => setThemeVars('#bbb', '#444')};

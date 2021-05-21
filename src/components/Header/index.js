@@ -1,27 +1,40 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
-import styled, { withTheme } from 'styled-components'
+import { faDev, faFacebook, faGithub, faInstagram, faLinkedin, faMedium, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
-import { faGithub, faFacebook, faInstagram, faTwitter, faLinkedin, faMedium, faDev } from '@fortawesome/free-brands-svg-icons'
+import { Link } from 'gatsby'
+import PropTypes from 'prop-types'
+import React from 'react'
+import styled, { withTheme } from 'styled-components'
+import config from '../../config'
 import HeaderIcon from '../HeaderIcon'
 import ProgressBar from './ProgressBar'
-import config from '../../config'
 
 const Header = ({ siteTitle, showTitle, isPostTemplate }) => {
+
   return (
+
     <StyledMainHeader className='main-header'>
+
       {/* Google AdSense */}
       {config.google.adsenseId && config.google.adsenseId !== '' && (
         <script
-          data-ad-client={config.google.adsenseId}
           async
+          data-ad-client={config.google.adsenseId}
           src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
         />
       )}
-      {isPostTemplate && config.useScrollIndicator && <ProgressBar />}
+
+      {isPostTemplate && config.useScrollIndicator &&
+        <ProgressBar />
+      }
+
       <StyledMainHeaderInner className='main-header-inner'>
-        <h1 style={{ fontSize: '1.5rem' }}>{showTitle && <Link to='/'>{`${siteTitle}`}</Link>}</h1>
+
+        <h1 style={{ fontSize: '1.5rem' }}>
+          {showTitle &&
+            <Link to='/'>{`${siteTitle}`}</Link>
+          }
+        </h1>
+
         <StyledMediaIcons>
           <HeaderIcon
             accountInfo={config.socials.devto}
@@ -88,35 +101,35 @@ Header.defaultProps = {
 export default withTheme(Header)
 
 const StyledMainHeader = styled.header`
-    font-family: ${config.fontMain + config.fontsBackUp};
-    height: 55px;
-    margin-top: ${config.useScrollIndicator ? '-5px' : '0'};
-    margin-bottom: 1rem;
+  font-family: ${config.fontMain + config.fontsBackUp};
+  height: 55px;
+  margin-top: ${config.useScrollIndicator ? '-5px' : '0'};
+  margin-bottom: 1rem;
 `
 
 const StyledMainHeaderInner = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 55px;
-    margin: 0 auto;
-    max-width: ${props => props.theme.maxWidthSite}px;
-    padding: 0.6rem;
-    h1 {
-        font-weight: 400;
-    }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 55px;
+  margin: 0 auto;
+  max-width: ${props => props.theme.maxWidthSite}px;
+  padding: 0.6rem;
+  h1 {
+    font-weight: 400;
+  }
 `
 
 const StyledMediaIcons = styled.div`
-    display: flex;
-    justify-content: flex-end;
-    * {
-        font-size: 1.7rem;
-    }
+  display: flex;
+  justify-content: flex-end;
+  * {
+    font-size: 1.7rem;
+  }
 
-    @media (max-width: 400px) {
-        * {
-            margin: 0 0.15rem;
-        }
+  @media (max-width: 400px) {
+    * {
+      margin: 0 0.15rem;
     }
+  }
 `

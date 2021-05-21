@@ -142,86 +142,87 @@ export default MainCard
 let StyledTagsPosts = styled.div``
 
 StyledTagsPosts = styled.div`
-    position: relative;
-    display: flex;
-    flex-direction: column;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 
-    .moveToBot {
-        position: sticky;
-        top: 0;
-        padding-top: 2.5rem;
-        padding-bottom: 2.5rem;
-        .tag-list {
-            .tag-horizontal {
-                font-size: 0.85rem;
-            }
-        }
+  .moveToBot {
+    position: sticky;
+    top: 0;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    .tag-list {
+      .tag-horizontal {
+        font-size: 0.85rem;
+      }
     }
+  }
 
-    .moveToBotAnimate {
-        position: sticky;
-        top: 0;
-        transition: padding 300ms ease-in;
-        padding-top: 2.5rem;
-        padding-bottom: 2.5rem;
-        .tag-list {
-            .tag-horizontal {
-                transition: font-size 300ms ease-in;
-                font-size: 0.85rem;
-            }
-        }
+  .moveToBotAnimate {
+    position: sticky;
+    top: 0;
+    transition: padding 300ms ease-in;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    .tag-list {
+      .tag-horizontal {
+        transition: font-size 300ms ease-in;
+        font-size: 0.85rem;
+      }
     }
+  }
 `
+
 if (!isMobile) {
   StyledTagsPosts = styled.div`
-        position: relative;
-        display: grid;
-        grid-template-columns: 0.25fr auto;
-        padding: 0.5rem 1.5rem 1.5rem 1.5rem;
+    position: relative;
+    display: grid;
+    grid-template-columns: 0.25fr auto;
+    padding: 0.5rem 1.5rem 1.5rem 1.5rem;
 
-        @media (max-width: 500px) {
-            padding: 0rem 1rem 1rem 1rem;
-        }
-    `
+    @media (max-width: 500px) {
+      padding: 0rem 1rem 1rem 1rem;
+    }
+  `
 }
 
 const StyledMainCard = styled.div`
-    position: relative;
-    padding: 0 1rem 1rem 1rem;
+  position: relative;
+  padding: 0 1rem 1rem 1rem;
 
-    @media (max-width: 500px) {
-        padding: 0;
-    }
+  @media (max-width: 500px) {
+    padding: 0;
+  }
 `
 
 const StyledSubMain = styled.div`
-    position: relative;
-    margin-top: 3rem;
-    border-radius: 10px;
+  position: relative;
+  margin-top: 3rem;
+  border-radius: 10px;
 
-    @media (max-width: 500px) {
-        margin-top: 1rem;
-        border-radius: 0px;
-    }
+  @media (max-width: 500px) {
+    margin-top: 1rem;
+    border-radius: 0px;
+  }
 `
 
 let StyledSubMainInner = styled.div``
 
 if (!isMobile) {
   StyledSubMainInner = styled.div`
-        transform: translateY(-25px);
-    `
+    transform: translateY(-25px);
+  `
 }
 
 const StyledSwitchContainer = styled.div`
-    position: absolute;
-    text-align: end;
-    margin: 0 0.4rem;
-    top: 12px;
-    right: 25px;
-    z-index: 2;
+  position: absolute;
+  text-align: end;
+  margin: 0 0.4rem;
+  top: 12px;
+  right: 25px;
+  z-index: 2;
 
-    @media (max-width: 500px) {
-        right: 10px;
-    }
+  @media (max-width: 500px) {
+    right: 10px;
+  }
 `
