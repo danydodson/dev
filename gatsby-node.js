@@ -166,6 +166,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     })
   })
 
+  
   // eslint-disable-next-line no-unreachable
   console.info(categorySet)
 
