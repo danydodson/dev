@@ -38,7 +38,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const TagPage = path.resolve('src/templates/tag.jsx')
   const CategoryPage = path.resolve('src/templates/category.jsx')
 
-  const res = await graphql(`
+  const response = await graphql(`
     {
       allMdx(
         sort: { fields: [frontmatter___date], order: DESC }
@@ -58,21 +58,33 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     }
   `)
 
-  if (res.errors) {
-    reporter.panicOnBuild(`🙅 🚫 → ${res.errors}`)
-    return Promise.reject(res.errors)
+  // cover {
+  //   childImageSharp {
+  //     gatsbyImageData
+  //   }
+  // }
+  // date
+  // draft
+  // excerpt
+  // category
+  // type
+  // tags
+
+  if (response.errors) {
+    reporter.panicOnBuild(`🙅 🚫 → ${response.errors}`)
+    return Promise.reject(response.errors)
   }
 
-  function replacer(key, value) {
-    return key === 'srcSet' ? undefined : value
-  }
+  // function replacer(key, value) {
+  //   return key === 'srcSet' ? undefined : value
+  // }
 
-  console.info(JSON.stringify(res, replacer, 2))
+  console.info(JSON.stringify(response, null, 2))
 
   const tagSet = new Set()
   const categorySet = new Set()
 
-  const { edges } = res.data.allMdx
+  const { edges } = response.data.allMdx
 
   const isDraft = edges => edges.frontmatter.draft === true
   const isPartial = edges => edges.frontmatter.type === 'partial'

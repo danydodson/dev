@@ -27,8 +27,6 @@ import Underline from '../components/MdxComponents/Underline'
 
 const PostTemplate = function ({ pageContext, data }) {
 
-  console.log(data)
-
   const [location, setLocation] = useState(init => init)
 
   const post = data.mdx
