@@ -1,17 +1,9 @@
 {
   "name": "dev",
   "version": "1.0.0",
-  "main": "n/a",
-  "description": "dev-blog",
+  "description": "My Gatsby Developer Blog",
   "author": "Dany Dodson <hello@danydodson.dev>",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/danydodson/dev"
-  },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
+  "main": "n/a",
   "scripts": {
     "clean": "gatsby clean",
     "build": "gatsby build",
@@ -113,6 +105,7 @@
     "babel-plugin-dynamic-import-webpack": "^1.1.0",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-preset-gatsby": "^1.5.0",
+    "babel-preset-react-app": "^10.0.0",
     "cli-glob": "^0.1.0",
     "cypress": "^7.3.0",
     "eslint": "^7.26.0",
@@ -140,5 +133,13 @@
     "stylelint-scss": "^3.19.0",
     "webpack-bundle-analyzer": "^4.4.2",
     "write-good": "^1.0.8"
-  }
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danydodson/dev"
+  },
+  "license": "MIT"
 }

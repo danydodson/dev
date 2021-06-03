@@ -1,8 +1,7 @@
 const path = require('path')
-const _ = require('lodash')
 const moment = require('moment')
-const config = require('./src/config')
 const { createFilePath } = require('gatsby-source-filesystem')
+const config = require('./src/config')
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
@@ -35,22 +34,30 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
 
   const PostTemplate = path.resolve('src/templates/post.js')
-  const TagPage = path.resolve('src/templates/tag.jsx')
-  const CategoryPage = path.resolve('src/templates/category.jsx')
+  const CategoryPage = path.resolve('src/templates/category.js')
+  const TagPage = path.resolve('src/templates/tag.js')
 
   const response = await graphql(`
     {
       allMdx(
+        limit: 1000,
         sort: { fields: [frontmatter___date], order: DESC }
-        limit: 1000
       ) {
         edges {
           node {
             fields {
               slug
+              date
             }
             frontmatter {
               title
+              date
+              category
+              excerpt
+              draft
+              title
+              tags
+              type
             }
           }
         }
@@ -58,66 +65,61 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     }
   `)
 
-  // cover {
-  //   childImageSharp {
-  //     gatsbyImageData
-  //   }
-  // }
-  // date
-  // draft
-  // excerpt
-  // category
-  // type
-  // tags
-
   if (response.errors) {
     reporter.panicOnBuild(`🙅 🚫 → ${response.errors}`)
     return Promise.reject(response.errors)
   }
 
-  // function replacer(key, value) {
-  //   return key === 'srcSet' ? undefined : value
-  // }
-
   console.info(JSON.stringify(response, null, 2))
-
-  const tagSet = new Set()
-  const categorySet = new Set()
 
   const { edges } = response.data.allMdx
 
   const isDraft = edges => edges.frontmatter.draft === true
-  const isPartial = edges => edges.frontmatter.type === 'partial'
+  const skipNode = edges => isDraft(edges)
 
-  // Skip node if it's about, draft, or dummy post
-  const skipNode = edges => isDraft(edges) || isPartial(edges)
-
-  // Get next available next node
-  const getNextAvailableNode = (edges, index) => {
-    let retVal
-    for (let i = index; i > 0; i--) {
-      if (!skipNode(edges[i].node)) {
-        retVal = edges[i].node
-        break
-      }
-    }
-    return retVal
-  }
-
-  // Get next available prev node
-  const getPrevAvailableNode = (edges, index) => {
-    let retVal
-    for (let i = index; i < edges.length - 1; i++) {
-      if (!skipNode(edges[i].node)) {
-        retVal = edges[i].node
-        break
-      }
-    }
-    return retVal
-  }
+  const tagSet = new Set()
+  const categorySet = new Set()
 
   return edges.forEach((edge, index) => {
     const { node } = edge
+
+    // Get next available next node
+    const getNextAvailableNode = (edges, index) => {
+      let returnValue
+      for (let i = index; i > 0; i--) {
+        if (!skipNode(edges[i].node)) {
+          returnValue = edges[i].node
+          break
+        }
+      }
+      return returnValue
+    }
+
+    // Get next available prev node
+    const getPrevAvailableNode = (edges, index) => {
+      let returnValue
+      for (let i = index; i < edges.length - 1; i++) {
+        if (!skipNode(edges[i].node)) {
+          returnValue = edges[i].node
+          break
+        }
+      }
+      return returnValue
+    }
+    
+    const next = getNextAvailableNode(edges, index - 1)
+    const prev = getPrevAvailableNode(edges, index + 1)
+
+    // Create page for single post
+    createPage({
+      path: node.fields.slug,
+      component: PostTemplate,
+      context: {
+        slug: node.fields.slug,
+        next,
+        prev,
+      },
+    })
 
     // Generate a list of tags
     if (node.frontmatter.tags) {
@@ -126,79 +128,47 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       })
     }
 
+    // Create tag pages
+    tagSet.forEach(tag => {
+      createPage({
+        path: `/tags/${tag}/`,
+        component: TagPage,
+        context: { tag },
+      })
+    })
+
     // Generate a list of categories
     if (node.frontmatter.category) {
       categorySet.add(node.frontmatter.category)
     }
 
-    const next = getNextAvailableNode(edges, index - 1)
-    const prev = getPrevAvailableNode(edges, index + 1)
-
-    // Create page for single post
-    if (node.fields.slug !== '/__do-not-remove/') {
+    // Create category pages
+    categorySet.forEach(category => {
       createPage({
-        path: node.fields.slug,
-        component: PostTemplate,
-        context: {
-          slug: node.fields.slug,
-          next,
-          prev,
-        },
+        path: `/categories/${category}/`,
+        component: CategoryPage,
+        context: { category },
       })
-    }
-  })
-
-  // Create tag pages
-  // eslint-disable-next-line no-unreachable
-  tagSet.forEach(tag => {
-    createPage({
-      path: `/ tags / ${_.kebabCase(tag)} /`,
-      component: TagPage,
-      context: { tag },
     })
+
   })
-
-  // eslint-disable-next-line no-unreachable
-  console.info(tagSet)
-
-  // Create category pages
-  categorySet.forEach(category => {
-    createPage({
-      path: `/categories/${_.kebabCase(category)}/`,
-      component: CategoryPage,
-      context: { category },
-    })
-  })
-
-
-  // eslint-disable-next-line no-unreachable
-  console.info(categorySet)
 
 }
 
 // https://www.gatsbyjs.org/docs/node-apis/#onCreateWebpackConfig
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
-  // https://www.gatsbyjs.org/docs/debugging-html-builds/#fixing-third-party-modules
   if (stage === 'build-html') {
     actions.setWebpackConfig({
-      // devtool: 'eval-source-map',
       module: {
-        rules: [
-          {
-            test: /screenfull/,
-            use: loaders.null(),
-          },
-        ],
-      },
+        rules: [{}]
+      }
     })
   }
-
   actions.setWebpackConfig({
-    // devtool: 'eval-source-map',
     resolve: {
       alias: {
-        '@components': path.resolve(__dirname, 'src/components'),
-      },
-    },
+        '@components': path.resolve(__dirname, 'src/components')
+      }
+    }
   })
 }

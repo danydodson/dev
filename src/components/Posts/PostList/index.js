@@ -16,6 +16,7 @@ const PostList = ({ posts }) => {
           cover={post.node.frontmatter.cover}
           date={post.node.frontmatter.date}
           path={post.node.fields.slug}
+          tags={post.node.frontmatter.tags}
           excerpt={post.node.frontmatter.excerpt ? post.node.frontmatter.excerpt : post.node.excerpt}
           timeToRead={post.node.timeToRead}
         />

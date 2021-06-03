@@ -7,7 +7,7 @@ import { theme, setThemeVars } from '../../../styles/global/theme'
 import config from '../../../config'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
-const PostCard = ({ id, title, cover, date, path, excerpt, timeToRead }) => {
+const PostCard = ({ id, title, cover, date, path, excerpt, tags, timeToRead }) => {
 
   const image = cover.childrenImageSharp[0].gatsbyImageData
 
@@ -31,6 +31,15 @@ const PostCard = ({ id, title, cover, date, path, excerpt, timeToRead }) => {
           <p>{excerpt}</p>
         </StyledPostCard>
       </Link>
+      {tags.map(tag => (
+        <Link
+          key={tag}
+          to={`/tags/${tag}/`}
+          className='tags'
+        >
+          {' '}{tag}
+        </Link>
+      ))}
     </>
   )
 }
@@ -64,6 +73,10 @@ const StyledPostCard = styled.div`
   p {
     margin-top: 0.5rem;
     color: ${() => setThemeVars(theme.fontSubColorLight, theme.fontSubColorDark)};
+  }
+
+  .tags {
+    z-index: 100;
   }
 
   @media (max-width: 500px) {

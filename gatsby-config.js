@@ -1,6 +1,4 @@
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`
-})
+require('dotenv').config({ path: `.env` })
 
 const config = require('./src/config')
 
@@ -8,14 +6,15 @@ module.exports = {
   siteMetadata: config,
   plugins: [
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-styled-components',
-    'gatsby-plugin-sharp',
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-robots-txt`,
-    'gatsby-plugin-catch-links',
+    'gatsby-plugin-gatsby-cloud',
     'gatsby-plugin-sass',
     'gatsby-plugin-image',
-    'gatsby-plugin-gatsby-cloud',
+    'gatsby-plugin-sharp',
+    'gatsby-plugin-catch-links',
+    'gatsby-plugin-styled-components',
+    // 'gatsby-transformer-remark',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -23,39 +22,18 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    // {
-    //   resolve: 'gatsby-source-filesystem',
-    //   options: {
-    //     path: `${__dirname}/content/featured`,
-    //     name: 'featured',
-    //   },
-    // },
-    // {
-    //   resolve: 'gatsby-source-filesystem',
-    //   options: {
-    //     path: `${__dirname}/content/jobs`,
-    //     name: 'jobs',
-    //   },
-    // },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/content/posts`,
         name: 'posts',
+        path: `${__dirname}/content`,
       },
     },
-    // {
-    //   resolve: `gatsby-source-filesystem`,
-    //   options: {
-    //     path: `${__dirname}/content/projects`,
-    //     name: `projects`,
-    //   },
-    // },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/static`,
         name: `static`,
+        path: `${__dirname}/static`,
       },
     },
     {
@@ -108,44 +86,6 @@ module.exports = {
         checkSupportedExtensions: false,
       },
     },
-    // {
-    //   resolve: 'gatsby-transformer-remark',
-    //   options: {
-    //     // plugins: [
-    //       {
-    //         resolve: 'gatsby-remark-relative-images',
-    //       },
-    //       {
-    //         resolve: 'gatsby-remark-images',
-    //         options: {
-    //           maxWidth: config.maxWidth,
-    //           backgroundColor: 'transparent',
-    //           linkImagesToOriginal: false,
-    //         },
-    //       },
-    //       {
-    //         resolve: 'gatsby-remark-responsive-iframe',
-    //       },
-    //       {
-    //         resolve: 'gatsby-remark-autolink-headers',
-    //         options: {
-    //           className: 'anchor-heading',
-    //         },
-    //       },
-    //       'gatsby-remark-prismjs',
-    //       'gatsby-remark-smartypants',
-    //       'gatsby-remark-copy-linked-files',
-    //     ],
-    //   },
-    // },
-    // {
-    //   resolve: 'gatsby-plugin-react-svg',
-    //   options: {
-    //     rule: {
-    //       include: /media/,
-    //     },
-    //   },
-    // },
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
@@ -163,17 +103,6 @@ module.exports = {
         background_color: config.backgroundColor,
         theme_color: config.themeColor,
         icon: config.favicon,
-      },
-    },
-    {
-      resolve: 'gatsby-source-graphql',
-      options: {
-        typeName: 'GitHub',
-        fieldName: 'github',
-        url: 'https://api.github.com/graphql',
-        headers: {
-          Authorization: `Bearer ${config.gatsby.gitToken}`,
-        },
       },
     },
     // {
@@ -263,8 +192,8 @@ module.exports = {
     //                       }
     //                     }
     //                     date
-    //                     tags
     //                     excerpt
+    //                     tags
     //                   }
     //                 }
     //               }
@@ -277,15 +206,6 @@ module.exports = {
     //     ],
     //   },
     // },
-    // {
-    //   resolve: 'gatsby-plugin-netlify-cms',
-    //   options: {
-    //     modulePath: path.resolve('src/cms/index.js'),
-    //     enableIdentityWidget: true,
-    //     publicPath: 'admin',
-    //     htmlTitle: 'Content Manager',
-    //     includeRobots: false
-    //   }
-    // },
+
   ],
 }

@@ -108,29 +108,31 @@ class Tags extends React.Component {
 export default Tags
 
 const StyledTagsVertical = styled.div`
-    margin-top: 0.5rem;
-    background: none !important;
+  margin-top: 0.5rem;
+  background: none !important;
+
+  .tag-list {
+    position: sticky;
+    top: 50px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0.5rem;
+    
+    &-inner {
+      width: 120px;
+      overflow-x: auto;
+    }
+  }
+  @media (max-width: 500px) {
     .tag-list {
-        position: sticky;
-        top: 50px;
-        z-index: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        padding: 0.5rem;
-        &-inner {
-            width: 120px;
-            overflow-x: auto;
-        }
+      &-inner {
+        width: 80px;
+        font-size: 0.75rem;
+      }
     }
-    @media (max-width: 500px) {
-        .tag-list {
-            &-inner {
-                width: 80px;
-                font-size: 0.75rem;
-            }
-        }
-    }
+  }
 `
 
 const StyledTagsHorizontal = styled.div`
@@ -184,9 +186,9 @@ const swipeLeft = keyframes`
 `
 
 const StyledFA = styled(FontAwesomeIcon)`
-    position: absolute;
-    bottom: 6px;
-    right: 20%;
-    transform: translateX(-20%);
-    animation: ${swipeLeft} 2000ms forwards 1500ms ease-in;
+  position: absolute;
+  bottom: 6px;
+  right: 20%;
+  transform: translateX(-20%);
+  animation: ${swipeLeft} 2000ms forwards 1500ms ease-in;
 `
