@@ -117,7 +117,7 @@
     "gatsby-cypress": "^1.5.0",
     "husky": "^6.0.0",
     "jest": "27.0.3",
-    "jest-config": "26.6.3",
+    "jest-config": "27.0.3",
     "jest-puppeteer": "5.0.4",
     "lint-staged": "^11.0.0",
     "prettier": "^2.3.0",
