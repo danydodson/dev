@@ -8,7 +8,7 @@ import { setThemeVars } from '../../../utils/theme-helper'
 import config from '../../../config'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
-const PostCard = ({ id, title, cover, date, path, excerpt, tags, timeToRead }) => {
+const PostCard = ({ id, title, cover, path, excerpt, tags, timeToRead }) => {
 
   const image = cover.childrenImageSharp[0].gatsbyImageData
 

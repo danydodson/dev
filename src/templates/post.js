@@ -5,18 +5,18 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 import React, { useEffect, useRef, useState } from 'react'
 import { isMobile } from 'react-device-detect'
 import styled from 'styled-components'
-import { UtterancesComments } from '../components/Comments'
-import Layout from '../components/Layout'
-import ToggleMode from '../components/Layout/ToggleMode'
-import LinkEdgePosts from '../components/LinkEdgePosts'
-import Profile from '../components/Profile'
-import Ruler from '../components/Ruler'
-import SEO from '../components/SEO'
-import ShareButtons from '../components/ShareButtons'
+import { UtterancesComments } from '~components/Comments'
+import Layout from '~components/Layout'
+import ToggleMode from '~components/Layout/ToggleMode'
+import LinkEdgePosts from '~components/LinkEdgePosts'
+import Profile from '~components/Profile'
+import Ruler from '~components/Ruler'
+import Seo from '~components/Seo'
+import ShareButtons from '~components/ShareButtons'
 import config from '../config'
 import { setThemeVars } from '../utils/theme-helper'
 import { theme } from '../styles/global/theme'
-import { Underline } from '../components/mdx'
+import { Collapsable, Danger, Info, Underline, Resume } from '~components/mdx'
 
 const PostTemplate = function({ pageContext, data }) {
 
@@ -68,12 +68,12 @@ const PostTemplate = function({ pageContext, data }) {
     })
   }
 
-  const mdxComponents = {
+  const shortcodes = {
     'ul.li': ({ children }) => {
       return (
         <li>
           <span className='icon-wrap'>
-            <span className='icon-chevron-right' > > </span>
+            <span className='icon-chevron-right'> `{'>'}` </span>
           </span>
           <span className='ul-children'>{children}</span>
         </li>
@@ -86,12 +86,18 @@ const PostTemplate = function({ pageContext, data }) {
         </li>
       )
     },
+    // eslint-disable-next-line react/jsx-no-undef
     hr: () => <Hr widthInPercent='100' verticalMargin='0.8rem' />,
+    Collapsable,
+    Danger,
+    Info,
+    Underline,
+    Resume,
   }
 
   return (
     <Layout showTitle isPostTemplate>
-      <SEO title={post.frontmatter.title} description={post.excerpt} />
+      <Seo title={post.frontmatter.title} description={post.excerpt} />
 
       <div
         className='switch-container'
@@ -159,7 +165,7 @@ const PostTemplate = function({ pageContext, data }) {
           </>
         )}
 
-        <MDXProvider components={mdxComponents}>
+        <MDXProvider components={shortcodes}>
           <MDXRenderer>{post.body}</MDXRenderer>
         </MDXProvider>
 
@@ -168,19 +174,15 @@ const PostTemplate = function({ pageContext, data }) {
       {!isAboutPage && (
         <>
           <ShareButtons location={location} />
-
           <LinkEdgePosts pageContext={pageContext} />
-
           <Ruler widthInPercent='97' verticalMargin='0.8rem' />
           <Profile />
           <Ruler widthInPercent='97' verticalMargin='0.8rem' />
-
           {config.comments.utterances.enabled &&
             config.comments.utterances.repoUrl && (
               <UtterancesComments innerRef={utterancesRef} />
             )
           }
-
         </>
       )}
     </Layout>

@@ -1,6 +1,6 @@
 ---
 title: About
-slug: /info/about/
+slug: about
 cover: index.png
 draft: false
 type: info
@@ -14,5 +14,3 @@ Hi There!
 
 
 ## Creating about page
-
-)

@@ -8,7 +8,7 @@ import './main.scss'
 
 const comments = ['//highlight-start', '//highlight-end']
 
-// Remote highlight comments
+// Remove highlight comments
 const removeHighlightComments = line => {
   let newStr = line
   const trimmed = line.replace(/\s/g, '')
@@ -60,7 +60,7 @@ const Code = ({ codeString, language, metastring, ...props }) => {
     const result = removeHighlightComments(line)
     if (result) newStr += result
     setCopyText(newStr)
-  }, [])
+  }, [codeString])
 
   // Set default language to text
   if (!language) language = 'text'

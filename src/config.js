@@ -85,8 +85,6 @@ const config = {
   progressBarColorLight: '#8b8ed3',
   progressBarColorDark: '#838da4',
 
-  /* To customize code blocks, modify /src/components/Code/styles/* */
-
   /* Share Buttons
 ========================================= */
   shareButtons: {

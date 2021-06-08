@@ -3,6 +3,8 @@ import { MDXProvider } from '@mdx-js/react'
 import { preToCodeBlock } from 'mdx-utils'
 import Code from './code-global'
 
+// components is its own object outside of 
+// render so that the references to components are stable
 const components = {
   pre: preProps => {
     const props = preToCodeBlock(preProps)
@@ -18,4 +20,7 @@ const components = {
   wrapper: ({ children }) => <>{children}</>
 }
 
-export const wrapRootElement = ({ element }) => <MDXProvider components={components}>{element}</MDXProvider>
+export const wrapRootElement = ({ element }) => {
+  <MDXProvider components={components}>{element}</MDXProvider>
+}
+

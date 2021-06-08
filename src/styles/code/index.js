@@ -1,4 +1,3 @@
-/* Code block stylings based on main theme */
 import { createGlobalStyle } from 'styled-components'
 import { setThemeVars } from '../../utils/theme-helper'
 import config from '../../config'
@@ -122,7 +121,7 @@ const codeBlockStyles = createGlobalStyle`
     .token.operator, 
     .token.plain, 
     .token-parameter, 
-    .token.arrow.operator,  {
+    .token.arrow.operator {
       color: ${fontColor};
     }
     

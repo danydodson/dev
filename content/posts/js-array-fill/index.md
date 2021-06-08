@@ -14,21 +14,36 @@ tags:
 
 # [array].fill
 
+<Underline />
+
+
+<Collapsable title='Post Guide' titleSize='1rem'>
+
+<Info>
 
 For creating post, please refer to this guide!
 
-[https://gatsby-blog-mdx.now.sh/2020/05/3-create-post](https://gatsby-blog-mdx.now.sh/2020/05/3-create-post)
+['snap.png']('snap.png')
 
+</Info>
 
-<!-- Headings -->
+</Collapsable>
+
+<Collapsable title='Resume' titleSize='1rem'>
+
+<Resume />
+
+</Collapsable>
+
+<Collapsable title='Headings' titleSize='1rem'>
 
 # H1 Heading
-
 ## H2 Heading
-
 ### H3 Heading
 
-<!-- Texts -->
+</Collapsable>
+
+<Collapsable title='Texts' titleSize='1rem'>
 
 Here's some basic text
 
@@ -40,44 +55,64 @@ Here's some **_bold italics_** text
 
 Here's some ~~strikethrough~~ text
 
-<!-- Link -->
+</Collapsable>
+
+<Collapsable title='Link' titleSize='1rem'>
 
 [Click here](https://google.com)
 
-<!-- Image -->
+</Collapsable>
+
+<Collapsable title='Image' titleSize='1rem'>
 
 ![](../images/somePhoto.jpeg)
 
-<!-- Any HTML -->
+</Collapsable>
+
+<Collapsable title='Any HTML' titleSize='1rem'>
+
 <div style="color: pink"><span>Hello</span></div>
 
-<!-- Lists - numbered -->
+</Collapsable>
+
+<Collapsable title='Lists - Numbered' titleSize='1rem'>
 
 1. First
 2. Second
 
-<!-- Lists - unordered -->
+</Collapsable>
+
+<Collapsable title='Lists - Unordered' titleSize='1rem'>
 
 - List
 - List
 
-<!-- blockquote -->
+</Collapsable>
+
+<Collapsable title='Blockquote' titleSize='1rem'>
 
 > Here is example of blockquote
 >
 > Est est ipsum tempor eu occaecat. Duis commodo laboris voluptate reprehenderit 
 
-<!-- Nested blockquote -->
+</Collapsable>
+
+<Collapsable title='Nested Blockquote' titleSize='1rem'>
 
 > > Cupidatat aute ea incididunt dolor mollit ipsum. Eu
 
 > > > Cupidatat aute ea incididunt dolor mollit ipsum. 
 
-<!-- Inline code -->
+</Collapsable>
+
+<Collapsable title='Inline Code' titleSize='1rem'>
 
 Here is `in-line code block` example
 
-<!-- React Live Editor -->
+</Collapsable>
+
+<Collapsable title='React Live Editor' titleSize='1rem'>
+
 ```jsx react-live
 
 const handleClick = () => { 
@@ -98,7 +133,9 @@ console.log(name)
 
 ```
 
-<!-- Code block (highlight) -->
+</Collapsable>
+
+<Collapsable title='Code Block (Highlight)' titleSize='1rem'>
 
 ```jsx
 
@@ -106,7 +143,7 @@ console.log(name)
 import React, { Component } from 'react'
 
 class Profile extends Component {
-// highlight-end
+  // highlight-end
 
   render() {
     return <div></div> // highlight-line
@@ -117,7 +154,9 @@ export default Profile
 
 ```
 
-<!-- Code block with title -->
+</Collapsable>
+
+<Collapsable title='Code Block with Title' titleSize='1rem'>
 
 ```js:title=example.js
 
@@ -125,7 +164,9 @@ const number 1234;
 
 ```
 
-<!-- Code block with title -->
+</Collapsable>
+
+<Collapsable title='Code Block with Title & React-Live' titleSize='1rem'>
 
 ```js:title=example.js react-live
 
@@ -139,8 +180,9 @@ render(
 
 ```
 
+</Collapsable>
 
-<!-- Diff -->
+<Collapsable title='Code Diff' titleSize='1rem'>
 
 ```diff
 + {
@@ -154,3 +196,4 @@ render(
 + export default SomeClass
 ```
 
+</Collapsable>

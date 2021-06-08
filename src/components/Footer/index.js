@@ -29,22 +29,22 @@ const Footer = () => {
 export default Footer
 
 const StyledFooter = styled.footer`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    font-size: 0.9rem;
-    margin-top: 1rem;
-    padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  padding: 1rem;
 
-    @media (max-width: 500px) {
-        font-size: 0.77rem;
-    }
+  @media (max-width: 500px) {
+    font-size: 0.77rem;
+  }
 `
 const StyledA = styled.a``
 
 const StyledRSS = styled(IconRss)`
-    width: 20px;
-    height: 20px;
-    fill: ${() => setThemeVars('#aaa', '#888')};
+  width: 20px;
+  height: 20px;
+  fill: ${() => setThemeVars('#aaa', '#888')};
 `

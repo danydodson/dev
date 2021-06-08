@@ -9,6 +9,6 @@ const Underline = ({ children }) => {
 
 export default Underline
 
-const StyledUnderline = styled.span`
+const StyledUnderline = styled.div`
   ${({ theme }) => theme.mixins.customUnderline};
 `

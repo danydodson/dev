@@ -7,14 +7,16 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-sitemap`,
+    'gatsby-plugin-styled-components',
     `gatsby-plugin-robots-txt`,
-    'gatsby-plugin-gatsby-cloud',
+    'gatsby-plugin-catch-links',
+    `gatsby-plugin-offline`,
+    'gatsby-transformer-remark',
+    'gatsby-plugin-sharp',
     'gatsby-plugin-sass',
     'gatsby-plugin-image',
-    'gatsby-plugin-sharp',
-    'gatsby-plugin-catch-links',
-    'gatsby-plugin-styled-components',
-    'gatsby-transformer-remark',
+    'gatsby-plugin-gatsby-cloud',
+    'gatsby-remark-emoji',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -41,9 +43,6 @@ module.exports = {
       options: {
         extensions: ['.mdx', '.md'],
         gatsbyRemarkPlugins: [
-          // 'gatsby-remark-prismjs',
-          // 'gatsby-remark-smartypants',
-          // 'gatsby-remark-emoji',
           {
             resolve: 'gatsby-remark-code-titles',
             options: {
@@ -81,38 +80,9 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          // Somehow need to be defined under both gatsby-plugin-mdx & gatsby-transformer-remark to work
-          {
-            resolve: `gatsby-remark-autolink-headers`,
-            options: {
-              className: `anchor-heading`,
-            },
-          },
-
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: config.maxWidth,
-              backgroundColor: `transparent`,
-              linkImagesToOriginal: false,
-            },
-          },
-        ],
-      },
-    },
-    {
       resolve: 'gatsby-transformer-sharp',
       options: {
         checkSupportedExtensions: false,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: config.google.trackingId,
       },
     },
     {
@@ -127,107 +97,13 @@ module.exports = {
         theme_color: config.themeColor,
         icon: config.favicon,
       },
-    },
-    // {
-    //   resolve: 'gatsby-plugin-sitemap',
-    //   options: {
-    //     query: '{ site { siteMetadata { siteUrl: siteUrl } } allSitePage(filter: { path: { regex: "/^(?!/404/|/404.html|/dev-404-page/)/" } }) { edges { node { path } } } }',
-    //     output: '/sitemap.xml',
-    //     serialize: ({ site, allSitePage }) =>
-    //       allSitePage.edges.map((edge) => ({
-    //         url: site.siteMetadata.siteUrl + edge.node.path,
-    //         changefreq: 'daily',
-    //         priority: 0.7,
-    //       })),
-    //   },
-    // },
-    // {
-    //   resolve: 'gatsby-plugin-offline',
-    //   options: {
-    //     workboxConfig: {
-    //       runtimeCaching: [
-    //         {
-    //           urlPattern: /(\.js$|\.css$|[^:]static\/)/,
-    //           handler: 'CacheFirst',
-    //         },
-    //         {
-    //           urlPattern: /^https?:.*\/page-data\/.*\.json/,
-    //           handler: 'StaleWhileRevalidate',
-    //         },
-    //         {
-    //           urlPattern: /^https?:.*\.(png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/,
-    //           handler: 'StaleWhileRevalidate',
-    //         },
-    //         {
-    //           urlPattern: /^https?:\/\/fonts\.googleapis\.com\/css/,
-    //           handler: 'StaleWhileRevalidate',
-    //         },
-    //       ],
-    //     },
-    //   },
-    // },
-    // {
-    //   resolve: 'gatsby-plugin-feed',
-    //   options: {
-    //     query: `
-    //       {
-    //         site {
-    //           siteMetadata {
-    //             title
-    //             description
-    //             siteUrl
-    //             site_url: siteUrl
-    //           }
-    //         }
-    //       }
-    //     `,
-    //     feeds: [
-    //       {
-    //         serialize: ({ query: { site, allMdx } }) =>
-    //           allMdx.edges.map((edge) => ({
-    //             ...edge.node.frontmatter,
-    //             description: edge.node.excerpt,
-    //             date: edge.node.frontmatter.date,
-    //             url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-    //             guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-    //             custom_elements: [{ 'content:encoded': edge.node.html }],
-    //           })),
-    //         query: `
-    //           {
-    //             allMdx( sort: { fields: [frontmatter___date], order: DESC } ) {
-    //               edges {
-    //                 node {
-    //                   body
-    //                   excerpt
-    //                   html
-    //                   timeToRead
-    //                   fields {
-    //                     slug
-    //                   }
-    //                   frontmatter {
-    //                     title
-    //                     cover {
-    //                       childrenImageSharp {
-    //                         gatsbyImageData(
-    //                           aspectRatio: 1.3
-    //                         )
-    //                       }
-    //                     }
-    //                     date
-    //                     excerpt
-    //                     tags
-    //                   }
-    //                 }
-    //               }
-    //             }
-    //           }
-    //         `,
-    //         output: '/rss.xml',
-    //         title: 'Danys Dev RSS',
-    //       },
-    //     ],
-    //   },
-    // },
-
+    }
   ],
+  flags: {
+    FAST_DEV: false,
+    DEV_SSR: false,
+    PRESERVE_WEBPACK_CACHE: false,
+    PARALLEL_SOURCING: false,
+    LMDB_STORE: false
+  },
 }

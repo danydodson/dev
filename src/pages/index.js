@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import SEO from '../components/SEO'
+import Seo from '../components/Seo'
 import MainCard from '../components/MainCard'
 
 const loadsPer = 15
@@ -40,7 +40,7 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title='Home' />
+      <Seo title='Home' />
       <MainCard posts={posts} loads={loaded} />
     </Layout>
   )

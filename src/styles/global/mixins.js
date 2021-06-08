@@ -1,12 +1,12 @@
 import { css } from 'styled-components'
 
-// const button = css`
-//   color: var(--green);
-//   &:hover,
-//   &:focus,
-//   &:active {}
-//   &:after {}
-// `
+const button = css`
+  color: var(--green);
+  &:hover,
+  &:focus,
+  &:active {}
+  &:after {}
+`
 
 const mixins = {
 
@@ -58,7 +58,7 @@ const mixins = {
     }
   `,
 
-  // button,
+  button,
 
 }
 

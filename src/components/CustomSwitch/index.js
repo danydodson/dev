@@ -2,24 +2,24 @@ import React, { useState, useEffect } from 'react'
 import Switch from 'react-switch'
 import { withTheme } from 'styled-components'
 import { IconMoon, IconSun } from '../icons'
-import config from '../../config'
+// import config from '../../config'
 
 const CustomSwitch = (props) => {
   const [checked, setChecked] = useState(false)
-  const [currentTheme, setCurrentTheme] = useState('')
+  // const [currentTheme, setCurrentTheme] = useState('')
 
   const changeTheme = (nextChecked) => {
     setChecked(nextChecked)
     props.onClick()
   }
 
-  useEffect((nextChecked) => {
+  useEffect(() => {
     if (props.theme.mode !== 'dark') {
       setChecked(false)
     } else {
       setChecked(true)
     }
-  }, [])
+  }, [props.theme.mode])
 
   return (
     <Switch

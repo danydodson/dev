@@ -1,1 +1,8 @@
+export { default as Collapsable } from './collapsable'
+export { default as Primary } from './text-block/primary'
+export { default as Danger } from './text-block/danger'
+export { default as Warning } from './text-block/warning'
+export { default as Success } from './text-block/success'
+export { default as Info } from './text-block/info'
+export { default as Resume } from './resume'
 export { default as Underline } from './underline'

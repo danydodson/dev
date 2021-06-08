@@ -3,7 +3,7 @@ import { isMobile } from 'react-device-detect'
 import styled from 'styled-components'
 import { theme } from '../../../styles/global/theme'
 
-const Tag = ({ title, selectTag, selectedTag, unmountTagsAnimation }) => {
+const Tag = ({ title, selectTag, selectedTag }) => {
 
   const handleClick = () => selectTag(title)
 

@@ -1,7 +1,7 @@
 import { isMobile } from 'react-device-detect'
 import { createGlobalStyle, keyframes } from 'styled-components'
 import config from '../../config'
-import Fonts from '../fonts'
+import Fonts from '../../fonts'
 import { theme } from './theme'
 import { setThemeVars } from '../../utils/theme-helper'
 
