@@ -1,4 +1,5 @@
 const config = {
+
   /* Site
   ========================================= */
   title: 'Dany Dodson',
@@ -24,18 +25,15 @@ const config = {
   profileDescription: '{ Full Stack Developer }',
   footerLink: 'about',
 
-  
+
   /* Fonts
-  ========================================= */  
-  // fontSans: 'Calibre', -- 'IBM Plex Sans'
-  // fontMono: 'SF Mono', -- 'Oxanium'
-  fontMain: '"IBM Plex Sans"', // Main Font
-  fontProfile: '"Oxanium"', // Font inside profile
-  fontCodeBlocks: 'Menlo, Monaco, monospace', // Font for code blocks
-  // These fonts will be used if above fonts are unavailable
+  ========================================= */
+  fontMain: '"IBM Plex Sans"',
+  fontProfile: '"Oxanium"',
+  fontCodeBlocks: 'Menlo, Monaco, monospace',
   fontsBackUp: `, sans-serif, -apple-system, BlinkMacSystemFont,
   'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue'`,
-  
+
   /* UI
   ========================================= */
   maxWidth: 768,
@@ -110,19 +108,6 @@ const config = {
     medium: { username: 'danydodson', showHeaderIcon: false }
   },
 
-  /* Tokens
-  ========================================= */
-  gatsby: {},
-
-  /* Algolia
-  ========================================= */
-  algolia: {
-    indexName: process.env.ALGOLIA_INDEX_NAME,
-    applicationId: process.env.ALGOLIA_APP_ID,
-    searchApiKey: process.env.ALGOLIA_SEARCH_ONLY_API_KEY,
-    adminApiKey: process.env.ALGOLIA_ADMIN_API_KEY
-  },
-
   /* Comments
   ========================================= */
   comments: {
@@ -144,25 +129,7 @@ const config = {
       username: 'https://shows.acast.com/6045df1ab353eb47301f68e4',
       showHeaderIcon: true
     }
-  },
-
-  /* Tracking
-  ========================================= */
-  google: {
-    trackingId: `${process.env.GOOGLE_TRACKING_ID}`,
-    adsenseId: process.env.GOOGLE_AD_SENSE_ID
-  },
-
-  /* Datadog
-  ========================================= */
-  datadog: {
-    applicationId: process.env.DATADOG_APP_ID,
-    clientToken: process.env.DATADOG_CLIENT_TOKEN
-  },
-
-  /* Sentry
-  ========================================= */
-  sentryDsn: process.env.SENTRY_DSN
+  }
 
 }
 

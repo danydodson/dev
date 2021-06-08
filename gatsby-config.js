@@ -1,5 +1,3 @@
-require('dotenv').config({ path: `.env` })
-
 const config = require('./src/config')
 
 module.exports = {
