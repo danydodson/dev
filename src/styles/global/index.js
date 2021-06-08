@@ -1,11 +1,13 @@
 import { isMobile } from 'react-device-detect'
 import { createGlobalStyle, keyframes } from 'styled-components'
 import config from '../../config'
-import Fonts from '../../fonts'
+import Fonts from '../fonts'
 import { theme } from './theme'
 import { setThemeVars } from '../../utils/theme-helper'
 
-let profileHomeBorder = () => setThemeVars('#ddd', '#333')
+let profileHomeBorder = () => {
+  setThemeVars('#ddd', '#333')
+}
 
 if (isMobile) {
   profileHomeBorder = 'transparent'
@@ -18,11 +20,9 @@ const glowing = keyframes`
 `
 
 const foregroundColor = () => setThemeVars(theme.fontColorLight, theme.fontColorDark)
-
 const scrollBarColor = () => setThemeVars(config.scrollbarColorLight, config.scrollbarColorDark)
 const scrollBarBg = () => setThemeVars(config.scrollbarBgLight, config.scrollbarBgDark)
 const scrollBarHover = () => setThemeVars(config.scrollbarHoverLight, config.scrollbarHoverDark)
-
 const underlineColor = () => setThemeVars(config.underlineColorLight, config.underlineColorDark)
 
 export const GlobalStyles = createGlobalStyle`
