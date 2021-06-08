@@ -46,14 +46,14 @@ const MediaLinks = () => (
 export default MediaLinks
 
 const StyledMediaLinks = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    a {
-        color: steelblue;
-        margin: 0 0.2rem;
-        font-size: 0.9rem;
-        /* font-size: 0.8rem; */
-    }
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  a {
+      color: steelblue;
+      margin: 0 0.2rem;
+      font-size: 0.9rem;
+      /* font-size: 0.8rem; */
+  }
 `

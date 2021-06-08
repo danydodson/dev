@@ -46,15 +46,6 @@ const mixins = {
 
   curTheme: '',
 
-  code: css`
-    font-size: 0.8rem;
-    padding: 0.08rem 0.25rem;
-    border-radius: 2px;
-    background: #555c6f;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-  `,
-
   btnCustom: css`
     cursor: pointer;
     background: none;

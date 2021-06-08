@@ -40,11 +40,13 @@ const Layout = ({ children, showTitle, isPostTemplate }) => {
   )
 
   return (
-    // Used to set theme
     <ThemeProvider theme={setTheme}>
       {/* Used for global variables */}
       <ThemeProvider theme={theme}>
-        {isPostTemplate ? <div className='post-bg-color'>{childrenElement}</div> : <>{childrenElement}</>}
+        {isPostTemplate
+          ? <div className='post-bg-color'>{childrenElement}</div>
+          : <>{childrenElement}</>
+        }
       </ThemeProvider>
     </ThemeProvider>
   )

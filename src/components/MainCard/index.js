@@ -57,11 +57,8 @@ class MainCard extends Component {
     const posts = this.props.posts
     const tagsByFrequency = {}
     const sortedTags = []
-    // Exclude about page & dummy page
-    const filteredPosts = posts.filter(
-      post =>
-        post.node.frontmatter.type !== 'partial'
-    )
+    const filteredPosts = posts.filter(post => post.node.frontmatter.type !== 'info')
+
     filteredPosts.forEach(post => {
       let tags = post.node.frontmatter.tags
 
@@ -81,7 +78,7 @@ class MainCard extends Component {
       })
     })
 
-    sortedTags.sort(function (a, b) {
+    sortedTags.sort(function(a, b) {
       return tagsByFrequency[b] - tagsByFrequency[a]
     })
 
@@ -90,10 +87,9 @@ class MainCard extends Component {
 
   filterPosts = () => {
     const posts = this.props.posts
-    const filtered = posts.filter(({ node }, i) => {
+    const filtered = posts.filter(({ node }) => {
       return (
-        this.state.selectedTag === TAG.ALL ||
-        (node.frontmatter.tags && node.frontmatter.tags.includes(this.state.selectedTag))
+        this.state.selectedTag === TAG.ALL || (node.frontmatter.tags && node.frontmatter.tags.includes(this.state.selectedTag))
       )
     })
 

@@ -2,7 +2,8 @@ import { isMobile } from 'react-device-detect'
 import { createGlobalStyle, keyframes } from 'styled-components'
 import config from '../../config'
 import Fonts from '../fonts'
-import { setThemeVars, theme } from './theme'
+import { theme } from './theme'
+import { setThemeVars } from '../../utils/theme-helper'
 
 let profileHomeBorder = () => setThemeVars('#ddd', '#333')
 

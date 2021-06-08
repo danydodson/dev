@@ -47,7 +47,7 @@ const IndexPage = ({ data }) => {
 }
 
 export const pageQuery = graphql`
-  query BlogIndexQuery {
+  query BLOG_INDEX_QUERY {
     allMdx(
       sort: { fields: [frontmatter___date], order: DESC },
       filter: { frontmatter: { draft: { ne: true } } }

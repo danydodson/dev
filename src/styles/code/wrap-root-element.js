@@ -1,12 +1,7 @@
 import React from 'react'
 import { MDXProvider } from '@mdx-js/react'
 import { preToCodeBlock } from 'mdx-utils'
-import Code from './code'
-
-/**
- * @param {string}
- * @info components is its own object outside of render so that the references to components are stable
- */
+import Code from './code-global'
 
 const components = {
   pre: preProps => {

@@ -14,7 +14,7 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-plugin-catch-links',
     'gatsby-plugin-styled-components',
-    // 'gatsby-transformer-remark',
+    'gatsby-transformer-remark',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -41,17 +41,17 @@ module.exports = {
       options: {
         extensions: ['.mdx', '.md'],
         gatsbyRemarkPlugins: [
-          'gatsby-remark-prismjs',
-          'gatsby-remark-smartypants',
-          'gatsby-remark-emoji',
-          {
-            resolve: 'gatsby-remark-relative-images',
-          },
+          // 'gatsby-remark-prismjs',
+          // 'gatsby-remark-smartypants',
+          // 'gatsby-remark-emoji',
           {
             resolve: 'gatsby-remark-code-titles',
             options: {
               className: 'code-title-custom',
             },
+          },
+          {
+            resolve: 'gatsby-remark-relative-images',
           },
           {
             resolve: 'gatsby-remark-images',
@@ -75,6 +75,29 @@ module.exports = {
             options: {
               destinationDir: `${__dirname}/content`,
               ignoreFileExtensions: ['png', 'jpg', 'webp', 'jpeg', 'bmp', 'tiff'],
+            },
+          },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          // Somehow need to be defined under both gatsby-plugin-mdx & gatsby-transformer-remark to work
+          {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              className: `anchor-heading`,
+            },
+          },
+
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: config.maxWidth,
+              backgroundColor: `transparent`,
+              linkImagesToOriginal: false,
             },
           },
         ],
@@ -108,8 +131,7 @@ module.exports = {
     // {
     //   resolve: 'gatsby-plugin-sitemap',
     //   options: {
-    //     query:
-    //       '{ site { siteMetadata { siteUrl: siteUrl } } allSitePage(filter: { path: { regex: "/^(?!/404/|/404.html|/dev-404-page/)/" } }) { edges { node { path } } } }',
+    //     query: '{ site { siteMetadata { siteUrl: siteUrl } } allSitePage(filter: { path: { regex: "/^(?!/404/|/404.html|/dev-404-page/)/" } }) { edges { node { path } } } }',
     //     output: '/sitemap.xml',
     //     serialize: ({ site, allSitePage }) =>
     //       allSitePage.edges.map((edge) => ({

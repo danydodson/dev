@@ -1,17 +1,13 @@
 const path = require('path')
+const config = require('./src/config')
 const moment = require('moment')
 const { createFilePath } = require('gatsby-source-filesystem')
-const config = require('./src/config')
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === 'Mdx') {
-    const slug = createFilePath({
-      node,
-      getNode,
-      basePath: 'content',
-    })
+    const slug = createFilePath({ node, getNode, basePath: '' })
 
     createNodeField({
       node,
@@ -34,10 +30,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
 
   const PostTemplate = path.resolve('src/templates/post.js')
-  const CategoryPage = path.resolve('src/templates/category.js')
-  const TagPage = path.resolve('src/templates/tag.js')
+  const TagTemplate = path.resolve('src/templates/tag.js')
 
-  const response = await graphql(`
+  const res = await graphql(`
     {
       allMdx(
         limit: 1000,
@@ -51,6 +46,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             }
             frontmatter {
               title
+              slug
               date
               category
               excerpt
@@ -65,105 +61,94 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     }
   `)
 
-  if (response.errors) {
-    reporter.panicOnBuild(`🙅 🚫 → ${response.errors}`)
-    return Promise.reject(response.errors)
+  if (res.errors) {
+    reporter.panicOnBuild(`🙅 🚫 → ${res.errors}`)
+    return Promise.reject(res.errors)
   }
 
-  console.info(JSON.stringify(response, null, 2))
+  console.info(JSON.stringify(res, null, 2))
 
-  const { edges } = response.data.allMdx
-
-  const isDraft = edges => edges.frontmatter.draft === true
-  const skipNode = edges => isDraft(edges)
-
-  const tagSet = new Set()
-  const categorySet = new Set()
+  const { edges } = res.data.allMdx
 
   return edges.forEach((edge, index) => {
     const { node } = edge
 
-    // Get next available next node
-    const getNextAvailableNode = (edges, index) => {
-      let returnValue
-      for (let i = index; i > 0; i--) {
-        if (!skipNode(edges[i].node)) {
-          returnValue = edges[i].node
-          break
-        }
-      }
-      return returnValue
-    }
+    createPostPages(createPage, PostTemplate, node, edges, index)
 
-    // Get next available prev node
-    const getPrevAvailableNode = (edges, index) => {
-      let returnValue
-      for (let i = index; i < edges.length - 1; i++) {
-        if (!skipNode(edges[i].node)) {
-          returnValue = edges[i].node
-          break
-        }
-      }
-      return returnValue
-    }
-    
-    const next = getNextAvailableNode(edges, index - 1)
-    const prev = getPrevAvailableNode(edges, index + 1)
-
-    // Create page for single post
-    createPage({
-      path: node.fields.slug,
-      component: PostTemplate,
-      context: {
-        slug: node.fields.slug,
-        next,
-        prev,
-      },
-    })
-
-    // Generate a list of tags
-    if (node.frontmatter.tags) {
-      node.frontmatter.tags.forEach((tag) => {
-        tagSet.add(tag)
-      })
-    }
-
-    // Create tag pages
-    tagSet.forEach(tag => {
-      createPage({
-        path: `/tags/${tag}/`,
-        component: TagPage,
-        context: { tag },
-      })
-    })
-
-    // Generate a list of categories
-    if (node.frontmatter.category) {
-      categorySet.add(node.frontmatter.category)
-    }
-
-    // Create category pages
-    categorySet.forEach(category => {
-      createPage({
-        path: `/categories/${category}/`,
-        component: CategoryPage,
-        context: { category },
-      })
-    })
-
+    const tagSet = new Set()
+    createTagList(node, tagSet)
+    createTagPages(tagSet, createPage, TagTemplate)
   })
 
 }
 
-// https://www.gatsbyjs.org/docs/node-apis/#onCreateWebpackConfig
-exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
-  if (stage === 'build-html') {
-    actions.setWebpackConfig({
-      module: {
-        rules: [{}]
-      }
+const createPostPages = (createPage, postTemplate, node, edges, index) => {
+  createPage({
+    path: node.fields.slug,
+    component: postTemplate,
+    context: {
+      slug: node.fields.slug,
+      next: getNextAvailableNode(edges, index - 1),
+      prev: getPrevAvailableNode(edges, index + 1),
+    },
+  })
+}
+
+const getNextAvailableNode = (edges, index) => {
+  let res
+  for (let i = index; i > 0; i--) {
+    if (!skipNode(edges[i].node)) {
+      res = edges[i].node
+      break
+    }
+  }
+  return res
+}
+
+const getPrevAvailableNode = (edges, index) => {
+  let res
+  for (let i = index; i < edges.length - 1; i++) {
+    if (!skipNode(edges[i].node)) {
+      res = edges[i].node
+      break
+    }
+  }
+  return res
+}
+
+const isDraft = (node) => {
+  return node.frontmatter.draft === true
+}
+
+const isAboutPage = (node) => {
+  return node.fields.slug === '/info/about/'
+}
+
+const skipNode = (node) => {
+  return isDraft(node) || isAboutPage(node)
+}
+
+const createTagList = (node, tagSet) => {
+  if (node.frontmatter.tags) {
+    node.frontmatter.tags.forEach(tag => {
+      tagSet.add(tag)
     })
   }
+}
+
+const createTagPages = (tagSet, createPage, tagPage) => {
+  tagSet.forEach(tag => {
+    createPage({
+      path: `/tags/${tag}/`,
+      component: tagPage,
+      context: {
+        tag
+      },
+    })
+  })
+}
+
+exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
       alias: {

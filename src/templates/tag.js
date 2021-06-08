@@ -1,45 +1,49 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
+import LocalDate from '../utils/local-date'
 
-const TagTemplate = function({ pageContext, data }) {
-  const { tag } = pageContext
+const TagTemplate = function({ data }) {
+
   const postEdges = data.allMdx.edges
 
   return (
     <Layout showTitle>
       <ul className='post-tags-list'>
-        {postEdges.map(({ node }) => {
-          const { title, date, slug, tags } = node.frontmatter
-          return (
-            <li key={slug}>
-              <h2>
-                <Link to={slug}>{title}</Link>
-              </h2>
-              <p className='post-tags-list-subtitle'>
-                <time>
-                  {new Date(date).toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  })}
-                </time>
-                <span>&nbsp;&mdash;&nbsp;</span>
-                {tags &&
-                  tags.length > 0 &&
-                  tags.map((tag, i) => (
-                    <Link
-                      key={i}
-                      to={`/tags/${tag}/`}
-                      className='post-tags-list-tag'
-                    >
-                      #{tag}
-                    </Link>
-                  ))}
-              </p>
-            </li>
-          )
-        })}
+
+        {postEdges &&
+          postEdges.map(({ node }) => {
+            const { title, date, slug, tags } = node.frontmatter
+            return (
+              <li key={slug}>
+
+                <h2>
+                  <Link to={`/posts/${slug}`}>{title}</Link>
+                </h2>
+
+                <sub className='post-tags-list-subtitle'>
+                  
+                  <LocalDate date={date} />
+
+                  <span>&nbsp;&mdash;&nbsp;</span>
+
+                  {tags &&
+                    tags.length > 0 &&
+                    tags.map((tag, i) => (
+                      <Link
+                        key={i}
+                        to={`/tags/${tag}/`}
+                        className='post-tags-list-tag'
+                      >
+                        #{tag}{' '}
+                      </Link>
+                    ))}
+                </sub>
+
+              </li>
+            )
+          })
+        }
       </ul>
     </Layout>
   )
@@ -48,7 +52,7 @@ const TagTemplate = function({ pageContext, data }) {
 export default TagTemplate
 
 export const pageQuery = graphql`
-  query TagsByPath($tag: String) {
+  query TAGS_PAGE_QUERY($tag: String) {
     allMdx(
       sort: { fields: [frontmatter___date], order: DESC },
       filter: { frontmatter: { tags: { in: [$tag] } } }
@@ -56,6 +60,10 @@ export const pageQuery = graphql`
       totalCount
       edges {
         node {
+          fields {
+            slug
+            date
+          }
           frontmatter {
             title
             date

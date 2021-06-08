@@ -3,7 +3,10 @@ import styled from 'styled-components'
 
 const Button = ({ children, className, ...otherProps }) => {
   return (
-    <StyledButton className={`${className || ''} btn_custom`} {...otherProps}>
+    <StyledButton
+      className={`${className || ''} btn_custom`}
+      {...otherProps}
+    >
       {children}
     </StyledButton>
   )

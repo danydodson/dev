@@ -13,26 +13,18 @@ import Profile from '../components/Profile'
 import Ruler from '../components/Ruler'
 import SEO from '../components/SEO'
 import ShareButtons from '../components/ShareButtons'
-import { theme, setThemeVars } from '../styles/global/theme'
 import config from '../config'
-import { IconChevronRight } from '../components/icons'
-import Collapsable from '../components/MdxComponents/Collapsable'
-import Resume from '../components/MdxComponents/Resume'
-import Danger from '../components/MdxComponents/TextBlock/Danger'
-import Info from '../components/MdxComponents/TextBlock/Info'
-import Primary from '../components/MdxComponents/TextBlock/Primary'
-import Success from '../components/MdxComponents/TextBlock/Success'
-import Warning from '../components/MdxComponents/TextBlock/Warning'
-import Underline from '../components/MdxComponents/Underline'
+import { setThemeVars } from '../utils/theme-helper'
+import { theme } from '../styles/global/theme'
+import { Underline } from '../components/mdx'
 
-const PostTemplate = function ({ pageContext, data }) {
+const PostTemplate = function({ pageContext, data }) {
 
   const [location, setLocation] = useState(init => init)
 
   const post = data.mdx
-  const isAboutPage = post.fields.slug.includes('/about/')
+  const isAboutPage = post.fields.slug.includes('/info/about/')
   const isInfoPage = post.fields.slug.includes('/resume/')
-  const category = pageContext.category
   const utterancesRef = useRef()
 
   useEffect(() => {
@@ -76,12 +68,12 @@ const PostTemplate = function ({ pageContext, data }) {
     })
   }
 
-  const shortcodes = {
+  const mdxComponents = {
     'ul.li': ({ children }) => {
       return (
         <li>
           <span className='icon-wrap'>
-            <IconChevronRight className='icon-chevron-right' />
+            <span className='icon-chevron-right' > > </span>
           </span>
           <span className='ul-children'>{children}</span>
         </li>
@@ -94,27 +86,25 @@ const PostTemplate = function ({ pageContext, data }) {
         </li>
       )
     },
-    hr: () => <Ruler widthInPercent='100' verticalMargin='0.8rem' />,
-    Info,
-    Primary,
-    Danger,
-    Warning,
-    Success,
-    Resume,
-    Collapsable,
-    Underline
+    hr: () => <Hr widthInPercent='100' verticalMargin='0.8rem' />,
   }
 
   return (
     <Layout showTitle isPostTemplate>
       <SEO title={post.frontmatter.title} description={post.excerpt} />
-      <div className='switch-container' style={{ textAlign: 'end', margin: '0 1.1rem' }}>
+
+      <div
+        className='switch-container'
+        style={{ textAlign: 'end', margin: '0 1.1rem' }}
+      >
         <ToggleMode />
       </div>
+
       <StyledHTML className='post-html'>
         {!isAboutPage && !isInfoPage && (
           <>
             <h1 className='post-title'>{post.frontmatter.title}</h1>
+
             {/* Show post cover image */}
             <GatsbyImage
               image={post.frontmatter.cover.childImageSharp.gatsbyImageData}
@@ -122,40 +112,75 @@ const PostTemplate = function ({ pageContext, data }) {
               objectFit='cover'
               objectPosition='100% 100%'
             />
+
             {/* Show tag & date */}
-            <div className='post-data' style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }} >
+            <div
+              className='post-data'
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                marginBottom: '0.5rem'
+              }}
+            >
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                   {post.frontmatter.tags &&
-                    post.frontmatter.tags.map((tag, i) => (
-                      <p key={i} style={{ margin: '0.3rem 0.3rem', padding: '0.15rem 0.4rem', border: '1px solid #aaa', borderRadius: '5px', fontSize: '0.8rem' }}>
+                    post.frontmatter.tags.map((tag, index) => (
+                      <p
+                        key={index}
+                        style={{
+                          margin: '0.3rem 0.3rem',
+                          padding: '0.15rem 0.4rem',
+                          border: '1px solid #aaa',
+                          borderRadius: '5px',
+                          fontSize: '0.8rem'
+                        }}
+                      >
                         {tag}
                       </p>
                     ))}
                 </div>
               </div>
-              <p style={{ fontStyle: 'italic', margin: '0', marginBottom: '0.3rem' }} >
+
+              <p
+                style={{
+                  fontStyle: 'italic',
+                  margin: '0',
+                  marginBottom: '0.3rem'
+                }}
+              >
                 {post.frontmatter.date}
               </p>
+
             </div>
+
             <Ruler />
           </>
         )}
-        {/* Render mdx */}
-        <MDXProvider components={shortcodes}>
+
+        <MDXProvider components={mdxComponents}>
           <MDXRenderer>{post.body}</MDXRenderer>
         </MDXProvider>
+
       </StyledHTML>
+
       {!isAboutPage && (
         <>
           <ShareButtons location={location} />
+
           <LinkEdgePosts pageContext={pageContext} />
+
           <Ruler widthInPercent='97' verticalMargin='0.8rem' />
           <Profile />
           <Ruler widthInPercent='97' verticalMargin='0.8rem' />
-          {config.comments.utterances.enabled && config.comments.utterances.repoUrl && (
-            <UtterancesComments innerRef={utterancesRef} />
-          )}
+
+          {config.comments.utterances.enabled &&
+            config.comments.utterances.repoUrl && (
+              <UtterancesComments innerRef={utterancesRef} />
+            )
+          }
+
         </>
       )}
     </Layout>
@@ -163,7 +188,7 @@ const PostTemplate = function ({ pageContext, data }) {
 }
 
 export const postQuery = graphql`
-  query BlogPostByPath($slug: String!) {
+  query BLOG_POST_BY_PATH_QUERY($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
       body
       excerpt
@@ -191,18 +216,18 @@ export const postQuery = graphql`
 
 export default PostTemplate
 
-const StyledListingCoverImage = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 55px;
-  margin: 0 auto;
-  max-width: ${props => props.theme.maxWidthSite}px;
-  padding: 0.6rem;
-  h1 {
-    font-weight: 400;
-  }
-`
+// const StyledListingCoverImage = styled.div`
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   height: 55px;
+//   margin: 0 auto;
+//   max-width: ${props => props.theme.maxWidthSite}px;
+//   padding: 0.6rem;
+//   h1 {
+//     font-weight: 400;
+//   }
+// `
 
 const StyledHTML = styled.div`
   word-wrap: break-word;

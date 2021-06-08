@@ -2,9 +2,9 @@ import React from 'react'
 import PostCard from '../PostCard'
 
 const PostList = ({ posts }) => {
-  
+
   const filteredPosts = posts.filter(post =>
-    post.node.frontmatter.type !== 'partial'
+    post.node.frontmatter.type !== 'info'
   )
 
   return (

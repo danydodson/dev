@@ -114,9 +114,7 @@ const config = {
 
   /* Tokens
   ========================================= */
-  gatsby: {
-    gitToken: process.env.GATSBY_GITHUB_TOKEN,
-  },
+  gatsby: {},
 
   /* Algolia
   ========================================= */

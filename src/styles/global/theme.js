@@ -33,10 +33,4 @@ const globalVar = {
 }
 
 // global variables are passed down to themes to be used in other styled components
-export const theme = {
-  ...globalVar
-}
-
-export const setThemeVars = (lightVar, darkVar) => {
-  return theme.curTheme === 'light' ? lightVar : darkVar
-}
+export const theme = { ...globalVar }
