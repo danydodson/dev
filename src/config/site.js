@@ -1,0 +1,81 @@
+const site = {
+
+  /* Site */
+  title: 'Dany Dodson',
+  siteUrl: 'https://danydodson.dev',
+  titleAlt: 'Full Stack Developer Blog',
+  description: 'Welcome! This is my Full Stack Web Developer blog',
+  favicon: 'src/images/favicon.png',
+
+  /* PWA */
+  shortName: 'dany',
+  startUrl: '/',
+  siteLogo: 'src/images/og@2x.png',
+  siteLogoAlt: 'src/images/og@2x.png',
+  themeColor: '#c62828',
+  backgroundColor: '#e0e0e0',
+
+  /* Profile */
+  author: 'Dany Dodson',
+  location: 'Evansville, IN',
+  profileImageName: 'src/images/og@1x.png',
+  profileDescription: '{ Full Stack Developer }',
+  footerLink: 'about',
+
+  /* UI */
+  maxWidth: 768,
+  dateFromFormat: 'DD-MM-YYYY',
+  postsPerPage: 15,
+  enableAbout: true,
+  useScrollIndicator: true,
+  showScrollbar: 'none',
+  defaultTheme: 'light',
+  breakCodeLines: false,
+  showTimeToRead: true,
+
+
+  /* Share Buttons */
+  shareButtons: {
+    email: true,
+    facebook: true,
+    twitter: true,
+    reddit: true,
+    linkedIn: true
+  },
+
+  /* Social Media Links */
+  socials: {
+    github: { username: 'danydodson', showHeaderIcon: true },
+    devto: { username: 'danydodson', showHeaderIcon: false },
+    codepen: { username: 'danydodson', showHeaderIcon: true },
+    facebook: { username: 'danydodson', showHeaderIcon: false },
+    instagram: { username: 'ugly_casanova', showHeaderIcon: false },
+    twitter: { username: 'dany_dodson', showHeaderIcon: false },
+    email: { address: 'hello@danydodson.dev', showHeaderIcon: true },
+    hashnode: { username: 'dany', showHeaderIcon: false },
+    linkedIn: { username: 'in/danydodson', showHeaderIcon: false },
+    medium: { username: 'danydodson', showHeaderIcon: false }
+  },
+
+  /* Comments */
+  comments: {
+    utterances: {
+      enabled: true,
+      repoUrl: 'danydodson/dev'
+    }
+  },
+
+  /* Patreon */
+  patreonSetup: {
+    patreon: {
+      patreonName: 'https://www.patreon.com/danydodson',
+      publicView: 'https://www.patreon.com/danydodson?fan_landing=true',
+      showHeaderIcon: true
+    },
+    nonceCast: {
+      username: 'https://shows.acast.com/6045df1ab353eb47301f68e4',
+      showHeaderIcon: true
+    }
+  }
+
+}

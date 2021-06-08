@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
 import storage from 'local-storage-fallback'
+import { useEffect, useState } from 'react'
 import config from '../config'
 import { theme as globalTheme } from '../styles/global/theme'
 
@@ -22,7 +22,6 @@ function UseTheme(defaultTheme = { mode: config.defaultTheme }) {
 
   return {
     ...theme,
-    // eslint-disable-next-line no-unused-vars
     setTheme: ({ setTheme, ...theme }) => _setTheme(theme)
   }
 }

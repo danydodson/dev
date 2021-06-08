@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
-import LocalDate from '../utils/local-date'
+import LocalDate from '../utils/date-helper'
 
 const TagTemplate = function({ data }) {
 
