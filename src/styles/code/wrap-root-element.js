@@ -20,7 +20,6 @@ const components = {
   wrapper: ({ children }) => <>{children}</>
 }
 
-export const wrapRootElement = ({ element }) => {
-  <MDXProvider components={components}>{element}</MDXProvider>
-}
+export const wrapRootElement = ({ element }) => <MDXProvider components={components}>{element}</MDXProvider>
+
 

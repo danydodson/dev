@@ -93,8 +93,14 @@ module.exports = {
         display: 'minimal-ui',
         background_color: config.backgroundColor,
         theme_color: config.themeColor,
-        icon: config.favicon,
-      },
+        icon: config.favicon
+      }
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-45666519-2',
+      }
     }
   ],
   flags: {
@@ -103,5 +109,5 @@ module.exports = {
     PRESERVE_WEBPACK_CACHE: false,
     PARALLEL_SOURCING: false,
     LMDB_STORE: false
-  },
+  }
 }

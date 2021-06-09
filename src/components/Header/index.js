@@ -15,10 +15,10 @@ const Header = ({ siteTitle, showTitle, isPostTemplate }) => {
     <StyledMainHeader className='main-header'>
 
       {/* Google AdSense */}
-      {config.google.adsenseId && config.google.adsenseId !== '' && (
+      {config.adsenseId && config.adsenseId !== '' && (
         <script
           async
-          data-ad-client={config.google.adsenseId}
+          data-ad-client={config.adsenseId}
           src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
         />
       )}

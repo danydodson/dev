@@ -1,5 +1,5 @@
 const config = {
-
+  
   /* Site
   ========================================= */
   title: 'Dany Dodson',
@@ -7,6 +7,7 @@ const config = {
   titleAlt: 'Full Stack Developer Blog',
   description: 'Welcome! This is my Full Stack Web Developer blog',
   favicon: 'src/images/favicon.png',
+  adsenseId: 'abc',
 
   /* PWA
   ========================================= */
@@ -28,7 +29,8 @@ const config = {
 
   /* Fonts
   ========================================= */
-  fontMain: '"IBM Plex Sans"',
+  // fontMain: '"IBM Plex Sans"',
+  fontMain: '"IBMPlexSans"',
   fontProfile: '"Oxanium"',
   fontCodeBlocks: 'Menlo, Monaco, monospace',
   fontsBackUp: `, sans-serif, -apple-system, BlinkMacSystemFont,
@@ -116,6 +118,7 @@ const config = {
       repoUrl: 'danydodson/dev'
     }
   },
+
 
   /* Patreon
   ========================================= */
