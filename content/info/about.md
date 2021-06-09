@@ -3,9 +3,9 @@ title: About
 slug: about
 cover: index.png
 draft: false
-type: info
+template: partial
 tags: 
-  - ''
+  - 'partial'
 ---
 
 # About

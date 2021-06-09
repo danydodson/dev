@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { IconArrowDown } from '../../icons'
 import Button from '../../Button'
-import { setThemeVars } from '../../../utils/theme-helper'
+import { setThemeVars } from '../../../utils/set-theme'
 import { theme } from '../../../styles/global/theme'
 
 let sizeType = 'rem'

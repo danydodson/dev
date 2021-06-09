@@ -63,16 +63,16 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
+            date
             cover {
               childrenImageSharp {
                 gatsbyImageData(aspectRatio: 1.3)
               }
             }
-            date
-            draft
             excerpt
+            draft
             category
-            type
+            template
             tags
           }
         }

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 import config from '../../config'
 import { IconRss } from '../icons'
-import { setThemeVars } from '../../utils/theme-helper'
+import { setThemeVars } from '../../utils/set-theme'
 
 const Footer = () => {
   return (

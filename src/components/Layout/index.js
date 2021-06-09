@@ -1,16 +1,16 @@
-import { config } from '@fortawesome/fontawesome-svg-core'
-import '@fortawesome/fontawesome-svg-core/styles.css'
-import { graphql, useStaticQuery } from 'gatsby'
-import PropTypes from 'prop-types'
 import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
+import { config } from '@fortawesome/fontawesome-svg-core'
 import styled, { ThemeProvider } from 'styled-components'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+import ScrollTopButton from '../ScrollTopButton'
 import UseTheme from '../../hooks/use-theme'
 import CodeBlockStyles from '../../styles/code'
-import { GlobalStyles } from '../../styles/global'
 import { theme } from '../../styles/global/theme'
-import Footer from '../Footer'
+import { GlobalStyles } from '../../styles/global'
 import Header from '../Header'
-import ScrollTopButton from '../ScrollTopButton'
+import Footer from '../Footer'
+import PropTypes from 'prop-types'
 
 config.autoAddCss = false
 

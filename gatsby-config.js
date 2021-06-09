@@ -102,12 +102,5 @@ module.exports = {
         trackingId: 'UA-45666519-2',
       }
     }
-  ],
-  flags: {
-    FAST_DEV: false,
-    DEV_SSR: false,
-    PRESERVE_WEBPACK_CACHE: false,
-    PARALLEL_SOURCING: false,
-    LMDB_STORE: false
-  }
+  ]
 }

@@ -57,7 +57,7 @@ class MainCard extends Component {
     const posts = this.props.posts
     const tagsByFrequency = {}
     const sortedTags = []
-    const filteredPosts = posts.filter(post => post.node.frontmatter.type !== 'info')
+    const filteredPosts = posts.filter(post => post.node.frontmatter.template !== 'info')
 
     filteredPosts.forEach(post => {
       let tags = post.node.frontmatter.tags

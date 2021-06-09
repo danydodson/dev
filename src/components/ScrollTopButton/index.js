@@ -1,59 +1,39 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleUp } from '@fortawesome/free-solid-svg-icons'
+import { IconArrowDown } from '~components/icons'
 
-class ScrollTopButton extends Component {
-  _isMounted = false
-  state = {
-    intervalId: 0,
-    scrollPosition: 0,
-    show: false
-  }
+const ScrollTopButton = () => {
 
-  componentDidMount() {
-    this._isMounted = true
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 20) {
-        if (this._isMounted) {
-          this.setState({ show: true })
-        }
-      } else {
-        if (this._isMounted) {
-          this.setState({ show: false })
-        }
-      }
+  const [isVisible, setIsVisible] = useState(false)
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
     })
   }
 
-  componentWillUnmount() {
-    this._isMounted = false
-  }
-
-  scrollStep = () => {
-    if (window.pageYOffset === 0) {
-      clearInterval(this.state.intervalId)
+  useEffect(() => {
+    const toggleVisibility = () => {
+      if (window.pageYOffset > 500) {
+        setIsVisible(true)
+      } else {
+        setIsVisible(false)
+      }
     }
-    window.scroll(0, window.pageYOffset - this.props.scrollStepInPx)
-  }
 
-  scrollToTop = () => {
-    let intervalId = setInterval(this.scrollStep.bind(this), this.props.delayInMs)
-    this.setState({ intervalId: intervalId })
-  }
+    window.addEventListener('scroll', toggleVisibility)
 
-  render() {
-    return this.state.show ? (
-      <StyledButton
-        className='btn-scroll-top'
-        onClick={() => {
-          this.scrollToTop()
-        }}
-      >
-        <FontAwesomeIcon className='icon-chevron' icon={faAngleUp} size='3x' />
-      </StyledButton>
-    ) : null
-  }
+    return () => window.removeEventListener('scroll', toggleVisibility)
+
+  }, [])
+
+  return isVisible && (
+    <StyledButton className='btn-scroll-top' onClick={scrollToTop}>
+      <IconArrowDown />
+    </StyledButton>
+  )
+
 }
 
 export default ScrollTopButton
@@ -72,6 +52,6 @@ const StyledButton = styled.button`
   border-radius: 5px;
   transition: opacity 300ms linear;
   &:hover {
-      opacity: 1;
+    opacity: 1;
   }
 `

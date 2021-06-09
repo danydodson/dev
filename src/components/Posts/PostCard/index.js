@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock } from '@fortawesome/free-solid-svg-icons'
 import { theme } from '../../../styles/global/theme'
-import { setThemeVars } from '../../../utils/theme-helper'
+import { setThemeVars } from '../../../utils/set-theme'
 import config from '../../../config'
 import { GatsbyImage } from 'gatsby-plugin-image'
 

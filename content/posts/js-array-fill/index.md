@@ -4,12 +4,13 @@ slug: js-array-fill
 date: 2021-01-01
 lastmod: 2021-01-01
 cover: snap.png
-draft: false
 excerpt: Sample using js [array].fill method
 category: code
-type: js
+draft: false
+template: post
 tags:
-  - Posts
+  - es6
+  - javascript
 ---
 
 # [array].fill

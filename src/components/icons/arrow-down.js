@@ -11,7 +11,7 @@ function IconArrowDown(props) {
       xmlSpace='preserve'
       width='24'
       height='24'
-      className='arrow-moon'
+      className='icon-arrow-down'
       {...props}
     >
       <path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"/>

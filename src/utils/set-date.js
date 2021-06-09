@@ -1,6 +1,6 @@
 import React from 'react'
 
-const LocalDate = props => {
+const SetDate = props => {
   const { date } = props
 
   return (
@@ -14,4 +14,4 @@ const LocalDate = props => {
   )
 }
 
-export default LocalDate
+export default SetDate

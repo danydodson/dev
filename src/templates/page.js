@@ -1,53 +1,54 @@
-import React from 'react'
-import { graphql } from 'gatsby'
+// import React from 'react'
+// import { graphql } from 'gatsby'
 // import styled from 'styled-components'
-import Layout from '~components/Layout'
+// import Layout from '~components/Layout'
 // import config from '../config'
 // import { setThemeVars } from '../utils/set-theme'
-import Post from '../components/Post'
+// import Post from '../components/Post'
 
-const PostTemplate = ({ data }) => {
-  
-  return (
-    <Layout showTitle isPostTemplate>
-      <Post post={data.markdownRemark} />
-    </Layout>
-  )
-}
+// const PostTemplate = ({ data }) => {
 
-export const postQuery = graphql`
-  query PostBySlug($slug: String!) {
-    allMdx(
-      filter: { frontmatter: { slug: { in: [$slug] } } }
-    ) {
-      edges {
-      node {
-        frontmatter {
-          title
-          date
-          slug
-          tags
-        }
-      }
-    }
-  }
-}
-`
+//   console.log(data)
+//   return (
+//     <Layout showTitle isPostTemplate>
+//       <Post post={data.markdownRemark} />
+//     </Layout>
+//   )
+// }
 
-export default PostTemplate
-
-// const StyledListingCoverImage = styled.div`
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   height: 55px;
-//   margin: 0 auto;
-//   max-width: ${props => props.theme.maxWidthSite}px;
-//   padding: 0.6rem;
-//   h1 {
-//     font-weight: 400;
+// export const postQuery = graphql`
+//   query PostBySlug($slug: String!) {
+//     allMdx(
+//       filter: { frontmatter: { slug: { in: [$slug] } } }
+//     ) {
+//       edges {
+//       node {
+//         frontmatter {
+//           title
+//           date
+//           slug
+//           tags
+//         }
+//       }
+//     }
 //   }
+// }
 // `
+
+// export default PostTemplate
+
+// // const StyledListingCoverImage = styled.div`
+// //   display: flex;
+// //   justify-content: space-between;
+// //   align-items: center;
+// //   height: 55px;
+// //   margin: 0 auto;
+// //   max-width: ${props => props.theme.maxWidthSite}px;
+// //   padding: 0.6rem;
+// //   h1 {
+// //     font-weight: 400;
+// //   }
+// // `
 
 // const StyledHTML = styled.div`
 //   word-wrap: break-word;

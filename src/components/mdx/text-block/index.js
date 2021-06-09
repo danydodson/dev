@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { IconSuccess, IconWarning, IconStop, IconInfo } from '../../icons'
-import { setThemeVars } from '../../../utils/theme-helper'
+import { setThemeVars } from '../../../utils/set-theme'
 import { theme } from '../../../styles/global/theme'
 
 const TextBlock = ({ theme, children, padding = '2rem 1.5rem' }) => {

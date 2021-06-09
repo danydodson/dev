@@ -3,17 +3,17 @@ import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
 import SetDate from '../utils/set-date'
 
-const TagTemplate = function({ data }) {
+const CategoriesTemplate = function({ data }) {
 
   const postEdges = data.allMdx.edges
 
   return (
     <Layout showTitle>
-      <ul className='post-tags-list'>
+      <ul className='post-categories-list'>
 
         {postEdges &&
           postEdges.map(({ node }) => {
-            const { title, date, slug, tags } = node.frontmatter
+            const { title, date, slug, categories } = node.frontmatter
             return (
               <li key={slug}>
 
@@ -21,21 +21,21 @@ const TagTemplate = function({ data }) {
                   <Link to={`/posts/${slug}`}>{title}</Link>
                 </h2>
 
-                <sub className='post-tags-list-subtitle'>
-
+                <sub className='post-categories-list-subtitle'>
+                  
                   <SetDate date={date} />
 
                   <span>&nbsp;&mdash;&nbsp;</span>
 
-                  {tags &&
-                    tags.length > 0 &&
-                    tags.map((tag, i) => (
+                  {categories &&
+                    categories.length > 0 &&
+                    categories.map((category, i) => (
                       <Link
                         key={i}
-                        to={`/tags/${tag}/`}
-                        className='post-tags-list-tag'
+                        to={`/categories/${category}/`}
+                        className='post-categories-list-category'
                       >
-                        #{tag}{' '}
+                        #{category}{' '}
                       </Link>
                     ))}
                 </sub>
@@ -49,12 +49,12 @@ const TagTemplate = function({ data }) {
   )
 }
 
-export default TagTemplate
+export default CategoriesTemplate
 
 export const pageQuery = graphql`
-  query TAGS_PAGE_QUERY($tag: String) {
+  query CategoriesQueryPage($category: String) {
     allMdx(
-      filter: { frontmatter: { tags: { in: [$tag] } } }
+      filter: { frontmatter: { category: { in: [$category] } } }
     ) {
       totalCount
       edges {
@@ -66,7 +66,7 @@ export const pageQuery = graphql`
             title
             date
             slug
-            tags
+            category
           }
         }
       }

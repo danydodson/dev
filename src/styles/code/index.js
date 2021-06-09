@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
-import { setThemeVars } from '../../utils/theme-helper'
+import { setThemeVars } from '../../utils/set-theme'
 import config from '../../config'
 
 const bgColor = () => setThemeVars('#f6f8fa !important', '#2d323e !important')

@@ -1,9 +1,8 @@
 import { isMobile } from 'react-device-detect'
 import { createGlobalStyle, keyframes } from 'styled-components'
 import config from '../../config'
-import Fonts from '../fonts'
 import { theme } from './theme'
-import { setThemeVars } from '../../utils/theme-helper'
+import { setThemeVars } from '../../utils/set-theme'
 
 let profileHomeBorder = () => {
   setThemeVars('#ddd', '#333')
@@ -26,8 +25,7 @@ const scrollBarHover = () => setThemeVars(config.scrollbarHoverLight, config.scr
 const underlineColor = () => setThemeVars(config.underlineColorLight, config.underlineColorDark)
 
 export const GlobalStyles = createGlobalStyle`
-  ${Fonts}
-  
+ 
   * {
     box-sizing: border-box;
     margin: 0;
@@ -108,6 +106,10 @@ export const GlobalStyles = createGlobalStyle`
         opacity: 1;
       }
     }
+  }
+
+  .icon-arrow-down {
+
   }
   
   .icon-moon,

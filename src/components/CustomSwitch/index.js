@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import Switch from 'react-switch'
 import { withTheme } from 'styled-components'
 import { IconMoon, IconSun } from '../icons'
-// import config from '../../config'
 
 const CustomSwitch = (props) => {
   const [checked, setChecked] = useState(false)

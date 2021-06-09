@@ -4,7 +4,7 @@ import PostCard from '../PostCard'
 const PostList = ({ posts }) => {
 
   const filteredPosts = posts.filter(post =>
-    post.node.frontmatter.type !== 'info'
+    post.node.frontmatter.template !== 'info'
   )
 
   return (

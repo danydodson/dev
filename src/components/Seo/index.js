@@ -64,10 +64,10 @@ function Seo({ description, lang, meta, title }) {
       />
       <Helmet>
         {/* Google Font: IBM Plex Sans, Oxanium */}
-        {/* <link
+        <link
           href='https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Oxanium&display=swap'
           rel='stylesheet'
-        /> */}
+        />
       </Helmet>
     </>
   )
