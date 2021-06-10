@@ -1,9 +1,9 @@
 const path = require('path')
 const _ = require('lodash')
 
-const CategoriesPages = require('./pages/categories')
-const TagsPages = require('./pages/tags')
-const PostsPages = require('./pages/posts')
+const CategoriesPages = require('./pagination/categories')
+const TagsPages = require('./pagination/tags')
+const PostsPages = require('./pagination/posts')
 
 const createPages = async ({ graphql, actions }) => {
   const { createPage } = actions

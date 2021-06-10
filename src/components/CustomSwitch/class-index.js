@@ -23,6 +23,7 @@ class CustomSwitch extends Component {
       this.setState({ checked: true })
     }
   }
+
   handleToggle = checked => {
     this.setState({ checked })
     // Passed from ToggleMode to change theme

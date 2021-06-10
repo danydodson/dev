@@ -1,37 +1,51 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-// import styled from 'styled-components'
 import Layout from '~components/Layout'
-// import config from '../config'
-// import { setThemeVars } from '../utils/set-theme'
-import Post from '../components/Post'
+// import Post from '../components/Post'
+// import { useSiteMetadata } from '../hooks/use-metadata'
 
 const PostTemplate = ({ data }) => {
-  
+  // const { title: siteTitle } = useSiteMetadata()
+  // const { frontmatter } = data.markdownRemark
+  // const { title: postTitle, description: postDescription = '', socialImage } = frontmatter
+  // const metaDescription = postDescription || siteSubtitle
+  // const socialImageUrl = socialImage?.publicURL
+  {/* <Post post={data.markdownRemark} /> */ }
+
   return (
-    <Layout showTitle isPostTemplate>
-      <Post post={data.markdownRemark} />
+    <Layout>
+      <pre>{JSON.stringify(data, null, 4)}</pre>
     </Layout>
   )
 }
 
-export const postQuery = graphql`
+export const query = graphql`
   query PostBySlug($slug: String!) {
-    allMdx(
-      filter: { frontmatter: { slug: { in: [$slug] } } }
-    ) {
-      edges {
-      node {
-        frontmatter {
-          title
-          date
-          slug
-          tags
+    mdx(fields: {slug: {eq: $slug}}) {
+      body
+      excerpt
+      timeToRead
+      fields {
+        slug
+        categorySlug
+        tagSlugs
+      }
+      frontmatter {
+        slug
+        title
+        date
+        template
+        tags
+        excerpt
+        draft
+        date
+        category
+        cover {
+          absolutePath
         }
       }
     }
   }
-}
 `
 
 export default PostTemplate
@@ -159,7 +173,7 @@ export default PostTemplate
 
 //   @media (max-width: 500px) {
 //     padding: 0.5rem 1rem;
-    
+
 //     .post-title {
 //       font-size: 2rem;
 //     }

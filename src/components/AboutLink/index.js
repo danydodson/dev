@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
-import useSiteMetadata from '../../hooks/use-site-metadata'
+import useSiteMetadata from '../../hooks/use-metadata'
 
 const AboutLink = () => {
   const { author, enableAbout } = useSiteMetadata()

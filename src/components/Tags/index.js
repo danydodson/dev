@@ -161,7 +161,7 @@ const StyledTagsHorizontal = styled.div`
       }
     }
   }
-  .tag-list-inner::-webkit-scrollbar { {
+  .tag-list-inner::-webkit-scrollbar {
     width: 0px;
     display: none;
   }

@@ -6,15 +6,15 @@ const config = {
   siteUrl: 'https://danydodson.dev',
   titleAlt: 'Full Stack Developer Blog',
   description: 'Welcome! This is my Full Stack Web Developer blog',
-  favicon: 'src/images/favicon.png',
+  favicon: 'src/assets/favicon.png',
   adsenseId: 'abc',
 
   /* PWA
   ========================================= */
   shortName: 'dany',
   startUrl: '/',
-  siteLogo: 'src/images/og@2x.png',
-  siteLogoAlt: 'src/images/og@2x.png',
+  siteLogo: 'src/assets/images/og@2x.png',
+  siteLogoAlt: 'src/assets/og@2x.png',
   themeColor: '#c62828',
   backgroundColor: '#e0e0e0',
 
@@ -22,7 +22,7 @@ const config = {
   ========================================= */
   author: 'Dany Dodson',
   location: 'Evansville, IN',
-  profileImageName: 'src/images/og@1x.png',
+  profileImageName: 'src/assets/og@1x.png',
   profileDescription: '{ Full Stack Developer }',
   footerLink: 'about',
 

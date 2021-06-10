@@ -7,14 +7,10 @@ const ToggleMode = () => {
   return (
     <ThemeConsumer>
       {theme => {
-        return (
-          <CustomSwitch
-            onClick={() => theme.setTheme(
-              theme.mode === 'dark'
-                ? { mode: 'light' }
-                : { mode: 'dark' })
-            }
-          />
+        return (<CustomSwitch onClick={() => theme.setTheme(theme.mode === 'dark'
+          ? { mode: 'light' }
+          : { mode: 'dark' })}
+        />
         )
       }}
     </ThemeConsumer>

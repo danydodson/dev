@@ -1,54 +1,52 @@
-// import React from 'react'
-// import { graphql } from 'gatsby'
+import React from 'react'
+import { graphql } from 'gatsby'
+import Layout from '../components/Layout'
+import Post from '../components/Post'
 // import styled from 'styled-components'
-// import Layout from '~components/Layout'
-// import config from '../config'
 // import { setThemeVars } from '../utils/set-theme'
-// import Post from '../components/Post'
 
-// const PostTemplate = ({ data }) => {
+const PageTemplate = ({ data }) => {
+  
+  return (
+    <Layout showTitle isPostTemplate>
+      <Post post={data} />
+    </Layout>
+  )
+}
 
-//   console.log(data)
-//   return (
-//     <Layout showTitle isPostTemplate>
-//       <Post post={data.markdownRemark} />
-//     </Layout>
-//   )
-// }
+export const postQuery = graphql`
+  query PageBySlug ($slug: String!) {
+    allMdx(
+      filter: { frontmatter: { slug: { in: [$slug] } } }
+    ) {
+      edges {
+      node {
+        frontmatter {
+          title
+          date
+          slug
+          tags
+        }
+      }
+    }
+  }
+}
+`
 
-// export const postQuery = graphql`
-//   query PostBySlug($slug: String!) {
-//     allMdx(
-//       filter: { frontmatter: { slug: { in: [$slug] } } }
-//     ) {
-//       edges {
-//       node {
-//         frontmatter {
-//           title
-//           date
-//           slug
-//           tags
-//         }
-//       }
-//     }
+export default PageTemplate
+
+// const StyledListingCoverImage = styled.div`
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   height: 55px;
+//   margin: 0 auto;
+//   max-width: ${props => props.theme.maxWidthSite}px;
+//   padding: 0.6rem;
+//   h1 {
+//     font-weight: 400;
 //   }
-// }
 // `
-
-// export default PostTemplate
-
-// // const StyledListingCoverImage = styled.div`
-// //   display: flex;
-// //   justify-content: space-between;
-// //   align-items: center;
-// //   height: 55px;
-// //   margin: 0 auto;
-// //   max-width: ${props => props.theme.maxWidthSite}px;
-// //   padding: 0.6rem;
-// //   h1 {
-// //     font-weight: 400;
-// //   }
-// // `
 
 // const StyledHTML = styled.div`
 //   word-wrap: break-word;

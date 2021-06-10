@@ -2,6 +2,7 @@ import React, { useMemo } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
+// TODO Fix this
 const Image = ({ src, ...props }) => {
 
   const data = useStaticQuery(graphql`
