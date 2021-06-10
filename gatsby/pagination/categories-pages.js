@@ -6,20 +6,19 @@ module.exports = async (graphql, actions) => {
   const { createPage } = actions
   const { postsPerPage } = config
 
-  const result = await graphql(`
-    {
-      allMdx(
-        filter: { frontmatter: { template: { eq: "post" }, draft: { ne: true } } }
-      ) {
-        group(field: frontmatter___category) {
-          fieldValue
-          totalCount
-        }
+  const result = await graphql(`{
+    allMdx(
+      filter: { frontmatter: { template: { eq: "post" }, draft: { ne: true } } }
+    ) {
+      group(field: frontmatter___category) {
+        fieldValue
+        totalCount
       }
     }
-  `)
+  }
+`)
 
-  _.each(result.data.allMarkdownRemark.group, (category) => {
+  _.each(result.data.allMdx.group, (category) => {
     const numPages = Math.ceil(category.totalCount / postsPerPage)
     const categorySlug = `/category/${_.kebabCase(category.fieldValue)}`
 

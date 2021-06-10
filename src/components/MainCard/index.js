@@ -96,11 +96,12 @@ class MainCard extends Component {
     this.setState({ filteredPosts: filtered })
   }
 
-  handleSelectTag = async tag => {
+  // TODO removed async await
+  handleSelectTag = tag => {
     // Save current tag in storage
     sessionStorage.setItem('curTag', tag)
-    await this.setState({ selectedTag: tag })
-    await this.filterPosts()
+    this.setState({ selectedTag: tag })
+    this.filterPosts()
   }
 
   render() {

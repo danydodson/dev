@@ -1,9 +1,9 @@
 const path = require('path')
 const _ = require('lodash')
 
-const CategoriesPages = require('./pagination/categories')
-const TagsPages = require('./pagination/tags')
-const PostsPages = require('./pagination/posts')
+const CategoriesPages = require('./pagination/categories-pages')
+const TagsPages = require('./pagination/tags-pages')
+const PostsPages = require('./pagination/posts-pages')
 
 const createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -49,7 +49,6 @@ const createPages = async ({ graphql, actions }) => {
   `)
 
   if (result.errors) {
-    result.panicOnBuild(`🙅 🚫 → ${result.errors}`)
     return Promise.reject(result.errors)
   }
 
@@ -65,7 +64,15 @@ const createPages = async ({ graphql, actions }) => {
         component: path.resolve('./src/templates/page.js'),
         context: { slug: edge.node.fields.slug }
       })
+      
     } else if (_.get(edge, 'node.frontmatter.template') === 'post') {
+      createPage({
+        path: edge.node.fields.slug,
+        component: path.resolve('./src/templates/post.js'),
+        context: { slug: edge.node.fields.slug }
+      })
+
+    } else if (_(edge, 'node.frontmatter.template') === 'partial') {
       createPage({
         path: edge.node.fields.slug,
         component: path.resolve('./src/templates/post.js'),

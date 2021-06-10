@@ -7,21 +7,24 @@
     "module": "es2015",
     "baseUrl": "src",
     "paths": {
-      "~content/*": ["./src/content/*"],
+      "~content/*": ["./content/*"],
       "~gatsby/*": ["./src/gatsby/*"],
       "~components/*": ["./src/components/*"],
       "~config/*": ["./src/config/*"],
       "~hooks/*": ["./src/hooks/*"],
-      "~images/*": ["./src/images/*"],
+      "~assets/*": ["./src/assets/*"],
       "~pages/*": ["./src/pages/*"],
       "~styles/*": ["./src/styles/*"],
       "~templates/*": ["./src/templates/*"],
       "~utils/*": ["./src/utils/*"]}
   },
+  "include": [
+    "src/**/*"
+  ],
   "exclude": [
     "dist",
-    "node_modules",
     "build",
+    "node_modules",
     ".vscode",
     "coverage",
     ".npm",

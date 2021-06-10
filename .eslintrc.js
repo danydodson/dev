@@ -13,10 +13,12 @@ module.exports = {
     react: { version: 'detect' },
     'import/resolver': {
       alias: [
+        ['~content', './content'],
         ['~components', './src/components'],
         ['~config', './src/config'],
         ['~hooks', './src/hooks'],
-        ['~images', './src/images'],
+        ['~gatsby', './gatsby'],
+        ['~assets', './src/assets'],
         ['~pages', './src/pages'],
         ['~styles', './src/styles'],
         ['~templates', './src/templates'],

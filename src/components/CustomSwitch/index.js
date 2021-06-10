@@ -3,6 +3,8 @@ import Switch from 'react-switch'
 import { withTheme } from 'styled-components'
 import { IconMoon, IconSun } from '../icons'
 
+// TODO make button float
+
 const CustomSwitch = (props) => {
   const [checked, setChecked] = useState(false)
   // const [currentTheme, setCurrentTheme] = useState('')

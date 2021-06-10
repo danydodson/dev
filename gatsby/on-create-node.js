@@ -1,6 +1,8 @@
 const _ = require('lodash')
 const { createFilePath } = require('gatsby-source-filesystem')
 
+// TODO fix url naming 
+
 const onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
