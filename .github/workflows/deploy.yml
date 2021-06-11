@@ -1,3 +1,5 @@
+name: 'Gatsby Deploy'
+
 on:
   push:
     branches:
