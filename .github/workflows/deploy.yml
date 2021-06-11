@@ -6,8 +6,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     name: Deploy
+    
     steps:
       - uses: actions/checkout@v2
       - name: Yarn cache directory
@@ -39,8 +39,4 @@ jobs:
       
       - name: Build app
         run: 'yarn run build:incremental'
-      
-      - name: Publish app
-        uses: cloudflare/wrangler-action@1.1.0
-        with:
-          apiToken: ${{ secrets.apiToken }}
+
