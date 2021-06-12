@@ -7,7 +7,7 @@
   "scripts": {
     "build": "gatsby build",
     "clean": "gatsby clean",
-    "develop": "gatsby develop -H 0.0.0.0 -p 8000",
+    "develop": "gatsby clean && gatsby develop -H 0.0.0.0 -p 8000",
     "start": "yarn run develop",
     "lint": "eslint 'src/**/*.{js,jsx}'",
     "write-good": "write-good content/**/*.md",
@@ -71,6 +71,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
+    "env-cmd": "^10.1.0",
     "eslint": "^7.28.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.23.4",

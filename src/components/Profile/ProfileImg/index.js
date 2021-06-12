@@ -1,7 +1,8 @@
 import React from 'react'
-import styled from 'styled-components'
-import Image from '../../Image'
+import { StaticImage } from "gatsby-plugin-image"
 import { theme } from '../../../styles/global/theme'
+import styled from 'styled-components'
+// import Image from '../../Image'
 
 const ProfileImage = ({ home }) => {
   return (
@@ -11,24 +12,21 @@ const ProfileImage = ({ home }) => {
           <StyledInner className='profile-image-inner'>
             <StyledInnerInner className='profile-image-inner-inner' />
           </StyledInner>
-          <Image
-            src='og@1x.png'
-            objectFit='cover'
-            objectPosition='100% 100%'
-            alt='profileImage'
-          />
+          <StyledImage>
+            <StaticImage
+              src='../../../assets/og@1x.png'
+              alt="dany dodson"
+              placeholder="blurred">
+            </StaticImage>
+          </StyledImage>
         </StyledImageHome>
       ) : (
-        <StyledImage className='profile-image'>
-          <StyledInner className='profile-image-inner'>
-            <StyledInnerInner className='profile-image-inner-inner' />
-          </StyledInner>
-          <Image
-            src='og@1x.png'
-            objectFit='cover'
-            objectPosition='100% 100%'
-            alt='profileImage'
-          />
+        <StyledImage>
+          <StaticImage
+            src='../../../assets/og@1x.png'
+            alt="dany dodson"
+            placeholder="blurred">
+          </StaticImage>
         </StyledImage>
       )}
     </>
@@ -48,6 +46,7 @@ const StyledImage = styled.div`
         border-radius: 50%;
     }
 `
+
 const StyledImageHome = styled.div`
     position: absolute;
     top: -22%;

@@ -8,14 +8,16 @@ import { setThemeVars } from '../../../utils/set-theme'
 import config from '../../../config'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
-const PostCard = ({ id, title, cover, path, excerpt, tags, timeToRead }) => {
+const PostCard = ({ title, cover, date, path, excerpt, tags, timeToRead }) => {
 
   const image = cover.childrenImageSharp[0].gatsbyImageData
+
+  // console.log(title)
 
   return (
     <>
       <Link to={path}>
-        <StyledPostCard key={id}>
+        <StyledPostCard key={path}>
           <StyledImage
             image={image}
             alt='postImage'
@@ -23,6 +25,7 @@ const PostCard = ({ id, title, cover, path, excerpt, tags, timeToRead }) => {
             objectPosition='50% 50%'
           />
           <h3>{title}</h3>
+          <h3>{date}</h3>
           {config.showTimeToRead && (
             <span>
               <FontAwesomeIcon className='icon-clock' icon={faClock} size='xs' />
@@ -35,7 +38,7 @@ const PostCard = ({ id, title, cover, path, excerpt, tags, timeToRead }) => {
       {tags.map(tag => (
         <Link
           key={tag}
-          to={`/tags/${tag}/`}
+          to={`/tag/${tag}/`}
           className='tags'
         >
           {' '}{tag}

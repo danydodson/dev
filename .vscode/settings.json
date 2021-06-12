@@ -1,0 +1,36 @@
+{
+  "frontMatter.templates.prefix": "",
+  "frontMatter.templates.folder": "content/.templates",
+  "frontMatter.taxonomy.seoTitleLength": -1,
+  "frontMatter.taxonomy.seoDescriptionLength": -1,
+  "frontMatter.custom.scripts": [
+    {
+      "title": "Generate social image",
+      "script": "./scripts/generate-social-img.js",
+      "nodeBin": "~/.nvm/versions/node/v14.17.0/bin/node"
+    }
+  ],
+  "frontMatter.taxonomy.categories": [
+    "code",
+    "profile",
+    "job",
+    "featured",
+    "projects"
+  ],
+  "frontMatter.taxonomy.tags": [
+    "docker",
+    "es6",
+    "lua",
+    "mdx",
+    "new",
+    "nginx",
+    "profile",
+    "react"
+  ],
+  "frontMatter.taxonomy.noPropertyValueQuotes": [
+    "date",
+    "lastmod"
+  ],
+  "workspace.isHidden": false, 
+  "explorerExclude.backup": null
+}

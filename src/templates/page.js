@@ -1,36 +1,59 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import Post from '../components/Post'
-// import styled from 'styled-components'
-// import { setThemeVars } from '../utils/set-theme'
+// import Page from '../components/Page'
+// import { useSiteMetadata } from '../hooks/use-metadata'
 
 const PageTemplate = ({ data }) => {
-  
+  // const { title: siteTitle } = useSiteMetadata()
+  // const { frontmatter } = data.markdownRemark
+  // const { title: pageTitle, description: pageDescription = '', socialImage } = frontmatter
+  // const metaDescription = pageDescription || siteSubtitle
+  // const socialImageUrl = socialImage?.publicURL
+  {/* <Page page={data.markdownRemark} /> */ }
+
   return (
-    <Layout showTitle isPostTemplate>
-      <Post post={data} />
+    <Layout>
+      <pre>{JSON.stringify(data, null, 4)}</pre>
     </Layout>
   )
 }
 
-export const postQuery = graphql`
-  query PageBySlug ($slug: String!) {
-    allMdx(
-      filter: { frontmatter: { slug: { in: [$slug] } } }
-    ) {
-      edges {
-      node {
-        frontmatter {
-          title
-          date
-          slug
-          tags
+export const query = graphql`
+  query PageBySlug($slug: String!) {
+    mdx(fields: {slug: {eq: $slug}}) {
+      body
+      excerpt
+      timeToRead
+      fields {
+        slug
+        categorySlug
+        tagSlugs
+      }
+      frontmatter {
+        slug
+        title
+        date
+        template
+        tags
+        excerpt
+        draft
+        date
+        category
+        cover {
+          name
+          childImageSharp {
+            gatsbyImageData
+          }
+          childrenImageSharp {
+            gatsbyImageData
+          }
+          relativePath
+          relativeDirectory
         }
       }
     }
   }
-}
 `
 
 export default PageTemplate
@@ -58,7 +81,7 @@ export default PageTemplate
 //     margin-top: 2.5rem;
 //   }
 
-//   .post-title {
+//   .page-title {
 //     margin-top: 0;
 //     margin-bottom: 1rem;
 //   }
@@ -158,8 +181,8 @@ export default PageTemplate
 
 //   @media (max-width: 500px) {
 //     padding: 0.5rem 1rem;
-    
-//     .post-title {
+
+//     .page-title {
 //       font-size: 2rem;
 //     }
 

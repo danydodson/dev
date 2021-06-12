@@ -3,8 +3,9 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Seo from '../components/Seo'
 import MainCard from '../components/MainCard'
+import config from '../config'
 
-const loadsPer = 15
+const loadsPer = config.loadsPer
 
 const IndexPage = ({ data }) => {
 
@@ -47,32 +48,27 @@ const IndexPage = ({ data }) => {
 }
 
 export const pageQuery = graphql`
-  query BLOG_INDEX_QUERY {
+  query BlogIndexQuery {
     allMdx(
-      sort: { fields: [frontmatter___date], order: DESC },
-      filter: { frontmatter: { draft: { ne: true } } }
+      filter: { frontmatter: { draft: { ne: true } } },
+      sort: { fields: [frontmatter___date], order: DESC }
     ) {
       edges {
         node {
-          id
-          body
-          excerpt(pruneLength: 10, truncate: true)
-          timeToRead
           fields {
             slug
+            categorySlug
           }
           frontmatter {
             title
-            date
+            date(formatString: "MM/DD/YYYY")
+            excerpt
             cover {
               childrenImageSharp {
                 gatsbyImageData(aspectRatio: 1.3)
               }
             }
-            excerpt
-            draft
             category
-            template
             tags
           }
         }

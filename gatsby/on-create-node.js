@@ -10,11 +10,11 @@ const onCreateNode = ({ node, actions, getNode }) => {
     
     if (typeof node.frontmatter.slug !== 'undefined') {
       const dirname = getNode(node.parent).relativeDirectory
-
+      
       createNodeField({
         node,
         name: 'slug',
-        value: `/${dirname}/${node.frontmatter.slug}`
+        value: `/${dirname}`
       })
     } else {
       

@@ -5,22 +5,23 @@
     "moduleResolution": "node",
     "target": "es2020",
     "module": "es2015",
-    "baseUrl": "src",
+    "baseUrl": ".",
+    "sourceMap": true,
+    // "rootDir": "src",
+    // "outDir": "build",
     "paths": {
-      "~content/*": ["./content/*"],
-      "~gatsby/*": ["./src/gatsby/*"],
-      "~components/*": ["./src/components/*"],
-      "~config/*": ["./src/config/*"],
-      "~hooks/*": ["./src/hooks/*"],
-      "~assets/*": ["./src/assets/*"],
-      "~pages/*": ["./src/pages/*"],
-      "~styles/*": ["./src/styles/*"],
-      "~templates/*": ["./src/templates/*"],
-      "~utils/*": ["./src/utils/*"]}
+      "~content/*": ["content/*"],
+      "~gatsby/*": ["src/gatsby/*"],
+      "~components/*": ["src/components/*"],
+      "~config/*": ["src/config.js"],
+      "~hooks/*": ["src/hooks/*"],
+      "~assets/*": ["src/assets/*"],
+      "~pages/*": ["src/pages/*"],
+      "~styles/*": ["src/styles/*"],
+      "~templates/*": ["src/templates/*"],
+      "~utils/*": ["src/utils/*"]}
   },
-  "include": [
-    "src/**/*"
-  ],
+  "include": ["src/**/*"],
   "exclude": [
     "dist",
     "build",

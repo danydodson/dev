@@ -40,7 +40,7 @@ const config = {
   ========================================= */
   maxWidth: 768,
   dateFromFormat: 'DD-MM-YYYY',
-  postsPerPage: 15,
+  loadsPer: 10,
   enableAbout: true,
   useScrollIndicator: true,
   showScrollbar: 'none',

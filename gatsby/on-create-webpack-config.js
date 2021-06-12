@@ -1,9 +1,14 @@
 const path = require('path')
 
-exports.onCreateWebpackConfig = ({ actions }) => {
+const onCreateWebpackConfig = ({ actions }) => {
 
-  actions.setWebpackConfig({ devtool: false })
-  // actions.setWebpackConfig({ devtool: 'eval-source-map' })
+  // actions.setWebpackConfig({
+  //   devtool: false
+  // })
+
+  actions.setWebpackConfig({
+    devtool: 'eval-source-map'
+  })
 
   actions.setWebpackConfig({
     resolve: {
@@ -11,7 +16,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
         '~content': path.resolve(__dirname, 'content'),
         '~gatsby': path.resolve(__dirname, 'gatsby'),
         '~components': path.resolve(__dirname, 'src/components'),
-        '~config': path.resolve(__dirname, 'src/config'),
+        '~config': path.resolve(__dirname, 'src/config.js'),
         '~hooks': path.resolve(__dirname, 'src/hooks'),
         '~images': path.resolve(__dirname, 'src/images'),
         '~pages': path.resolve(__dirname, 'src/pages'),
@@ -22,3 +27,5 @@ exports.onCreateWebpackConfig = ({ actions }) => {
     }
   })
 }
+
+module.exports = onCreateWebpackConfig

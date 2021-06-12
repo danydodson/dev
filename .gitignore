@@ -1,7 +1,6 @@
-**/drafts/*
-**/.vscode
 **/.cache
-**/node_modules
-**/public
 **/*.env
 **/*.log
+**/public
+**/node_modules
+**/drafts/*

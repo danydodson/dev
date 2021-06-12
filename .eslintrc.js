@@ -15,7 +15,7 @@ module.exports = {
       alias: [
         ['~content', './content'],
         ['~components', './src/components'],
-        ['~config', './src/config'],
+        ['~config', './src/config.js'],
         ['~hooks', './src/hooks'],
         ['~gatsby', './gatsby'],
         ['~assets', './src/assets'],

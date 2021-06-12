@@ -1,16 +1,15 @@
 ---
 title: '[array].fill'
 slug: js-array-fill
-date: 2021-01-01
-lastmod: 2021-01-01
+date: 2021-01-01T00:00:00.000Z
+lastmod: 2021-01-01T00:00:00.000Z
 cover: snap.png
-excerpt: Sample using js [array].fill method
+excerpt: 'Sample using js [array].fill method'
 category: code
 draft: false
 template: post
 tags:
   - es6
-  - javascript
 ---
 
 # [array].fill

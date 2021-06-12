@@ -52,7 +52,7 @@ const createPages = async ({ graphql, actions }) => {
     return Promise.reject(result.errors)
   }
 
-  console.info(`🧩🧩🧩___CREATE___PAGES____🧩🧩🧩`)
+  console.info(`🧩🧩🧩_CREATE_PAGES_🧩🧩🧩`)
   console.info(JSON.stringify(result, null, 2))
 
   const { edges } = result.data.allMdx
@@ -64,15 +64,8 @@ const createPages = async ({ graphql, actions }) => {
         component: path.resolve('./src/templates/page.js'),
         context: { slug: edge.node.fields.slug }
       })
-      
-    } else if (_.get(edge, 'node.frontmatter.template') === 'post') {
-      createPage({
-        path: edge.node.fields.slug,
-        component: path.resolve('./src/templates/post.js'),
-        context: { slug: edge.node.fields.slug }
-      })
 
-    } else if (_(edge, 'node.frontmatter.template') === 'partial') {
+    } else if (_.get(edge, 'node.frontmatter.template') === 'post') {
       createPage({
         path: edge.node.fields.slug,
         component: path.resolve('./src/templates/post.js'),

@@ -4,7 +4,7 @@ const config = require('../../src/config')
 
 module.exports = async (graphql, actions) => {
   const { createPage } = actions
-  const { postsPerPage } = config
+  const { loadsPer } = config
 
   const result = await graphql(`
     {
@@ -20,7 +20,7 @@ module.exports = async (graphql, actions) => {
   `)
 
   _.each(result.data.allMdx.group, tag => {
-    const numPages = Math.ceil(tag.totalCount / postsPerPage)
+    const numPages = Math.ceil(tag.totalCount / loadsPer)
     const tagSlug = `/tag/${_.kebabCase(tag.fieldValue)}`
 
     for (let i = 0; i < numPages; i += 1) {
@@ -30,8 +30,8 @@ module.exports = async (graphql, actions) => {
         context: {
           tag: tag.fieldValue,
           currentPage: i,
-          postsLimit: postsPerPage,
-          postsOffset: i * postsPerPage,
+          postsLimit: loadsPer,
+          postsOffset: i * loadsPer,
           prevPagePath: i <= 1 ? tagSlug : `${tagSlug}/page/${i - 1}`,
           nextPagePath: `${tagSlug}/page/${i + 1}`,
           hasPrevPage: i !== 0,
