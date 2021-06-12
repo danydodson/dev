@@ -31,6 +31,29 @@
     "date",
     "lastmod"
   ],
-  "workspace.isHidden": false, 
-  "explorerExclude.backup": null
+  "workspace.isHidden": true,
+  "explorerExclude.backup": null,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "public": true,
+    ".cache": true,
+    "node_modules": true,
+    ".gitignore": true,
+    "yarn.lock": true,
+    "jsconfig.json": true,
+    ".babelrc.js": true,
+    ".eslintrc.js": true,
+    ".github": true,
+    "readme.md": true,
+    ".codeclimate.yml": true,
+    "netlify.toml": true,
+    ".dockerignore": true,
+    "dockerfile": true,
+    "docker-compose.yml": true,
+    "drafts": true
+  }
 }
