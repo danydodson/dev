@@ -1,17 +1,14 @@
 ---
+template: page
 title: Contact
 slug: contact
 cover: index.png
 category: profile
 draft: false
-template: page
 tags: 
   - 'profile'
 ---
 
-# About
+# /contact page
 
-Hi There!
-
-
-## Creating about page
+contact!
