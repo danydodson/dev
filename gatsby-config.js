@@ -1,6 +1,10 @@
 const flags = require('./gatsby/plugins/flags')
-const feed = require('./gatsby/plugins/feed')
 const config = require('./src/config')
+const feed = require('./gatsby/plugins/feed')
+const manifest = require('./gatsby/plugins/manifest')
+const mdx = require('./gatsby/plugins/mdx')
+const transformer_sharp = require('./gatsby/plugins/transformer_sharp')
+const google_analytics = require('./gatsby/plugins/google_analytics')
 
 module.exports = {
   flags,
@@ -18,7 +22,6 @@ module.exports = {
     'gatsby-plugin-image',
     'gatsby-plugin-gatsby-cloud',
     'gatsby-remark-emoji',
-    feed,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -40,71 +43,10 @@ module.exports = {
         path: `${__dirname}/static`,
       },
     },
-    {
-      resolve: 'gatsby-plugin-mdx',
-      options: {
-        extensions: ['.mdx', '.md'],
-        gatsbyRemarkPlugins: [
-          {
-            resolve: 'gatsby-remark-code-titles',
-            options: {
-              className: 'code-title-custom',
-            },
-          },
-          {
-            resolve: 'gatsby-remark-relative-images',
-          },
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              maxWidth: config.maxWidth,
-              backgroundColor: 'transparent',
-              linkImagesToOriginal: false,
-            },
-          },
-          {
-            resolve: 'gatsby-remark-responsive-iframe',
-          },
-          {
-            resolve: 'gatsby-remark-autolink-headers',
-            options: {
-              className: 'anchor-heading',
-            },
-          },
-          {
-            resolve: 'gatsby-remark-copy-linked-files',
-            options: {
-              destinationDir: `${__dirname}/content`,
-              ignoreFileExtensions: ['png', 'jpg', 'webp', 'jpeg', 'bmp', 'tiff'],
-            },
-          },
-        ],
-      },
-    },
-    {
-      resolve: 'gatsby-transformer-sharp',
-      options: {
-        checkSupportedExtensions: false,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        name: config.title,
-        short_name: config.shortName,
-        description: config.description,
-        start_url: config.startUrl,
-        display: 'minimal-ui',
-        background_color: config.backgroundColor,
-        theme_color: config.themeColor,
-        icon: config.favicon
-      }
-    },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: 'UA-45666519-2',
-      }
-    }
+    feed,
+    manifest,
+    mdx,
+    transformer_sharp,
+    google_analytics
   ]
 }
