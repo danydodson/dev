@@ -167,11 +167,8 @@ const PostTemplate = ({ data }) => {
   const post = data.mdx
   const fields = data.mdx.fields
   const frontmatter = data.mdx.frontmatter
-
   const cover = getImage(frontmatter.cover)
-
-  console.log(cover.images[0])
-  // console.log(JSON.stringify(frontmatter.cover.childImageSharp.gatsbyImageData, null, 4))
+  
   const isAboutPage = post.frontmatter.slug.includes('/about')
 
   useEffect(() => {
@@ -205,7 +202,6 @@ const PostTemplate = ({ data }) => {
               src={cover}
               data-zoom-src={cover.relativePath}
               image={cover}
-              mediumZoom='[data-zoomable]'
               className='gatsby-resp-image-image'
               alt={frontmatter.title}
             />
@@ -316,10 +312,6 @@ export const query = graphql`
           relativePath
           childImageSharp {
             gatsbyImageData
-            fluid {
-              sizes
-              src
-            }
           }
           childrenImageSharp {
             gatsbyImageData

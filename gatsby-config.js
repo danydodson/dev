@@ -3,9 +3,8 @@ const flags = require('./gatsby/plugins/flags')
 const rss = require('./gatsby/plugins/rss')
 
 module.exports = {
-  siteMetadata: config,
   flags,
-  rss,
+  siteMetadata: config,
   plugins: [
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-sitemap`,
@@ -19,6 +18,7 @@ module.exports = {
     'gatsby-plugin-image',
     'gatsby-plugin-gatsby-cloud',
     'gatsby-remark-emoji',
+    rss,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

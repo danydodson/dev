@@ -28,8 +28,11 @@
     "react"
   ],
   "frontMatter.taxonomy.noPropertyValueQuotes": [
+    "title",
+    "slug",
     "date",
-    "lastmod"
+    "lastmod",
+    "excerpt",
   ],
   "workspace.isHidden": true,
   "explorerExclude.backup": null,
@@ -54,6 +57,8 @@
     ".dockerignore": true,
     "dockerfile": true,
     "docker-compose.yml": true,
-    "drafts": true
+    "drafts": true,
+    "scripts": true,
+    ".vscode": true
   }
 }
