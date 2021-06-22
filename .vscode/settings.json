@@ -57,7 +57,6 @@
     ".dockerignore": true,
     "dockerfile": true,
     "docker-compose.yml": true,
-    "drafts": true,
     "scripts": true,
     ".vscode": true
   }
