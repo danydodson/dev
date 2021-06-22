@@ -10,6 +10,7 @@ import {
   IconInstagram,
   IconLinkedin,
   IconLogo,
+  IconMapMarker,
   IconMoon,
   IconRss,
   IconStop,
@@ -39,6 +40,8 @@ const Icon = ({ name }) => {
       return <IconLinkedin />
     case 'logo':
       return <IconLogo />
+    case 'map_marker':
+      return <IconMapMarker />
     case 'moon':
       return <IconMoon />
     case 'rss':

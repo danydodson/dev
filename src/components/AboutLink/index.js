@@ -4,22 +4,21 @@ import styled from 'styled-components'
 import useSiteMetadata from '../../hooks/use-metadata'
 
 const AboutLink = () => {
+
   const { author, enableAbout } = useSiteMetadata()
 
   return (
-    <>
-      {enableAbout ? (
-        <StyledMainCardName className='main-card-name'>
-          <h2>
-            <Link to='/info/about/'>{author}</Link>
-          </h2>
-        </StyledMainCardName>
-      ) : (
-        <StyledMainCardNameAboutDisabled>
-          <h2>{author}</h2>
-        </StyledMainCardNameAboutDisabled>
-      )}
-    </>
+    enableAbout ? (
+      <StyledMainCardName className='main-card-name'>
+        <h2>
+          <Link to='/profile/hello'>{author}</Link>
+        </h2>
+      </StyledMainCardName>
+    ) : (
+      <StyledMainCardNameAboutDisabled>
+        <h2>{author}</h2>
+      </StyledMainCardNameAboutDisabled>
+    )
   )
 }
 

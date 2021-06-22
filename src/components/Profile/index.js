@@ -6,19 +6,17 @@ import config from '../../config'
 
 const Profile = ({ home }) => {
   return (
-    <>
-      {home ? (
-        <StyledProfileHome className='profile-home'>
-          <ProfileImg />
-          <ProfileTexts home />
-        </StyledProfileHome>
-      ) : (
-        <StyledProfile className='profile'>
-          <ProfileImg />
-          <ProfileTexts />
-        </StyledProfile>
-      )}
-    </>
+    home ? (
+      <StyledProfileHome className='profile-home'>
+        <ProfileImg />
+        <ProfileTexts home />
+      </StyledProfileHome>
+    ) : (
+      <StyledProfile className='profile'>
+        <ProfileImg />
+        <ProfileTexts />
+      </StyledProfile>
+    )
   )
 }
 

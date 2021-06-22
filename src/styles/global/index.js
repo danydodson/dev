@@ -108,17 +108,15 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 
-  .icon-arrow-down {
-
-  }
+  .icon-arrow-down {}
   
   .icon-moon,
   .icon-sun {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
     margin: 0 !important;
+    transform: translate(-50%, -50%);
   }
   
   .icon-sun {
@@ -127,13 +125,11 @@ export const GlobalStyles = createGlobalStyle`
   }
   
   .icon-moon {
-      font-size: 11px;
-      color: #f1e21d;
+    font-size: 11px;
+    color: #f1e21d;
   }
   
-  .react-switch {
-    
-  }
+  .react-switch {}
 
   .post-bg-color {
     background: ${() => setThemeVars(theme.bgColorLight, theme.bgColorDark)}

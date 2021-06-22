@@ -2,25 +2,14 @@ import React from 'react'
 import { StaticImage } from "gatsby-plugin-image"
 import { theme } from '../../../styles/global/theme'
 import styled from 'styled-components'
-// import Image from '../../Image'
 
 const ProfileImage = ({ home }) => {
   return (
-    <>
-      {home ? (
-        <StyledImageHome className='profile-image-home'>
-          <StyledInner className='profile-image-inner'>
-            <StyledInnerInner className='profile-image-inner-inner' />
-          </StyledInner>
-          <StyledImage>
-            <StaticImage
-              src='../../../assets/og@1x.png'
-              alt="dany dodson"
-              placeholder="blurred">
-            </StaticImage>
-          </StyledImage>
-        </StyledImageHome>
-      ) : (
+    home ? (
+      <StyledImageHome className='profile-image-home'>
+        <StyledInner className='profile-image-inner'>
+          <StyledInnerInner className='profile-image-inner-inner' />
+        </StyledInner>
         <StyledImage>
           <StaticImage
             src='../../../assets/og@1x.png'
@@ -28,8 +17,16 @@ const ProfileImage = ({ home }) => {
             placeholder="blurred">
           </StaticImage>
         </StyledImage>
-      )}
-    </>
+      </StyledImageHome>
+    ) : (
+      <StyledImage>
+        <StaticImage
+          src='../../../assets/og@1x.png'
+          alt="dany dodson"
+          placeholder="blurred">
+        </StaticImage>
+      </StyledImage>
+    )
   )
 }
 
