@@ -1,5 +1,6 @@
+const path = require('path')
 
-const netlify_cms = {
+const gatsby_plugin_netlify_cms = {
   resolve: 'gatsby-plugin-netlify-cms',
   options: {
     modulePath: path.resolve('src/cms/index.js'),
@@ -10,4 +11,4 @@ const netlify_cms = {
   }
 }
 
-module.exports = netlify_cms
+module.exports = gatsby_plugin_netlify_cms

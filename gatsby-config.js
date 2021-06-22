@@ -1,6 +1,6 @@
-const config = require('./src/config')
 const flags = require('./gatsby/plugins/flags')
-const rss = require('./gatsby/plugins/rss')
+const feed = require('./gatsby/plugins/feed')
+const config = require('./src/config')
 
 module.exports = {
   flags,
@@ -18,7 +18,7 @@ module.exports = {
     'gatsby-plugin-image',
     'gatsby-plugin-gatsby-cloud',
     'gatsby-remark-emoji',
-    rss,
+    feed,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
