@@ -60,5 +60,6 @@
     "scripts": true,
     ".vscode": true,
     "drafts": true
-  }
+  },
+  "svg.preview.background": "transparent"
 }
