@@ -7,7 +7,7 @@
   "scripts": {
     "build": "gatsby build",
     "clean": "gatsby clean",
-    "develop": "gatsby clean && gatsby develop -H 0.0.0.0 -p 8000",
+    "develop": "gatsby develop -H 0.0.0.0 -p 8000",
     "start": "yarn run develop",
     "lint": "eslint 'src/**/*.{js,jsx}'",
     "write-good": "write-good content/**/*.md",

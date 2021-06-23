@@ -9,10 +9,7 @@ import { setThemeVars } from '../../utils/set-theme'
 import config from '../../config'
 
 const PostCard = ({ title, cover, date, path, excerpt, tags, timeToRead }) => {
-
   const image = cover.childrenImageSharp[0].gatsbyImageData
-
-  // console.log(title)
 
   return (
     <>

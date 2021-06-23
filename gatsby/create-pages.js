@@ -1,10 +1,6 @@
 const path = require('path')
 const _ = require('lodash')
 
-// const CategoriesPages = require('./pagination/categories-pages')
-// const TagsPages = require('./pagination/tags-pages')
-// const PostsPages = require('./pagination/posts-pages')
-
 const createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
@@ -31,14 +27,19 @@ const createPages = async ({ graphql, actions }) => {
         ) {
         edges {
           node {
+            fields {
+              categorySlug
+              slug
+              tagSlugs
+            }
             frontmatter {
               template
               title
+              date
+              lastmod
+              excerpt
               category
               tags
-            }
-            fields {
-              slug\
             }
           }
         }
@@ -49,7 +50,9 @@ const createPages = async ({ graphql, actions }) => {
   if (result.errors) {
     return Promise.reject(result.errors)
   }
-  console.info(JSON.stringify(result, null, 2))
+
+  console.info(`🌟🌟🌟🌟🌟🌟`)
+  // console.info(JSON.stringify(result, replacer, 2))
 
   const tagSet = new Set()
   const categorySet = new Set()
@@ -64,7 +67,7 @@ const createPages = async ({ graphql, actions }) => {
         tagSet.add(tag)
       })
     }
-    
+
     //  Create category list
     if (edge.node.frontmatter.category) {
       categorySet.add(edge.node.frontmatter.category)
@@ -106,10 +109,6 @@ const createPages = async ({ graphql, actions }) => {
     })
   })
 
-  // Feeds
-  // await TagsPages(graphql, actions)
-  // await CategoriesPages(graphql, actions)
-  // await PostsPages(graphql, actions)
 }
 
 const getPrevAvailableNode = (edges, index) => {

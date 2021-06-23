@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { isMobile } from 'react-device-detect'
 import { MDXRenderer } from "gatsby-plugin-mdx"
@@ -160,9 +160,9 @@ const PostTemplate = (props) => {
                           borderRadius: '5px',
                           fontSize: '0.8rem',
                         }}>
-                        <a href={`${tag}`}>
+                        <Link to={`/tag/${tag}/`}>
                           {tag}
-                        </a>
+                        </Link>
                       </p>
                     ))}
                   <span style={{
@@ -211,22 +211,21 @@ export const query = graphql`
   query PostBySlug($slug: String!) {
     allMdx(
       filter: {fields: {slug: {eq: $slug}}, frontmatter: {draft: {ne: true}}},
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {fields: [frontmatter___date], order: DESC}
     ) {
       edges {
         node {
           body
-          excerpt
           timeToRead
           fields {
+            categorySlug
             slug
             tagSlugs
-            categorySlug
           }
           frontmatter {
             title
-            slug
             date(formatString: "MM/DD/YYYY")
+            lastmod(formatString: "MM/DD/YYYY")
             excerpt
             category
             tags

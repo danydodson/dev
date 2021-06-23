@@ -116,7 +116,7 @@ module.exports = {
             serialize: ({ query: { site, allMdx } }) => {
               return allMdx.edges.map(edge => {
                 return Object.assign({}, edge.node.frontmatter, {
-                  description: edge.node.excerpt,
+                  description: edge.node.frontmatter.excerpt,
                   date: edge.node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
@@ -131,14 +131,18 @@ module.exports = {
                 ) {
                   edges {
                     node {
-                      excerpt
-                      body
+                      html
                       fields { 
-                        slug 
+                        categorySlug
+                        slug
+                        tagSlugs
                       }
                       frontmatter {
                         title
                         date
+                        excerpt
+                        category
+                        tags
                       }
                     }
                   }
@@ -146,7 +150,9 @@ module.exports = {
               }
             `,
             output: `/rss.xml`,
-            title: `Dany Dodson's Blog Feed`
+            title: `Dany Dodson's Blog Feed`,
+            // match: "^/post/",
+            // link: "https://feeds.feedburner.com/gatsby/blog"
           }
         ]
       }

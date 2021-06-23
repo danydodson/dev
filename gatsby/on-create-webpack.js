@@ -1,6 +1,6 @@
 const path = require('path')
 
-const onCreateWebpack = ({ actions }) => {
+const onCreateWebpackConfig = ({ actions }) => {
 
   actions.setWebpackConfig({
     devtool: 'eval-source-map'
@@ -23,4 +23,4 @@ const onCreateWebpack = ({ actions }) => {
   })
 }
 
-module.exports = onCreateWebpack
+module.exports = onCreateWebpackConfig
