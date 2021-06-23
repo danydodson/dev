@@ -41,7 +41,7 @@
     }
     &-js,
     &-javascript {
-      background: #c7a755;
+      background: #b3bd5f;
     }
     &-jsx {
       background: #627eee;
@@ -62,6 +62,9 @@
     &-mdx {
       background: #406544;
     }
+    &-python {
+      background: #c7a355;
+    }
     &-r {
       background: #b34a4a;
     }
@@ -71,8 +74,9 @@
     &-scss {
       background: #6c1d87;
     }
-    &-shell {
-      background: #7e6260;
+    &-shell,
+    &-shell-session {
+      background: #292929;
     }
     &-sql {
       background: #61b2c1;

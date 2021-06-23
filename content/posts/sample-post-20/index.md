@@ -16,3 +16,19 @@ tags:
 ---
 
 # Post 20
+
+```js
+const a = 100
+```
+
+```jsx
+const a = 100
+```
+
+```shell
+echo $shell
+```
+
+```python
+print "Hello, Python!"
+```

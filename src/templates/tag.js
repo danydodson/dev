@@ -52,7 +52,7 @@ const TagTemplate = function({ data }) {
 export default TagTemplate
 
 export const pageQuery = graphql`
-  query TAGS_PAGE_QUERY($tag: String) {
+  query TagQueryPage($tag: String) {
     allMdx(
       filter: { frontmatter: { tags: { in: [$tag] } } }
     ) {

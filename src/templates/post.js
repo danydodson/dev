@@ -126,12 +126,13 @@ const PostTemplate = (props) => {
     Underline,
   }
 
-  const cover = getImage(props.data.mdx.frontmatter.cover)
-  const isAboutPage = props.data.mdx.frontmatter.slug.includes('/profile')
+  const post = props.data.allMdx.edges[0].node
+  const cover = getImage(post.frontmatter.cover)
+  const isAboutPage = post.fields.slug.includes('/profile')
 
   return (
     <Layout showTitle={true} isPostTemplate>
-      <Seo title={props.data.mdx.frontmatter.title} description={props.data.mdx.excerpt} />
+      <Seo title={post.frontmatter.title} description={post.excerpt} />
       <div className='switch-container'
         style={{ textAlign: 'end', margin: '0 1.1rem' }}>
         <ToggleMode />
@@ -139,26 +140,18 @@ const PostTemplate = (props) => {
       <StyledHTML className='post-html'>
         {!isAboutPage && (
           <>
-            <h1 className='post-title'>{props.data.mdx.frontmatter.title}</h1>
+            <h1 className='post-title'>{post.frontmatter.title}</h1>
             <GatsbyImage
               src={cover}
               data-zoom-src={cover.relativePath}
               image={cover}
               className='gatsby-resp-image-image'
-              alt={props.data.mdx.frontmatter.title} />
-            {/* <StyledListingCoverImage>
-            </StyledListingCoverImage> */}
-            <div className='post-data'
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                marginBottom: '0.5rem',
-              }}>
+              alt={post.frontmatter.title} />
+            <StyledPostData>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                  {props.data.mdx.frontmatter.tags &&
-                    props.data.mdx.frontmatter.tags.map((tag, i) => (
+                  {post.frontmatter.tags &&
+                    post.frontmatter.tags.map((tag, i) => (
                       <p key={i}
                         style={{
                           margin: '0.3rem 0.3rem',
@@ -179,7 +172,7 @@ const PostTemplate = (props) => {
                     borderRadius: '5px',
                     fontSize: '0.8rem',
                   }} >
-                    <a href={props.data.mdx.fields.categorySlug}>see more like this</a>
+                    <a href={post.fields.categorySlug}>see more like this</a>
                   </span>
                 </div>
               </div>
@@ -188,14 +181,14 @@ const PostTemplate = (props) => {
                 margin: '0',
                 marginBottom: '0.3rem',
               }}>
-                {props.data.mdx.frontmatter.data}
+                {post.frontmatter.data}
               </p>
-            </div>
+            </StyledPostData>
             <Ruler />
           </>
         )}
         <MDXProvider components={mdxComponents}>
-          <MDXRenderer>{props.data.mdx.body}</MDXRenderer>
+          <MDXRenderer>{post.body}</MDXRenderer>
         </MDXProvider>
       </StyledHTML>
       {!isAboutPage && (
@@ -215,35 +208,41 @@ const PostTemplate = (props) => {
 }
 
 export const query = graphql`
-  query PostSlug($slug: String!) {
-    mdx(fields: {slug: {eq: $slug}}) {
-      body
-      excerpt
-      timeToRead
-      fields {
-        slug
-        categorySlug
-        tagSlugs
-      }
-      frontmatter {
-        slug
-        title
-        date
-        tags
-        excerpt
-        category
-        date
-        cover {
-          name
-          relativePath
-          childImageSharp {
-            gatsbyImageData
+  query PostBySlug($slug: String!) {
+    allMdx(
+      filter: {fields: {slug: {eq: $slug}}, frontmatter: {draft: {ne: true}}},
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      edges {
+        node {
+          body
+          excerpt
+          timeToRead
+          fields {
+            slug
+            tagSlugs
+            categorySlug
           }
-          childrenImageSharp {
-            gatsbyImageData
+          frontmatter {
+            title
+            slug
+            date(formatString: "MM/DD/YYYY")
+            excerpt
+            category
+            tags
+            cover {
+              name
+              relativePath
+              childImageSharp {
+                gatsbyImageData
+              }
+              childrenImageSharp {
+                gatsbyImageData(aspectRatio: 1.3)
+              }
+              relativePath
+              relativeDirectory
+            }
           }
-          relativePath
-          relativeDirectory
         }
       }
     }
@@ -251,6 +250,14 @@ export const query = graphql`
 `
 
 export default PostTemplate
+
+const StyledPostData = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+
+`
 
 // const StyledListingCoverImage = styled.div`
 //   display: flex;
@@ -375,11 +382,9 @@ const StyledHTML = styled.div`
 
   @media (max-width: 500px) {
     padding: 0.5rem 1rem;
-
     .post-title {
       font-size: 2rem;
     }
-
     ul,
     ol {
       margin-right: 1rem;

@@ -3,43 +3,37 @@ import { graphql, Link } from 'gatsby'
 import Layout from '../components/layout'
 import SetDate from '../utils/set-date'
 
-const CategoriesTemplate = function({ data }) {
+const CategoriesTemplate = function ({ data }) {
+  // console.log(data.allMdx.edges[0])
 
   const postEdges = data.allMdx.edges
+  const fields = data.allMdx.edges[0].node.fields
+  // const frontmatter = data.allMdx.edges[0].node.frontmatter
 
   return (
     <Layout showTitle>
       <ul className='post-categories-list'>
-
         {postEdges &&
           postEdges.map(({ node }) => {
-            const { title, date, slug, categories } = node.frontmatter
+            const { title, date, categories } = node.frontmatter
             return (
-              <li key={slug}>
-
+              <li key={date}>
                 <h2>
-                  <Link to={`/posts/${slug}`}>{title}</Link>
+                  <Link to={`${fields.slug}`}>{title}</Link>
                 </h2>
-
                 <sub className='post-categories-list-subtitle'>
-                  
                   <SetDate date={date} />
-
                   <span>&nbsp;&mdash;&nbsp;</span>
-
                   {categories &&
                     categories.length > 0 &&
                     categories.map((category, i) => (
-                      <Link
-                        key={i}
+                      <Link key={i}
                         to={`/categories/${category}/`}
-                        className='post-categories-list-category'
-                      >
+                        className='post-categories-list-category'>
                         #{category}{' '}
                       </Link>
                     ))}
                 </sub>
-
               </li>
             )
           })
@@ -52,7 +46,7 @@ const CategoriesTemplate = function({ data }) {
 export default CategoriesTemplate
 
 export const pageQuery = graphql`
-  query CategoriesQueryPage($category: String) {
+  query CategoryQueryPage($category: String) {
     allMdx(
       filter: { frontmatter: { category: { in: [$category] } } }
     ) {

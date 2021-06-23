@@ -3,13 +3,6 @@
   "frontMatter.templates.folder": "content/.templates",
   "frontMatter.taxonomy.seoTitleLength": -1,
   "frontMatter.taxonomy.seoDescriptionLength": -1,
-  "frontMatter.custom.scripts": [
-    {
-      "title": "Generate social image",
-      "script": "./scripts/generate-social-img.js",
-      "nodeBin": "~/.nvm/versions/node/v14.17.0/bin/node"
-    }
-  ],
   "frontMatter.taxonomy.categories": [
     "code",
     "profile",
@@ -37,29 +30,9 @@
   "workspace.isHidden": true,
   "explorerExclude.backup": null,
   "files.exclude": {
-    "**/.git": true,
-    "**/.svn": true,
-    "**/.hg": true,
-    "**/CVS": true,
-    "**/.DS_Store": true,
-    "public": true,
-    ".cache": true,
     "node_modules": true,
-    ".gitignore": true,
-    "yarn.lock": true,
-    "jsconfig.json": true,
-    ".babelrc.js": true,
-    ".eslintrc.js": true,
-    ".github": true,
-    "readme.md": true,
-    ".codeclimate.yml": true,
-    "netlify.toml": true,
-    ".dockerignore": true,
-    "dockerfile": true,
-    "docker-compose.yml": true,
-    "scripts": true,
-    ".vscode": true,
-    "drafts": true
+    ".cache": true,
+    "public": true
   },
   "svg.preview.background": "transparent"
 }

@@ -7,8 +7,6 @@
     "module": "es2015",
     "baseUrl": ".",
     "sourceMap": true,
-    // "rootDir": "src",
-    // "outDir": "build",
     "paths": {
       "~content/*": ["content/*"],
       "~gatsby/*": ["src/gatsby/*"],

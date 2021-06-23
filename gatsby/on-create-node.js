@@ -12,7 +12,7 @@ const onCreateNode = ({ node, actions, getNode }) => {
       createNodeField({
         node,
         name: 'slug',
-        value: `/${dirname}`
+        value: `/${dirname}/`
       })
     } else {
 

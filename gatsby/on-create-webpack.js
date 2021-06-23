@@ -1,20 +1,15 @@
 const path = require('path')
 
-const onCreateWebpackConfig = ({ actions }) => {
-
-  // actions.setWebpackConfig({
-  //   devtool: false
-  // })
+const onCreateWebpack = ({ actions }) => {
 
   actions.setWebpackConfig({
     devtool: 'eval-source-map'
+    // devtool: false
   })
 
   actions.setWebpackConfig({
     resolve: {
       alias: {
-        '~content': path.resolve(__dirname, 'content'),
-        '~gatsby': path.resolve(__dirname, 'gatsby'),
         '~components': path.resolve(__dirname, 'src/components'),
         '~config': path.resolve(__dirname, 'src/config.js'),
         '~hooks': path.resolve(__dirname, 'src/hooks'),
@@ -28,4 +23,4 @@ const onCreateWebpackConfig = ({ actions }) => {
   })
 }
 
-module.exports = onCreateWebpackConfig
+module.exports = onCreateWebpack

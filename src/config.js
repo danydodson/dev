@@ -3,7 +3,8 @@ const config = {
   /* Site
   ========================================= */
   title: 'Dany Dodson',
-  siteUrl: 'https://danydodson.dev',
+  siteUrl: 'localhost:8000',
+  // siteUrl: 'https://danydodson.dev',
   titleAlt: 'Full Stack Developer Blog',
   description: 'Welcome! This is my Full Stack Web Developer blog',
   favicon: 'src/assets/favicon.png',

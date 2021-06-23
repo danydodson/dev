@@ -144,16 +144,6 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0.35rem auto !important;
   }
 
-  .link-edge-posts {
-    li {
-      background: ${() => setThemeVars('#fafafa', '#2f2d33')};
-
-      &:hover {
-        background: ${() => setThemeVars('#ededef', '#333138')};
-      }
-    }
-  }
-
   .progress-container {
     background: ${() => setThemeVars(theme.headerColorLight, theme.headerColorDark)};
     .progress-bar {
