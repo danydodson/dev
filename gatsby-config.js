@@ -1,8 +1,8 @@
 const mdx = require('./gatsby/plugins/mdx')
-const transformer_sharp = require('./gatsby/plugins/transformer_sharp')
+const transformer_sharp = require('./gatsby/plugins/transformer')
 const manifest = require('./gatsby/plugins/manifest')
 const feed = require('./gatsby/plugins/feed')
-const google_analytics = require('./gatsby/plugins/google_analytics')
+const analytics = require('./gatsby/plugins/analytics')
 const config = require('./src/config')
 
 module.exports = {
@@ -45,6 +45,6 @@ module.exports = {
     transformer_sharp,
     feed,
     manifest,
-    google_analytics
+    analytics
   ]
 }
