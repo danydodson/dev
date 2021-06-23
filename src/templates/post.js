@@ -12,16 +12,16 @@ import styled from "styled-components"
 import { setThemeVars } from '../utils/set-theme'
 // import { comments } from '../config'
 import config from '../config'
-import Layout from '../components/Layout'
-import Ruler from '../components/Ruler'
-import Profile from '../components/Profile'
-import Seo from '../components/Seo'
+import Layout from '../components/layout'
+import Ruler from '../components/ruler'
+import Profile from '../components/profile'
+import Seo from '../components/seo'
 // import { UtterancesComments, } from '../../Comments'
-import ToggleMode from '../components/Layout/ToggleMode'
+import ToggleMode from '../components/layout/toggle-mode'
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { theme } from '../styles/global/theme'
-// import LinkEdgePosts from '../../LinkEdgePosts'
-import ShareButtons from '../components/ShareButtons'
+// import PostEdgeLinks from '../components/posts/post-edge-links'
+import ShareButtons from '../components/share-buttons'
 import { IconChevronRight } from "../components/icons"
 import { Primary, Danger, Warning, Success, Info, Collapsable, Underline, } from "../components/mdx"
 
@@ -273,7 +273,7 @@ const PostTemplate = ({ data }) => {
       {!isAboutPage && (
         <>
           <ShareButtons location={location} />
-          {/* <LinkEdgePosts pageContext={this.props.pageContext} /> */}
+          {/* <PostEdgeLinks pageContext={this.props.pageContext} /> */}
           <Ruler widthInPercent='97' verticalMargin='0.8rem' />
           <Profile />
           <Ruler widthInPercent='97' verticalMargin='0.8rem' />

@@ -1,0 +1,96 @@
+import React from 'react'
+import { Link } from 'gatsby'
+import { GatsbyImage } from 'gatsby-plugin-image'
+import styled from 'styled-components'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faClock } from '@fortawesome/free-solid-svg-icons'
+import { theme } from '../../styles/global/theme'
+import { setThemeVars } from '../../utils/set-theme'
+import config from '../../config'
+
+const PostCard = ({ title, cover, date, path, excerpt, tags, timeToRead }) => {
+
+  const image = cover.childrenImageSharp[0].gatsbyImageData
+
+  // console.log(title)
+
+  return (
+    <>
+      <Link to={path}>
+        <StyledPostCard key={path}>
+          <StyledImage
+            image={image}
+            alt='postImage'
+            objectFit='cover'
+            objectPosition='50% 50%'
+          />
+          <h3>{title}</h3>
+          <h3>{date}</h3>
+          {config.showTimeToRead && (
+            <span>
+              <FontAwesomeIcon className='icon-clock' icon={faClock} size='xs' />
+              {timeToRead} minute read
+            </span>
+          )}
+          <p>{excerpt}</p>
+        </StyledPostCard>
+      </Link>
+      {tags.map(tag => (
+        <Link
+          key={tag}
+          to={`/tag/${tag}/`}
+          className='tags'
+        >
+          {' '}{tag}
+        </Link>
+      ))}
+    </>
+  )
+}
+
+export default PostCard
+
+const StyledImage = styled(GatsbyImage)`
+  height: 200px;
+`
+
+const StyledPostCard = styled.div`
+  cursor: pointer;
+  padding: 1.5rem 1rem;
+  transition: none;
+
+  h3 {
+    font-weight: 500;
+  }
+
+  &:hover {
+    background: ${() => setThemeVars(theme.bgSubColorLight, theme.darkerColor)};
+  }
+
+  span {
+    font-size: 0.8rem;
+    .icon-clock {
+      margin: 0 0.1rem;
+    }
+  }
+
+  p {
+    margin-top: 0.5rem;
+    color: ${() => setThemeVars(theme.fontSubColorLight, theme.fontSubColorDark)};
+  }
+
+  .tags {
+    z-index: 100;
+  }
+
+  @media (max-width: 500px) {
+    padding: 1.5rem 1.25rem;    
+    h3 {
+      font-size: 1.15rem;
+    }
+    /* Remove hover */
+    &:hover {
+      background: transparent;
+    }
+  }
+`

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
-import Seo from '../components/Seo'
-import MainCard from '../components/MainCard'
+import Layout from '../components/layout'
+import Seo from '../components/seo'
+import MainCard from '../components/main-card'
 import config from '../config'
 
 const loadsPer = config.loadsPer

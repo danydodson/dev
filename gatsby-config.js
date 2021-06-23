@@ -1,13 +1,11 @@
-const flags = require('./gatsby/plugins/flags')
-const config = require('./src/config')
-const feed = require('./gatsby/plugins/feed')
-const manifest = require('./gatsby/plugins/manifest')
 const mdx = require('./gatsby/plugins/mdx')
 const transformer_sharp = require('./gatsby/plugins/transformer_sharp')
+const manifest = require('./gatsby/plugins/manifest')
+const feed = require('./gatsby/plugins/feed')
 const google_analytics = require('./gatsby/plugins/google_analytics')
+const config = require('./src/config')
 
 module.exports = {
-  flags,
   siteMetadata: config,
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -43,10 +41,10 @@ module.exports = {
         path: `${__dirname}/static`,
       },
     },
-    feed,
-    manifest,
     mdx,
     transformer_sharp,
+    feed,
+    manifest,
     google_analytics
   ]
 }

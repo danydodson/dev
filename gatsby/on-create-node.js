@@ -1,23 +1,21 @@
 const _ = require('lodash')
 const { createFilePath } = require('gatsby-source-filesystem')
 
-// TODO fix url naming 
-
 const onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === 'Mdx') {
-    
+
     if (typeof node.frontmatter.slug !== 'undefined') {
       const dirname = getNode(node.parent).relativeDirectory
-      
+
       createNodeField({
         node,
         name: 'slug',
         value: `/${dirname}`
       })
     } else {
-      
+
       const value = createFilePath({ node, getNode })
       createNodeField({
         node,
@@ -28,12 +26,20 @@ const onCreateNode = ({ node, actions, getNode }) => {
 
     if (node.frontmatter.tags) {
       const tagSlugs = node.frontmatter.tags.map(tag => `/tag/${_.kebabCase(tag)}/`)
-      createNodeField({ node, name: 'tagSlugs', value: tagSlugs })
+      createNodeField({
+        node,
+        name: 'tagSlugs',
+        value: tagSlugs
+      })
     }
 
     if (node.frontmatter.category) {
       const categorySlug = `/category/${_.kebabCase(node.frontmatter.category)}/`
-      createNodeField({ node, name: 'categorySlug', value: categorySlug })
+      createNodeField({
+        node,
+        name: 'categorySlug',
+        value: categorySlug
+      })
     }
   }
 }
