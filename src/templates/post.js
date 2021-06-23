@@ -1,84 +1,84 @@
-// import React, { useEffect } from 'react'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { graphql } from 'gatsby'
-import { MDXProvider } from "@mdx-js/react"
-import { MDXRenderer } from "gatsby-plugin-mdx"
-// import Post from '../components/Post'
-// import { useSiteMetadata } from '../hooks/use-metadata'
-import mediumZoom from 'medium-zoom'
-import storage from 'local-storage-fallback'
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { isMobile } from 'react-device-detect'
+import { MDXRenderer } from "gatsby-plugin-mdx"
+import { MDXProvider } from "@mdx-js/react"
+import storage from 'local-storage-fallback'
+import mediumZoom from 'medium-zoom'
 import styled from "styled-components"
 import { setThemeVars } from '../utils/set-theme'
-// import { comments } from '../config'
-import config from '../config'
 import Layout from '../components/layout'
 import Ruler from '../components/ruler'
 import Profile from '../components/profile'
 import Seo from '../components/seo'
-// import { UtterancesComments, } from '../../Comments'
+import config from '../config'
+import Comments from '../components/comments'
 import ToggleMode from '../components/layout/toggle-mode'
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { theme } from '../styles/global/theme'
-// import PostEdgeLinks from '../components/posts/post-edge-links'
+import PostEdgeLinks from '../components/posts/post-edge-links'
 import ShareButtons from '../components/share-buttons'
 import { IconChevronRight } from "../components/icons"
 import { Primary, Danger, Warning, Success, Info, Collapsable, Underline, } from "../components/mdx"
 
+const PostTemplate = (props) => {
+  const [location, setLocation] = useState('')
+  const utterancesRef = useRef()
 
-const PostTemplate = ({ data }) => {
+  useEffect(() => {
+    setLocation({ location: window.location.href })
+  }, [])
 
-  // constructor(props) {
-  //   super(props)
-  //   this.utterancesRef = React.createRef()
-  //   this.state = {
-  //     location: '',
-  //     script: undefined,
-  //     texts: [],
-  //   }
-  // }
+  // useEffect(() => {
+  //   toggleLoading()
+  // }, [])
 
+  useEffect(() => {
+    const script = document.createElement('script')
+    if (config.comments.utterances.enabled && config.comments.utterances.repoUrl) {
+      if (utterancesRef.current) {
+        script.src = 'https://utteranc.es/client.js'
+        script.async = true
+        script.crossOrigin = 'anonymous'
+        script.setAttribute('repo', config.comments.utterances.repoUrl)
+        script.setAttribute('issue-term', 'pathname')
+        script.setAttribute('label', 'blog-comment')
+        script.setAttribute('theme', `${theme.curTheme === 'dark' ? 'github-dark' : 'github-light'}`)
+        utterancesRef.current.appendChild(script)
+      }
+    }
+    return () => {
+      script.remove()
+    }
+  }, [])
 
-  // componentDidUpdate() {
-  //   if (window.FB) {
-  //     window.FB.XFBML.parse()
-  //   }
-  // }
+  useEffect(() => {
+    const moveAnchorHeadings = () => {
+      const target = '.anchor-heading'
+      const anchors = Array.from(document.querySelectorAll(target))
+      anchors.forEach(anchor => {
+        anchor.parentNode.appendChild(anchor)
+        anchor.classList.add('after')
+        anchor.classList.remove('before')
+      })
+    }
+    if (isMobile) {
+      moveAnchorHeadings()
+    }
+  }, [])
 
-  // registerUtterancesComments = repo => {
-  //   // Register utterances if it exists
-  //   if (this.utterancesRef.current) {
-  //     const script = document.createElement('script')
-  //     script.src = 'https://utteranc.es/client.js'
-  //     script.async = true
-  //     script.crossOrigin = 'anonymous'
-  //     script.setAttribute('repo', repo)
-  //     script.setAttribute('issue-term', 'pathname')
-  //     script.setAttribute('label', 'blog-comment')
-  //     script.setAttribute(
-  //       'theme',
-  //       `${theme.curTheme === 'dark' ? 'github-dark' : 'github-light'}`
-  //     )
-  //     this.utterancesRef.current.appendChild(script)
-  //   }
-  // }
-
-
-
-  const zoomImages = () => {
+  useEffect(() => {
     const targetImg = 'img'
     const targetGatsbyImg = 'gatsby-resp-image-image'
     const images = Array.from(document.querySelectorAll(targetImg))
-    // const images = Array.from(document.querySelectorAll(targetImg))
     const filteredImages = []
+
     for (let i = 0; i < images.length; i++) {
       const img = images[i]
-      // Filter profile image
       const profile = document.querySelector('.img-profile')
       if (profile) {
         const isProfile = profile.contains(img)
         if (!isProfile) {
-          // Set maximum width/height to non-gatsby images
           if (!img.classList.contains(targetGatsbyImg)) {
             img.classList.add('img-not-gatsby-remark')
           }
@@ -96,34 +96,7 @@ const PostTemplate = ({ data }) => {
       margin: 24,
       background: mediumZoomBgColor,
     })
-  }
-
-  // Move anchor headings to the right side on mobile
-  const moveAnchorHeadings = () => {
-    const target = '.anchor-heading'
-    const anchors = Array.from(document.querySelectorAll(target))
-    anchors.forEach(anchor => {
-      anchor.parentNode.appendChild(anchor)
-      anchor.classList.add('after')
-      anchor.classList.remove('before')
-    })
-  }
-
-  // Toggle loading for changing copy texts
-  // const toggleLoading = text => {
-
-  //   this.setState(prevState => {
-
-  //     const updatedTexts = [...prevState.texts]
-
-  //     updatedTexts.forEach(t => { if (t.id === text.id) { t.loadingChange = !t.loadingChange } })
-
-  //     return {
-  //       texts: updatedTexts
-  //     }
-
-  //   })
-  // }
+  }, [])
 
   const mdxComponents = {
     'ul.li': ({ children }) => {
@@ -153,135 +126,88 @@ const PostTemplate = ({ data }) => {
     Underline,
   }
 
-  const [location, setLocation] = useState('')
-  // const [script, setScript] = useState(undefined)
-  // const [texts, setTexts] = useState([])
-  // const [currentTheme, setCurrentTheme] = useState('')
-
-  // const changeTheme = (nextChecked) => {
-  //   setChecked(nextChecked)
-  //   props.onClick()
-  // }
-
-
-  const post = data.mdx
-  const fields = data.mdx.fields
-  const frontmatter = data.mdx.frontmatter
-  const cover = getImage(frontmatter.cover)
-  
-  const isAboutPage = post.frontmatter.slug.includes('/about')
-
-  useEffect(() => {
-    setLocation({ location: window.location.href })
-    if (isMobile) {
-      moveAnchorHeadings()
-    }
-    zoomImages()
-    // toggleLoading()
-    // if (comments.utterances.enabled && comments.utterances.repoUrl) {
-    //   this.registerUtterancesComments(comments.utterances.repoUrl)
-    // }
-  }, [])
-
+  const cover = getImage(props.data.mdx.frontmatter.cover)
+  const isAboutPage = props.data.mdx.frontmatter.slug.includes('/profile')
 
   return (
     <Layout showTitle={true} isPostTemplate>
-      <Seo title={frontmatter.title} description={post.excerpt} />
-      <div
-        className='switch-container'
-        style={{ textAlign: 'end', margin: '0 1.1rem' }}
-      >
+      <Seo title={props.data.mdx.frontmatter.title} description={props.data.mdx.excerpt} />
+      <div className='switch-container'
+        style={{ textAlign: 'end', margin: '0 1.1rem' }}>
         <ToggleMode />
       </div>
       <StyledHTML className='post-html'>
         {!isAboutPage && (
           <>
-            <h1 className='post-title'>{frontmatter.title}</h1>
-
+            <h1 className='post-title'>{props.data.mdx.frontmatter.title}</h1>
             <GatsbyImage
               src={cover}
               data-zoom-src={cover.relativePath}
               image={cover}
               className='gatsby-resp-image-image'
-              alt={frontmatter.title}
-            />
+              alt={props.data.mdx.frontmatter.title} />
             {/* <StyledListingCoverImage>
             </StyledListingCoverImage> */}
-            <div
-              className='post-data'
+            <div className='post-data'
               style={{
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
                 marginBottom: '0.5rem',
-              }}
-            >
+              }}>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                  {frontmatter.tags &&
-                    frontmatter.tags.map((tag, i) => (
-                      <p
-                        key={i}
+                  {props.data.mdx.frontmatter.tags &&
+                    props.data.mdx.frontmatter.tags.map((tag, i) => (
+                      <p key={i}
                         style={{
                           margin: '0.3rem 0.3rem',
                           padding: '0.15rem 0.4rem',
                           border: '1px solid #aaa',
                           borderRadius: '5px',
                           fontSize: '0.8rem',
-                        }}
-                      >
+                        }}>
                         <a href={`${tag}`}>
                           {tag}
                         </a>
-
                       </p>
                     ))}
-
-                  <span
-                    style={{
-                      margin: '0.3rem 0.3rem',
-                      padding: '0.15rem 0.4rem',
-                      border: '1px solid #aaa',
-                      borderRadius: '5px',
-                      fontSize: '0.8rem',
-                    }}
-                  >
-                    <a href={fields.categorySlug}>see more like this</a>
+                  <span style={{
+                    margin: '0.3rem 0.3rem',
+                    padding: '0.15rem 0.4rem',
+                    border: '1px solid #aaa',
+                    borderRadius: '5px',
+                    fontSize: '0.8rem',
+                  }} >
+                    <a href={props.data.mdx.fields.categorySlug}>see more like this</a>
                   </span>
-
                 </div>
               </div>
-              <p
-                style={{
-                  fontStyle: 'italic',
-                  margin: '0',
-                  marginBottom: '0.3rem',
-                }}
-              >
-                {frontmatter.data}
+              <p style={{
+                fontStyle: 'italic',
+                margin: '0',
+                marginBottom: '0.3rem',
+              }}>
+                {props.data.mdx.frontmatter.data}
               </p>
             </div>
             <Ruler />
           </>
         )}
-
         <MDXProvider components={mdxComponents}>
-          <MDXRenderer>{post.body}</MDXRenderer>
+          <MDXRenderer>{props.data.mdx.body}</MDXRenderer>
         </MDXProvider>
       </StyledHTML>
-
       {!isAboutPage && (
         <>
           <ShareButtons location={location} />
-          {/* <PostEdgeLinks pageContext={this.props.pageContext} /> */}
+          <PostEdgeLinks pageContext={props.pageContext} />
           <Ruler widthInPercent='97' verticalMargin='0.8rem' />
           <Profile />
           <Ruler widthInPercent='97' verticalMargin='0.8rem' />
-
-
-          {/* {comments.utterances.enabled && comments.utterances.repoUrl && (
-            <UtterancesComments innerRef={this.utterancesRef} />
-          )}  */}
+          {config.comments.utterances.enabled && config.comments.utterances.repoUrl && (
+            <Comments innerRef={utterancesRef} />
+          )}
         </>
       )}
     </Layout>
@@ -289,7 +215,7 @@ const PostTemplate = ({ data }) => {
 }
 
 export const query = graphql`
-  query PoSlug($slug: String!) {
+  query PostSlug($slug: String!) {
     mdx(fields: {slug: {eq: $slug}}) {
       body
       excerpt

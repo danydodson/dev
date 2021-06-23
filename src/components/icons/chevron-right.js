@@ -2,11 +2,21 @@ import * as React from "react"
 
 function IconChevronRight(props) {
   return (
-    <svg viewBox="0 0 407.436 407.436" width="1em" height="1em" {...props}>
-      <path d="M112.814 0L91.566 21.178l181.946 182.54-181.946 182.54 21.248 21.178 203.055-203.718z" />
+    <svg
+      version='1.1'
+      role='img'
+      fill='currentColor'
+      viewBox='0 0 320 512'
+      xmlSpace='preserve'
+      height='1em'
+      className='icon-fa icon-chevron icon-chevron-right'
+      {...props}
+    >
+      <path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
     </svg>
   )
 }
 
 // const IconChevronRight = React.memo(ChevronRight)
+
 export default IconChevronRight

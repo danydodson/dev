@@ -2,8 +2,8 @@
 template: post
 title: Post 05
 slug: post-05
-date: 2021-06-12T05:45:26.817Z
-lastmod: 2021-06-12T05:45:27.696Z
+date: 2021-01-05
+lastmod: 2021-01-05
 cover: index.webp
 excerpt: Post 5 excerpt...
 category: code

@@ -35,6 +35,7 @@ const createPages = async ({ graphql, actions }) => {
           node {
             frontmatter {
               template
+              title
               category
               tags
             }
@@ -51,25 +52,26 @@ const createPages = async ({ graphql, actions }) => {
     return Promise.reject(result.errors)
   }
 
-  console.info(`🧩🧩🧩_CREATE_PAGES_🧩🧩🧩`)
   console.info(JSON.stringify(result, null, 2))
 
   const { edges } = result.data.allMdx
 
-  _.each(edges, (edge) => {
-    if (_.get(edge, 'node.frontmatter.template') === 'page') {
-      createPage({
-        path: edge.node.fields.slug,
-        component: path.resolve('./src/templates/page.js'),
-        context: { slug: edge.node.fields.slug }
-      })
+  _.each(edges, (edge, i) => {
 
-    } else if (_.get(edge, 'node.frontmatter.template') === 'post') {
+    const next = getNextAvailableNode(edges, i - 1)
+    const prev = getPrevAvailableNode(edges, i + 1)
+
+    if (_.get(edge, 'node.frontmatter.template') === 'post') {
       createPage({
         path: edge.node.fields.slug,
         component: path.resolve('./src/templates/post.js'),
-        context: { slug: edge.node.fields.slug }
+        context: {
+          slug: edge.node.fields.slug,
+          next,
+          prev,
+        }
       })
+
     }
   })
 
@@ -78,5 +80,42 @@ const createPages = async ({ graphql, actions }) => {
   await CategoriesPages(graphql, actions)
   await PostsPages(graphql, actions)
 }
+
+const getPrevAvailableNode = (edges, index) => {
+  let retVal
+
+  for (let i = index; i < edges.length - 1; i++) {
+    if (!skipNode(edges[i].node)) {
+      retVal = edges[i].node
+      break
+    }
+  }
+  return retVal
+}
+
+const getNextAvailableNode = (edges, index) => {
+  let retVal
+
+  for (let i = index; i > 0; i--) {
+    if (!skipNode(edges[i].node)) {
+      retVal = edges[i].node
+      break
+    }
+  }
+  return retVal
+}
+
+const skipNode = node => {
+  return isAboutPage(node) || isDraft(node)
+}
+
+const isAboutPage = node => {
+  return node.frontmatter.category === 'profile'
+}
+
+const isDraft = node => {
+  return node.frontmatter.draft === true
+}
+
 
 module.exports = createPages

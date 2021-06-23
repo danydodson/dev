@@ -63,13 +63,13 @@ export const pageQuery = graphql`
             title
             date(formatString: "MM/DD/YYYY")
             excerpt
+            category
+            tags
             cover {
               childrenImageSharp {
                 gatsbyImageData(aspectRatio: 1.3)
               }
             }
-            category
-            tags
           }
         }
       }

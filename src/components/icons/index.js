@@ -1,4 +1,5 @@
 export { default as IconArrowDown } from './arrow-down'
+export { default as IconChevronLeft } from './chevron-left'
 export { default as IconChevronRight } from './chevron-right'
 export { default as IconCodepen } from './codepen'
 export { default as IconExternal } from './external'

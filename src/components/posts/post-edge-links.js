@@ -1,29 +1,26 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { IconChevronRight, IconChevronLeft } from '../icons'
 import './styles.scss'
 
 const PostEdgeLinks = ({ pageContext }) => {
-
   const { prev, next } = pageContext
-
   return (
     prev || next ? (
       <ul className='link-edge-posts'>
         <li>
-          {prev && (
-            <Link to={prev.fields.slug} className='link-edge-post'>
-              <FontAwesomeIcon className='icon-fa icon-chevron' icon={faChevronLeft} />
-              {prev.frontmatter.title}
+          {next && (
+            <Link to={next.fields.slug} className='link-edge-post'>
+              <IconChevronLeft />
+              {next.frontmatter.title}
             </Link>
           )}
         </li>
         <li>
-          {next && (
-            <Link to={next.fields.slug} className='link-edge-post'>
-              {next.frontmatter.title}
-              <FontAwesomeIcon className='icon-fa icon-chevron' icon={faChevronRight} />
+          {prev && (
+            <Link to={prev.fields.slug} className='link-edge-post'>
+              {prev.frontmatter.title}
+              <IconChevronRight />
             </Link>
           )}
         </li>
