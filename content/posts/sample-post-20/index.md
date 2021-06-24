@@ -17,6 +17,8 @@ tags:
 
 # Post 20
 
+<Gist gistLink="danydodson/06840143dab7defba1898a58dfe5974b" />
+
 ```js
 const a = 100
 ```

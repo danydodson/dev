@@ -9,6 +9,7 @@ module.exports = {
     `gatsby-plugin-robots-txt`,
     'gatsby-plugin-catch-links',
     `gatsby-plugin-offline`,
+    `gatsby-plugin-mdx-embed`,
     'gatsby-transformer-remark',
     'gatsby-plugin-sharp',
     'gatsby-plugin-sass',

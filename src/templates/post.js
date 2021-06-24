@@ -3,7 +3,7 @@ import { graphql, Link } from 'gatsby'
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { isMobile } from 'react-device-detect'
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import { MDXProvider } from "@mdx-js/react"
+import { MDXProvider } from '@mdx-js/react'
 import storage from 'local-storage-fallback'
 import mediumZoom from 'medium-zoom'
 import styled from "styled-components"
@@ -98,7 +98,7 @@ const PostTemplate = (props) => {
     })
   }, [])
 
-  const mdxComponents = {
+  const shortcodes = {
     'ul.li': ({ children }) => {
       return (
         <li>
@@ -187,7 +187,7 @@ const PostTemplate = (props) => {
             <Ruler />
           </>
         )}
-        <MDXProvider components={mdxComponents}>
+        <MDXProvider components={shortcodes}>
           <MDXRenderer>{post.body}</MDXRenderer>
         </MDXProvider>
       </StyledHTML>
