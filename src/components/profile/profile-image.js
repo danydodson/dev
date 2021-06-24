@@ -4,6 +4,7 @@ import { theme } from '../../styles/global/theme'
 import styled from 'styled-components'
 
 const ProfileImage = ({ home }) => {
+
   return (
     home ? (
       <StyledImageHome className='profile-image-home'>
@@ -13,18 +14,16 @@ const ProfileImage = ({ home }) => {
         <StyledImage>
           <StaticImage
             src='../../assets/og@1x.png'
-            alt="dany dodson"
-            placeholder="blurred">
-          </StaticImage>
+            alt='dany dodson'
+            placeholder='blurred' />
         </StyledImage>
       </StyledImageHome>
     ) : (
       <StyledImage>
         <StaticImage
           src='../../assets/og@1x.png'
-          alt="dany dodson"
-          placeholder="blurred">
-        </StaticImage>
+          alt='dany dodson'
+          placeholder='blurred' />
       </StyledImage>
     )
   )
@@ -38,9 +37,10 @@ const StyledImage = styled.div`
     position: relative;
     width: ${profileImageSize};
     height: ${profileImageSize};
-    /* Selecting Gatsby-image-wrapper */
-    div {
-        border-radius: 50%;
+
+    .gatsby-image-wrapper {
+      /* border: 1px #ccc solid; */
+      border-radius: 50%;
     }
 `
 
@@ -51,9 +51,10 @@ const StyledImageHome = styled.div`
     transform: translateX(-50%);
     width: ${profileImageSize};
     height: ${profileImageSize};
-    /* Selecting Gatsby-image-wrapper */
-    div {
-        border-radius: 50%;
+
+    .gatsby-image-wrapper {
+      /* border: 1px #ccc solid; */
+      border-radius: 50%;
     }
 `
 

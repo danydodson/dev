@@ -4,6 +4,7 @@ import {
   IconArrowDown,
   IconChevronLeft,
   IconChevronRight,
+  IconClock,
   IconCodepen,
   IconExternal,
   IconGitHub,
@@ -29,6 +30,8 @@ const Icon = ({ name }) => {
       return <IconChevronLeft />
     case 'chevronRight':
       return <IconChevronRight />
+    case 'iconClock':
+      return <IconClock />
     case 'codepen':
       return <IconCodepen />
     case 'external':

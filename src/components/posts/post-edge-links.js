@@ -6,6 +6,7 @@ import { setThemeVars } from '../../utils/set-theme'
 
 const PostEdgeLinks = ({ pageContext }) => {
   const { prev, next } = pageContext
+  
   return (
     prev || next ? (
       <StyledPostEdgeLinks>

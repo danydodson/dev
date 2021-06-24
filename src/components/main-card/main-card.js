@@ -113,9 +113,7 @@ class MainCard extends Component {
         </StyledSwitchContainer>
         <StyledSubMain className='sub-main'>
           <StyledSubMainInner>
-            {/* Profile link */}
             <Profile home />
-            {/* Show filtered posts or loading icon */}
             {this.state.filteredPosts.length > 0 ? (
               <StyledTagsPosts>
                 <Tags selectedTag={this.state.selectedTag}

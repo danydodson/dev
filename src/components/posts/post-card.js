@@ -2,46 +2,31 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClock } from '@fortawesome/free-solid-svg-icons'
+import { IconClock } from '../icons'
 import { theme } from '../../styles/global/theme'
 import { setThemeVars } from '../../utils/set-theme'
 import config from '../../config'
 
-const PostCard = ({ title, cover, date, path, excerpt, tags, timeToRead }) => {
+const PostCard = ({ title, cover, date, path, excerpt, timeToRead }) => {
   const image = cover.childrenImageSharp[0].gatsbyImageData
 
   return (
-    <>
-      <Link to={path}>
-        <StyledPostCard key={path}>
-          <StyledImage
-            image={image}
-            alt='postImage'
-            objectFit='cover'
-            objectPosition='50% 50%'
-          />
-          <h3>{title}</h3>
-          <h3>{date}</h3>
-          {config.showTimeToRead && (
-            <span>
-              <FontAwesomeIcon className='icon-clock' icon={faClock} size='xs' />
-              {timeToRead} minute read
-            </span>
-          )}
-          <p>{excerpt}</p>
-        </StyledPostCard>
-      </Link>
-      {tags.map(tag => (
-        <Link
-          key={tag}
-          to={`/tag/${tag}/`}
-          className='tags'
-        >
-          {' '}{tag}
-        </Link>
-      ))}
-    </>
+    <Link to={path}>
+      <StyledPostCard key={path}>
+        
+        <StyledImage image={image} alt='postImage' objectFit='cover' objectPosition='50% 50%' />
+        
+        <h3>{title}</h3>
+        
+        <h3>{date}</h3>
+
+        {config.showTimeToRead && (
+          <span><IconClock />{timeToRead} minute read</span>
+        )}
+        <p>{excerpt}</p>
+      
+      </StyledPostCard>
+    </Link>
   )
 }
 
