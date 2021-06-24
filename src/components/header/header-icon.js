@@ -10,7 +10,7 @@ const HeaderIcon = ({ accountInfo, mediaName, preHref, icon }) => {
 
   return (
     <>
-      {accountName && accountName && accountInfo.showHeaderIcon && (
+      {accountName && accountInfo.showHeaderIcon && (
         <a className='icon-fa-link'
           href={`${preHref}${accountName}`}
           target='_blank'
