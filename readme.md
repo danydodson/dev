@@ -7,8 +7,12 @@
 
 <div align="center"></div>
 
-[![Status](https://img.shields.io/badge/status-active-success.svg)]() [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE) <a href="https://www.codacy.com/gh/danydodson/dev/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=danydodson/dev&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/56c754afeaf44e45ba157836519923c8"/></a> <a href="https://codeclimate.com/github/danydodson/dev/maintainability"><img src="https://api.codeclimate.com/v1/badges/b4f6b5502861e7166fea/maintainability" /></a>
-
+[![Status](https://img.shields.io/badge/status-active-success.svg)]() 
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE) 
+<a href="https://www.codacy.com/gh/danydodson/dev/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=danydodson/dev&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/56c754afeaf44e45ba157836519923c8"/></a> 
+<a href="https://codeclimate.com/github/danydodson/dev/maintainability"><img src="https://api.codeclimate.com/v1/badges/b4f6b5502861e7166fea/maintainability" /></a>
+<a href="https://lgtm.com/projects/g/danydodson/dev/alerts/"><img alt="Total alerts" src="https://img.shields.io/lgtm/alerts/g/danydodson/dev.svg?logo=lgtm&logoWidth=18"/></a>
+<a href="https://lgtm.com/projects/g/danydodson/dev/context:javascript"><img alt="Language grade: JavaScript" src="https://img.shields.io/lgtm/grade/javascript/g/danydodson/dev.svg?logo=lgtm&logoWidth=18"/></a>
 
 <p align="center"> Few lines describing your project.
   <br> 

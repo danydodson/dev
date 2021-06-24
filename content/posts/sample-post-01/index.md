@@ -15,8 +15,6 @@ tags:
   - nginx
 ---
 
-import { Collapsable } from '../src/components/mdx/index.js'
-
 # Post 1
 
 <Collapsable title='click for image'>
