@@ -19,7 +19,7 @@ const Footer = () => {
           gatsby-blog-mdx
         </StyledA>
       </div>
-      <Link to='/rss.xml'>
+      <Link to='/rss.xml' target='_blank' rel='noopener noreferrer'>
         <StyledRSS />
       </Link>
     </StyledFooter>

@@ -5,65 +5,29 @@
 			"type": "npm",
 			"script": "build",
 			"problemMatcher": [],
-			"label": "yarn build",
+			"label": "build",
 			"detail": "gatsby build"
 		},
 		{
 			"type": "npm",
 			"script": "clean",
 			"problemMatcher": [],
-			"label": "yarn clean",
+			"label": "clean",
 			"detail": "gatsby clean"
 		},
 		{
 			"type": "npm",
 			"script": "develop",
-			"group": "build",
 			"problemMatcher": [],
-			"label": "yarn develop",
+			"label": "develop",
 			"detail": "gatsby develop -H 0.0.0.0 -p 8000"
 		},
 		{
 			"type": "npm",
 			"script": "install",
 			"problemMatcher": [],
-			"label": "yarn install",
+			"label": "install",
 			"detail": "install dependencies"
-		},
-		{
-			"type": "npm",
-			"script": "lint",
-			"problemMatcher": [],
-			"label": "yarn lint",
-			"detail": "eslint"
-		},
-		{
-			"type": "npm",
-			"script": "remark",
-			"problemMatcher": [],
-			"label": "yarn remark",
-			"detail": "remark content"
-		},
-		{
-			"type": "npm",
-			"script": "serve",
-			"problemMatcher": [],
-			"label": "yarn serve",
-			"detail": "gatsby serve"
-		},
-		{
-			"type": "npm",
-			"script": "start",
-			"problemMatcher": [],
-			"label": "yarn start",
-			"detail": "yarn run develop"
-		},
-		{
-			"type": "npm",
-			"script": "write-good",
-			"problemMatcher": [],
-			"label": "yarn write-good",
-			"detail": "write-good"
 		}
 	]
 }

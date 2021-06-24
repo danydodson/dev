@@ -1,7 +1,13 @@
 {
   "version": "0.2.0",
   "configurations": [
-
+    {
+      "name": "attach pwa-chrome",
+      "type": "pwa-chrome",
+      "port": 9222,
+      "request": "attach",
+      "webRoot": "${workspaceFolder}"
+    },
     {
       "name": "pwa chrome",
       "type": "pwa-chrome",

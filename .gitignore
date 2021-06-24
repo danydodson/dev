@@ -1,7 +1,8 @@
 **/.vscode/settings.json
 **/.cache
 **/*.env
+**/.eslintcache
 **/*.log
 **/public
 **/node_modules
-**/drafts/*
+**/drafts
