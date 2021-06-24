@@ -7,28 +7,28 @@
 
 <div align="center"></div>
 
-[![Status](https://img.shields.io/badge/status-active-success.svg)]() 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE) 
-<a href="https://www.codacy.com/gh/danydodson/dev/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=danydodson/dev&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/56c754afeaf44e45ba157836519923c8"/></a> 
-<a href="https://codeclimate.com/github/danydodson/dev/maintainability"><img src="https://api.codeclimate.com/v1/badges/b4f6b5502861e7166fea/maintainability" /></a>
-<a href="https://lgtm.com/projects/g/danydodson/dev/alerts/"><img alt="Total alerts" src="https://img.shields.io/lgtm/alerts/g/danydodson/dev.svg?logo=lgtm&logoWidth=18"/></a>
-<a href="https://lgtm.com/projects/g/danydodson/dev/context:javascript"><img alt="Language grade: JavaScript" src="https://img.shields.io/lgtm/grade/javascript/g/danydodson/dev.svg?logo=lgtm&logoWidth=18"/></a>
+<span>
+  <a href="https://www.codacy.com/gh/danydodson/dev/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=danydodson/dev&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/56c754afeaf44e45ba157836519923c8"/></a> 
+  <a href="https://codeclimate.com/github/danydodson/dev/maintainability"><img src="https://api.codeclimate.com/v1/badges/b4f6b5502861e7166fea/maintainability" /></a>
+  <a href="https://lgtm.com/projects/g/danydodson/dev/alerts/"><img alt="Total alerts" src="https://img.shields.io/lgtm/alerts/g/danydodson/dev.svg?logo=lgtm&logoWidth=18"/></a>
+  <a href="https://lgtm.com/projects/g/danydodson/dev/context:javascript"><img alt="Language grade: JavaScript" src="https://img.shields.io/lgtm/grade/javascript/g/danydodson/dev.svg?logo=lgtm&logoWidth=18"/></a>
+</span>
 
-<p align="center"> Few lines describing your project.
+<p align="center"> Developer blog.
   <br> 
 </p>
 
 ## 📝 Table of Contents
 
-- [About](#about)
-- [Getting Started](#getting_started)
-- [Deployment](#deployment)
-- [Usage](#usage)
-- [Built Using](#built_using)
-- [TODO](../TODO.md)
-- [Contributing](../CONTRIBUTING.md)
-- [Authors](#authors)
-- [Acknowledgments](#acknowledgement)
+-   [About](#about)
+-   [Getting Started](#getting_started)
+-   [Deployment](#deployment)
+-   [Usage](#usage)
+-   [Built Using](#built_using)
+-   [TODO](../TODO.md)
+-   [Contributing](../CONTRIBUTING.md)
+-   [Authors](#authors)
+-   [Acknowledgments](#acknowledgement)
 
 ## 🧐 About <a name = "about"></a>
 
@@ -42,9 +42,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to install the software and how to install them.
 
-```
-Give examples
-```
+    Give examples
 
 ### Installing
 
@@ -52,15 +50,11 @@ A step by step series of examples that tell you how to get a development env run
 
 Say what the step will be
 
-```
-Give the example
-```
+    Give the example
 
 And repeat
 
-```
-until finished
-```
+    until finished
 
 End with an example of getting some data out of the system or using it for a little demo.
 
@@ -72,17 +66,13 @@ Explain how to run the automated tests for this system.
 
 Explain what these tests test and why
 
-```
-Give an example
-```
+    Give an example
 
 ### And coding style tests
 
 Explain what these tests test and why
 
-```
-Give an example
-```
+    Give an example
 
 ## 🎈 Usage <a name="usage"></a>
 
@@ -94,19 +84,19 @@ Add additional notes about how to deploy this on a live system.
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
-- [MongoDB](https://www.mongodb.com/) - Database
-- [Express](https://expressjs.com/) - Server Framework
-- [VueJs](https://vuejs.org/) - Web Framework
-- [NodeJs](https://nodejs.org/en/) - Server Environment
+-   [MongoDB](https://www.mongodb.com/) - Database
+-   [Express](https://expressjs.com/) - Server Framework
+-   [VueJs](https://vuejs.org/) - Web Framework
+-   [NodeJs](https://nodejs.org/en/) - Server Environment
 
 ## ✍️ Authors <a name = "authors"></a>
 
-- [@kylelobo](https://github.com/kylelobo) - Idea & Initial work
+-   [@kylelobo](https://github.com/kylelobo) - Idea & Initial work
 
 See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors) who participated in this project.
 
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- References
+-   Hat tip to anyone whose code was used
+-   Inspiration
+-   References
