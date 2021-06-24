@@ -5,4 +5,4 @@
 **/*.log
 **/public/*
 **/node_modules/*
-**/drafts/*
+**/.drafts/*

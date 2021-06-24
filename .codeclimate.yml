@@ -28,4 +28,10 @@ ratings:
     - '**.sss'
 
 exclude_paths:
+  - .github/**/*
+  - .vscode/**/*
+  - .drafts/**/*
+  - .cache/**/*
+  - scripts/**/*
+  - public/**/*
   - static/**/*
