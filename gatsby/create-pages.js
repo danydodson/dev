@@ -87,8 +87,9 @@ const createPages = async ({ graphql, actions }) => {
           next
         }
       })
-
     }
+
+
   })
 
   //  Create tag pages

@@ -8,26 +8,29 @@
     "baseUrl": ".",
     "sourceMap": true,
     "paths": {
-      "~content/*": ["content/*"],
-      "~gatsby/*": ["src/gatsby/*"],
-      "~components/*": ["src/components/*"],
-      "~config/*": ["src/config.js"],
-      "~hooks/*": ["src/hooks/*"],
-      "~assets/*": ["src/assets/*"],
-      "~pages/*": ["src/pages/*"],
-      "~styles/*": ["src/styles/*"],
-      "~templates/*": ["src/templates/*"],
-      "~utils/*": ["src/utils/*"]}
+      "~content": ["content"],
+      "~gatsby": ["src/gatsby"],
+      "~assets": ["src/assets"],
+      "~components": ["src/components"],
+      "~hooks": ["src/hooks"],
+      "~pages": ["src/pages"],
+      "~styles": ["src/styles"],
+      "~templates": ["src/templates"],
+      "~utils": ["src/utils"],
+      "~config": ["src/config.js"]
+    }
   },
-  "include": ["src/**/*"],
+  "include": [
+    "src/**/*"
+  ],
   "exclude": [
+    ".vscode",
+    ".npm",
+    ".yarn",
     "dist",
     "build",
-    "node_modules",
-    ".vscode",
     "coverage",
-    ".npm",
-    ".yarn"
+    "node_modules"
   ],
   "typeAcquisition": {
     "enable": true,

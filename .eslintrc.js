@@ -14,15 +14,15 @@ module.exports = {
     'import/resolver': {
       alias: [
         ['~content', './content'],
-        ['~components', './src/components'],
-        ['~config', './src/config.js'],
-        ['~hooks', './src/hooks'],
         ['~gatsby', './gatsby'],
         ['~assets', './src/assets'],
+        ['~components', './src/components'],
+        ['~hooks', './src/hooks'],
         ['~pages', './src/pages'],
         ['~styles', './src/styles'],
         ['~templates', './src/templates'],
-        ['~utils', './src/utils']
+        ['~utils', './src/utils'],
+        ['~config', './src/config.js']
       ]
     }
   },
