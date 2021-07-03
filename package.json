@@ -12,7 +12,6 @@
     "lint": "eslint 'src/**/*.{js,jsx}'",
     "write-good": "write-good content/**/*.md",
     "remark": "remark content/",
-    "delete": "rm -rf node_modules yarn.lock",
     "serve": "gatsby serve"
   },
   "dependencies": {
